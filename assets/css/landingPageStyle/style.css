@@ -4,3 +4,10 @@
     box-sizing: border-box;
     font-family: "Lora", serif;
 }
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: #F5D0A9;
+    width: 100%;
+}

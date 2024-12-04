@@ -1,11 +1,15 @@
 #header {
-    height: 170px;
-    background-color: #F5D0A9;
+    height: 172px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 280px;
+    border-bottom: 1px solid black;
+}
+
+#logoHeader img {
+    height: 100px;
 }
 
 #links {
