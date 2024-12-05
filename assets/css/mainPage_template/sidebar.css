@@ -1,0 +1,100 @@
+/* Sidebar divisão na tela */
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: #F5D0A9;
+}
+
+/* Sidebar Content Div */
+.sidebar .sidebar_content{
+    padding: 12px;
+}
+
+/* Sidebar Logo Div */
+.sidebar .sidebar_content .logo{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 24px;
+}
+
+/* Sidebar Logo Image*/
+.sidebar .sidebar_content .logo img{
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+}
+
+/* Sidebar Items */
+.sidebar .sidebar_content ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+/* Sidebar Items - Line */
+.sidebar .sidebar_content li{
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Sidebar Items - Actual Page */
+.sidebar .sidebar_content li.active{
+    background-color: #2D2D2D;
+}
+
+/* Sidebar Items - Options Hover */
+.sidebar .sidebar_content li:hover:not(.active){
+    background-color: #D8B795;
+}
+
+/* Sidebar Items - Line Text and Icon */
+.sidebar .sidebar_content li a{
+    text-decoration: none;
+    display: flex;
+    gap: 14px;
+    color: #0a0a0a;
+}
+
+/* Sidebar Items - Actual Page Text and Icon */
+.sidebar .sidebar_content li.active a{
+    color: #e3e9f7;
+}
+
+/* Sidebar Items - Actual Page Icon */
+.sidebar .sidebar_content li a i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+/* Logout Button Div */
+.sidebar .sidebar_logout{
+    border-top: 1px solid #000;
+    padding: 12px;
+}
+
+/* Logout Button Button */
+.sidebar .sidebar_logout button{
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* Logout Button Button - Hover */
+.sidebar .sidebar_logout button:hover{
+    background-color: #D8B795;
+}
