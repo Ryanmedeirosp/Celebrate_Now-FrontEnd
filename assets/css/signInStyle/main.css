@@ -28,6 +28,7 @@
     height: 60%;
     background-color: #2D2D2D;
     display: flex;
+    justify-content: ;
     gap: 80px;
 }
 

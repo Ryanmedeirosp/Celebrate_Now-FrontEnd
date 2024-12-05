@@ -17,3 +17,11 @@ header {
     background-color: #F5D0A9;
     width: 100%;
 }
+
+footer {
+    margin-top: 475px;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
