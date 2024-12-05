@@ -28,7 +28,7 @@
             </div>
 
             <div id="buttonEnter">
-                <button>Entrar</button>
+                <a href="login.html"><button>Entrar</button></a>
             </div>
         </div>
     </header>
@@ -41,53 +41,61 @@
 
         <div id="containerGeral">
 
-            <div id="loginForm">
+            <div id="titleSignIn">
 
-                <div id="divCenter">
+                <div id="loginName">
 
-                    <div id="loginName">
-
-                        <h1>Cadastro</h1>
-    
-                    </div>
-    
-                    <div id="spaceLoginToTheRest">
-    
-                        <div id="emailField">
-    
-                            <label for="">Email</label>
-                            <input type="text" id="email">
-        
-                        </div>
-        
-                        <div id="passwordField">
-        
-                            <label for="">Senha</label>
-                            <input type="text" id="password">
-        
-                        </div>
-    
-                        <div id="spaceEmailAndPasswordToTheRest">
-    
-                            <div id="buttonLogin">
-        
-                                <button>Logar</button>
-            
-                            </div>
-            
-                            <div id="forgetPassword">
-            
-                                <a href="">Esqueceu a senha?</a>
-            
-                            </div>
-    
-                        </div>
-                    
-                </div>
+                    <h1>Cadastro</h1>
 
                 </div>
 
             </div>
+
+            <div id="signInForm">
+
+                    <div id="divCenter">
+
+                        <div id="spaceLoginToTheRest">
+        
+                            <div class="fieldToFill">
+        
+                                <label for="">Nome</label>
+                                <input type="text" id="nameField">
+            
+                            </div>
+            
+                            <div class="fieldToFill">
+            
+                                <label for="">Email</label>
+                                <input type="text" id="emailField">
+            
+                            </div>
+
+                            <div class="fieldToFill">
+            
+                                <label for="">Senha</label>
+                                <input type="text" id="passwordField">
+            
+                            </div>
+
+                            <div class="fieldToFill">
+            
+                                <label for="">Confirmar senha</label>
+                                <input type="text" id="confirmPasswordField">
+            
+                            </div>
+    
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="divButtonSignIn">
+
+                        <button>Cadastro</button>
+
+                </div>
 
         </div>
 
