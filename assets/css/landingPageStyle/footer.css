@@ -81,3 +81,7 @@
     align-items: center;
     transition: 0.3s;
 }
+
+.footer_social_medias a:hover{
+    color: #000;
+}

@@ -3,8 +3,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 95vh;
+    width: 180px;
+    margin: 2vh;
     background-color: #F5D0A9;
+    border-radius: 20px;
 }
 
 /* Sidebar Content Div */
@@ -15,7 +18,7 @@
 /* Sidebar Logo Div */
 .sidebar .sidebar_content .logo{
     display: flex;
-    align-items: center;
+    justify-content: center;
     height: 50px;
     margin-bottom: 24px;
 }
