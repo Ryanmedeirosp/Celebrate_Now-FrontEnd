@@ -5,19 +5,20 @@
 }
 
 #containerGeral {
-    height: 650px;
-    width: 1000px;
+    height: 600px;
+    width: 700px;
     position: absolute;
     bottom: 130px;
     display: flex;
     flex-direction: column;
     color: white;
+    background-color: #2D2D2D;
+    gap: 30px;
 }
 
 #titleSignIn {
     width: 100%;
     height: 20%;
-    background-color: #2D2D2D;
     display: flex;
     padding-left: 40px;
     align-items: center;
@@ -26,10 +27,21 @@
 #signInForm {
     width: 100%;
     height: 60%;
-    background-color: #2D2D2D;
     display: flex;
-    justify-content: ;
+    padding-left: 40px;
     gap: 80px;
+}
+
+#sectionFormOne {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#sectionFormTwo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .fieldToFill {
@@ -99,10 +111,6 @@
     height: 50px;
     width: 155px;
 }
-
-
-
-
 
 #forgetPassword a{
     text-decoration: none;
