@@ -71,6 +71,16 @@
     color: white;
 }
 
+#divCreateAccount {
+    height: 20px;
+}
+
+#divCreateAccount a {
+    font-size: medium;
+    color: white;
+    text-decoration: none;
+}
+
 #passwordField {
     display: flex;
     flex-direction: column;
