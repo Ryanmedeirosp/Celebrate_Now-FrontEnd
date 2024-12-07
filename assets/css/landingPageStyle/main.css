@@ -1,9 +1,8 @@
-#first-frame{
+#first-frame {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #F5D0A9;
-    
 }
 
 #first-frame div button {
@@ -17,49 +16,52 @@
     height: 40px;
     font-size: medium;
 }
-#first-frame div button:hover{
+
+#first-frame div button:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-#ring{
+#ring {
     width: 120px;
 }
 
-#logo{
+#logo {
     width: 350px;
 }
 
 
-#imgDiv{
+#imgDiv {
     justify-content: center;
     width: 100%;
     display: flex;
 }
-#titleDiv, #descriptionDiv{
+
+#titleDiv, #descriptionDiv {
     display: flex;
     justify-content: center;
     
 }
-#first-frame div h1{
+
+#first-frame div h1 {
     font-size: 85px;
     width: 70%;
     text-align: center;
-   
 }
 
-#first-frame div p{
+#first-frame div p {
     width: 70%;
     text-align: center;
     margin: 20px;
     font-size: 25px;
 }
 
-#second-frame{
+#second-frame {
     display: flex;
     padding: 3%;
 }
-#service{
+
+#service {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -67,74 +69,91 @@
     justify-content: center;
     align-items: center;
 }
-#service div{
+
+#service div {
     display: flex;
     width: 30%;
     justify-content: center;
     align-items: center;
     padding: 10px;
 }
-#service img{
+
+#service img {
     width: 12%;
 }
-#service .service-txt{
+
+#service .service-txt {
     width: 300px;
     display: flex;
     flex-direction: column;
     align-items: baseline;
-
 }
-#service #schedule{
+
+#service #schedule {
     display: flex;
     align-items: baseline;
     
 }
-#service #checklist{
+
+#service #checklist {
     display: flex;
     align-items: baseline;
 }
-#service #budget{
+
+#service #budget {
     display: flex;
     align-items: baseline;
 }
-#service #communication{
+
+#service #communication {
     display: flex;
     align-items: baseline;
 }
-#service #suppliers{
+
+#service #suppliers {
     display: flex;
     align-items: baseline;
 }
-#third-frame{
+
+#third-frame {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 20vh;
     background-color: #F5D0A9;
+    gap: 20px;
 }
-#third-frame #feedback{
+
+#third-frame .feedback {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
-#third-frame #feedback img{
-    width: 50px;
+
+#third-frame .feedback img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
 }
-#third-frame #feedback p{
+
+
+#third-frame .feedback p {
+    font-size: small;
     background-color: #F5E4A9;
     padding: 10px;
     border-radius: 0 10px 10px 10px;
 }
 
-#fourth-frame{
+#fourth-frame {
     display: flex;
     flex-direction: row;
     width: 100%;
     padding: 3%;
 }
-#fourth-frame #left-section{
+
+#fourth-frame #left-section {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -144,10 +163,12 @@
     gap: 30px;
     padding: 10px;
 }
-#left-section img{
+
+#left-section img {
     width: 300px;
 }
-#fourth-frame #right-section{
+
+#fourth-frame #right-section {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -157,14 +178,17 @@
     gap: 30px;
     padding: 10px;
 }
-#right-section #images-right-section{
+
+#right-section #images-right-section {
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
-#right-section img{
+
+#right-section img {
     width: 175px;
 }
+
 #right-section button {
     margin-top: 20px;
     margin-bottom: 50px;
@@ -176,10 +200,72 @@
     height: 40px;
     font-size: medium;
 }
-#right-section button:hover{
+
+#right-section button:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.3);
 }
-#right-section p{
+
+#right-section p {
     font-size: 17px;
+}
+
+.slider {
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.slide-track {
+    display: flex;
+    width: calc(250px * 18);
+    animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 9));
+    }
+}
+
+.slide {
+    height: 200px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    perspective: 100px;
+}
+
+.slide img {
+    width: 100%;
+    transition: transform 1s;
+}
+
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255, 255, 255, 0) 100%);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+
+.slider::before{
+    left: 0;
+    top: 0;
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
 }
