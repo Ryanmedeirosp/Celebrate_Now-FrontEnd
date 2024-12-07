@@ -20,6 +20,8 @@
 #first-frame div button:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    transition: 0.5s;
 }
 
 #ring {
@@ -204,6 +206,8 @@
 #right-section button:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    transition: 0.5s;
 }
 
 #right-section p {
@@ -214,7 +218,7 @@
     height: 250px;
     margin: auto;
     position: relative;
-    width: 90%;
+    width: 100%;
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -268,4 +272,18 @@
     right: 0;
     top: 0;
     transform: rotateZ(180deg);
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    transition: all 1s;
 }
