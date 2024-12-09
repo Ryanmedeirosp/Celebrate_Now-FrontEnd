@@ -15,10 +15,10 @@
 body{
     min-height: 100vh;
     background-color: #e3e9f7;
-
     display: flex;
 }
 
 main{
     padding: 20px;
+    width: 100%;
 }
