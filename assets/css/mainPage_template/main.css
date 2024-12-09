@@ -14,11 +14,13 @@
 
 body{
     min-height: 100vh;
-    background-color: #e3e9f7;
+    background-color: white;
     display: flex;
 }
 
 main{
+    display: flex;
+    justify-content: center;
     padding: 20px;
     width: 100%;
 }
