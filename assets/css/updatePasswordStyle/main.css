@@ -5,16 +5,16 @@
 }
 
 #containerGeral {
-    height: 650px;
-    width: 1200px;
+    height: 600px;
+    width: 630px;
     position: absolute;
     bottom: 130px;
     display: flex;
     color: white;
 }
 
-#recuperarAcessoForm {
-    width: 500px;
+#atualizarAcessoForm {
+    width: 100%;
     height: 100%;
     background-color: #2D2D2D;
     display: flex;
@@ -22,6 +22,7 @@
     justify-content: center;
     align-items: center;
     gap: 80px;
+    border-radius: 20px;
 }
 
 #divCenter {
@@ -30,11 +31,11 @@
     gap: 60px;
 }
 
-#divRecuperarAcesso {
+#divAtualizarSenhaTitle {
     border-bottom: 0.5px solid #ffff;
     font-size: large;
     height: 50px;
-    width: 306px; 
+    width: 268px; 
 }
 
 #emailField {
@@ -45,12 +46,11 @@
 }
 
 #emailField input {
-    height: 30px;
-    width: 305px;
-    border-radius: 5px;
+    width: 250px;
+    background-color: #2D2D2D;
     border: none;
-    color: black;
-    padding: 5px;
+    border-bottom: 0.5px solid #ffff;
+    color: white;
 }
 
 #divCreateAccount {
@@ -63,25 +63,28 @@
     text-decoration: none;
 }
 
-#buttonSendEmail {
+#buttonConfirm {
     display: flex;
     justify-content: center;
 }
 
-#buttonSendEmail button{
+#buttonConfirm button{
     height: 35px;
-    width: 75px;
+    width: 100px;
     border-radius: 12px;
     font-size: large;
     border: none;
 }
 
-#buttonSendEmail button:hover {
+#buttonConfirm button:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
 #email:focus {
+    color: white;
+    border: none;
+    border-bottom: 0.5px solid #ffff;
     outline: 0;
 }
 
