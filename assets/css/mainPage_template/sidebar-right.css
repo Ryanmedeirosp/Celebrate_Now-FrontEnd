@@ -24,3 +24,10 @@
     background-color: white;
     cursor: pointer;
 }
+#list-customers{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+
+}
