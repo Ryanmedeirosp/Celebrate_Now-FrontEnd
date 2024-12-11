@@ -1,10 +1,13 @@
 // id="sidebar_line_item" sidebar.classList.toggle("active");
-
+const service = document.querySelector("#service");
+const budget = document.querySelector("#budget");
+const schadelure = document.querySelector("#schadelure");
+const contract = document.querySelector("#contract");
+const clients = document.querySelector("#clients");
+const list = document.querySelector("#list");
 const sidebarLines = document.getElementsByClassName("sidebar_line_item");
+const corpo = document.querySelector("main");
 
-window.onload = () => {
-    console.log(sidebarLines);
-};
 
 for (let index = 0; index < sidebarLines.length; index++) {
     
@@ -17,18 +20,37 @@ for (let index = 0; index < sidebarLines.length; index++) {
                 sidebarLines[index].classList.toggle("active");
             }  
         }
-
         sidebarLines[index].classList.toggle("active");
     });
 };
 
-// main-services
-
-const corpo = document.querySelector("main")
-
-window.onload=()=>{
+window.onload = () => {
     create_service()
-}
+};
+
+service.addEventListener("click", (event) => {
+    create_service()
+});
+
+budget.addEventListener("click", (event) => {
+    create_budget()
+});
+
+schadelure.addEventListener("click", (event) => {
+    create_schadelure()
+});
+
+contract.addEventListener("click", (event) => {
+    create_contract()
+});
+
+clients.addEventListener("click", (event) => {
+    create_clients()
+});
+
+list.addEventListener("click", (event) => {
+    create_contract()
+});
 
 function create_service(){
     let divImg_user = document.createElement("div")
@@ -71,14 +93,18 @@ function create_budget(){
 
 };
 
-function create_schedule(){
-
-};
-
-function create_list(){
+function create_schadelure(){
 
 };
 
 function create_contact(){
 
 };
+
+function create_contract(){
+
+};
+
+function create_clients(){
+
+}
