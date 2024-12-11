@@ -29,14 +29,14 @@ window.onload=()=>{
 }
 
 service.addEventListener("click", (event) => {
-    corpo.removeChild(divAllContent);
-    corpo.removeChild(divBudget);
+    corpo.removeChild(divAllContentService);
+    corpo.removeChild(divAllContentBudget);
     create_service();
 });
 
 budget.addEventListener("click", (event) => {
-    corpo.removeChild(divAllContent);
-    corpo.removeChild(divBudget);
+    corpo.removeChild(divAllContentService);
+    corpo.removeChild(divAllContentBudget);
     create_budget();
 });
 
@@ -70,8 +70,8 @@ function create_list_customer() {
 }
 
 function create_service(){
-    let divAllContent = document.createElement("div");
-    divAllContent.id = "divAllContent";
+    let divAllContentService = document.createElement("div");
+    divAllContentService.id = "divAllContentService";
     let divImg_user = document.createElement("div");
     divImg_user.id = "divImg_user";
     let img_user = document.createElement("img");
@@ -82,7 +82,7 @@ function create_service(){
     txt_user.id = "txt_user";
     txt_user.textContent = "Bem vindo" + " XXXXXX";
     divImg_user.appendChild(txt_user);
-    divAllContent.appendChild(divImg_user)
+    divAllContentService.appendChild(divImg_user)
 
     let divBanner_service = document.createElement("div");
     divBanner_service.id = "divBanner_service";
@@ -90,12 +90,11 @@ function create_service(){
     banner_service.id = "banner_service";
     banner_service.src = "../assets/images/frame 3.svg";
     divBanner_service.appendChild(banner_service);
-    divAllContent.appendChild(divBanner_service);
+    divAllContentService.appendChild(divBanner_service);
 
     let divServices = document.createElement("div");
     divServices.id = "divServices";
     
-
     let divButtonAddService = document.createElement("div");
     divButtonAddService.id = "divButtonAddService";
 
@@ -105,16 +104,16 @@ function create_service(){
 
     divButtonAddService.appendChild(buttonAddService);
     divServices.appendChild(divButtonAddService);
-    divAllContent.appendChild(divServices)
-    corpo.appendChild(divAllContent);
+    divAllContentService.appendChild(divServices)
+    corpo.appendChild(divAllContentService);
 };
 
 function create_budget(){
-    let divBudget = document.createElement("div");
+    let divAllContentBudget = document.createElement("div");
     let teste = document.createElement("h1");
     teste.textContent = "pinto";
-    divBudget.appendChild(teste);
-    corpo.appendChild(divBudget);
+    divAllContentBudget.appendChild(teste);
+    corpo.appendChild(divAllContentBudget);
 };
 
 function create_schadelure(){
