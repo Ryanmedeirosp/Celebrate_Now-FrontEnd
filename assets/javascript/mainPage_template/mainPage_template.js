@@ -4,6 +4,7 @@ const sidebarLines = document.getElementsByClassName("sidebar_line_item");
 
 window.onload = () => {
     console.log(sidebarLines);
+    
 };
 
 for (let index = 0; index < sidebarLines.length; index++) {
@@ -22,12 +23,38 @@ for (let index = 0; index < sidebarLines.length; index++) {
     });
 };
 
+// sidebar-right
+
+
+
+const list_customer = document.querySelector("#list-customers")
+
+window.onload=()=>{
+    
+}
+
+function create_list_customer() {
+    
+    let customer = document.createElement("div")
+    customer.id = "customer"
+    let customer_txt = document.createElement("p")
+    customer_txt.id = customer_txt
+    customer_txt.innerHTML = "Fulano de tal"
+    customer.appendChild(customer_txt)
+    list_customer.appendChild(customer)
+    console.log(customer_txt)
+
+}
+
+
 // main-services
 
 const corpo = document.querySelector("main")
 
 window.onload=()=>{
     create_service()
+    create_list_customer()
+    
 }
 
 function create_service(){
