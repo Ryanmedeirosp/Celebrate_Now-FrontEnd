@@ -54,13 +54,12 @@ list.addEventListener("click", (event) => {
 
 const list_customer = document.querySelector("#list-customers")
 
-
 function create_list_customer() {
     let customer = document.createElement("div")
     customer.id = "customer"
     let customer_txt = document.createElement("p")
     customer_txt.id = customer_txt
-    customer_txt.innerHTML = "Fulano de tal"
+    customer_txt.innerHTML = "Paulo Porciuncula Davis Júnior"
     customer.appendChild(customer_txt)
     list_customer.appendChild(customer)
     console.log(customer_txt)
