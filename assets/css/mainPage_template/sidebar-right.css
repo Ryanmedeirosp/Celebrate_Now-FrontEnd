@@ -6,6 +6,7 @@
     background-color: white;
     border-left: 2px solid;
 }
+
 #customers{
     display: flex;
     flex-direction: row;
@@ -15,15 +16,18 @@
     gap: 10px;
     
 }
+
 #customers img{
     width: 35px;
 }
+
 #customers button{
     border: 0px;
     margin-top: 10px;
     background-color: white;
     cursor: pointer;
 }
+
 #list-customers{
     display: flex;
     flex-direction: column;

@@ -3,7 +3,6 @@
 const sidebarLines = document.getElementsByClassName("sidebar_line_item");
 
 window.onload = () => {
-
     console.log(sidebarLines);
 };
 
@@ -52,6 +51,34 @@ function create_service(){
     divBanner_service.appendChild(banner_service)
     corpo.appendChild(divBanner_service)
 
+    let divServices = document.createElement("div");
+    divServices.id = "divServices";
+    
 
-}
+    let divButtonAddService = document.createElement("div");
+    divButtonAddService.id = "divButtonAddService";
 
+    let buttonAddService = document.createElement("button");
+    buttonAddService.textContent = "Adicionar serviço";
+    buttonAddService.id = "buttonAddService";
+
+    divButtonAddService.appendChild(buttonAddService);
+    divServices.appendChild(divButtonAddService);
+    corpo.appendChild(divServices)
+};
+
+function create_budget(){
+
+};
+
+function create_schedule(){
+
+};
+
+function create_list(){
+
+};
+
+function create_contact(){
+
+};
