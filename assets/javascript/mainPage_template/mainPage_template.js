@@ -29,11 +29,15 @@ window.onload=()=>{
 }
 
 service.addEventListener("click", (event) => {
-    create_service()
+    corpo.removeChild(divAllContent);
+    corpo.removeChild(divBudget);
+    create_service();
 });
 
 budget.addEventListener("click", (event) => {
-    create_budget()
+    corpo.removeChild(divAllContent);
+    corpo.removeChild(divBudget);
+    create_budget();
 });
 
 schadelure.addEventListener("click", (event) => {
@@ -54,7 +58,6 @@ list.addEventListener("click", (event) => {
 
 const list_customer = document.querySelector("#list-customers")
 
-
 function create_list_customer() {
     let customer = document.createElement("div")
     customer.id = "customer"
@@ -67,25 +70,27 @@ function create_list_customer() {
 }
 
 function create_service(){
-    let divImg_user = document.createElement("div")
-    divImg_user.id = "divImg_user"
-    let img_user = document.createElement("img")
-    img_user.id= "img_user"
-    img_user.src = "../assets/images/user-icon-removebg-preview.svg"
-    divImg_user.appendChild(img_user)
-    let txt_user = document.createElement("h3")
-    txt_user.id = "txt_user"
-    txt_user.textContent = "Bem vindo" + " XXXXXX"
-    divImg_user.appendChild(txt_user)
-    corpo.appendChild(divImg_user)
+    let divAllContent = document.createElement("div");
+    divAllContent.id = "divAllContent";
+    let divImg_user = document.createElement("div");
+    divImg_user.id = "divImg_user";
+    let img_user = document.createElement("img");
+    img_user.id= "img_user";
+    img_user.src = "../assets/images/user-icon-removebg-preview.svg";
+    divImg_user.appendChild(img_user);
+    let txt_user = document.createElement("h3");
+    txt_user.id = "txt_user";
+    txt_user.textContent = "Bem vindo" + " XXXXXX";
+    divImg_user.appendChild(txt_user);
+    divAllContent.appendChild(divImg_user)
 
-    let divBanner_service = document.createElement("div")
-    divBanner_service.id = "divBanner_service"
-    let banner_service = document.createElement("img")
-    banner_service.id = "banner_service"
-    banner_service.src = "../assets/images/frame 3.svg"
-    divBanner_service.appendChild(banner_service)
-    corpo.appendChild(divBanner_service)
+    let divBanner_service = document.createElement("div");
+    divBanner_service.id = "divBanner_service";
+    let banner_service = document.createElement("img");
+    banner_service.id = "banner_service";
+    banner_service.src = "../assets/images/frame 3.svg";
+    divBanner_service.appendChild(banner_service);
+    divAllContent.appendChild(divBanner_service);
 
     let divServices = document.createElement("div");
     divServices.id = "divServices";
@@ -100,11 +105,16 @@ function create_service(){
 
     divButtonAddService.appendChild(buttonAddService);
     divServices.appendChild(divButtonAddService);
-    corpo.appendChild(divServices)
+    divAllContent.appendChild(divServices)
+    corpo.appendChild(divAllContent);
 };
 
 function create_budget(){
-
+    let divBudget = document.createElement("div");
+    let teste = document.createElement("h1");
+    teste.textContent = "pinto";
+    divBudget.appendChild(teste);
+    corpo.appendChild(divBudget);
 };
 
 function create_schadelure(){

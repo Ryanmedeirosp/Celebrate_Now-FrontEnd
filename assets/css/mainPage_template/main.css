@@ -20,12 +20,8 @@ body{
 
 main{
     display: flex;
-    
-    padding: 20px;
     width: 100%;
     flex-direction: column;
-    gap: 20px;
-
 }
 
 #divImg_user {
@@ -84,4 +80,12 @@ main{
 #buttonAddService:hover {
     cursor: pointer;
     opacity: 0.8;
+}
+
+#divAllContent {
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
 }
