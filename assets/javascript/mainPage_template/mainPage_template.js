@@ -8,7 +8,6 @@ const list = document.querySelector("#list");
 const sidebarLines = document.getElementsByClassName("sidebar_line_item");
 const corpo = document.querySelector("main");
 
-
 for (let index = 0; index < sidebarLines.length; index++) {
     
     sidebarLines[index].addEventListener("click", (event) =>{
@@ -24,9 +23,10 @@ for (let index = 0; index < sidebarLines.length; index++) {
     });
 };
 
-window.onload = () => {
+window.onload=()=>{
     create_service()
-};
+    create_list_customer()
+}
 
 service.addEventListener("click", (event) => {
     create_service()
@@ -51,6 +51,20 @@ clients.addEventListener("click", (event) => {
 list.addEventListener("click", (event) => {
     create_contract()
 });
+
+const list_customer = document.querySelector("#list-customers")
+
+
+function create_list_customer() {
+    let customer = document.createElement("div")
+    customer.id = "customer"
+    let customer_txt = document.createElement("p")
+    customer_txt.id = customer_txt
+    customer_txt.innerHTML = "Fulano de tal"
+    customer.appendChild(customer_txt)
+    list_customer.appendChild(customer)
+    console.log(customer_txt)
+}
 
 function create_service(){
     let divImg_user = document.createElement("div")
@@ -97,14 +111,14 @@ function create_schadelure(){
 
 };
 
-function create_contact(){
-
-};
-
 function create_contract(){
 
 };
 
 function create_clients(){
+
+}
+
+function create_list(){
 
 }
