@@ -63,7 +63,7 @@ function create_list_customer() {
     customer.id = "customer"
     let customer_txt = document.createElement("p")
     customer_txt.id = customer_txt
-    customer_txt.innerHTML = "Fulano de tal"
+    customer_txt.innerHTML = "Paulo Porciuncula Davis Júnior"
     customer.appendChild(customer_txt)
     list_customer.appendChild(customer)
     console.log(customer_txt)
