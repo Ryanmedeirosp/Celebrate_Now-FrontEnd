@@ -34,7 +34,7 @@
 .sidebar .sidebar_content ul{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 40px;
     list-style: none;
 }
 
