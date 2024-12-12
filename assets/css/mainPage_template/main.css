@@ -46,7 +46,6 @@ main{
 #divBanner_service {
     width: 100%;
     height: 175px;
-    border: solid;
 }
 
 #divBanner_service img {
@@ -56,7 +55,6 @@ main{
 #divServices {
     height: 640px;
     width: 100%;
-    border: solid;
     display: flex;
     flex-direction: column;
 }
@@ -88,4 +86,10 @@ main{
     width: 100%;
     flex-direction: column;
     gap: 10px;
+}
+
+#divAllServices{
+    height: 100%;
+    width: 100%;
+    border: solid;
 }
