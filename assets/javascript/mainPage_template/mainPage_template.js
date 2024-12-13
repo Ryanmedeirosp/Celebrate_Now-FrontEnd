@@ -146,6 +146,8 @@ function create_service() {
     imagemDiv.appendChild(imagem);
     parteEsquerdaDiv.appendChild(botaoContratarDiv);
     botaoContratarDiv.appendChild(botaoContratar);
+    parteDireitaDiv.appendChild(textoDiv)
+    textoDiv.appendChild(texto)
     
     divServices.appendChild(divAllServices);
 
