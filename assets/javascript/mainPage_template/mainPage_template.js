@@ -7,6 +7,7 @@ const list = document.querySelector("#list");
 const sidebarLines = document.getElementsByClassName("sidebar_line_item");
 const corpo = document.querySelector("main");
 const list_customer = document.querySelector("#list-customers");
+const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers")
 
 let currentContent = null;
 
@@ -53,6 +54,18 @@ for (let index = 0; index < sidebarLines.length; index++) {
     });
 }
 
+btnSeeAllCustomers.addEventListener("click", (event) =>{
+    for (let i = 0; i < sidebarLines.length; i++) {
+        sidebarLines[0].classList.remove("active");
+        sidebarLines[1].classList.remove("active");
+        sidebarLines[2].classList.remove("active");
+        sidebarLines[3].classList.remove("active");
+        sidebarLines[4].classList.add("active");   
+    };
+    removePreviousContent();
+    create_clients();
+});
+
 function create_service() {
     let divAllContentService = document.createElement("div");
     divAllContentService.id = "divAllContentService";
@@ -90,6 +103,50 @@ function create_service() {
 
     let divAllServices = document.createElement("div");
     divAllServices.id = "divAllServices";
+    let servicinho = document.createElement("div");
+    servicinho.id = "servicinho";
+    divAllServices.appendChild(servicinho)
+    let servicinhodois = document.createElement("div");
+    servicinhodois.id = "servicinhodois";
+    divAllServices.appendChild(servicinhodois)
+    let servicinhotres = document.createElement("div");
+    servicinhotres.id = "servicinhotres";
+    divAllServices.appendChild(servicinhotres)
+    let servicinhoquatro = document.createElement("div");
+    servicinhoquatro.id = "servicinhoquatro";
+    divAllServices.appendChild(servicinhoquatro)
+
+    let parteEsquerdaDiv = document.createElement("div");
+    parteEsquerdaDiv.id = "parteEsquerdaDiv";
+    let parteDireitaDiv = document.createElement("div");
+    parteDireitaDiv.id = "parteDireitaDiv";
+    let tituloServico = document.createElement("div");
+    tituloServico.id = "tituloServico";
+    let titulo = document.createElement("h1");
+    titulo.id = "titulo"
+    let imagemDiv = document.createElement("div");
+    imagemDiv.id = "imagemDiv";
+    let imagem = document.createElement("img");
+    imagem.id = "imagemBacana"
+    let botaoContratarDiv = document.createElement("div");
+    let botaoContratar = document.querySelector("button");
+    botaoContratar.id = "botaoContratar";
+    botaoContratar.textContent = "Contratar";
+    botaoContratarDiv.id = "botaoContratarDiv";
+    let textoDiv = document.createElement("div");
+    textoDiv.id = "textoDiv"
+    let texto = document.createElement("p")
+    texto.id = "texto";
+
+    servicinho.appendChild(parteEsquerdaDiv);
+    servicinho.appendChild(parteDireitaDiv);
+    parteEsquerdaDiv.appendChild(tituloServico);
+    tituloServico.appendChild(titulo);
+    parteEsquerdaDiv.appendChild(imagemDiv);
+    imagemDiv.appendChild(imagem);
+    parteEsquerdaDiv.appendChild(botaoContratarDiv);
+    botaoContratarDiv.appendChild(botaoContratar);
+    
     divServices.appendChild(divAllServices);
 
     corpo.appendChild(divAllContentService);

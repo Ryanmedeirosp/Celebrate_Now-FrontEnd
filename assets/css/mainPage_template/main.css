@@ -91,5 +91,77 @@ main{
 #divAllServices{
     height: 100%;
     width: 100%;
+    overflow: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#servicinho {
+    height: 600px;
+    width: 600px;
+    display: flex;
+}
+
+#parteEsquerdaDiv{
+    height: 100%;
+    width: 50%;
     border: solid;
 }
+
+#parteDireitaDiv {
+    height: 100%;
+    width: 50%;
+    border: solid;
+    display: flex;
+    align-items: center;
+}
+
+#tituloServico {
+    height: 15%;
+    width: 100%;
+    border: solid;
+}
+
+#imagemDiv {
+    height: 75%;
+    width: 100%;
+    border: solid;
+}
+
+#botaoContratarDiv {
+    height: 10%;
+    width: 100%;
+    border: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#textoDiv {
+    height: 50%;
+    width: 100%;
+    border: solid;
+}
+
+
+
+/* #servicinhodois {
+    height: 400px;
+    width: 400px;
+    border: solid;
+}
+
+#servicinhotres {
+    height: 400px;
+    width: 400px;
+    border: solid;
+}
+
+#servicinhoquatro {
+    height: 400px;
+    width: 400px;
+    border: solid;
+} */
+
