@@ -32,9 +32,10 @@
 
 /* Sidebar Items */
 .sidebar .sidebar_content ul{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 30px;
     list-style: none;
 }
 
