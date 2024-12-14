@@ -98,52 +98,78 @@ main{
     gap: 20px;
 }
 
-#servicinho {
-    height: 600px;
-    width: 600px;
+.individualServiceDiv {
+    height: 400px;
+    width: 550px;
     display: flex;
 }
 
-#parteEsquerdaDiv{
+.leftSideIndividualServiceDiv {
     height: 100%;
     width: 50%;
-    border: solid;
-}
-
-#parteDireitaDiv {
-    height: 100%;
-    width: 50%;
-    border: solid;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-#tituloServico {
-    height: 15%;
-    width: 100%;
-    border: solid;
+.rightSideIndividualServiceDiv {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
 }
 
-#imagemDiv {
-    height: 75%;
-    width: 100%;
-    border: solid;
-}
-
-#botaoContratarDiv {
+.titleIndividualServiceInLeftSideDiv {
     height: 10%;
     width: 100%;
-    border: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.imageIndividualServiceInLeftSideDiv {
+    height: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#textoDiv {
-    height: 80%;
-    width: 100%;
-    border: solid;
+.imageIndividualServiceInLeftSide {
+    height: 300px;
+    width: 250px;
+    border-radius: 20px;
 }
+
+.buttonHireIndividualServiceInLeftSideDiv {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonHireIndividualServiceInLeftSide {
+    height: 30px;
+    width: 100px;
+    border-radius: 8px;
+    border: solid 1px #A1C6EA;
+    color: #A1C6EA;
+    background-color: white;
+}
+
+.textIndividualServiceInRightSideDiv {
+    height: 39%;
+    width: 60%;
+    border-bottom: solid 2px black;
+}
+
+
+
 
 
 

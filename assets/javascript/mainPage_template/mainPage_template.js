@@ -100,56 +100,67 @@ function create_service() {
     divButtonAddService.appendChild(buttonAddService);
     divServices.appendChild(divButtonAddService);
     divAllContentService.appendChild(divServices);
+    
 
     let divAllServices = document.createElement("div");
     divAllServices.id = "divAllServices";
-    let servicinho = document.createElement("div");
-    servicinho.id = "servicinho";
-    divAllServices.appendChild(servicinho)
-    let servicinhodois = document.createElement("div");
-    servicinhodois.id = "servicinhodois";
-    divAllServices.appendChild(servicinhodois)
-    let servicinhotres = document.createElement("div");
-    servicinhotres.id = "servicinhotres";
-    divAllServices.appendChild(servicinhotres)
-    let servicinhoquatro = document.createElement("div");
-    servicinhoquatro.id = "servicinhoquatro";
-    divAllServices.appendChild(servicinhoquatro)
-
-    let parteEsquerdaDiv = document.createElement("div");
-    parteEsquerdaDiv.id = "parteEsquerdaDiv";
-    let parteDireitaDiv = document.createElement("div");
-    parteDireitaDiv.id = "parteDireitaDiv";
-    let tituloServico = document.createElement("div");
-    tituloServico.id = "tituloServico";
-    let titulo = document.createElement("h1");
-    titulo.id = "titulo"
-    let imagemDiv = document.createElement("div");
-    imagemDiv.id = "imagemDiv";
-    let imagem = document.createElement("img");
-    imagem.id = "imagemBacana"
-    let botaoContratarDiv = document.createElement("div");
-    let botaoContratar = document.querySelector("button");
-    botaoContratar.id = "botaoContratar";
-    botaoContratar.textContent = "Contratar";
-    botaoContratarDiv.id = "botaoContratarDiv";
-    let textoDiv = document.createElement("div");
-    textoDiv.id = "textoDiv"
-    let texto = document.createElement("p")
-    texto.id = "texto";
-
-    servicinho.appendChild(parteEsquerdaDiv);
-    servicinho.appendChild(parteDireitaDiv);
-    parteEsquerdaDiv.appendChild(tituloServico);
-    tituloServico.appendChild(titulo);
-    parteEsquerdaDiv.appendChild(imagemDiv);
-    imagemDiv.appendChild(imagem);
-    parteEsquerdaDiv.appendChild(botaoContratarDiv);
-    botaoContratarDiv.appendChild(botaoContratar);
-    parteDireitaDiv.appendChild(textoDiv)
-    textoDiv.appendChild(texto)
-    
     divServices.appendChild(divAllServices);
+
+    let individualServiceDiv = document.createElement("div");
+    individualServiceDiv.className = "individualServiceDiv";
+
+    let leftSideIndividualServiceDiv = document.createElement("div");
+    leftSideIndividualServiceDiv.className = "leftSideIndividualServiceDiv";
+    let rightSideIndividualServiceDiv = document.createElement("div");
+    rightSideIndividualServiceDiv.className = "rightSideIndividualServiceDiv";
+
+    let titleIndividualServiceInLeftSideDiv = document.createElement("div");
+    titleIndividualServiceInLeftSideDiv.className = "titleIndividualServiceInLeftSideDiv";
+    let titleIndividualServiceInLeftSide = document.createElement("h2");
+    titleIndividualServiceInLeftSide.className = "titleIndividualServiceInLeftSide"
+
+    let imageIndividualServiceInLeftSideDiv = document.createElement("div");
+    imageIndividualServiceInLeftSideDiv.className = "imageIndividualServiceInLeftSideDiv";
+    let imageIndividualServiceInLeftSide = document.createElement("img");
+    imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide"
+
+    let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");
+    buttonHireIndividualServiceInLeftSideDiv.className = "buttonHireIndividualServiceInLeftSideDiv";
+    let buttonHireIndividualServiceInLeftSide = document.querySelector("button");
+    buttonHireIndividualServiceInLeftSide.id = "buttonHireIndividualServiceInLeftSide";
+    buttonHireIndividualServiceInLeftSide.textContent = "Contratar";
+    
+
+    let textIndividualServiceInRightSideDiv = document.createElement("div");
+    textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
+    let textIndividualServiceInRightSide = document.createElement("p");
+    textIndividualServiceInRightSide.className = "textIndividualServiceInRightSide";
+    textIndividualServiceInRightSide.textContent = "Olá, meu nome é Gabriel e sou um padre há 28 anos, minha especialidade e ministrar eventos matrimonias para as pessoas se casarem.";
+
+    let knowMoreIndividualServiceInRightSideDiv = document.createElement("div");
+    knowMoreIndividualServiceInRightSideDiv.className = "knowMoreIndividualServiceInRightSideDiv";
+    let knowMoreIndividualServiceInRightSide = document.createElement("h3");
+    knowMoreIndividualServiceInRightSide.className = "knowMoreIndividualServiceInRightSide";
+    knowMoreIndividualServiceInRightSide.textContent = "Ler mais"
+
+    divAllServices.appendChild(individualServiceDiv)
+    individualServiceDiv.appendChild(leftSideIndividualServiceDiv);
+    individualServiceDiv.appendChild(rightSideIndividualServiceDiv);
+    leftSideIndividualServiceDiv.appendChild(titleIndividualServiceInLeftSideDiv);
+    titleIndividualServiceInLeftSideDiv.appendChild(titleIndividualServiceInLeftSide);
+    leftSideIndividualServiceDiv.appendChild(imageIndividualServiceInLeftSideDiv);
+    imageIndividualServiceInLeftSideDiv.appendChild(imageIndividualServiceInLeftSide);
+    imageIndividualServiceInLeftSide.src = "../assets/images/casamento.jpeg";
+    leftSideIndividualServiceDiv.appendChild(buttonHireIndividualServiceInLeftSideDiv);
+    buttonHireIndividualServiceInLeftSideDiv.appendChild(buttonHireIndividualServiceInLeftSide);
+    rightSideIndividualServiceDiv.appendChild(textIndividualServiceInRightSideDiv);
+    textIndividualServiceInRightSideDiv.appendChild(textIndividualServiceInRightSide);
+    rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
+    knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
+
+    titleIndividualServiceInLeftSide.textContent = "teste";
+
+    
 
     corpo.appendChild(divAllContentService);
     currentContent = divAllContentService; 
