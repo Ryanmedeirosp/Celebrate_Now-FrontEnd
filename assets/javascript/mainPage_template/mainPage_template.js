@@ -164,9 +164,69 @@ function create_service() {
 
     titleIndividualServiceInLeftSide.textContent = "teste";
 
+    let fade = document.createElement("div");
+    fade.id = "fade";
+    fade.className = "hide";
+
+    let modal = document.createElement("div");
+    modal.id = "modal";
+    modal.className = "hide";
+
+    let modalHeaderDiv = document.createElement("div");
+    modalHeaderDiv.id = "modalHeaderDiv";
+    let titleNewService = document.createElement("h2");
+    titleNewService.id = "titleNewService";
+    titleNewService.textContent = "Novo serviço"
+
+    let modalBodyDiv = document.createElement("div");
+    modalBodyDiv.id = "modalBodyDiv";
+
+    let titleImageDiv = document.createElement("div");
+    titleImageDiv.id = "titleImageDiv";
+    let titleDiv = document.createElement("div");
+    titleDiv.id = "titleDiv";
+    let titleInput = document.createElement("input");
+    titleInput.id = "titleInput";
+    titleInput.placeholder = "Digite o nome do serviço";
+    let imageDiv = document.createElement("div");
+    imageDiv.id = "imageDiv";
+    let loadImageButtonDiv = document.createElement("button");
+    loadImageButtonDiv.id = "loadImageButtonDiv";
+    loadImageButtonDiv.textContent = "Carregar imagem";
+    let descriptionDiv = document.createElement("div");
+    descriptionDiv.id = "descriptionDiv";
+    let descriptionArea = document.createElement("textarea");
+    descriptionArea.id = "descriptionArea";
+    let buttonConfirmNewServiceDiv = document.createElement("div");
+    buttonConfirmNewServiceDiv.id = "buttonConfirmNewServiceDiv";
+    let buttonConfirmNewService = document.createElement("button");
+    buttonConfirmNewService.id = "buttonConfirmNewService"
+    buttonConfirmNewService.textContent = "Adicionar serviço";
+
+    const toggleModal = () => {
+        [modal, fade].forEach((el) => el.classList.toggle("hide"));
+        
+    };
     
+    [buttonAddService, buttonConfirmNewService, fade].forEach((el) => {
+        el.addEventListener("click", () => toggleModal())
+    });
 
     corpo.appendChild(divAllContentService);
+    modalHeaderDiv.appendChild(titleNewService);
+    modal.appendChild(modalHeaderDiv);
+    titleDiv.appendChild(titleInput);
+    titleImageDiv.appendChild(titleDiv);
+    imageDiv.appendChild(loadImageButtonDiv);
+    titleImageDiv.appendChild(imageDiv);
+    modalBodyDiv.appendChild(titleImageDiv);
+    modalBodyDiv.appendChild(descriptionDiv);
+    descriptionDiv.appendChild(descriptionArea);
+    modal.appendChild(modalBodyDiv);
+    buttonConfirmNewServiceDiv.appendChild(buttonConfirmNewService);
+    modal.appendChild(buttonConfirmNewServiceDiv);
+    corpo.appendChild(fade);
+    corpo.appendChild(modal);
     currentContent = divAllContentService; 
 }
 

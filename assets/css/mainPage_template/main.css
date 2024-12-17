@@ -169,43 +169,138 @@ main{
     border-bottom: solid 2px black;
 }
 
-#divSchadelure{
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
 }
-#divAllContentBudget{
+
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 10;
+    width: 600px;
+    height: 600px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#modalHeaderDiv {
     width: 100%;
+    height: 10%;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#divSuperior-clients{
+#modalBodyDiv {
+    height: 75%;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
 }
-#divClientsImg{
-    gap: 20px;
-    padding: 20px;
+
+#titleImageDiv {
+    height: 100%;
+    width: 50%;
+}
+
+#titleDiv {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titleInput {
+    height: 40px;
+    width: 250px;
+}
+
+#titleInput::placeholder {
+    text-align: center;
+}
+
+#imageDiv {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loadImageButtonDiv {
+    font-size: large;
+    padding: 4px;
+    border-radius: 10px;
+    border: solid 1px black;
+    color: black;
+    background-color: white;
+}
+
+#loadImageButtonDiv:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+#descriptionDiv {
+    height: 100%;
+    width: 50%;
     display: flex;
     align-items: center;
-    flex-direction: row;
+    justify-content: center;
 }
-#divClientsImg img{
-    width: 35px;
+
+#descriptionArea {
+    height: 300px;
+    width: 250px;
 }
-#btnAddClients{
+
+#buttonConfirmNewServiceDiv {
+    height: 15%;
+    width: 100%;
+}
+
+#buttonConfirmNewServiceDiv {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttonConfirmNewService {
+    font-size: large;
     padding: 5px;
     border-radius: 10px;
+    border: solid 1px black;
+    color: black;
+    background-color: white;
+}
+
+#buttonConfirmNewService:hover {
     cursor: pointer;
+    opacity: 0.7;
 }
-#btnAddClients:hover{
-    background-color: #D8B795;
+
+#modal.hide, #fade.hide {
+    opacity: 0;
+    pointer-events: none;
 }
-#divListaClients{
-    display: flex;
-    border: 1px solid;
-    height: 300px;
+
+#fade, #modal {
+    transition: 0.3s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#modal.hide {
+    top: 0;
 }
