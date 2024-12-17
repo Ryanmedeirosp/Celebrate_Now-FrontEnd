@@ -59,14 +59,15 @@ main{
     flex-direction: column;
 }
 
-#divButtonAddService {
+#divButtonsService {
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: end;
+    gap: 20px;
 }
 
-#buttonAddService {
+.buttonService {
     background-color: white;
     color: black;
     border-radius: 8px;
@@ -75,7 +76,7 @@ main{
     font-size: medium;
 }
 
-#buttonAddService:hover {
+.buttonService:hover {
     cursor: pointer;
     opacity: 0.8;
 }
@@ -168,26 +169,4 @@ main{
     border-bottom: solid 2px black;
 }
 
-
-
-
-
-
-/* #servicinhodois {
-    height: 400px;
-    width: 400px;
-    border: solid;
-}
-
-#servicinhotres {
-    height: 400px;
-    width: 400px;
-    border: solid;
-}
-
-#servicinhoquatro {
-    height: 400px;
-    width: 400px;
-    border: solid;
-} */
 

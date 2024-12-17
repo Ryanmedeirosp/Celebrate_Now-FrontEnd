@@ -31,6 +31,7 @@
 #list-customers{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 80%;
 
@@ -38,18 +39,54 @@
 
 #customer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    padding: 5px;
-
+    justify-content: center;
+    border-radius: 30px;
+    width: 280px;
+    height: 60px;
+    background-color: #D8B795;
 }
-#customer p{
-    border-radius: 7px;
-    padding: 5px;
-    cursor: pointer;
-    background-color: #F5D0A9;
+
+.divPhotoInformations {
+    display: flex;
+    gap: 5px;
+}
+
+.informationsCustomerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 160px;
+}
+
+.informationsCustomerDiv p{
+    font-size: 11px;
 }
 
 #customer p:hover{
     opacity: 0.8;
+}
+
+.photoCustomerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photoCustomer {
+    height: 50px;
+    width: 50px;
+}
+
+.chatImageCustomerDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.chatImageCustomer {
+    height: 30px;
+    width: 30px;
 }

@@ -92,13 +92,17 @@ function create_service() {
 
     let divServices = document.createElement("div");
     divServices.id = "divServices";
-    let divButtonAddService = document.createElement("div");
-    divButtonAddService.id = "divButtonAddService";
+    let divButtonsService = document.createElement("div");
+    divButtonsService.id = "divButtonsService";
+    let buttonEditService = document.createElement("button");
+    buttonEditService.className = "buttonService";
+    buttonEditService.textContent = "Editar serviço";
     let buttonAddService = document.createElement("button");
     buttonAddService.textContent = "Adicionar serviço";
-    buttonAddService.id = "buttonAddService";
-    divButtonAddService.appendChild(buttonAddService);
-    divServices.appendChild(divButtonAddService);
+    buttonAddService.className = "buttonService";
+    divButtonsService.appendChild(buttonEditService)
+    divButtonsService.appendChild(buttonAddService);
+    divServices.appendChild(divButtonsService);
     divAllContentService.appendChild(divServices);
     
 
@@ -351,10 +355,42 @@ function create_list() {
 function create_list_customer() {
     let customer = document.createElement("div");
     customer.id = "customer";
-    let customer_txt = document.createElement("p");
-    customer_txt.id = "customer_txt";
-    customer_txt.textContent = "Paulo Porciuncula Davis Júnior";
-    customer.appendChild(customer_txt);
+
+    let photoCustomerDiv = document.createElement("div");
+    photoCustomerDiv.className = "photoCustomerDiv";
+    let photoCustomer = document.createElement("img");
+    photoCustomer.className = "photoCustomer";
+    photoCustomer.src = "../assets/images/user-icon-removebg-preview.svg";
+
+    let informationsCustomerDiv = document.createElement("div");
+    informationsCustomerDiv.className = "informationsCustomerDiv";
+    let nameInformationCustomer = document.createElement("p");
+    nameInformationCustomer.className = "nameInformationCustomer";
+    nameInformationCustomer.textContent = "Paulo Porciuncula Davis Júnior";
+    let contractNumberInformationCustomer = document.createElement("p");
+    contractNumberInformationCustomer.className = "contractNumberInformationCustomer";
+    contractNumberInformationCustomer.textContent = "Contrato:00001";
+    let eventDateInformationCustomer = document.createElement("p");
+    eventDateInformationCustomer.className = "eventDateInformationCustomer";
+    eventDateInformationCustomer.textContent = "Evento:XX/XX/XXXX";
+    let divPhotoInformations = document.createElement("div");
+    divPhotoInformations.className = "divPhotoInformations";
+
+    let chatImageCustomerDiv = document.createElement("div");
+    chatImageCustomerDiv.className = "chatImageCustomerDiv";
+    let chatImageCustomer = document.createElement("img");
+    chatImageCustomer.className = "chatImageCustomer";
+    chatImageCustomer.src = "../assets/images/o-email.png"
+
+    chatImageCustomerDiv.appendChild(chatImageCustomer);
+    informationsCustomerDiv.appendChild(nameInformationCustomer);
+    informationsCustomerDiv.appendChild(contractNumberInformationCustomer);
+    informationsCustomerDiv.appendChild(eventDateInformationCustomer);
+    photoCustomerDiv.appendChild(photoCustomer);
+    divPhotoInformations.appendChild(photoCustomerDiv);
+    divPhotoInformations.appendChild(informationsCustomerDiv);
+    customer.appendChild(divPhotoInformations);
+    customer.appendChild(chatImageCustomerDiv);
     list_customer.appendChild(customer);
 }
 
