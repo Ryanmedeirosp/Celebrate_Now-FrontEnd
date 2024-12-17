@@ -174,10 +174,12 @@ function create_budget() {
     let divAllContentBudget = document.createElement("div");
     divAllContentBudget.id = "divAllContentBudget";
     let teste = document.createElement("h1");
-    teste.textContent = "teste";
+    teste.textContent = "Orçamentos";
     divAllContentBudget.appendChild(teste);
     corpo.appendChild(divAllContentBudget);
-    currentContent = divAllContentBudget; 
+    currentContent = divAllContentBudget;
+
+
 }
 
 function create_schadelure() {
@@ -335,13 +337,38 @@ function create_contract() {
 }
 
 function create_clients() {
+    removePreviousContent()
     let divClients = document.createElement("div");
     divClients.id = "divClients";
     let h1 = document.createElement("h1");
     h1.textContent = "Conteúdo de Clientes"; 
     divClients.appendChild(h1);
     corpo.appendChild(divClients);
-    currentContent = divClients; 
+    currentContent = divClients;
+
+    let divSuperior = document.createElement("div")
+    divSuperior.id = "divSuperior-clients";
+    let divClientsImg = document.createElement("div")
+    divClientsImg.id = "divClientsImg";
+    let imgCustomer = document.createElement("img")
+    imgCustomer.id = imgCustomer
+    imgCustomer.src = "../assets/images/users-group.svg"
+    divClientsImg.appendChild(imgCustomer)
+    let clientstxt = document.createElement("h3")
+    clientstxt.textContent = "Clientes"
+    divClientsImg.appendChild(clientstxt)
+    corpo.appendChild(divSuperior)
+    divSuperior.appendChild(divClientsImg)
+    let btnAddClients = document.createElement("button")
+    btnAddClients.textContent = "Adicionar Cliente"
+    btnAddClients.id = "btnAddClients"
+    divSuperior.appendChild(btnAddClients)
+
+    let divListaClients = document.createElement("div")
+    divListaClients.id = "divListaClients"
+    corpo.appendChild(divListaClients)
+
+
 }
 
 function create_list() {

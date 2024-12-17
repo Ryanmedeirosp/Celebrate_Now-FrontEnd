@@ -172,3 +172,40 @@ main{
 #divSchadelure{
     width: 100%;
 }
+#divAllContentBudget{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#divSuperior-clients{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+#divClientsImg{
+    gap: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+#divClientsImg img{
+    width: 35px;
+}
+#btnAddClients{
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#btnAddClients:hover{
+    background-color: #D8B795;
+}
+#divListaClients{
+    display: flex;
+    border: 1px solid;
+    height: 300px;
+}
