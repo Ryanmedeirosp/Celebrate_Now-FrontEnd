@@ -174,7 +174,7 @@ function create_budget() {
     let divAllContentBudget = document.createElement("div");
     divAllContentBudget.id = "divAllContentBudget";
     let teste = document.createElement("h1");
-    teste.textContent = "pinto";
+    teste.textContent = "teste";
     divAllContentBudget.appendChild(teste);
     corpo.appendChild(divAllContentBudget);
     currentContent = divAllContentBudget; 
