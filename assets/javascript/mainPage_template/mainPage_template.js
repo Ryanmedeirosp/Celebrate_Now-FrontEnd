@@ -110,59 +110,7 @@ function create_service() {
     divAllServices.id = "divAllServices";
     divServices.appendChild(divAllServices);
 
-    let individualServiceDiv = document.createElement("div");
-    individualServiceDiv.className = "individualServiceDiv";
-
-    let leftSideIndividualServiceDiv = document.createElement("div");
-    leftSideIndividualServiceDiv.className = "leftSideIndividualServiceDiv";
-    let rightSideIndividualServiceDiv = document.createElement("div");
-    rightSideIndividualServiceDiv.className = "rightSideIndividualServiceDiv";
-
-    let titleIndividualServiceInLeftSideDiv = document.createElement("div");
-    titleIndividualServiceInLeftSideDiv.className = "titleIndividualServiceInLeftSideDiv";
-    let titleIndividualServiceInLeftSide = document.createElement("h2");
-    titleIndividualServiceInLeftSide.className = "titleIndividualServiceInLeftSide"
-
-    let imageIndividualServiceInLeftSideDiv = document.createElement("div");
-    imageIndividualServiceInLeftSideDiv.className = "imageIndividualServiceInLeftSideDiv";
-    let imageIndividualServiceInLeftSide = document.createElement("img");
-    imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide"
-
-    let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");
-    buttonHireIndividualServiceInLeftSideDiv.className = "buttonHireIndividualServiceInLeftSideDiv";
-    let buttonHireIndividualServiceInLeftSide = document.querySelector("button");
-    buttonHireIndividualServiceInLeftSide.id = "buttonHireIndividualServiceInLeftSide";
-    buttonHireIndividualServiceInLeftSide.textContent = "Contratar";
     
-
-    let textIndividualServiceInRightSideDiv = document.createElement("div");
-    textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
-    let textIndividualServiceInRightSide = document.createElement("p");
-    textIndividualServiceInRightSide.className = "textIndividualServiceInRightSide";
-    textIndividualServiceInRightSide.textContent = "Olá, meu nome é Gabriel e sou um padre há 28 anos, minha especialidade e ministrar eventos matrimonias para as pessoas se casarem.";
-
-    let knowMoreIndividualServiceInRightSideDiv = document.createElement("div");
-    knowMoreIndividualServiceInRightSideDiv.className = "knowMoreIndividualServiceInRightSideDiv";
-    let knowMoreIndividualServiceInRightSide = document.createElement("h3");
-    knowMoreIndividualServiceInRightSide.className = "knowMoreIndividualServiceInRightSide";
-    knowMoreIndividualServiceInRightSide.textContent = "Ler mais"
-
-    divAllServices.appendChild(individualServiceDiv)
-    individualServiceDiv.appendChild(leftSideIndividualServiceDiv);
-    individualServiceDiv.appendChild(rightSideIndividualServiceDiv);
-    leftSideIndividualServiceDiv.appendChild(titleIndividualServiceInLeftSideDiv);
-    titleIndividualServiceInLeftSideDiv.appendChild(titleIndividualServiceInLeftSide);
-    leftSideIndividualServiceDiv.appendChild(imageIndividualServiceInLeftSideDiv);
-    imageIndividualServiceInLeftSideDiv.appendChild(imageIndividualServiceInLeftSide);
-    imageIndividualServiceInLeftSide.src = "../assets/images/casamento.jpeg";
-    leftSideIndividualServiceDiv.appendChild(buttonHireIndividualServiceInLeftSideDiv);
-    buttonHireIndividualServiceInLeftSideDiv.appendChild(buttonHireIndividualServiceInLeftSide);
-    rightSideIndividualServiceDiv.appendChild(textIndividualServiceInRightSideDiv);
-    textIndividualServiceInRightSideDiv.appendChild(textIndividualServiceInRightSide);
-    rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
-    knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
-
-    titleIndividualServiceInLeftSide.textContent = "teste";
 
     let fade = document.createElement("div");
     fade.id = "fade";
@@ -210,6 +158,77 @@ function create_service() {
     
     [buttonAddService, buttonConfirmNewService, fade].forEach((el) => {
         el.addEventListener("click", () => toggleModal())
+    });
+
+    buttonConfirmNewService.addEventListener("click", (event)=>{
+
+        loadImageButtonDiv.addEventListener("click", (event)=>{
+
+            let item = document.createElement("tr")
+            dados.appendChild(item);
+            let celulafoto = document.querySelector("td")
+            let imagemminni= document.createElement("img")
+            imagemminni.id='fotinha'
+            const leitor = new FileReader()
+            leitor.readAsDataURL(foto.files[0])
+            leitor.addEventListener("load", (event)=>{
+                imageIndividualServiceInLeftSide.src=event.target.result;
+            });
+
+        });
+
+    let individualServiceDiv = document.createElement("div");
+    individualServiceDiv.className = "individualServiceDiv";
+
+    let leftSideIndividualServiceDiv = document.createElement("div");
+    leftSideIndividualServiceDiv.className = "leftSideIndividualServiceDiv";
+    let rightSideIndividualServiceDiv = document.createElement("div");
+    rightSideIndividualServiceDiv.className = "rightSideIndividualServiceDiv";
+
+    let titleIndividualServiceInLeftSideDiv = document.createElement("div");
+    titleIndividualServiceInLeftSideDiv.className = "titleIndividualServiceInLeftSideDiv";
+    let titleIndividualServiceInLeftSide = document.createElement("h2");
+    titleIndividualServiceInLeftSide.className = "titleIndividualServiceInLeftSide"
+    titleIndividualServiceInLeftSide.textContent = "teste";
+
+    let imageIndividualServiceInLeftSideDiv = document.createElement("div");
+    imageIndividualServiceInLeftSideDiv.className = "imageIndividualServiceInLeftSideDiv";
+    let imageIndividualServiceInLeftSide = document.createElement("img");
+    imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide"
+
+    let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");
+    buttonHireIndividualServiceInLeftSideDiv.className = "buttonHireIndividualServiceInLeftSideDiv";
+    let buttonHireIndividualServiceInLeftSide = document.querySelector("button");
+    buttonHireIndividualServiceInLeftSide.id = "buttonHireIndividualServiceInLeftSide";
+    buttonHireIndividualServiceInLeftSide.textContent = "Contratar";
+    
+
+    let textIndividualServiceInRightSideDiv = document.createElement("div");
+    textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
+    let textIndividualServiceInRightSide = document.createElement("p");
+    textIndividualServiceInRightSide.className = "textIndividualServiceInRightSide";
+    textIndividualServiceInRightSide.textContent = "Olá, meu nome é Gabriel e sou um padre há 28 anos, minha especialidade e ministrar eventos matrimonias para as pessoas se casarem.";
+
+    let knowMoreIndividualServiceInRightSideDiv = document.createElement("div");
+    knowMoreIndividualServiceInRightSideDiv.className = "knowMoreIndividualServiceInRightSideDiv";
+    let knowMoreIndividualServiceInRightSide = document.createElement("h3");
+    knowMoreIndividualServiceInRightSide.className = "knowMoreIndividualServiceInRightSide";
+    knowMoreIndividualServiceInRightSide.textContent = "Ler mais"
+
+    divAllServices.appendChild(individualServiceDiv)
+    individualServiceDiv.appendChild(leftSideIndividualServiceDiv);
+    individualServiceDiv.appendChild(rightSideIndividualServiceDiv);
+    leftSideIndividualServiceDiv.appendChild(titleIndividualServiceInLeftSideDiv);
+    titleIndividualServiceInLeftSideDiv.appendChild(titleIndividualServiceInLeftSide);
+    leftSideIndividualServiceDiv.appendChild(imageIndividualServiceInLeftSideDiv);
+    imageIndividualServiceInLeftSideDiv.appendChild(imageIndividualServiceInLeftSide);
+    leftSideIndividualServiceDiv.appendChild(buttonHireIndividualServiceInLeftSideDiv);
+    buttonHireIndividualServiceInLeftSideDiv.appendChild(buttonHireIndividualServiceInLeftSide);
+    rightSideIndividualServiceDiv.appendChild(textIndividualServiceInRightSideDiv);
+    textIndividualServiceInRightSideDiv.appendChild(textIndividualServiceInRightSide);
+    rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
+    knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
+
     });
 
     corpo.appendChild(divAllContentService);
