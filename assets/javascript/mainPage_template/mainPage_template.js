@@ -397,39 +397,171 @@ function create_contract() {
 }
 
 function create_clients() {
-    removePreviousContent()
+    removePreviousContent(); // Remove o conteúdo anterior
+
     let divClients = document.createElement("div");
     divClients.id = "divClients";
-    let h1 = document.createElement("h1");
-    h1.textContent = "Conteúdo de Clientes"; 
-    divClients.appendChild(h1);
-    corpo.appendChild(divClients);
-    currentContent = divClients;
 
-    let divSuperior = document.createElement("div")
+
+
+    // Contêiner superior com botão de adicionar cliente
+    let divSuperior = document.createElement("div");
     divSuperior.id = "divSuperior-clients";
-    let divClientsImg = document.createElement("div")
+
+    let divClientsImg = document.createElement("div");
     divClientsImg.id = "divClientsImg";
-    let imgCustomer = document.createElement("img")
-    imgCustomer.id = imgCustomer
-    imgCustomer.src = "../assets/images/users-group.svg"
-    divClientsImg.appendChild(imgCustomer)
-    let clientstxt = document.createElement("h3")
-    clientstxt.textContent = "Clientes"
-    divClientsImg.appendChild(clientstxt)
-    corpo.appendChild(divSuperior)
-    divSuperior.appendChild(divClientsImg)
-    let btnAddClients = document.createElement("button")
-    btnAddClients.textContent = "Adicionar Cliente"
-    btnAddClients.id = "btnAddClients"
-    divSuperior.appendChild(btnAddClients)
+    let imgCustomer = document.createElement("img");
+    imgCustomer.id = "imgCustomer";
+    imgCustomer.src = "../assets/images/users-group.svg";
+    divClientsImg.appendChild(imgCustomer);
 
-    let divListaClients = document.createElement("div")
-    divListaClients.id = "divListaClients"
-    corpo.appendChild(divListaClients)
+    let clientstxt = document.createElement("h3");
+    clientstxt.textContent = "Lista de Clientes";
+    divClientsImg.appendChild(clientstxt);
+    divSuperior.appendChild(divClientsImg);
+
+    let btnAddClients = document.createElement("button");
+    btnAddClients.textContent = "Adicionar Cliente";
+    btnAddClients.id = "btnAddClients";
+
+    btnAddClients.addEventListener("click", (event) =>{
+
+        modal.style.display = "flex";
+    });
+
+    divSuperior.appendChild(btnAddClients);
+
+    divClients.appendChild(divSuperior);
+    
+
+    // Contêiner da lista de clientes
+    let divListaClients = document.createElement("div");
+    divListaClients.id = "divListaClients";
+    divClients.appendChild(divListaClients);
+    
+    // Modal para adicionar cliente
+    let modal = document.createElement("div");
+    modal.id = "modal";
+    modal.className = "modal hidden";
+    // modal.style.display = "none"
 
 
+    let modalContent = document.createElement("div");
+    modalContent.className = "modal-content";
+
+    let modalHeader = document.createElement("h2");
+    modalHeader.textContent = "Adicionar Cliente";
+    modalContent.appendChild(modalHeader);
+
+    let inputNome = document.createElement("input");
+    inputNome.type = "text";
+    inputNome.placeholder = "Nome do Cliente";
+    inputNome.id = "inputNome";
+    modalContent.appendChild(inputNome);
+
+    let inputContrato = document.createElement("input");
+    inputContrato.type = "text";
+    inputContrato.placeholder = "Número do Contrato";
+    inputContrato.id = "inputContrato";
+    modalContent.appendChild(inputContrato);
+
+    let datatxt = document.createElement("p")
+    datatxt.textContent = "Data do casamento:";
+    modalContent.appendChild(datatxt);
+
+    let inputEvento = document.createElement("input");
+    inputEvento.type = "date";
+    inputEvento.id = "inputEvento";
+    modalContent.appendChild(inputEvento);
+
+    let btnSalvar = document.createElement("button");
+    btnSalvar.textContent = "Salvar";
+    btnSalvar.id = "btnSalvar";
+    modalContent.appendChild(btnSalvar);
+
+    let btnCancelar = document.createElement("button");
+    btnCancelar.textContent = "Cancelar";
+    btnCancelar.id = "btnCancelar";
+
+    btnCancelar.addEventListener("click", (event) =>{
+
+        modal.style.display = "none";
+    })
+
+    modalContent.appendChild(btnCancelar);
+
+    modal.appendChild(modalContent);
+    divClients.appendChild(modal);
+
+    // Exibir modal ao clicar no botão de adicionar cliente
+    btnAddClients.addEventListener("click", () => {
+        modal.classList.remove("hidden");
+    });
+
+    // Esconder modal ao clicar no botão de cancelar
+    btnCancelar.addEventListener("click", () => {
+        modal.classList.add("hidden");
+    });
+
+    // Adicionar cliente ao clicar em "Salvar"
+    btnSalvar.addEventListener("click", () => {
+        let clienteNome = inputNome.value.trim();
+        let clienteContrato = inputContrato.value.trim();
+        let clienteEvento = inputEvento.value;
+
+        if (clienteNome && clienteContrato && clienteEvento) {
+            adicionarCliente(clienteNome, clienteContrato, clienteEvento);
+            modal.classList.add("hidden");
+            inputNome.value = "";
+            inputContrato.value = "";
+            inputEvento.value = "";
+        } else {
+            alert("Por favor, preencha todos os campos!");
+        }
+    });
+
+    // Função para adicionar cliente à lista
+    function adicionarCliente(nome, contrato, evento) {
+        let clienteDiv = document.createElement("div");
+        clienteDiv.className = "clienteDiv";
+
+        let clienteInfo = document.createElement("div");
+        clienteInfo.className = "clienteInfo";
+
+        let nomeCliente = document.createElement("p");
+        nomeCliente.className = "nomeCliente";
+        nomeCliente.textContent = `Nome: ${nome}`;
+
+        let contratoCliente = document.createElement("p");
+        contratoCliente.className = "contratoCliente";
+        contratoCliente.textContent = `Contrato: ${contrato}`;
+
+        let eventoCliente = document.createElement("p");
+        eventoCliente.className = "eventoCliente";
+        eventoCliente.textContent = `Evento: ${evento}`;
+
+        clienteInfo.appendChild(nomeCliente);
+        clienteInfo.appendChild(contratoCliente);
+        clienteInfo.appendChild(eventoCliente);
+
+        let removerClienteBtn = document.createElement("button");
+        removerClienteBtn.textContent = "Remover";
+        removerClienteBtn.className = "btnRemoverCliente";
+        removerClienteBtn.addEventListener("click", () => {
+            divListaClients.removeChild(clienteDiv);
+        });
+
+        clienteDiv.appendChild(clienteInfo);
+        clienteDiv.appendChild(removerClienteBtn);
+
+        divListaClients.appendChild(clienteDiv);
+    }
+    
+    corpo.appendChild(divClients);
+    currentContent = divClients; // Atualiza o conteúdo atual
 }
+
+
 
 function create_list() {
     let divList = document.createElement("div");
@@ -444,7 +576,7 @@ function create_list() {
 function create_list_customer() {
     let customer = document.createElement("div");
     customer.id = "customer";
-
+    
     let photoCustomerDiv = document.createElement("div");
     photoCustomerDiv.className = "photoCustomerDiv";
     let photoCustomer = document.createElement("img");
@@ -481,6 +613,7 @@ function create_list_customer() {
     customer.appendChild(divPhotoInformations);
     customer.appendChild(chatImageCustomerDiv);
     list_customer.appendChild(customer);
+    
 }
 
 window.onload = () => {
