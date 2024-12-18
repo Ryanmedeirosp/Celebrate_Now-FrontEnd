@@ -405,8 +405,10 @@ main{
     border: 3px solid  #D8B795;
  
 }
-.removerClienteBtn{
-    background-color: #f44336;
+.btnRemoverCliente{
+    background-color: #D8B795;
     border-radius: 10px;
     padding: 10px;
+    border: none;
+    cursor: pointer;
 }
