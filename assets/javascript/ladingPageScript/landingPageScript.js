@@ -128,7 +128,7 @@ function createMain() {
     let firstSlideDiv = document.createElement("div");
     firstSlideDiv.className = "feedback slide";
     let imageFirstSlide = document.createElement("img");
-    imageFirstSlide.src = "assets/images/pexels-pixabay-413885.jpg";
+    imageFirstSlide.src = "assets/images/pexels-pixabay-413885.jpg"; //1
     let sizeTextFirstDiv = document.createElement("div");
     sizeTextFirstDiv.className = "tamanhoFrase";
     let textFirstDiv = document.createElement("p");
@@ -136,7 +136,7 @@ function createMain() {
     let secondSlideDiv = document.createElement("div");
     secondSlideDiv.className = "feedback slide";
     let imageSecondSlide = document.createElement("img");
-    imageSecondSlide.src = "assets/images/pexels-pixabay-206593.jpg";
+    imageSecondSlide.src = "assets/images/pexels-pixabay-206593.jpg"; //2
     let sizeTextSecondDiv = document.createElement("div");
     sizeTextSecondDiv.className = "tamanhoFrase";
     let textSecondDiv = document.createElement("p");
@@ -144,7 +144,7 @@ function createMain() {
     let thirdSlideDiv = document.createElement("div");
     thirdSlideDiv.className = "feedback slide";
     let imageThirdSlide = document.createElement("img");
-    imageThirdSlide.src = "assets/images/pexels-darina-belonogova-7959603.jpg";
+    imageThirdSlide.src = "assets/images/pexels-darina-belonogova-7959603.jpg"; //3
     let sizeTextThirdDiv = document.createElement("div");
     sizeTextThirdDiv.className = "tamanhoFrase";
     let textThirdDiv = document.createElement("p");
@@ -152,7 +152,7 @@ function createMain() {
     let fourthSlideDiv = document.createElement("div");
     fourthSlideDiv.className = "feedback slide";
     let imageFourthSlide = document.createElement("img");
-    imageFourthSlide.src = "assets/images/pexels-olly-3779770.jpg";
+    imageFourthSlide.src = "assets/images/pexels-olly-3779770.jpg";  //4
     let sizeTextFourthDiv = document.createElement("div");
     sizeTextFourthDiv.className = "tamanhoFrase";
     let textFourthDiv = document.createElement("p");
@@ -160,7 +160,7 @@ function createMain() {
     let fifthSlideDiv = document.createElement("div");
     fifthSlideDiv.className = "feedback slide";
     let imageFifthSlide = document.createElement("img");
-    imageFifthSlide.src = "assets/images/pexels-olly-837358.jpg";
+    imageFifthSlide.src = "assets/images/pexels-olly-837358.jpg";  //5
     let sizeTextFifthDiv = document.createElement("div");
     sizeTextFifthDiv.className = "tamanhoFrase";
     let textFifthDiv = document.createElement("p");
@@ -168,7 +168,7 @@ function createMain() {
     let sixthSlideDiv = document.createElement("div");
     sixthSlideDiv.className = "feedback slide";
     let imageSixthSlide = document.createElement("img");
-    imageSixthSlide.src = "assets/images/pexels-pixabay-39866.jpg";
+    imageSixthSlide.src = "assets/images/pexels-pixabay-39866.jpg"; //6
     let sizeTextSixthDiv = document.createElement("div");
     sizeTextSixthDiv.className = "tamanhoFrase";
     let textSixthDiv = document.createElement("p");
@@ -176,7 +176,7 @@ function createMain() {
     let seventhSlideDiv = document.createElement("div");
     seventhSlideDiv.className = "feedback slide";
     let imageSeventhSlide = document.createElement("img");
-    imageSeventhSlide.src = "assets/images/pexels-olly-845457.jpg";
+    imageSeventhSlide.src = "assets/images/pexels-olly-845457.jpg"; //7
     let sizeTextSeventhDiv = document.createElement("div");
     sizeTextSeventhDiv.className = "tamanhoFrase";
     let textSeventhDiv = document.createElement("p");
@@ -184,7 +184,7 @@ function createMain() {
     let eighthSlideDiv = document.createElement("div");
     eighthSlideDiv.className = "feedback slide";
     let imageEighthSlide = document.createElement("img");
-    imageEighthSlide.src = "assets/images/pexels-hasibullah-zhowandai-248954-819530.jpg";
+    imageEighthSlide.src = "assets/images/pexels-hasibullah-zhowandai-248954-819530.jpg";  //8
     let sizeTextEighthDiv = document.createElement("div");
     sizeTextEighthDiv.className = "tamanhoFrase";
     let textEighthDiv = document.createElement("p");
@@ -192,7 +192,7 @@ function createMain() {
     let ninthSlideDiv = document.createElement("div");
     ninthSlideDiv.className = "feedback slide";
     let imageNinthSlide = document.createElement("img");
-    imageNinthSlide.src = "assets/images/pexels-pixabay-413885.jpg";
+    imageNinthSlide.src = "assets/images/caraTranquilo.jpg"; //9
     let sizeTextNinthDiv = document.createElement("div");
     sizeTextNinthDiv.className = "tamanhoFrase";
     let textNinthDiv = document.createElement("p");
@@ -200,7 +200,7 @@ function createMain() {
     let firstSlideDivCopy = document.createElement("div");
     firstSlideDivCopy.className = "feedback slide";
     let imageFirstSlideCopy = document.createElement("img");
-    imageFirstSlideCopy.src = "assets/images/pexels-pixabay-413885.jpg";
+    imageFirstSlideCopy.src = "assets/images/pexels-pixabay-413885.jpg"; //10
     let sizeTextFirstDivCopy = document.createElement("div");
     sizeTextFirstDivCopy.className = "tamanhoFrase";
     let textFirstDivCopy = document.createElement("p");
@@ -208,7 +208,7 @@ function createMain() {
     let secondSlideDivCopy = document.createElement("div");
     secondSlideDivCopy.className = "feedback slide";
     let imageSecondSlideCopy = document.createElement("img");
-    imageSecondSlideCopy.src = "assets/images/pexels-pixabay-206593.jpg";
+    imageSecondSlideCopy.src = "assets/images/pexels-pixabay-206593.jpg"; //11
     let sizeTextSecondDivCopy = document.createElement("div");
     sizeTextSecondDivCopy.className = "tamanhoFrase";
     let textSecondDivCopy = document.createElement("p");
@@ -216,7 +216,7 @@ function createMain() {
     let thirdSlideDivCopy = document.createElement("div");
     thirdSlideDivCopy.className = "feedback slide";
     let imageThirdSlideCopy = document.createElement("img");
-    imageThirdSlideCopy.src = "assets/images/pexels-darina-belonogova-7959603.jpg";
+    imageThirdSlideCopy.src = "assets/images/pexels-darina-belonogova-7959603.jpg"; //12
     let sizeTextThirdDivCopy = document.createElement("div");
     sizeTextThirdDivCopy.className = "tamanhoFrase";
     let textThirdDivCopy = document.createElement("p");
@@ -224,7 +224,7 @@ function createMain() {
     let fourthSlideDivCopy = document.createElement("div");
     fourthSlideDivCopy.className = "feedback slide";
     let imageFourthSlideCopy = document.createElement("img");
-    imageFourthSlideCopy.src = "assets/images/pexels-olly-3779770.jpg";
+    imageFourthSlideCopy.src = "assets/images/pexels-olly-3779770.jpg"; //13
     let sizeTextFourthDivCopy = document.createElement("div");
     sizeTextFourthDivCopy.className = "tamanhoFrase";
     let textFourthDivCopy = document.createElement("p");
@@ -232,7 +232,7 @@ function createMain() {
     let fifthSlideDivCopy = document.createElement("div");
     fifthSlideDivCopy.className = "feedback slide";
     let imageFifthSlideCopy = document.createElement("img");
-    imageFifthSlideCopy.src = "assets/images/pexels-olly-837358.jpg";
+    imageFifthSlideCopy.src = "assets/images/pexels-olly-837358.jpg"; //14
     let sizeTextFifthDivCopy = document.createElement("div");
     sizeTextFifthDivCopy.className = "tamanhoFrase";
     let textFifthDivCopy = document.createElement("p");
@@ -240,7 +240,7 @@ function createMain() {
     let sixthSlideDivCopy = document.createElement("div");
     sixthSlideDivCopy.className = "feedback slide";
     let imageSixthSlideCopy = document.createElement("img");
-    imageSixthSlideCopy.src = "assets/images/pexels-pixabay-39866.jpg";
+    imageSixthSlideCopy.src = "assets/images/pexels-pixabay-39866.jpg"; //15
     let sizeTextSixthDivCopy = document.createElement("div");
     sizeTextSixthDivCopy.className = "tamanhoFrase";
     let textSixthDivCopy = document.createElement("p");
@@ -248,7 +248,7 @@ function createMain() {
     let seventhSlideDivCopy = document.createElement("div");
     seventhSlideDivCopy.className = "feedback slide";
     let imageSeventhSlideCopy = document.createElement("img");
-    imageSeventhSlideCopy.src = "assets/images/pexels-olly-845457.jpg";
+    imageSeventhSlideCopy.src = "assets/images/pexels-olly-845457.jpg"; //16
     let sizeTextSeventhDivCopy = document.createElement("div");
     sizeTextSeventhDivCopy.className = "tamanhoFrase";
     let textSeventhDivCopy = document.createElement("p");
@@ -256,7 +256,7 @@ function createMain() {
     let eighthSlideDivCopy = document.createElement("div");
     eighthSlideDivCopy.className = "feedback slide";
     let imageEighthSlideCopy = document.createElement("img");
-    imageEighthSlideCopy.src = "assets/images/pexels-hasibullah-zhowandai-248954-819530.jpg";
+    imageEighthSlideCopy.src = "assets/images/pexels-hasibullah-zhowandai-248954-819530.jpg"; //17
     let sizeTextEighthDivCopy = document.createElement("div");
     sizeTextEighthDivCopy.className = "tamanhoFrase";
     let textEighthDivCopy = document.createElement("p");
@@ -264,7 +264,7 @@ function createMain() {
     let ninthSlideDivCopy = document.createElement("div");
     ninthSlideDivCopy.className = "feedback slide";
     let imageNinthSlideCopy = document.createElement("img");
-    imageNinthSlideCopy.src = "assets/images/pexels-pixabay-413885.jpg";
+    imageNinthSlideCopy.src = "assets/images/caraTranquilo.jpg"; //18
     let sizeTextNinthDivCopy = document.createElement("div");
     sizeTextNinthDivCopy.className = "tamanhoFrase";
     let textNinthDivCopy = document.createElement("p");
@@ -362,7 +362,7 @@ function createMain() {
     sizeTextNinthDiv.appendChild(textNinthDiv);
     ninthSlideDiv.appendChild(imageNinthSlide);
     ninthSlideDiv.appendChild(sizeTextNinthDiv);
-    sizeTextFirstDivCopy.appendChild(textFirstDivCopy);
+    sizeTextFirstDivCopy.appendChild(textFirstDivCopy); 
     firstSlideDivCopy.appendChild(imageFirstSlideCopy);
     firstSlideDivCopy.appendChild(sizeTextFirstDivCopy);
     sizeTextSecondDivCopy.appendChild(textSecondDivCopy);
@@ -389,24 +389,24 @@ function createMain() {
     sizeTextNinthDivCopy.appendChild(textNinthDivCopy);
     ninthSlideDivCopy.appendChild(imageNinthSlideCopy);
     ninthSlideDivCopy.appendChild(sizeTextNinthDivCopy);
-    thirdFrame.appendChild(firstSlideDiv);
-    thirdFrame.appendChild(secondSlideDiv);
-    thirdFrame.appendChild(thirdSlideDiv);
-    thirdFrame.appendChild(fourthSlideDiv);
-    thirdFrame.appendChild(fifthSlideDiv);
-    thirdFrame.appendChild(sixthSlideDiv);
-    thirdFrame.appendChild(seventhSlideDiv);
-    thirdFrame.appendChild(eighthSlideDiv);
-    thirdFrame.appendChild(ninthSlideDiv);
-    thirdFrame.appendChild(firstSlideDivCopy);
-    thirdFrame.appendChild(secondSlideDivCopy);
-    thirdFrame.appendChild(thirdSlideDivCopy);
-    thirdFrame.appendChild(fourthSlideDivCopy);
-    thirdFrame.appendChild(fifthSlideDivCopy);
-    thirdFrame.appendChild(sixthSlideDivCopy);
-    thirdFrame.appendChild(seventhSlideDivCopy);
-    thirdFrame.appendChild(eighthSlideDivCopy);
-    thirdFrame.appendChild(ninthSlideDiv);
+    thirdFrame.appendChild(firstSlideDiv); 1
+    thirdFrame.appendChild(secondSlideDiv); 2
+    thirdFrame.appendChild(thirdSlideDiv); 3
+    thirdFrame.appendChild(fourthSlideDiv); 4
+    thirdFrame.appendChild(fifthSlideDiv); 5
+    thirdFrame.appendChild(sixthSlideDiv); 6
+    thirdFrame.appendChild(seventhSlideDiv); 7
+    thirdFrame.appendChild(eighthSlideDiv); 8
+    thirdFrame.appendChild(ninthSlideDiv); 9
+    thirdFrame.appendChild(firstSlideDivCopy); 1
+    thirdFrame.appendChild(secondSlideDivCopy); 2
+    thirdFrame.appendChild(thirdSlideDivCopy); 3
+    thirdFrame.appendChild(fourthSlideDivCopy); 4
+    thirdFrame.appendChild(fifthSlideDivCopy); 5
+    thirdFrame.appendChild(sixthSlideDivCopy); 6
+    thirdFrame.appendChild(seventhSlideDivCopy); 7
+    thirdFrame.appendChild(eighthSlideDivCopy); 8
+    thirdFrame.appendChild(ninthSlideDivCopy); 9
     sliderDiv.appendChild(thirdFrame);
     leftSectionDiv.appendChild(firstTextLeftSection);
     leftSectionDiv.appendChild(secondTextLeftSection);

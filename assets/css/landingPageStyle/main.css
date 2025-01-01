@@ -117,15 +117,7 @@
     align-items: baseline;
 }
 
-#third-frame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 20vh;
-    background-color: #F5D0A9;
-    gap: 20px;
-}
+
 
 #third-frame .feedback {
     display: flex;
@@ -218,16 +210,18 @@
     height: 250px;
     margin: auto;
     position: relative;
-    width: 100%;
+    width: 90%;
     display: grid;
     place-items: center;
     overflow: hidden;
+    background-color: #F5D0A9;
 }
 
 .slide-track {
     display: flex;
     width: calc(250px * 18);
     animation: scroll 40s linear infinite;
+    width: 4500px;
 }
 
 @keyframes scroll {
@@ -246,11 +240,6 @@
     align-items: center;
     padding: 15px;
     perspective: 100px;
-}
-
-.slide img {
-    width: 100%;
-    transition: transform 1s;
 }
 
 .slider::before,
@@ -272,6 +261,10 @@
     right: 0;
     top: 0;
     transform: rotateZ(180deg);
+}
+
+.tamanhoFrase {
+    width: 155px;
 }
 
 .hidden {

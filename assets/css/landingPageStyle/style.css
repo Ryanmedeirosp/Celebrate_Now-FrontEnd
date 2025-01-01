@@ -6,8 +6,8 @@
 }
 
 header {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     background-color: #F5D0A9;
     width: 100%;
 }
