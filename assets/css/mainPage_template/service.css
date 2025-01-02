@@ -1,0 +1,280 @@
+#divImg_user {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+#divImg_user img {
+    width: 50px;
+}
+
+#txt_user{
+    font-size: 18px;
+    background-color: darkgray;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#divBanner_service {
+    width: 100%;
+    height: 175px;
+}
+
+#divBanner_service img {
+    width: 100%;
+}
+
+#divServices {
+    height: 640px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#divButtonsService {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+}
+
+.buttonService {
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    width: 150px;
+    height: 40px;
+    font-size: medium;
+}
+
+.buttonService:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#divAllContentService {
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#divAllServices{
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.individualServiceDiv {
+    height: 400px;
+    width: 550px;
+    display: flex;
+}
+
+.leftSideIndividualServiceDiv {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightSideIndividualServiceDiv {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.titleIndividualServiceInLeftSideDiv {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.imageIndividualServiceInLeftSideDiv {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageIndividualServiceInLeftSide {
+    height: 300px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+.buttonHireIndividualServiceInLeftSideDiv {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonHireIndividualServiceInLeftSide {
+    height: 30px;
+    width: 100px;
+    border-radius: 8px;
+    border: solid 1px #A1C6EA;
+    color: #A1C6EA;
+    background-color: white;
+}
+
+.textIndividualServiceInRightSideDiv {
+    height: 39%;
+    width: 60%;
+    border-bottom: solid 2px black;
+}
+
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 10;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#modalHeaderDiv {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalBodyDiv {
+    height: 75%;
+    width: 100%;
+    display: flex;
+}
+
+#titleImageDiv {
+    height: 100%;
+    width: 50%;
+}
+
+#titleDiv {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titleInput {
+    height: 40px;
+    width: 250px;
+}
+
+#titleInput::placeholder {
+    text-align: center;
+}
+
+#imageDiv {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loadImageButtonDiv {
+    font-size: large;
+    padding: 4px;
+    border-radius: 10px;
+    border: solid 1px black;
+    color: black;
+    background-color: white;
+}
+
+#loadImageButtonDiv:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+#descriptionDiv {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#descriptionArea {
+    height: 300px;
+    width: 250px;
+}
+
+#buttonConfirmNewServiceDiv {
+    height: 15%;
+    width: 100%;
+}
+
+#buttonConfirmNewServiceDiv {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttonConfirmNewService {
+    font-size: large;
+    padding: 5px;
+    border-radius: 10px;
+    border: solid 1px black;
+    color: black;
+    background-color: white;
+}
+
+#buttonConfirmNewService:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#modal.hide, #fade.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#fade, #modal {
+    transition: 0.3s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#modal.hide {
+    top: 0;
+}

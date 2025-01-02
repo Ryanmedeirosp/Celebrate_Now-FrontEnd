@@ -138,9 +138,9 @@ function create_service() {
     titleInput.placeholder = "Digite o nome do serviço";
     let imageDiv = document.createElement("div");
     imageDiv.id = "imageDiv";
-    let loadImageButtonDiv = document.createElement("button");
-    loadImageButtonDiv.id = "loadImageButtonDiv";
-    loadImageButtonDiv.textContent = "Carregar imagem";
+    let loadImageButtonDiv = document.createElement("input");
+    loadImageButtonDiv.id = "files";
+    loadImageButtonDiv.type = "file";
     let descriptionDiv = document.createElement("div");
     descriptionDiv.id = "descriptionDiv";
     let descriptionArea = document.createElement("textarea");
@@ -162,21 +162,6 @@ function create_service() {
 
     buttonConfirmNewService.addEventListener("click", (event)=>{
 
-        loadImageButtonDiv.addEventListener("click", (event)=>{
-
-            let item = document.createElement("tr")
-            dados.appendChild(item);
-            let celulafoto = document.querySelector("td")
-            let imagemminni= document.createElement("img")
-            imagemminni.id='fotinha'
-            const leitor = new FileReader()
-            leitor.readAsDataURL(foto.files[0])
-            leitor.addEventListener("load", (event)=>{
-                imageIndividualServiceInLeftSide.src=event.target.result;
-            });
-
-        });
-
     let individualServiceDiv = document.createElement("div");
     individualServiceDiv.className = "individualServiceDiv";
 
@@ -189,12 +174,18 @@ function create_service() {
     titleIndividualServiceInLeftSideDiv.className = "titleIndividualServiceInLeftSideDiv";
     let titleIndividualServiceInLeftSide = document.createElement("h2");
     titleIndividualServiceInLeftSide.className = "titleIndividualServiceInLeftSide"
-    titleIndividualServiceInLeftSide.textContent = "teste";
+    titleIndividualServiceInLeftSide.textContent = titleInput.value;
 
     let imageIndividualServiceInLeftSideDiv = document.createElement("div");
     imageIndividualServiceInLeftSideDiv.className = "imageIndividualServiceInLeftSideDiv";
     let imageIndividualServiceInLeftSide = document.createElement("img");
     imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide"
+
+    const leitor = new FileReader()
+    leitor.readAsDataURL(files.files[0])
+    leitor.addEventListener("load", (event)=>{
+        imageIndividualServiceInLeftSide.src=event.target.result;
+    })
 
     let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");
     buttonHireIndividualServiceInLeftSideDiv.className = "buttonHireIndividualServiceInLeftSideDiv";
@@ -207,7 +198,7 @@ function create_service() {
     textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
     let textIndividualServiceInRightSide = document.createElement("p");
     textIndividualServiceInRightSide.className = "textIndividualServiceInRightSide";
-    textIndividualServiceInRightSide.textContent = "Olá, meu nome é Gabriel e sou um padre há 28 anos, minha especialidade e ministrar eventos matrimonias para as pessoas se casarem.";
+    textIndividualServiceInRightSide.textContent = descriptionArea.value;
 
     let knowMoreIndividualServiceInRightSideDiv = document.createElement("div");
     knowMoreIndividualServiceInRightSideDiv.className = "knowMoreIndividualServiceInRightSideDiv";
