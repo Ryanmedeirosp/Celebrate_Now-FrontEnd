@@ -10,7 +10,7 @@
     width: 50px;
 }
 
-#txt_user{
+#txt_user {
     font-size: 18px;
     background-color: darkgray;
     padding: 10px;
@@ -61,22 +61,25 @@
     width: 100%;
     flex-direction: column;
     gap: 10px;
+    border: solid;
 }
 
-#divAllServices{
+#divAllServices {
     height: 100%;
     width: 100%;
     overflow: auto;
     display: grid;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
+    border: solid;
+    justify-items: center;
 }
 
 .individualServiceDiv {
     height: 400px;
     width: 550px;
     display: flex;
+    border: solid;
 }
 
 .leftSideIndividualServiceDiv {

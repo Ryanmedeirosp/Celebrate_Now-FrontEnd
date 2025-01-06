@@ -1,5 +1,5 @@
 /* Sidebar divisão na tela */
-.sidebar{
+.sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -11,12 +11,12 @@
 }
 
 /* Sidebar Content Div */
-.sidebar .sidebar_content{
+.sidebar .sidebar_content {
     padding: 12px;
 }
 
 /* Sidebar Logo Div */
-.sidebar .sidebar_content .logo{
+.sidebar .sidebar_content .logo {
     display: flex;
     justify-content: center;
     height: 50px;
@@ -24,14 +24,14 @@
 }
 
 /* Sidebar Logo Image*/
-.sidebar .sidebar_content .logo img{
+.sidebar .sidebar_content .logo img {
     width: 100px;
     height: 50px;
     object-fit: cover;
 }
 
 /* Sidebar Items */
-.sidebar .sidebar_content ul{
+.sidebar .sidebar_content ul {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -40,24 +40,24 @@
 }
 
 /* Sidebar Items - Line */
-.sidebar .sidebar_content li{
+.sidebar .sidebar_content li {
     padding: 14px;
     border-radius: 8px;
     cursor: pointer;
 }
 
 /* Sidebar Items - Actual Page */
-.sidebar .sidebar_content li.active{
+.sidebar .sidebar_content li.active {
     background-color: #2D2D2D;
 }
 
 /* Sidebar Items - Options Hover */
-.sidebar .sidebar_content li:hover:not(.active){
+.sidebar .sidebar_content li:hover:not(.active) {
     background-color: #D8B795;
 }
 
 /* Sidebar Items - Line Text and Icon */
-.sidebar .sidebar_content li a{
+.sidebar .sidebar_content li a {
     text-decoration: none;
     display: flex;
     gap: 14px;
@@ -65,12 +65,12 @@
 }
 
 /* Sidebar Items - Actual Page Text and Icon */
-.sidebar .sidebar_content li.active a{
+.sidebar .sidebar_content li.active a {
     color: #e3e9f7;
 }
 
 /* Sidebar Items - Actual Page Icon */
-.sidebar .sidebar_content li a i{
+.sidebar .sidebar_content li a i {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,13 +79,13 @@
 }
 
 /* Logout Button Div */
-.sidebar .sidebar_logout{
+.sidebar .sidebar_logout {
     border-top: 1px solid #000;
     padding: 12px;
 }
 
 /* Logout Button Button */
-.sidebar .sidebar_logout button{
+.sidebar .sidebar_logout button {
     border: none;
     padding: 12px;
     font-size: 14px;
@@ -99,6 +99,6 @@
 }
 
 /* Logout Button Button - Hover */
-.sidebar .sidebar_logout button:hover{
+.sidebar .sidebar_logout button:hover {
     background-color: #D8B795;
 }

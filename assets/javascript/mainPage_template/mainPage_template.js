@@ -94,13 +94,9 @@ function create_service() {
     divServices.id = "divServices";
     let divButtonsService = document.createElement("div");
     divButtonsService.id = "divButtonsService";
-    let buttonEditService = document.createElement("button");
-    buttonEditService.className = "buttonService";
-    buttonEditService.textContent = "Editar serviço";
     let buttonAddService = document.createElement("button");
     buttonAddService.textContent = "Adicionar serviço";
     buttonAddService.className = "buttonService";
-    divButtonsService.appendChild(buttonEditService)
     divButtonsService.appendChild(buttonAddService);
     divServices.appendChild(divButtonsService);
     divAllContentService.appendChild(divServices);
@@ -145,6 +141,7 @@ function create_service() {
     descriptionDiv.id = "descriptionDiv";
     let descriptionArea = document.createElement("textarea");
     descriptionArea.id = "descriptionArea";
+    descriptionArea.maxLength = 50;
     let buttonConfirmNewServiceDiv = document.createElement("div");
     buttonConfirmNewServiceDiv.id = "buttonConfirmNewServiceDiv";
     let buttonConfirmNewService = document.createElement("button");
@@ -197,6 +194,7 @@ function create_service() {
     let textIndividualServiceInRightSideDiv = document.createElement("div");
     textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
     let textIndividualServiceInRightSide = document.createElement("p");
+    textIndividualServiceInRightSide.id = "texts";
     textIndividualServiceInRightSide.className = "textIndividualServiceInRightSide";
     textIndividualServiceInRightSide.textContent = descriptionArea.value;
 
