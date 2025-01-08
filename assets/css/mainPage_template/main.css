@@ -55,7 +55,7 @@
 
 
 .modal-content {
-    background-color: white;
+    background-color: #D8B795;
     padding: 20px;
     border-radius: 5px;
     width: 300px;
@@ -89,7 +89,7 @@
     color: white;
 }
 
-#modal {
+#modal-cliente {
     display: none;
 }
 
