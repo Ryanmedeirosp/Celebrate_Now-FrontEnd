@@ -450,7 +450,7 @@ function create_clients() {
     
     // Modal para adicionar cliente
     let modal = document.createElement("div");
-    modal.id = "modal";
+    modal.id = "modal-cliente";
     modal.className = "modal hidden";
     // modal.style.display = "none"
 
@@ -527,6 +527,7 @@ function create_clients() {
         } else {
             alert("Por favor, preencha todos os campos!");
         }
+        modal.style.display="none"; 
     });
 
     // Função para adicionar cliente à lista
