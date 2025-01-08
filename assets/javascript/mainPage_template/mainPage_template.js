@@ -141,7 +141,8 @@ function create_service() {
     descriptionDiv.id = "descriptionDiv";
     let descriptionArea = document.createElement("textarea");
     descriptionArea.id = "descriptionArea";
-    descriptionArea.maxLength = 50;
+    descriptionArea.placeholder = "Insira uma descrição...";
+    descriptionArea.maxLength = 150;
     let buttonConfirmNewServiceDiv = document.createElement("div");
     buttonConfirmNewServiceDiv.id = "buttonConfirmNewServiceDiv";
     let buttonConfirmNewService = document.createElement("button");
@@ -222,9 +223,9 @@ function create_service() {
 
     corpo.appendChild(divAllContentService);
     modalHeaderDiv.appendChild(titleNewService);
+    modalHeaderDiv.appendChild(titleDiv)
     modal.appendChild(modalHeaderDiv);
     titleDiv.appendChild(titleInput);
-    titleImageDiv.appendChild(titleDiv);
     imageDiv.appendChild(loadImageButtonDiv);
     titleImageDiv.appendChild(imageDiv);
     modalBodyDiv.appendChild(titleImageDiv);

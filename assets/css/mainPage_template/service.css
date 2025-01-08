@@ -163,8 +163,8 @@
     transform: translate(-50%, -50%);
     background-color: white;
     z-index: 10;
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,21 +173,25 @@
 
 #modalHeaderDiv {
     width: 100%;
-    height: 10%;
+    height: 30%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 #modalBodyDiv {
-    height: 75%;
+    height: 50%;
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #titleImageDiv {
     height: 100%;
-    width: 50%;
+    width: 55%;
 }
 
 #titleDiv {
@@ -200,14 +204,34 @@
 #titleInput {
     height: 40px;
     width: 250px;
+    background-color: #dddd;
+    color: #666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    resize: none;
+    transition: all 0.2s;
 }
 
 #titleInput::placeholder {
     text-align: center;
 }
 
+#titleInput:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+
+#titleInput:focus {
+    cursor: text;
+    color: #333;
+    background-color: white;
+    border-color: #333;
+}
+
 #imageDiv {
-    height: 70%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,15 +253,35 @@
 
 #descriptionDiv {
     height: 100%;
-    width: 50%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #descriptionArea {
-    height: 300px;
+    height: 120px;
     width: 250px;
+    background-color: #dddd;
+    color: #666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    resize: none;
+    transition: all 0.2s;
+}
+
+#descriptionArea:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+
+#descriptionArea:focus {
+    cursor: text;
+    color: #333;
+    background-color: white;
+    border-color: #333;
 }
 
 #buttonConfirmNewServiceDiv {
@@ -246,7 +290,7 @@
 }
 
 #buttonConfirmNewServiceDiv {
-    height: 15%;
+    height: 20%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -257,14 +301,17 @@
     font-size: large;
     padding: 5px;
     border-radius: 10px;
-    border: solid 1px black;
-    color: black;
-    background-color: white;
+    border: 2px solid transparent;
+    color: #333;
+    background-color: #dddd;
+    transition: all 0.2s;
 }
 
 #buttonConfirmNewService:hover {
     cursor: pointer;
-    opacity: 0.7;
+    background-color: white;
+    border-color: #333;
+    color: black;
 }
 
 #modal.hide, #fade.hide {
