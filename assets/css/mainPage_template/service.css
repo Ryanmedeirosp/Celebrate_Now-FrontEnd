@@ -31,6 +31,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    border: solid;
 }
 
 #divButtonsService {
@@ -38,7 +39,6 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    gap: 20px;
 }
 
 .buttonService {
