@@ -95,7 +95,7 @@ function create_service() {
     let divButtonsService = document.createElement("div");
     divButtonsService.id = "divButtonsService";
     let buttonAddService = document.createElement("button");
-    buttonAddService.textContent = "Adicionar serviço";
+    buttonAddService.textContent = "Novo serviço";
     buttonAddService.className = "buttonService";
     divButtonsService.appendChild(buttonAddService);
     divServices.appendChild(divButtonsService);
