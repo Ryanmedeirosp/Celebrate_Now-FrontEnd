@@ -18,41 +18,6 @@ function removePreviousContent() {
     }
 }
 
-for (let index = 0; index < sidebarLines.length; index++) {
-    sidebarLines[index].addEventListener("click", (event) => {
-        
-        for (let i = 0; i < sidebarLines.length; i++) {
-            sidebarLines[i].classList.remove("active");
-        }
-        
-        sidebarLines[index].classList.add("active");
-
-        removePreviousContent();
-
-        switch (sidebarLines[index].id) {
-            case 'service':
-                create_service();
-                break;
-            case 'budget':
-                create_budget();
-                break;
-            case 'schadelure':
-                create_schadelure();
-                break;
-            case 'contract':
-                create_contract();
-                break;
-            case 'clients':
-                create_clients();
-                break;
-            case 'list':
-                create_list();
-                break;
-            default:
-                console.log("Item desconhecido clicado");
-        }
-    });
-}
 
 btnSeeAllCustomers.addEventListener("click", (event) =>{
     for (let i = 0; i < sidebarLines.length; i++) {

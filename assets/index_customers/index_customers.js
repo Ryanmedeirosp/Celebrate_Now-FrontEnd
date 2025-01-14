@@ -1,73 +1,9 @@
-const service = document.querySelector("#service");
-const budget = document.querySelector("#budget");
-const schadelure = document.querySelector("#schadelure");
-const contract = document.querySelector("#contract");
 const clients = document.querySelector("#clients");
 const list = document.querySelector("#list");
 const sidebarLines = document.getElementsByClassName("sidebar_line_item");
 const corpo = document.querySelector("main");
 const list_customer = document.querySelector("#list-customers");
 const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers")
-
-let currentContent = null;
-
-function removePreviousContent() {
-    if (currentContent) {
-        corpo.removeChild(currentContent);
-        currentContent = null;
-    }
-}
-
-for (let index = 0; index < sidebarLines.length; index++) {
-    sidebarLines[index].addEventListener("click", (event) => {
-        
-        for (let i = 0; i < sidebarLines.length; i++) {
-            sidebarLines[i].classList.remove("active");
-        }
-        
-        sidebarLines[index].classList.add("active");
-
-        removePreviousContent();
-
-        switch (sidebarLines[index].id) {
-            case 'service':
-                create_service();
-                break;
-            case 'budget':
-                create_budget();
-                break;
-            case 'schadelure':
-                create_schadelure();
-                break;
-            case 'contract':
-                create_contract();
-                break;
-            case 'clients':
-                create_clients();
-                break;
-            case 'list':
-                create_list();
-                break;
-            default:
-                console.log("Item desconhecido clicado");
-        }
-    });
-}
-
-btnSeeAllCustomers.addEventListener("click", (event) =>{
-    for (let i = 0; i < sidebarLines.length; i++) {
-        sidebarLines[0].classList.remove("active");
-        sidebarLines[1].classList.remove("active");
-        sidebarLines[2].classList.remove("active");
-        sidebarLines[3].classList.remove("active");
-        sidebarLines[4].classList.add("active");   
-    };
-    removePreviousContent();
-    create_clients();
-});
-
-
-
 
 function create_clients() {
     removePreviousContent(); // Remove o conteúdo anterior
@@ -341,5 +277,6 @@ function create_list_customer() {
 }
 
 window.onload = () => {
+    create_clients(); 
     create_list_customer();
 };
