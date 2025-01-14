@@ -76,15 +76,21 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify(requestData)
         })
-        .then(... response => {
-            console.log(response)
+        .then(response => {
             if (!response.ok) {
                 return response.json().then(err => {
-                    throw new Error(err.message || "Erro ao processar a solicitação.");
+                    if (err.error === "EMAIL_ALREADY_EXISTS") {
+                        showError("Este email já está cadastrado.");
+                    } else if (err.error === "CPF_ALREADY_EXISTS") {
+                        showError("Este CPF já está cadastrado.");
+                    } else {
+                        showError("Erro ao processar a solicitação.");
+                    }
                 });
             }
             return response.json();
         })
+        
         .then(data => {
             console.log("Cadastro realizado com sucesso:", data);
             alert("Cadastro realizado com sucesso!");
