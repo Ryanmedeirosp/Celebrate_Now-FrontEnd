@@ -228,7 +228,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    border: solid;
 }
 
 #divButtonsService {
@@ -258,7 +257,6 @@
     width: 100%;
     flex-direction: column;
     gap: 10px;
-    border: solid;
 }
 
 #divAllServices {
@@ -268,7 +266,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    border: solid;
     justify-items: center;
 }
 
@@ -276,7 +273,6 @@
     height: 400px;
     width: 550px;
     display: flex;
-    border: solid;
 }
 
 .leftSideIndividualServiceDiv {
@@ -361,7 +357,7 @@
     background-color: white;
     z-index: 10;
     width: 400px;
-    height: 380px;
+    height: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -370,20 +366,22 @@
 
 #modalHeaderDiv {
     width: 100%;
-    height: 30%;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    border: solid;
 }
 
 #modalBodyDiv {
-    height: 50%;
+    height: 250px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: solid;
 }
 
 #titleImageDiv {
@@ -392,13 +390,16 @@
 }
 
 #titleDiv {
-    height: 15%;
+    height: 360px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+    border: solid;
 }
 
-#titleInput {
+.inputInformation {
     height: 40px;
     width: 250px;
     background-color: #dddd;
@@ -428,10 +429,11 @@
 }
 
 #imageDiv {
-    height: 100%;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: solid;
 }
 
 #loadImageButtonDiv {
@@ -449,9 +451,9 @@
 }
 
 #descriptionDiv {
-    height: 100%;
     width: 100%;
     display: flex;
+    border: solid;
     align-items: center;
     justify-content: center;
 }

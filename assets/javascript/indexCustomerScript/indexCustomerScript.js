@@ -4,19 +4,6 @@ const corpo = document.querySelector("main");
 const list_customer = document.querySelector("#list-customers");
 const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers")
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const currentPage = window.location.pathname.split('/').pop(); // Obtém o nome da página atual
-    const menuItems = document.querySelectorAll('.sidebar_content li');
-
-    menuItems.forEach(item => {
-        const link = item.querySelector('a').getAttribute('href');
-        if (link === currentPage) {
-            item.classList.add('active');
-        }
-    });
-});
-
 function create_clients() {
    
 >>>>>>>> 968754b5c1e36e2b5e3450fc92a24aaa2d78f0e4:assets/javascript/indexCustomersScript/indexCustomersScript.js
