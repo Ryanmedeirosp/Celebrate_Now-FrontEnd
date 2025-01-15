@@ -1,6 +1,7 @@
+const clients = document.querySelector("#clients");
+const list = document.querySelector("#list");
+const sidebarLines = document.getElementsByClassName("sidebar_line_item");
 const corpo = document.querySelector("main");
-<<<<<<<< HEAD:assets/javascript/indexCustomerScript/indexCustomerScript.js
-========
 const list_customer = document.querySelector("#list-customers");
 const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers")
 
@@ -19,10 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function create_clients() {
    
->>>>>>>> 968754b5c1e36e2b5e3450fc92a24aaa2d78f0e4:assets/javascript/indexCustomersScript/indexCustomersScript.js
 
     let divClients = document.createElement("div");
     divClients.id = "divClients";
+
+
 
     // Contêiner superior com botão de adicionar cliente
     let divSuperior = document.createElement("div");
@@ -242,3 +244,52 @@ function create_clients() {
         list_customer.appendChild(clienteSidebarDiv);
     }
     corpo.appendChild(divClients);
+    currentContent = divClients; // Atualiza o conteúdo atual
+}
+
+
+
+function create_list() {
+    let divList = document.createElement("div");
+    divList.id = "divList";
+    let h1 = document.createElement("h1");
+    h1.textContent = "Conteúdo de Lista"; 
+    divList.appendChild(h1);
+    corpo.appendChild(divList);
+    currentContent = divList; 
+}
+
+function create_list_customer() {
+    let customer = document.createElement("div");
+    customer.id = "customer";
+    
+    let photoCustomerDiv = document.createElement("div");
+    photoCustomerDiv.className = "photoCustomerDiv";
+    let photoCustomer = document.createElement("img");
+    photoCustomer.className = "photoCustomer";
+    photoCustomer.src = "../assets/images/user-icon-removebg-preview.svg";
+
+
+    let chatImageCustomerDiv = document.createElement("div");
+    chatImageCustomerDiv.className = "chatImageCustomerDiv";
+    let chatImageCustomer = document.createElement("img");
+    chatImageCustomer.className = "chatImageCustomer";
+    chatImageCustomer.src = "../assets/images/o-email.png"
+
+    chatImageCustomerDiv.appendChild(chatImageCustomer);
+    informationsCustomerDiv.appendChild(nameInformationCustomer);
+    informationsCustomerDiv.appendChild(contractNumberInformationCustomer);
+    informationsCustomerDiv.appendChild(eventDateInformationCustomer);
+    photoCustomerDiv.appendChild(photoCustomer);
+    divPhotoInformations.appendChild(photoCustomerDiv);
+    divPhotoInformations.appendChild(informationsCustomerDiv);
+    customer.appendChild(divPhotoInformations);
+    customer.appendChild(chatImageCustomerDiv);
+    list_customer.appendChild(customer);
+    
+}
+
+window.onload = () => {
+    create_clients(); 
+    create_list_customer();
+};
