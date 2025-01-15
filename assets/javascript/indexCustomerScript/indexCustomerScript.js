@@ -1,10 +1,7 @@
-function create_clients() {
-    removePreviousContent(); // Remove o conteúdo anterior
+const corpo = document.querySelector("main");
 
     let divClients = document.createElement("div");
     divClients.id = "divClients";
-
-
 
     // Contêiner superior com botão de adicionar cliente
     let divSuperior = document.createElement("div");
@@ -224,5 +221,3 @@ function create_clients() {
         list_customer.appendChild(clienteSidebarDiv);
     }
     corpo.appendChild(divClients);
-    currentContent = divClients; // Atualiza o conteúdo atual
-}

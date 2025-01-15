@@ -247,8 +247,6 @@ function create_budget() {
     divAllContentBudget.appendChild(teste);
     corpo.appendChild(divAllContentBudget);
     currentContent = divAllContentBudget;
-
-
 }
 
 function create_schadelure() {

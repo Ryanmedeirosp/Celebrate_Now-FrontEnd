@@ -115,7 +115,7 @@ const corpo = document.querySelector("main");
             imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide"
 
             const leitor = new FileReader()
-            leitor.readAsDataURL(files.files[0])
+            leitor.readAsDataURL(loadImageButtonDiv.files[0])
             leitor.addEventListener("load", (event)=>{
                 imageIndividualServiceInLeftSide.src=event.target.result;
             })
