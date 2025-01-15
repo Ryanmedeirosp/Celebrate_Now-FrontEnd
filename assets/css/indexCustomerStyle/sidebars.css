@@ -1,94 +1,3 @@
-#sidebar-right {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 100%;
-    background-color: white;
-    border-left: 2px solid;
-}
-
-#customers {
-    display: flex;
-    flex-direction: row;
-    padding: 10%;
-    justify-content: space-around;
-    align-items: center;
-    gap: 10px;
-}
-
-#customers img {
-    width: 35px;
-}
-
-#customers button {
-    border: 0px;
-    margin-top: 10px;
-    background-color: white;
-    cursor: pointer;
-}
-
-#list-customers {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 20px;
-    height: 80%;
-}
-
-.customer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    width: 280px;
-    height: 60px;
-    background-color: #D8B795;
-}
-
-.divPhotoInformations {
-    display: flex;
-    gap: 5px;
-}
-
-.informationsCustomerDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 160px;
-}
-
-.informationsCustomerDiv p {
-    font-size: 11px;
-}
-
-#customer p:hover {
-    opacity: 0.8;
-}
-
-.photoCustomerDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.photoCustomer {
-    height: 50px;
-    width: 50px;
-}
-
-.chatImageCustomerDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-}
-
-.chatImageCustomer {
-    height: 30px;
-    width: 30px;
-}
 /* Sidebar divisão na tela */
 .sidebar {
     display: flex;
@@ -193,27 +102,99 @@
 .sidebar .sidebar_logout button:hover {
     background-color: #D8B795;
 }
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Lora", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
 
-body {
-    min-height: 100vh;
-    background-color: white;
+
+
+
+#sidebar-right {
     display: flex;
-    overflow: hidden;
-}
-
-main {
-    display: flex;
-    width: 100%;
     flex-direction: column;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    border-left: 2px solid;
+}
+
+#customers {
+    display: flex;
+    flex-direction: row;
+    padding: 10%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+#customers img {
+    width: 35px;
+}
+
+#customers button {
+    border: 0px;
+    margin-top: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#list-customers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    height: 80%;
+}
+
+.customer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    width: 280px;
+    height: 60px;
+    background-color: #D8B795;
+}
+
+.divPhotoInformations {
+    display: flex;
+    gap: 5px;
+}
+
+.informationsCustomerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 160px;
+}
+
+.informationsCustomerDiv p {
+    font-size: 11px;
+}
+
+#customer p:hover {
+    opacity: 0.8;
+}
+
+.photoCustomerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photoCustomer {
+    height: 50px;
+    width: 50px;
+}
+
+.chatImageCustomerDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.chatImageCustomer {
+    height: 30px;
+    width: 30px;
 }

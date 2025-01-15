@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Sidebar divisão na tela */
 .sidebar {
     display: flex;
@@ -344,11 +345,58 @@
 }
 
 #fade {
+=======
+#divSuperior {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#divClientsImg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#divClientsImg img {
+    width: 35px;
+}
+
+#divSuperior-clients {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#btnAddClients {
+    border-radius: 7px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #D8B795;
+    display: flex;
+}
+
+#divListaClients {
+    display: flex;
+    width: 100%;
+    height:75%;
+    flex-direction: column;
+    overflow: scroll;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal {
+>>>>>>> 968754b5c1e36e2b5e3450fc92a24aaa2d78f0e4
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 5;
 }
@@ -525,3 +573,68 @@
 #modal.hide {
     top: 0;
 }
+=======
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.modal-content {
+    background-color: #D8B795;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btnSalvar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#btnCancelar {
+    background-color: #f44336;
+    color: white;
+}
+
+#modal-cliente {
+    display: none;
+}
+
+.clienteDiv {
+    width: 90%;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    justify-content: space-between;
+    border: 3px solid  #D8B795;
+}
+
+.btnRemoverCliente {
+    background-color: #D8B795;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+>>>>>>> 968754b5c1e36e2b5e3450fc92a24aaa2d78f0e4
