@@ -6,7 +6,7 @@ const list_customer = document.querySelector("#list-customers");
 const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers")
 
 function create_clients() {
-    removePreviousContent(); // Remove o conteúdo anterior
+   
 
     let divClients = document.createElement("div");
     divClients.id = "divClients";
