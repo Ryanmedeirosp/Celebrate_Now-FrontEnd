@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const signInButton = document.querySelector("#divButtonSignIn button");
+    const createClientButton = document.querySelector("#createClientButton");
 
-    signInButton.addEventListener("click", (event) => {
+    createClientButton.addEventListener("click", (event) => {
         event.preventDefault();
 
         // Captura os valores do formulário
@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = document.getElementById("emailField").value.trim();
         const password = document.getElementById("passwordField").value.trim();
         const confirmPassword = document.getElementById("confirmPasswordField").value.trim();
-        const phone = document.getElementById("phoneNumber").value.trim(); // Telefone
-        const documentNumber = document.getElementById("CpfOrCnpj").value.trim(); // CPF ou CNPJ
-        const birthday = document.getElementById("birthdayField").value.trim()
+        const phone = document.getElementById("phoneField").value.trim();
+        const cpf = document.getElementById("cpfField").value.trim();
+        const birthday = document.getElementById("birthdayField").value.trim();
         const cep = document.getElementById("cepField").value.trim();
-        const number = document.getElementById("numberHouseField").value.trim();
+        const houseNumber = document.getElementById("houseNumberField").value.trim();
 
         // Função para exibir mensagens de erro
         const showError = (message) => {
@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
             showError("As senhas não coincidem.");
         }
 
-        if (!documentNumber || documentNumber.length !== 11) {
-            showError("Documento inválido. Deve conter 11 caracteres.");
+        if (!cpf || cpf.length !== 11) {
+            showError("CPF inválido. Deve conter 11 caracteres.");
         }
 
         if (!phone || !/^\+?[1-9][0-9]{1,14}$/.test(phone)) {
@@ -50,31 +50,30 @@ document.addEventListener("DOMContentLoaded", () => {
             showError("CEP inválido. Deve conter exatamente 8 dígitos.");
         }
 
-        if (!number || isNaN(number)) {
+        if (!houseNumber || isNaN(houseNumber)) {
             showError("O número da residência deve ser válido.");
         }
 
         // Objeto com os dados validados
-        const requestData = {
+        const clientData = {
             name: name,
             email: email,
             password: password,
-            document: documentNumber,
+            cpf: cpf,
             birthday: birthday,
             phone: phone,
             cep: cep,
-            houseNumber: number
-            
+            houseNumber: houseNumber
         };
 
         // Envio ao backend
-        fetch("http://localhost:8080/ceremonialist", {
+        fetch("http://localhost:8080/clients", {
             method: "POST",
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(requestData)
+            body: JSON.stringify(clientData)
         })
         .then(response => {
             if (!response.ok) {
@@ -90,15 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             return response.json();
         })
-        
         .then(data => {
-            console.log("Cadastro realizado com sucesso:", data);
-            alert("Cadastro realizado com sucesso!");
-            // Opcional: Redirecionar o usuário após o sucesso
+            console.log("Cliente criado com sucesso:", data);
+            alert("Cliente criado com sucesso!");
+            // Opcional: Redirecionar o usuário ou limpar o formulário
         })
         .catch(error => {
-            console.error("Erro ao enviar os dados:", error);
-            alert(error.message || "Erro ao cadastrar. Por favor, tente novamente.");
+            console.error("Erro ao criar o cliente:", error);
+            alert(error.message || "Erro ao criar o cliente. Por favor, tente novamente.");
         });
     });
 });
