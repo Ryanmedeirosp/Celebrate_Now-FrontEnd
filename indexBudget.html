@@ -26,7 +26,6 @@
 
     <!-- Sidebar -->
     <nav class="sidebar">
-
         <div class="sidebar_content">
             <div class="logo">
                 <img src="assets/images/logo-celebrate-now.png" alt="Celebrate Now Logo">
@@ -47,39 +46,32 @@
                         <span>Orçamento</span>
                     </a>
                 </li>
-    
                 <li class="sidebar_line_item" id="schadelure">
                     <a href="indexSchadelure.html">
                         <i class="fa-solid fa-calendar-days"></i>
                         <span>Calendário</span>
                     </a>
                 </li>
-    
                 <li class="sidebar_line_item" id="contract">
                     <a href="indexContract.html">
                         <i class="fa-solid fa-file-signature"></i>
                         <span>Contratos</span>
                     </a>
                 </li>
-    
                 <li class="sidebar_line_item" id="clients">
                     <a href="indexCustomers.html">
                         <i class="fa-solid fa-users"></i>
                         <span>Clientes</span>
                     </a>
                 </li>
-
             </ul>
-            
         </div>
-
         <div class="sidebar_logout">
             <button class="logout_button">
                 <i class="fa-solid fa-door-open"></i>
                 <span>Sair</span>
             </button>
         </div>
-
     </nav>
 
     <!-- Main Content -->
@@ -98,10 +90,7 @@
         </div>
 
         <div class="budget-main">
-            <div class="budget-main-sidebar">
-
-            </div>
-
+            <div class="budget-main-sidebar"></div>
             <div class="budget-main-content">
                     <table>
                         <thead>
@@ -174,12 +163,10 @@
         </div>
 
         <div class="budget-main-footer">
-            <div>
-                <h2>R$<span>20.000,00</span></h2>
-            </div>
+            <button id="openModalButton" class="btn-create-budget">Criar Novo Orçamento</button>
         </div>
     </main>
-    
+
     <aside>
         <div id="sidebar-right">
             <div id="customers">
@@ -187,13 +174,11 @@
                 <h2>Clientes</h2>
                 <button id="btn-see-all-customers">Ver todos</button>
             </div>
-
-            <div id="list-customers">
-                
-            </div>
+            <div id="list-customers"></div>
         </div>
     </aside>
 
-
+    <!-- JavaScript -->
+    <script src="assets/javascript/indexBudgetScript/indexBudgetScript.js" defer></script>
 </body>
 </html>

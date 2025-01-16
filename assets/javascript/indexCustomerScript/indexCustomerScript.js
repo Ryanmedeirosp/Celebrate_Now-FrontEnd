@@ -1,12 +1,9 @@
 const corpo = document.querySelector("main");
-<<<<<<<< HEAD:assets/javascript/indexCustomerScript/indexCustomerScript.js
-========
+
 const list_customer = document.querySelector("#list-customers");
 const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers")
 
-function create_clients() {
-   
->>>>>>>> 968754b5c1e36e2b5e3450fc92a24aaa2d78f0e4:assets/javascript/indexCustomersScript/indexCustomersScript.js
+
 
     let divClients = document.createElement("div");
     divClients.id = "divClients";
