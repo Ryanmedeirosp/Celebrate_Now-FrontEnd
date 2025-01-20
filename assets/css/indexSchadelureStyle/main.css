@@ -305,7 +305,6 @@
     justify-content: center;
 }
 
-
 .imageIndividualServiceInLeftSideDiv {
     height: 80%;
     width: 100%;
@@ -524,4 +523,42 @@
 
 #modal.hide {
     top: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100px; /* Reduz a largura da sidebar */
+    }
+
+    #sidebar-right {
+        width: 100%; /* Sidebar direita ocupa toda a largura */
+    }
+
+    #divSchadelure {
+        padding: 10px; /* Ajusta o padding do calendário */
+    }
+
+    .customer {
+        width: 100%; /* Clientes ocupam toda a largura */
+    }
+
+    /* Ajustes de fonte */
+    .sidebar .sidebar_content li {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    #divSchadelure h1 {
+        font-size: 24px; /* Ajusta o tamanho do título */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        display: none; /* Esconde a sidebar em telas muito pequenas */
+    }
+
+    #divSchadelure {
+        width: 100%; /* O calendário ocupa toda a largura */
+    }
 }
