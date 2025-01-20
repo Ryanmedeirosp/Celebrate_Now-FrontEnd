@@ -1,0 +1,208 @@
+/* Sidebar divisão na tela */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95vh;
+    width: 180px;
+    margin: 2vh;
+    background-color: #F5D0A9;
+    border-radius: 20px;
+}
+
+/* Sidebar Content Div */
+.sidebar .sidebar_content {
+    padding: 12px;
+}
+
+/* Sidebar Logo Div */
+.sidebar .sidebar_content .logo {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-bottom: 24px;
+}
+
+/* Sidebar Logo Image*/
+.sidebar .sidebar_content .logo img {
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+}
+
+/* Sidebar Items */
+.sidebar .sidebar_content ul {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    list-style: none;
+}
+
+/* Sidebar Items - Line */
+.sidebar .sidebar_content li {
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Sidebar Items - Actual Page */
+.sidebar .sidebar_content li.active {
+    background-color: #2D2D2D;
+}
+
+/* Sidebar Items - Options Hover */
+.sidebar .sidebar_content li:hover:not(.active) {
+    background-color: #D8B795;
+}
+
+/* Sidebar Items - Line Text and Icon */
+.sidebar .sidebar_content li {
+    text-decoration: none;
+    display: flex;
+    gap: 14px;
+    color: #0a0a0a;
+}
+
+/* Sidebar Items - Actual Page Text and Icon */
+.sidebar .sidebar_content li.active{
+    color: #e3e9f7;
+}
+
+/* Sidebar Items - Actual Page Icon */
+.sidebar .sidebar_content li a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+/* Logout Button Div */
+.sidebar .sidebar_logout {
+    border-top: 1px solid #000;
+    padding: 12px;
+}
+
+/* Logout Button Button */
+.sidebar .sidebar_logout button {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* Logout Button Button - Hover */
+.sidebar .sidebar_logout button:hover {
+    background-color: #D8B795;
+}
+
+
+
+
+
+#sidebar-right {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    border-left: 2px solid;
+}
+
+#customers {
+    display: flex;
+    flex-direction: row;
+    padding: 10%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+#customers img {
+    width: 35px;
+}
+
+#customers button {
+    border: 0px;
+    margin-top: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#list-customers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    height: 80%;
+}
+
+.customer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    width: 280px;
+    height: 60px;
+    background-color: #D8B795;
+}
+
+.divPhotoInformations {
+    display: flex;
+    gap: 5px;
+}
+
+.informationsCustomerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 160px;
+}
+
+.informationsCustomerDiv p {
+    font-size: 11px;
+}
+
+#customer p:hover {
+    opacity: 0.8;
+}
+
+.photoCustomerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photoCustomer {
+    height: 50px;
+    width: 50px;
+}
+
+.chatImageCustomerDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.chatImageCustomer {
+    height: 30px;
+    width: 30px;
+}
+a{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: #0a0a0a;
+    flex-direction: row;
+   
+}
