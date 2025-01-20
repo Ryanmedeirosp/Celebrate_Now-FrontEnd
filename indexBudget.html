@@ -9,10 +9,14 @@
     <link rel="stylesheet" href="assets/css/indexBudgetStyle/header.css">
     <link rel="stylesheet" href="assets/css/indexBudgetStyle/main.css">
     <link rel="stylesheet" href="assets/css/indexBudgetStyle/style.css">
+
     <link rel="stylesheet" href="assets/css/indexBudgetStyle/budget.css">
+    <link rel="stylesheet" href="assets/css/indexBudgetStyle/budget_modals.css">
 
     <!-- JavaScript -->
     <script src="assets/javascript/indexBudgetScript/indexBudgetScript.js" defer></script>
+    <script src="assets/javascript/indexBudgetScript/budget_modals.js" defer></script>
+    <script src="assets/javascript/indexBudgetScript/budget_build_table.js" defer></script>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
@@ -157,6 +161,26 @@
                                 </div>
                             </td>
                         </tr>
+
+                        <tr>
+                            <td>TEST.</td>
+                            <td>
+                                <input type="text" value="Fotografia e Filmagem">
+                                <textarea name="" id="">Captura dos momentos mais especiais do casamento, com fotos e vídeos de alta qualidade para eternizar cada emoção desse dia único.</textarea>
+                            </td>
+                            <td>
+                                <input type="text" value="1">
+                            </td>
+                            <td>
+                                <input type="text" value="350,00">
+                            </td>
+                            <td>
+                                <div class="table-button-field">
+                                    <button class="table-button-delete"><i class="bi bi-pencil-fill"></i></button>
+                                    <button class="table-button-edit"><i class="bi bi-trash3-fill"></i></button>                                                                       
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -180,7 +204,39 @@
         </div>
     </aside>
 
-    <!-- JavaScript -->
-    <script src="assets/javascript/indexBudgetScript/indexBudgetScript.js" defer></script>
+    <div class="modal-add-item">
+
+        <!-- <p id="modal-close-button">&times;</p> -->
+
+        <div class="modal-add-item-container">
+
+            <div class="modal-add-item-content">
+                <div class="add-item-text">Adicionar Item</div>
+                <p>Digite as seguintes informações para acrescentar um novo item ao orçamento:</p>
+
+                <form action="#">
+                    <div class="add-item-input-box">
+                        <input type="text" placeholder="Digite o nome do produto">
+                    </div>
+
+                    <div class="add-item-input-box">
+                        <input type="text" placeholder="Digite o valor do item">
+                    </div>
+
+                    <div class="add-item-input-box">
+                        <textarea class="description" name="" id="" placeholder="Digite a descrição do produto"></textarea>
+                    </div>
+                </form>
+
+                <div class="add-item-buttons-container">
+                    <button class="add-item-button">Cancelar</button>
+                    <button class="add-item-button">Confirmar</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
 </html>
