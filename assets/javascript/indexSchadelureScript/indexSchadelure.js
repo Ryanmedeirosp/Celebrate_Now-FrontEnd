@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.sidebar_content li');
 
     menuItems.forEach(item => {
-        const link = item.querySelector('li').getAttribute('href');
+        const link = item.querySelector('a').getAttribute('href');
         if (link === currentPage) {
             item.classList.add('active');
         }
