@@ -57,7 +57,7 @@
 }
 
 /* Sidebar Items - Line Text and Icon */
-.sidebar .sidebar_content li a {
+.sidebar .sidebar_content li {
     text-decoration: none;
     display: flex;
     gap: 14px;
@@ -65,7 +65,7 @@
 }
 
 /* Sidebar Items - Actual Page Text and Icon */
-.sidebar .sidebar_content li.active a {
+.sidebar .sidebar_content li.active{
     color: #e3e9f7;
 }
 
@@ -197,4 +197,12 @@
 .chatImageCustomer {
     height: 30px;
     width: 30px;
+}
+a{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: #0a0a0a;
+    flex-direction: row;
+   
 }
