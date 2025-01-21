@@ -89,12 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         throw new Error(err.message);
                     });
                 }
-                return response.json();
+                
             })
             .then(data => {
                 console.log("Cadastro realizado com sucesso:", data);
                 showSuccess("Cadastro realizado com sucesso!");
-                // Opcional: Redirecionar o usuário após o sucesso
+                // Redirect to login page immediately after successful registration
+                window.location.href = "../../login.html";
             })
             .catch(error => {
                 console.error("Erro ao enviar os dados:", error);
