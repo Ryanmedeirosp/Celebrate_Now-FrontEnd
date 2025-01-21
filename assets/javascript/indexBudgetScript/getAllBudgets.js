@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const totalAmount = document.getElementById("total-amount")
             budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
             
-            data.forEach((budget, index) => {
+            data.forEach((budget) => {
                 totalAmount.innerHTML = budget.totalAmount
-                budget.items.forEach((item) => {
+                budget.items.forEach((item, index) => {
                     // Criação da linha para cada item
                     const row = document.createElement("tr");
 
@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             <p><em>${item.title}</em></p>
                             <p>${item.description}</p>
                         </td>
-                        <td>150</td>
                         <td>R$<span>${item.price.toFixed(2)}</span></td>
                         <td>
                             <div class="table-button-field">
