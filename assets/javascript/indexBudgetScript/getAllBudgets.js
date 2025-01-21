@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     fetch(`http://localhost:8080/budget/1`, {
         method: "GET",
         headers: {
@@ -18,17 +17,37 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Orçamentos recebidos:", data);
         if (data.length > 0) {
             const budgetList = document.getElementById("budget-table");
-            budgetList.innerHTML = ""; // Limpa a lista antes de preencher
+            const totalAmount = document.getElementById("total-amount")
+            budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
+            
+            data.forEach((budget, index) => {
+                totalAmount.innerHTML = budget.totalAmount
+                budget.items.forEach((item) => {
+                    // Criação da linha para cada item
+                    const row = document.createElement("tr");
 
-            data.forEach((budget) => {
+                    row.innerHTML = `
+                  
+                        <td>${index + 1}.</td>
+                        <td>
+                            <p><em>${item.title}</em></p>
+                            <p>${item.description}</p>
+                        </td>
+                        <td>150</td>
+                        <td>R$<span>${item.price.toFixed(2)}</span></td>
+                        <td>
+                            <div class="table-button-field">
+                                <button class="table-button-delete"><i class="bi bi-pencil-fill"></i></button>
+                                <button class="table-button-edit"><i class="bi bi-trash3-fill"></i></button>                                                                       
+                            </div>
+                        </td>
+                
+                    `;
 
-                const listItem = document.createElement("li");
-                listItem.textContent = `Fornecedor: ${budget.items[0].title}, Cliente: ${budget.client}, Total: R$: ${budget.totalAmount}`;
-                budgetList.appendChild(listItem);
-
-                // buildTable(budgetMainContent, budget.items);
-
+                    budgetList.appendChild(row);
+                });
             });
+
         } else {
             alert("Nenhum orçamento encontrado para o cliente informado.");
         }

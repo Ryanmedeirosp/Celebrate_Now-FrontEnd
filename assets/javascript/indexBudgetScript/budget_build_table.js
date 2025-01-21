@@ -122,46 +122,46 @@ function buildTable(table, data){
     table.appendChild(tbody);
 }
 
-async function getBudgetItems(){
+// async function getBudgetItems(){
 
-    try{
+//     try{
 
-        const response = await fetch("http://localhost:8080/budget/1");
+//         const response = await fetch("http://localhost:8080/budget/1");
 
-        if(!response.ok){
+//         if(!response.ok){
 
-            throw new Error("Erro");
-        }
+//             throw new Error("Erro");
+//         }
 
-        const data = await response.json();
+//         const data = await response.json();
 
-        return data;
-    }
+//         return data;
+//     }
 
-    catch(error){
+//     catch(error){
 
-        console.log(error);
-    }
-}
+//         console.log(error);
+//     }
+// }
 
-async function fetchBudgetsAsJson() {
+// async function fetchBudgetsAsJson() {
 
-    try {
+//     try {
 
-        const budgets = await getBudgetItems(); // Aguarda a Promise ser resolvida
+//         const budgets = await getBudgetItems(); // Aguarda a Promise ser resolvida
 
-        buildTable(table, budgets);
+//         buildTable(table, budgets);
 
-        console.log("Objeto JSON recebido:", budgets);
-        return budgets; // Já é um objeto JSON
-    } catch (error) {
+//         console.log("Objeto JSON recebido:", budgets);
+//         return budgets; // Já é um objeto JSON
+//     } catch (error) {
 
-        console.error("Erro ao buscar orçamentos:", error);
-        return null; // Retorna null em caso de erro
-    }
-}
+//         console.error("Erro ao buscar orçamentos:", error);
+//         return null; // Retorna null em caso de erro
+//     }
+// }
 
-window.addEventListener("load", (event) =>{
+// window.addEventListener("load", (event) =>{
 
-    fetchBudgetsAsJson();
-});
+//     fetchBudgetsAsJson();
+// });
