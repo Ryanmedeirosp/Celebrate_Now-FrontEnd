@@ -214,9 +214,75 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
     knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
 
-    // imageEditIndividualServiceInRightSide.addEventListener(){
+    imageEditIndividualServiceInRightSide.addEventListener("click", (event) => {
 
-    // };
+        let individualServiceDiv = document.createElement("div");
+        individualServiceDiv.className = "individualServiceDiv";
+
+        let leftSideIndividualServiceDiv = document.createElement("div");
+        leftSideIndividualServiceDiv.className = "leftSideIndividualServiceDiv";
+        let rightSideIndividualServiceDiv = document.createElement("div");
+        rightSideIndividualServiceDiv.className = "rightSideIndividualServiceDiv";
+
+        let titleIndividualServiceInLeftSideDiv = document.createElement("div");
+        titleIndividualServiceInLeftSideDiv.className = "titleIndividualServiceInLeftSideDiv";
+        let titleIndividualServiceInLeftSide = document.createElement("h2");
+        titleIndividualServiceInLeftSide.className = "titleIndividualServiceInLeftSide";
+        titleIndividualServiceInLeftSide.textContent = titleInput.value;
+
+        let imageIndividualServiceInLeftSideDiv = document.createElement("div");
+        imageIndividualServiceInLeftSideDiv.className = "imageIndividualServiceInLeftSideDiv";
+        let imageIndividualServiceInLeftSide = document.createElement("img");
+        imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide";
+
+        const leitor = new FileReader();
+        leitor.readAsDataURL(loadImageButtonDiv.files[0]);
+        leitor.addEventListener("load", (event) => {
+            imageIndividualServiceInLeftSide.src = event.target.result;
+        });
+
+        let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");
+        buttonHireIndividualServiceInLeftSideDiv.className = "buttonHireIndividualServiceInLeftSideDiv";
+        let buttonHireIndividualServiceInLeftSide = document.createElement("button");
+        buttonHireIndividualServiceInLeftSide.id = "buttonHireIndividualServiceInLeftSide";
+        buttonHireIndividualServiceInLeftSide.textContent = "Contratar";
+
+        let imageEditIndividualServiceInRightSideDiv = document.createElement("div");
+        imageEditIndividualServiceInRightSideDiv.id = "imageEditIndividualServiceInRightSideDiv";
+        let imageEditIndividualServiceInRightSide = document.createElement("img");
+        imageEditIndividualServiceInRightSide.id = "imageEditIndividualServiceInRightSide";
+        imageEditIndividualServiceInRightSide.src = "../assets/images/botao-editar.png";
+
+        let textIndividualServiceInRightSideDiv = document.createElement("div");
+        textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
+        let textIndividualServiceInRightSide = document.createElement("p");
+        textIndividualServiceInRightSide.id = "texts";
+        textIndividualServiceInRightSide.className = "textIndividualServiceInRightSide";
+        textIndividualServiceInRightSide.textContent = descriptionArea.value;
+
+        let knowMoreIndividualServiceInRightSideDiv = document.createElement("div");
+        knowMoreIndividualServiceInRightSideDiv.className = "knowMoreIndividualServiceInRightSideDiv";
+        let knowMoreIndividualServiceInRightSide = document.createElement("h3");
+        knowMoreIndividualServiceInRightSide.className = "knowMoreIndividualServiceInRightSide";
+        knowMoreIndividualServiceInRightSide.textContent = "Ler mais";
+
+        divAllServices.appendChild(individualServiceDiv);
+        individualServiceDiv.appendChild(leftSideIndividualServiceDiv);
+        individualServiceDiv.appendChild(rightSideIndividualServiceDiv);
+        leftSideIndividualServiceDiv.appendChild(titleIndividualServiceInLeftSideDiv);
+        titleIndividualServiceInLeftSideDiv.appendChild(titleIndividualServiceInLeftSide);
+        leftSideIndividualServiceDiv.appendChild(imageIndividualServiceInLeftSideDiv);
+        imageIndividualServiceInLeftSideDiv.appendChild(imageIndividualServiceInLeftSide);
+        leftSideIndividualServiceDiv.appendChild(buttonHireIndividualServiceInLeftSideDiv);
+        buttonHireIndividualServiceInLeftSideDiv.appendChild(buttonHireIndividualServiceInLeftSide);
+        rightSideIndividualServiceDiv.appendChild(imageEditIndividualServiceInRightSideDiv);
+        imageEditIndividualServiceInRightSideDiv.appendChild(imageEditIndividualServiceInRightSide);
+        rightSideIndividualServiceDiv.appendChild(textIndividualServiceInRightSideDiv);
+        textIndividualServiceInRightSideDiv.appendChild(textIndividualServiceInRightSide);
+        rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
+        knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
+
+    });
 
     // Fechar o modal após adicionar o serviço
     toggleModal();

@@ -103,10 +103,6 @@
     background-color: #D8B795;
 }
 
-
-
-
-
 #sidebar-right {
     display: flex;
     flex-direction: column;
@@ -198,11 +194,11 @@
     height: 30px;
     width: 30px;
 }
-a{
+
+a {
     display: flex;
     text-decoration: none;
     align-items: center;
     color: #0a0a0a;
     flex-direction: row;
-   
 }
