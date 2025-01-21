@@ -7,7 +7,7 @@ const list = document.querySelector("#list");
 const sidebarLines = document.getElementsByClassName("sidebar_line_item");
 const corpo = document.querySelector("main");
 const list_customer = document.querySelector("#list-customers");
-const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers")
+const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers");
 
 document.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname.split('/').pop(); // Obtém o nome da página atual
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 let currentContent = null;
 
 function removePreviousContent() {
@@ -31,8 +30,7 @@ function removePreviousContent() {
     }
 }
 
-
-btnSeeAllCustomers.addEventListener("click", (event) =>{
+btnSeeAllCustomers.addEventListener("click", (event) => {
     for (let i = 0; i < sidebarLines.length; i++) {
         sidebarLines[0].classList.remove("active");
         sidebarLines[1].classList.remove("active");
@@ -43,8 +41,6 @@ btnSeeAllCustomers.addEventListener("click", (event) =>{
     removePreviousContent();
     create_clients();
 });
-
-
 
 function create_schadelure() {
     removePreviousContent(); // Garante que o conteúdo anterior seja removido
@@ -186,9 +182,27 @@ function create_schadelure() {
 
     corpo.appendChild(divSchadelure);
     currentContent = divSchadelure; // Atualiza o conteúdo atual
-
 }
 
+// Função para adicionar evento ao calendário
+function adicionarEventoAoCalendario(dataEvento) {
+    const diasContainer = document.querySelector("#divSchadelure div div:nth-child(3)"); // Seleciona o container dos dias
+    const dias = diasContainer.children;
+
+    for (let i = 0; i < dias.length; i++) {
+        const diaDiv = dias[i];
+        const dia = parseInt(diaDiv.textContent);
+
+        // Verifica se o dia corresponde à data do evento
+        if (dia === dataEvento.getDate() && 
+            new Date(dataEvento).getMonth() === new Date().getMonth() && 
+            new Date(dataEvento).getFullYear() === new Date().getFullYear()) {
+            diaDiv.style.background = "#28a745"; // Marca o dia com uma cor verde
+            diaDiv.style.color = "white"; // Muda a cor do texto para branco
+            diaDiv.classList.add("evento"); // Adiciona uma classe para referência futura
+        }
+    }
+}
 
 window.onload = () => {
     create_schadelure()

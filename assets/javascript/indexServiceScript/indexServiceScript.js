@@ -179,6 +179,12 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     buttonHireIndividualServiceInLeftSide.id = "buttonHireIndividualServiceInLeftSide";
     buttonHireIndividualServiceInLeftSide.textContent = "Contratar";
 
+    let imageEditIndividualServiceInRightSideDiv = document.createElement("div");
+    imageEditIndividualServiceInRightSideDiv.id = "imageEditIndividualServiceInRightSideDiv";
+    let imageEditIndividualServiceInRightSide = document.createElement("img");
+    imageEditIndividualServiceInRightSide.id = "imageEditIndividualServiceInRightSide";
+    imageEditIndividualServiceInRightSide.src = "../assets/images/botao-editar.png";
+
     let textIndividualServiceInRightSideDiv = document.createElement("div");
     textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
     let textIndividualServiceInRightSide = document.createElement("p");
@@ -201,10 +207,16 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     imageIndividualServiceInLeftSideDiv.appendChild(imageIndividualServiceInLeftSide);
     leftSideIndividualServiceDiv.appendChild(buttonHireIndividualServiceInLeftSideDiv);
     buttonHireIndividualServiceInLeftSideDiv.appendChild(buttonHireIndividualServiceInLeftSide);
+    rightSideIndividualServiceDiv.appendChild(imageEditIndividualServiceInRightSideDiv);
+    imageEditIndividualServiceInRightSideDiv.appendChild(imageEditIndividualServiceInRightSide);
     rightSideIndividualServiceDiv.appendChild(textIndividualServiceInRightSideDiv);
     textIndividualServiceInRightSideDiv.appendChild(textIndividualServiceInRightSide);
     rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
     knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
+
+    // imageEditIndividualServiceInRightSide.addEventListener(){
+
+    // };
 
     // Fechar o modal após adicionar o serviço
     toggleModal();
@@ -222,13 +234,13 @@ modalHeaderDiv.appendChild(titleNewService);
 modalHeaderDiv.appendChild(titleDiv);
 modal.appendChild(modalHeaderDiv);
 titleDiv.appendChild(titleInput);
+titleDiv.appendChild(typeServiceInput);
 titleDiv.appendChild(emailInput);
+titleDiv.appendChild(cerimonialistEmailInput);
 titleDiv.appendChild(cnpjInput);
 titleDiv.appendChild(phoneInput);
 titleDiv.appendChild(cepInput);
 titleDiv.appendChild(houseNumberInput);
-titleDiv.appendChild(cerimonialistEmailInput);
-titleDiv.appendChild(typeServiceInput);
 imageDiv.appendChild(loadImageButtonDiv);
 titleImageDiv.appendChild(imageDiv);
 modalBodyDiv.appendChild(titleImageDiv);

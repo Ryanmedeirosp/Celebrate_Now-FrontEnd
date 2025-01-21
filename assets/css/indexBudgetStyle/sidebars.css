@@ -70,7 +70,7 @@
 }
 
 /* Sidebar Items - Actual Page Icon */
-.sidebar .sidebar_content li a i {
+.sidebar .sidebar_content a li i {
     display: flex;
     align-items: center;
     justify-content: center;
