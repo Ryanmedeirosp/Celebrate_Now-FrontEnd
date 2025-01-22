@@ -1,6 +1,6 @@
 const budgetMainContent = document.querySelector("table");
 
-function buildTable(table, items){
+function buildTable(table, data){
 
     //Corpo
     let tbody = document.createElement("tbody");
@@ -27,6 +27,7 @@ function buildTable(table, items){
 
     trHead.appendChild(thNumber);
     trHead.appendChild(thDescription);
+    trHead.appendChild(thUnit);
     trHead.appendChild(thPrice);
     trHead.appendChild(thButtons);
 
@@ -64,7 +65,7 @@ function buildTable(table, items){
         tdTitleDescription.appendChild(description);
 
         //Unidade do Item
-        tdUnit.innerHTML = items[index].unit;
+        tdUnit.innerHTML = "Z";
 
         //Preço do Item
         tdPrice.innerHTML = "R$";
@@ -120,3 +121,47 @@ function buildTable(table, items){
 
     table.appendChild(tbody);
 }
+
+// async function getBudgetItems(){
+
+//     try{
+
+//         const response = await fetch("http://localhost:8080/budget/1");
+
+//         if(!response.ok){
+
+//             throw new Error("Erro");
+//         }
+
+//         const data = await response.json();
+
+//         return data;
+//     }
+
+//     catch(error){
+
+//         console.log(error);
+//     }
+// }
+
+// async function fetchBudgetsAsJson() {
+
+//     try {
+
+//         const budgets = await getBudgetItems(); // Aguarda a Promise ser resolvida
+
+//         buildTable(table, budgets);
+
+//         console.log("Objeto JSON recebido:", budgets);
+//         return budgets; // Já é um objeto JSON
+//     } catch (error) {
+
+//         console.error("Erro ao buscar orçamentos:", error);
+//         return null; // Retorna null em caso de erro
+//     }
+// }
+
+// window.addEventListener("load", (event) =>{
+
+//     fetchBudgetsAsJson();
+// });

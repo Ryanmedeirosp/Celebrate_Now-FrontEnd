@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    
     <link rel="stylesheet" href="assets/css/indexCustomerStyle/main.css">
     <link rel="stylesheet" href="assets/css/indexCustomerStyle/sidebars.css">
     <link rel="stylesheet" href="assets/css/indexCustomerStyle/style.css">
@@ -22,7 +21,6 @@
 
     <!-- Sidebar -->
     <nav class="sidebar">
-
         <div class="sidebar_content">
             <div class="logo">
                 <img src="assets/images/logo-celebrate-now.png" alt="Celebrate Now Logo">
@@ -31,38 +29,30 @@
             <ul class="sidebar_items">
                 <a href="indexService.html"> 
                     <li class="sidebar_line_item" id="service">
-                    
                         <i class="fa-solid fa-briefcase"></i>
                         <span>Serviços</span>
-                    
                     </li>
                 </a>
                 <a href="indexBudget.html">
                     <li class="sidebar_line_item" id="budget">
-                    
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                         <span>Orçamento</span>
-                    
                     </li>
                 </a>
                 <a href="indexSchadelure.html">
                     <li class="sidebar_line_item" id="schadelure">
-                    
                         <i class="fa-solid fa-calendar-days"></i>
                         <span>Calendário</span>
                     </li>
                 </a>
                 <a href="indexContract.html">
                     <li class="sidebar_line_item" id="contract">
-                   
                         <i class="fa-solid fa-file-signature"></i>
                         <span>Contratos</span>
-                    
                     </li>
                 </a>
                 <a href="indexCustomers.html" >
-                    <li class="sidebar_line_item  active" id="clients">
-                    
+                    <li class="sidebar_line_item active" id="clients">
                         <i class="fa-solid fa-users"></i>
                         <span>Clientes</span>
                     </li>
@@ -71,20 +61,69 @@
         </div>
 
         <div class="sidebar_logout">
-            <button class="logout_button">
+            <button class="logout_button" onclick="window.location.href='landingPage.html'">
                 <i class="fa-solid fa-door-open"></i>
                 <span>Sair</span>
             </button>
         </div>
-
     </nav>
 
     <!-- Main Content -->
     <main>
-        
+        <div id="fundo"></div>
+        <div id="containerGeral">
+            <div id="titleSignIn">
+                <div id="loginName">
+                    <h1>Cadastro de Cliente</h1>
+                </div>
+            </div>
 
-        
-
+            <div id="clientAddModal" class="modal">
+                <div class="modal-content">
+                    <button id="close">&times;</button>
+                    <h2>Adicionar Cliente</h2>
+                    <form id="clientForm">
+                        <div class="fieldToFill">
+                            <label for="nameField">Nome</label>
+                            <input type="text" id="nameField" class="field">
+                        </div>
+                        <div class="fieldToFill">
+                            <label for="emailField">Email</label>
+                            <input type="text" id="emailField" class="field">
+                        </div>
+                        <div class="fieldToFill">
+                            <label for="passwordField">Senha</label>
+                            <input type="password" id="passwordField" class="field">
+                        </div>
+                        <div class="fieldToFill">
+                            <label for="confirmPasswordField">Confirmar senha</label>
+                            <input type="password" id="confirmPasswordField" class="field">
+                        </div>
+                        <div class="fieldToFill">
+                            <label for="cepField">CEP</label>
+                            <input type="text" id="cepField" class="field">
+                        </div>
+                        <div class="fieldToFill">
+                            <label for="numberHouseField">Número</label>
+                            <input type="text" id="numberHouseField" class="field">
+                        </div>
+                        <div class="fieldToFill">
+                            <label for="phoneNumber">Número de Telefone</label>
+                            <input type="text" id="phoneNumber" class="field">
+                        </div>
+                        <div class="fieldToFill">
+                            <label for="CpfOrCnpj">CPF</label>
+                            <input type="text" id="CpfOrCnpj" class="field">
+                        </div>
+                        <div class="fieldToFill">
+                            <label for="birthdayField">Data de Nascimento</label>
+                            <input type="date" id="birthdayField" class="field">
+                        </div>
+                        <button type="submit">Adicionar Cliente</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
     
     <aside>
@@ -94,13 +133,9 @@
                 <h2>Clientes</h2>
                 <button id="btn-see-all-customers">Ver todos</button>
             </div>
-
-            <div id="list-customers">
-                
-            </div>
+            <div id="list-customers"></div>
         </div>
     </aside>
-
 
 </body>
 </html>
