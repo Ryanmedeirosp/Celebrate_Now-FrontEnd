@@ -44,6 +44,13 @@
 
 /* Edit Activated Buttons */
 
+.contract-edit-active{
+    height: 5%;
+    display: none;
+    place-items: center;
+    margin-top: 0.2rem;
+}
+
 .contract-edit-active ul{
     text-decoration: none;
     list-style: none;
@@ -52,21 +59,21 @@
 }
 
 .contract-edit-active ul button{
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border: none;
     border-radius: 50%;
 }
 
 .contract-edit-active ul button i{
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .contract-edit-active ul .confirm-edit{
     background-color: green;
 }
 
-.contract-edit-active ul .cancell-edit{
+.contract-edit-active ul .cancel-edit{
     background-color: red;
 }
 
@@ -101,6 +108,7 @@
     display: flex;
     justify-content: space-around;
     margin: 1rem;
+    height: 5%;
 }
 
 .contract-content .contract-sides div{
