@@ -29,6 +29,10 @@
     cursor: pointer;
     background-color: #D8B795;
     display: flex;
+    color: black;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
 }
 
 #divListaClients {
@@ -120,7 +124,16 @@
     flex-direction: column;
     align-items: center;
     gap: 10px; /* Space between customer entries */
+    padding: 20px;
+    
 }
+#list-customers span{
+    border: #C8A78D 2px solid;
+    width: 80%;
+    padding: 15px;
+    border-radius: 5px;
+}
+
 
 /* Button styles */
 button {
@@ -135,3 +148,4 @@ button {
 button:hover {
     background-color: #C8A78D; /* Darker shade on hover */
 }
+
