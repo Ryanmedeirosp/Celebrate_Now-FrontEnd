@@ -7,9 +7,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/indexCustomerStyle/sidebars.css">
     <link rel="stylesheet" href="assets/css/indexServiceStyle/style.css">
+    <link rel="stylesheet" href="assets/css/indexContractStyle/contract.css">
+
+    <!-- JavaScript -->
+     <script src="assets/javascript/indexContractScript/contract.js" defer></script>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <title>Página Principal</title>
 </head>
@@ -78,8 +85,40 @@
     <!-- Main Content -->
     <main>
         
+        <div class="contract-header">
+            <ul class="contract-header-infos">
+                <li id="client-name">Nome do Cliente</li>
+                <li id="contract-number">Contrato: XXXXXXXX</li>
+                <li id="event-day">Data do Evento: XX/XX/XX</li>
+            </ul>
 
+            <ul>
+                <li><button class="button-add">Assinar</button></li>
+                <li><button class="button-new-">Enviar</button></li>
+                <li><button class="button-edit">Editar</button></li>
+            </ul>
+        </div>
         
+        <div class="contract-content">
+
+            <textarea name="" class="contract-text" readonly>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porta tortor sit amet nibh ultrices molestie. Suspendisse consequat magna non dictum rhoncus. Nullam pellentesque vehicula leo a egestas. Suspendisse ac dapibus tortor. Maecenas in dolor pellentesque, posuere sem pharetra, ornare nulla. Aenean mi dui, consectetur nec commodo quis, varius eu eros. Vestibulum auctor odio fringilla, vestibulum erat vel, ornare mi. Cras sollicitudin eu libero vel mattis. Vestibulum nec varius leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque justo urna, imperdiet sit amet eleifend quis, ullamcorper vitae dolor. Pellentesque eget libero nisl. Praesent quis ultricies mi, vel dignissim risus. Maecenas eget suscipit est. Maecenas dignissim luctus faucibus.
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id enim vel tellus aliquam molestie ut id sapien. Ut pretium fringilla odio. Nunc sit amet leo massa. Sed maximus interdum justo. Phasellus ut ipsum ac ante semper suscipit. Sed ante ex, tristique non gravida nec, tempus a enim. Phasellus lobortis nibh in ipsum cursus, bibendum mollis eros imperdiet. 
+            </textarea>
+
+            <div class="contract-edit-active">
+                <ul>
+                    <li><button class="confirm-edit"><i class="bi bi-check2"></i></button></li>
+                    <li><button class="cancell-edit"><i class="bi bi-x-circle"></i></button></li>
+                </ul>
+            </div>
+
+            <div class="contract-sides">
+                <div>Cliente</div>
+                <div>Assessoria</div>
+            </div>
+        </div>
 
     </main>
     
