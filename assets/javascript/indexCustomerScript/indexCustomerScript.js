@@ -1,228 +1,122 @@
 const corpo = document.querySelector("main");
-
 const list_customer = document.querySelector("#list-customers");
-const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers")
+const btnSeeAllCustomers = document.querySelector("#btn-see-all-customers");
 
+// Function to create the modal for adding a client
+function createClientModal() {
+    const modal = document.createElement("div");
+    modal.id = "clientAddModal";
+    modal.className = "modal";
 
-
-    let divClients = document.createElement("div");
-    divClients.id = "divClients";
-
-    // Contêiner superior com botão de adicionar cliente
-    let divSuperior = document.createElement("div");
-    divSuperior.id = "divSuperior-clients";
-
-    let divClientsImg = document.createElement("div");
-    divClientsImg.id = "divClientsImg";
-    let imgCustomer = document.createElement("img");
-    imgCustomer.id = "imgCustomer";
-    imgCustomer.src = "../assets/images/users-group.svg";
-    divClientsImg.appendChild(imgCustomer);
-
-    let clientstxt = document.createElement("h3");
-    clientstxt.textContent = "Lista de Clientes";
-    divClientsImg.appendChild(clientstxt);
-    divSuperior.appendChild(divClientsImg);
-
-    let btnAddClients = document.createElement("button");
-    btnAddClients.textContent = "Adicionar Cliente";
-    btnAddClients.id = "btnAddClients";
-
-    btnAddClients.addEventListener("click", (event) =>{
-
-        modal.style.display = "flex";
-    });
-
-    divSuperior.appendChild(btnAddClients);
-
-    divClients.appendChild(divSuperior);
-    
-
-    // Contêiner da lista de clientes
-    let divListaClients = document.createElement("div");
-    divListaClients.id = "divListaClients";
-    divClients.appendChild(divListaClients);
-    
-    // Modal para adicionar cliente
-    let modal = document.createElement("div");
-    modal.id = "modal-cliente";
-    modal.className = "modal hidden";
-    // modal.style.display = "none"
-
-
-    let modalContent = document.createElement("div");
+    const modalContent = document.createElement("div");
     modalContent.className = "modal-content";
 
-    let modalHeader = document.createElement("h2");
-    modalHeader.textContent = "Adicionar Cliente";
-    modalContent.appendChild(modalHeader);
+    const closeButton = document.createElement("button");
+    closeButton.id = "close";
+    closeButton.innerHTML = "&times;";
+    closeButton.onclick = () => modal.style.display = "none";
 
-    let inputNome = document.createElement("input");
-    inputNome.type = "text";
-    inputNome.placeholder = "Nome do Cliente";
-    inputNome.id = "inputNome";
-    modalContent.appendChild(inputNome);
+    const title = document.createElement("h2");
+    title.textContent = "Adicionar Cliente";
 
-    let inputContrato = document.createElement("input");
-    inputContrato.type = "text";
-    inputContrato.placeholder = "Número do Contrato";
-    inputContrato.id = "inputContrato";
-    modalContent.appendChild(inputContrato);
+    // Create input fields without a form
+    const fields = [
+        { label: "Nome", id: "nameField", type: "text" },
+        { label: "Email", id: "emailField", type: "text" },
+        { label: "Senha", id: "passwordField", type: "password" },
+        { label: "Confirmar senha", id: "confirmPasswordField", type: "password" },
+        { label: "CEP", id: "cepField", type: "text" },
+        { label: "Número", id: "numberHouseField", type: "text" },
+        { label: "Número de Telefone", id: "phoneNumber", type: "text" },
+        { label: "CPF", id: "CpfOrCnpj", type: "text" },
+        { label: "Data de Nascimento", id: "birthdayField", type: "date" },
+    ];
 
-    let datatxt = document.createElement("p")
-    datatxt.textContent = "Data do casamento:";
-    modalContent.appendChild(datatxt);
+    fields.forEach(field => {
+        const fieldDiv = document.createElement("div");
+        fieldDiv.className = "fieldToFill";
 
-    let inputEvento = document.createElement("input");
-    inputEvento.type = "date";
-    inputEvento.id = "inputEvento";
-    modalContent.appendChild(inputEvento);
+        const label = document.createElement("label");
+        label.setAttribute("for", field.id);
+        label.textContent = field.label;
 
-    let btnSalvar = document.createElement("button");
-    btnSalvar.textContent = "Salvar";
-    btnSalvar.id = "btnSalvar";
-    modalContent.appendChild(btnSalvar);
+        const input = document.createElement("input");
+        input.type = field.type;
+        input.id = field.id;
+        input.className = "field";
 
-    let btnCancelar = document.createElement("button");
-    btnCancelar.textContent = "Cancelar";
-    btnCancelar.id = "btnCancelar";
-
-    btnCancelar.addEventListener("click", (event) =>{
-
-        modal.style.display = "none";
-    })
-
-    modalContent.appendChild(btnCancelar);
-
-    modal.appendChild(modalContent);
-    divClients.appendChild(modal);
-
-    // Exibir modal ao clicar no botão de adicionar cliente
-    btnAddClients.addEventListener("click", () => {
-        modal.classList.remove("hidden");
+        fieldDiv.appendChild(label);
+        fieldDiv.appendChild(input);
+        modalContent.appendChild(fieldDiv);
     });
 
-    // Esconder modal ao clicar no botão de cancelar
-    btnCancelar.addEventListener("click", () => {
-        modal.classList.add("hidden");
-    });
+    const addButton = document.createElement("button");
+    addButton.textContent = "Adicionar Cliente";
+    addButton.onclick = () => {
+        // Gather form data
+        const newCustomer = {
+            name: document.getElementById("nameField").value,
+            email: document.getElementById("emailField").value,
+            // Add other fields as necessary
+        };
 
-    // Adicionar cliente ao clicar em "Salvar"
- 
-    btnSalvar.addEventListener("click", () => {
-        let clienteNome = inputNome.value.trim();
-        let clienteContrato = inputContrato.value.trim();
-        let clienteEvento = inputEvento.value;
-    
-        if (clienteNome && clienteContrato && clienteEvento) {
-            adicionarCliente(clienteNome, clienteContrato, clienteEvento); // Adiciona na lista principal e na sidebar right
-            modal.classList.add("hidden"); // Fecha o modal
-            inputNome.value = ""; // Limpa os campos
-            inputContrato.value = "";
-            inputEvento.value = "";
-        } else {
-            alert("Por favor, preencha todos os campos!");
-        }
-        modal.style.display = "none"; // Esconde o modal
-    });
+        // Add the new customer to the list
+        const customers = JSON.parse(localStorage.getItem("customers")) || [];
+        customers.push(newCustomer);
+        localStorage.setItem("customers", JSON.stringify(customers));
 
-    // Função para adicionar cliente à lista
-  
+        // Populate the customer list
+        populateCustomerList(customers);
 
-
-    function adicionarCliente(nome, contrato, evento) {
-        // Validação da data
-        const dataEvento = new Date(evento);
-        const dataAtual = new Date();
-    
-        if (dataEvento < dataAtual) {
-            alert("A data do evento não pode ser anterior à data atual!");
-            return; // Interrompe a execução se a data for inválida
-        }
-    
-        // Formatação da data para o padrão brasileiro (dd/MM/aaaa)
-        const dia = String(dataEvento.getDate()).padStart(2, '0');
-        const mes = String(dataEvento.getMonth() + 1).padStart(2, '0'); // Mês começa do 0
-        const ano = dataEvento.getFullYear();
-        const dataFormatada = `${dia}/${mes}/${ano}`;
-    
-        // Adicionar cliente na lista principal
-        let clienteDiv = document.createElement("div");
-        clienteDiv.className = "clienteDiv";
-    
-        let clienteInfo = document.createElement("div");
-        clienteInfo.className = "clienteInfo";
-    
-        let nomeCliente = document.createElement("p");
-        nomeCliente.className = "nomeCliente";
-        nomeCliente.textContent = `Nome: ${nome}`;
-    
-        let contratoCliente = document.createElement("p");
-        contratoCliente.className = "contratoCliente";
-        contratoCliente.textContent = `Contrato: ${contrato}`;
-    
-        let eventoCliente = document.createElement("p");
-        eventoCliente.className = "eventoCliente";
-        eventoCliente.textContent = `Evento: ${dataFormatada}`; // Usando a data formatada
-    
-        clienteInfo.appendChild(nomeCliente);
-        clienteInfo.appendChild(contratoCliente);
-        clienteInfo.appendChild(eventoCliente);
-    
-        let removerClienteBtn = document.createElement("button");
-        removerClienteBtn.textContent = "Remover";
-        removerClienteBtn.className = "btnRemoverCliente";
-        removerClienteBtn.addEventListener("click", () => {
-            divListaClients.removeChild(clienteDiv);
-            // Remover também da sidebar right
-            list_customer.removeChild(clienteSidebarDiv);
+        // Clear the input fields
+        fields.forEach(field => {
+            document.getElementById(field.id).value = ""; // Clear each input
         });
-    
-        clienteDiv.appendChild(clienteInfo);
-        clienteDiv.appendChild(removerClienteBtn);
-    
-        divListaClients.appendChild(clienteDiv);
-    
-        // Adicionar cliente na sidebar right
-        let clienteSidebarDiv = document.createElement("div");
-        clienteSidebarDiv.className = "customer";
-    
-        let photoCustomerDiv = document.createElement("div");
-        photoCustomerDiv.className = "photoCustomerDiv";
-        let photoCustomer = document.createElement("img");
-        photoCustomer.className = "photoCustomer";
-        photoCustomer.src = "../assets/images/user-icon-removebg-preview.svg";
-    
-        let informationsCustomerDiv = document.createElement("div");
-        informationsCustomerDiv.className = "informationsCustomerDiv";
-        let nameInformationCustomer = document.createElement("p");
-        nameInformationCustomer.className = "nameInformationCustomer";
-        nameInformationCustomer.textContent = nome;
-        let contractNumberInformationCustomer = document.createElement("p");
-        contractNumberInformationCustomer.className = "contractNumberInformationCustomer";
-        contractNumberInformationCustomer.textContent = `Contrato: ${contrato}`;
-        let eventDateInformationCustomer = document.createElement("p");
-        eventDateInformationCustomer.className = "eventDateInformationCustomer";
-        eventDateInformationCustomer.textContent = `Evento: ${dataFormatada}`; // Usando a data formatada
-        let divPhotoInformations = document.createElement("div");
-        divPhotoInformations.className = "divPhotoInformations";
-    
-        let chatImageCustomerDiv = document.createElement("div");
-        chatImageCustomerDiv.className = "chatImageCustomerDiv";
-        let chatImageCustomer = document.createElement("img");
-        chatImageCustomer.src = "../assets/images/o-email.png";
-        chatImageCustomer.className = "chatImageCustomer";
+    };
 
-        chatImageCustomerDiv.appendChild(chatImageCustomer);
-        informationsCustomerDiv.appendChild(nameInformationCustomer);
-        informationsCustomerDiv.appendChild(contractNumberInformationCustomer);
-        informationsCustomerDiv.appendChild(eventDateInformationCustomer);
-        photoCustomerDiv.appendChild(photoCustomer);
-        divPhotoInformations.appendChild(photoCustomerDiv);
-        divPhotoInformations.appendChild(informationsCustomerDiv);
-        clienteSidebarDiv.appendChild(divPhotoInformations);
-        clienteSidebarDiv.appendChild(chatImageCustomerDiv);
-    
-        list_customer.appendChild(clienteSidebarDiv);
-    }
-    corpo.appendChild(divClients);
+    modalContent.appendChild(closeButton);
+    modalContent.appendChild(title);
+    modalContent.appendChild(addButton);
+    modal.appendChild(modalContent);
+    corpo.appendChild(modal);
+}
+
+// Function to populate the customer list in both main and sidebar
+function populateCustomerList(customers) {
+    list_customer.innerHTML = ""; // Clear existing content
+    customers.forEach(customer => {
+        const customerDiv = document.createElement("div");
+        customerDiv.textContent = customer.name; // Assuming customer object has a name property
+        list_customer.appendChild(customerDiv);
+    });
+
+    // Update the sidebar as well
+    const sidebarList = document.querySelector("#sidebar-right #list-customers");
+    sidebarList.innerHTML = ""; // Clear existing content
+    customers.forEach(customer => {
+        const sidebarCustomerDiv = document.createElement("div");
+        sidebarCustomerDiv.textContent = customer.name; // Assuming customer object has a name property
+        sidebarList.appendChild(sidebarCustomerDiv);
+    });
+}
+
+// Event listener for the "Ver todos" button
+btnSeeAllCustomers.addEventListener("click", () => {
+    // Fetch and display all customers (this is a placeholder, implement actual fetching logic)
+    const customers = JSON.parse(localStorage.getItem("customers")) || []; // Example data
+    populateCustomerList(customers);
+});
+
+// Add event listener for the button to open the modal
+const btnAddClients = document.createElement("button");
+btnAddClients.id = "btnAddClients";
+btnAddClients.textContent = "Adicionar Cliente";
+btnAddClients.onclick = () => {
+    const modal = document.getElementById("clientAddModal");
+    modal.style.display = "flex"; // Show the modal
+};
+
+corpo.appendChild(btnAddClients); // Append the button to the main content
+
+// Initialize the modal
+createClientModal();
