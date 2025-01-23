@@ -224,6 +224,7 @@
     width: 162px;
     display: flex;
     justify-content: end;
+    gap: 10px;
 }
 
 #imageEditIndividualServiceInRightSide {
@@ -234,6 +235,16 @@
 #imageEditIndividualServiceInRightSide:hover {
     cursor: pointer;
 }
+
+#imageRemoveIndividualServiceInRightSide {
+    height: 25px;
+    width: 25px;
+}
+
+#imageRemoveIndividualServiceInRightSide:hover {
+    cursor: pointer;
+}
+
 
 .textIndividualServiceInRightSideDiv {
     height: 53%;
