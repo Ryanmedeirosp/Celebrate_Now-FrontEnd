@@ -70,11 +70,21 @@
 }
 
 .contract-edit-active ul .confirm-edit{
-    background-color: green;
+    background-color: #1FBF57;
+}
+
+.contract-edit-active ul .confirm-edit:hover{
+    background-color: #44937A;
+    cursor: pointer;
 }
 
 .contract-edit-active ul .cancel-edit{
-    background-color: red;
+    background-color: #F20505;
+}
+
+.contract-edit-active ul .cancel-edit:hover{
+    background-color: #934444;
+    cursor: pointer;
 }
 
 /* Contract Main Content */
