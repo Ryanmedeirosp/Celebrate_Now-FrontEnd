@@ -66,6 +66,14 @@
     overflow-y: auto;
 }
 
+.client-not-found{
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    color: #F20505;
+    font-weight: 800;
+}
+
 /* Budget Table */
 
 table{
@@ -135,11 +143,11 @@ table tbody td button i{
 
 .budget-main-footer{
     display: flex;
-    justify-content: end;
-    margin-right: 0.7rem;
+    justify-content: space-between;
+    margin: 0 0.5rem 0.7rem 0;
 }
 
-.budget-main-footer div{
+.budget-main-footer .budget-amount{
     padding: 0.3rem;
     background-color: #D9D9D9;
 }

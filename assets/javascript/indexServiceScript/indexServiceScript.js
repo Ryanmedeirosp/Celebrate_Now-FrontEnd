@@ -38,6 +38,7 @@ let divAllServices = document.createElement("div");
 divAllServices.id = "divAllServices";
 divServices.appendChild(divAllServices);
 
+// Modal para adicionar
 let fade = document.createElement("div");
 fade.id = "fade";
 fade.className = "hide";
@@ -87,17 +88,17 @@ cepInput.placeholder = "Digite o CEP";
 let houseNumberInput = document.createElement("input");
 houseNumberInput.className = "inputInformation";
 houseNumberInput.id = "houseNumberInput";
-houseNumberInput.placeholder = "Número da casa";
+houseNumberInput.placeholder = "Digite o número da casa";
 
 let cerimonialistEmailInput = document.createElement("input");
 cerimonialistEmailInput.className = "inputInformation";
 cerimonialistEmailInput.id = "cerimonialistEmailInput";
-cerimonialistEmailInput.placeholder = "Email do cerimonialista";
+cerimonialistEmailInput.placeholder = "Digite o Email do cerimonialista";
 
 let typeServiceInput = document.createElement("input");
 typeServiceInput.className = "inputInformation";
 typeServiceInput.id = "typeServiceInput";
-typeServiceInput.placeholder = "Tipo de serviço";
+typeServiceInput.placeholder = "Digite o tipo de serviço";
 
 let imageDiv = document.createElement("div");
 imageDiv.id = "imageDiv";
@@ -214,81 +215,129 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
     knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
 
+    // Modal para editar
+
+    let editFade = document.createElement("div");
+    editFade.id = "editFade";
+    editFade.className = "hideTwo";
+
+    let editModal = document.createElement("div");
+    editModal.id = "editModal";
+    editModal.className = "hideTwo";
+
+    let editModalHeaderDiv = document.createElement("div");
+    editModalHeaderDiv.id = "editModalHeaderDiv";
+    let editTitleNewService = document.createElement("h2");
+    editTitleNewService.id = "editTitleNewService";
+    editTitleNewService.textContent = "Editar serviço";
+
+    let editModalBodyDiv = document.createElement("div");
+    editModalBodyDiv.id = "editModalBodyDiv";
+
+    let editTitleImageDiv = document.createElement("div");
+    editTitleImageDiv.id = "editTitleImageDiv";
+    let editTitleDiv = document.createElement("div");
+    editTitleDiv.id = "editTitleDiv";
+    let editTitleInput = document.createElement("input");
+    editTitleInput.className = "inputInformation";
+    editTitleInput.id = "editTitleInput";
+    editTitleInput.placeholder = "Digite o nome do serviço";
+
+    let editEmailInput = document.createElement("input");
+    editEmailInput.className = "inputInformation";
+    editEmailInput.id = "emailInput";
+    editEmailInput.placeholder = "Digite o email";
+
+    let editCnpjInput = document.createElement("input");
+    editCnpjInput.className = "inputInformation";
+    editCnpjInput.id = "editCnpjInput";
+    editCnpjInput.placeholder = "Digite o CNPJ";
+
+    let editPhoneInput = document.createElement("input");
+    editPhoneInput.className = "inputInformation";
+    editPhoneInput.id = "editPhoneInput";
+    editPhoneInput.placeholder = "Digite o telefone";
+
+    let editCepInput = document.createElement("input");
+    editCepInput.className = "inputInformation";
+    editCepInput.id = "editCepInput";
+    editCepInput.placeholder = "Digite o CEP";
+
+    let editHouseNumberInput = document.createElement("input");
+    editHouseNumberInput.className = "inputInformation";
+    editHouseNumberInput.id = "editHouseNumberInput";
+    editHouseNumberInput.placeholder = "Digite o número da casa";
+
+    let editCerimonialistEmailInput = document.createElement("input");
+    editCerimonialistEmailInput.className = "inputInformation";
+    editCerimonialistEmailInput.id = "editCerimonialistEmailInput";
+    editCerimonialistEmailInput.placeholder = "Digite o Email do cerimonialista";
+
+    let editTypeServiceInput = document.createElement("input");
+    editTypeServiceInput.className = "inputInformation";
+    editTypeServiceInput.id = "editTypeServiceInput";
+    editTypeServiceInput.placeholder = "Digite o tipo de serviço";
+
+    let editImageDiv = document.createElement("div");
+    editImageDiv.id = "editImageDiv";
+    let editLoadImageButtonDiv = document.createElement("input");
+    editLoadImageButtonDiv.id = "filesTwo";
+    editLoadImageButtonDiv.type = "file";
+
+    let editDescriptionDiv = document.createElement("div");
+    editDescriptionDiv.id = "editDescriptionDiv";
+    let editDescriptionArea = document.createElement("textarea");
+    editDescriptionArea.id = "editDescriptionArea";
+    editDescriptionArea.placeholder = "Insira uma descrição...";
+    editDescriptionArea.maxLength = 150;
+
+    let editButtonConfirmNewServiceDiv = document.createElement("div");
+    editButtonConfirmNewServiceDiv.id = "editButtonConfirmNewServiceDiv";
+    let editButtonConfirmNewService = document.createElement("button");
+    editButtonConfirmNewService.id = "editButtonConfirmNewService";
+    editButtonConfirmNewService.textContent = "Editar serviço";
+
+    const editToggleModal = () => {
+        // Apenas alterna a visibilidade do modal e fade
+        [editModal, editFade].forEach((el) => el.classList.toggle("hideTwo"));
+    };
+
     imageEditIndividualServiceInRightSide.addEventListener("click", (event) => {
-
-        let individualServiceDiv = document.createElement("div");
-        individualServiceDiv.className = "individualServiceDiv";
-
-        let leftSideIndividualServiceDiv = document.createElement("div");
-        leftSideIndividualServiceDiv.className = "leftSideIndividualServiceDiv";
-        let rightSideIndividualServiceDiv = document.createElement("div");
-        rightSideIndividualServiceDiv.className = "rightSideIndividualServiceDiv";
-
-        let titleIndividualServiceInLeftSideDiv = document.createElement("div");
-        titleIndividualServiceInLeftSideDiv.className = "titleIndividualServiceInLeftSideDiv";
-        let titleIndividualServiceInLeftSide = document.createElement("h2");
-        titleIndividualServiceInLeftSide.className = "titleIndividualServiceInLeftSide";
-        titleIndividualServiceInLeftSide.textContent = titleInput.value;
-
-        let imageIndividualServiceInLeftSideDiv = document.createElement("div");
-        imageIndividualServiceInLeftSideDiv.className = "imageIndividualServiceInLeftSideDiv";
-        let imageIndividualServiceInLeftSide = document.createElement("img");
-        imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide";
-
-        const leitor = new FileReader();
-        leitor.readAsDataURL(loadImageButtonDiv.files[0]);
-        leitor.addEventListener("load", (event) => {
-            imageIndividualServiceInLeftSide.src = event.target.result;
-        });
-
-        let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");
-        buttonHireIndividualServiceInLeftSideDiv.className = "buttonHireIndividualServiceInLeftSideDiv";
-        let buttonHireIndividualServiceInLeftSide = document.createElement("button");
-        buttonHireIndividualServiceInLeftSide.id = "buttonHireIndividualServiceInLeftSide";
-        buttonHireIndividualServiceInLeftSide.textContent = "Contratar";
-
-        let imageEditIndividualServiceInRightSideDiv = document.createElement("div");
-        imageEditIndividualServiceInRightSideDiv.id = "imageEditIndividualServiceInRightSideDiv";
-        let imageEditIndividualServiceInRightSide = document.createElement("img");
-        imageEditIndividualServiceInRightSide.id = "imageEditIndividualServiceInRightSide";
-        imageEditIndividualServiceInRightSide.src = "../assets/images/botao-editar.png";
-
-        let textIndividualServiceInRightSideDiv = document.createElement("div");
-        textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
-        let textIndividualServiceInRightSide = document.createElement("p");
-        textIndividualServiceInRightSide.id = "texts";
-        textIndividualServiceInRightSide.className = "textIndividualServiceInRightSide";
-        textIndividualServiceInRightSide.textContent = descriptionArea.value;
-
-        let knowMoreIndividualServiceInRightSideDiv = document.createElement("div");
-        knowMoreIndividualServiceInRightSideDiv.className = "knowMoreIndividualServiceInRightSideDiv";
-        let knowMoreIndividualServiceInRightSide = document.createElement("h3");
-        knowMoreIndividualServiceInRightSide.className = "knowMoreIndividualServiceInRightSide";
-        knowMoreIndividualServiceInRightSide.textContent = "Ler mais";
-
-        divAllServices.appendChild(individualServiceDiv);
-        individualServiceDiv.appendChild(leftSideIndividualServiceDiv);
-        individualServiceDiv.appendChild(rightSideIndividualServiceDiv);
-        leftSideIndividualServiceDiv.appendChild(titleIndividualServiceInLeftSideDiv);
-        titleIndividualServiceInLeftSideDiv.appendChild(titleIndividualServiceInLeftSide);
-        leftSideIndividualServiceDiv.appendChild(imageIndividualServiceInLeftSideDiv);
-        imageIndividualServiceInLeftSideDiv.appendChild(imageIndividualServiceInLeftSide);
-        leftSideIndividualServiceDiv.appendChild(buttonHireIndividualServiceInLeftSideDiv);
-        buttonHireIndividualServiceInLeftSideDiv.appendChild(buttonHireIndividualServiceInLeftSide);
-        rightSideIndividualServiceDiv.appendChild(imageEditIndividualServiceInRightSideDiv);
-        imageEditIndividualServiceInRightSideDiv.appendChild(imageEditIndividualServiceInRightSide);
-        rightSideIndividualServiceDiv.appendChild(textIndividualServiceInRightSideDiv);
-        textIndividualServiceInRightSideDiv.appendChild(textIndividualServiceInRightSide);
-        rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
-        knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
-
+        editToggleModal();
     });
-
+    
+    if (editModal.style.opacity === "1") {
+        editToggleModal();
+    }
+    
     // Fechar o modal após adicionar o serviço
     toggleModal();
 
     // Limpar o conteúdo do modal após adicionar o serviço
     resetModalContent();
+
+    editModalHeaderDiv.appendChild(editTitleNewService);
+    editModalHeaderDiv.appendChild(editTitleDiv);
+    editModal.appendChild(editModalHeaderDiv);
+    editTitleDiv.appendChild(editTitleInput);
+    editTitleDiv.appendChild(editTypeServiceInput);
+    editTitleDiv.appendChild(editEmailInput);
+    editTitleDiv.appendChild(editCerimonialistEmailInput);
+    editTitleDiv.appendChild(editCnpjInput);
+    editTitleDiv.appendChild(editPhoneInput);
+    editTitleDiv.appendChild(editCepInput);
+    editTitleDiv.appendChild(editHouseNumberInput);
+    editImageDiv.appendChild(editLoadImageButtonDiv);
+    editTitleImageDiv.appendChild(editImageDiv);
+    editModalBodyDiv.appendChild(editTitleImageDiv);
+    editModalBodyDiv.appendChild(editDescriptionDiv);
+    editDescriptionDiv.appendChild(editDescriptionArea);
+    editModal.appendChild(editModalBodyDiv);
+    editButtonConfirmNewServiceDiv.appendChild(editButtonConfirmNewService);
+    editModal.appendChild(editButtonConfirmNewServiceDiv);
+    corpo.appendChild(editFade);
+    corpo.appendChild(editModal);
+          
 });
 
 // Fechar o modal quando o fade for clicado
