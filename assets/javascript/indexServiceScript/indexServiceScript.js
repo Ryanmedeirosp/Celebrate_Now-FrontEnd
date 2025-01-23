@@ -186,6 +186,10 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     imageEditIndividualServiceInRightSide.id = "imageEditIndividualServiceInRightSide";
     imageEditIndividualServiceInRightSide.src = "../assets/images/botao-editar.png";
 
+    let imageRemoveIndividualServiceInRightSide = document.createElement("img");
+    imageRemoveIndividualServiceInRightSide.id = "imageRemoveIndividualServiceInRightSide";
+    imageRemoveIndividualServiceInRightSide.src = "../assets/images/remover.png";
+
     let textIndividualServiceInRightSideDiv = document.createElement("div");
     textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
     let textIndividualServiceInRightSide = document.createElement("p");
@@ -210,6 +214,9 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     buttonHireIndividualServiceInLeftSideDiv.appendChild(buttonHireIndividualServiceInLeftSide);
     rightSideIndividualServiceDiv.appendChild(imageEditIndividualServiceInRightSideDiv);
     imageEditIndividualServiceInRightSideDiv.appendChild(imageEditIndividualServiceInRightSide);
+
+    imageEditIndividualServiceInRightSideDiv.appendChild(imageRemoveIndividualServiceInRightSide);
+
     rightSideIndividualServiceDiv.appendChild(textIndividualServiceInRightSideDiv);
     textIndividualServiceInRightSideDiv.appendChild(textIndividualServiceInRightSide);
     rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
@@ -305,10 +312,39 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     imageEditIndividualServiceInRightSide.addEventListener("click", (event) => {
         editToggleModal();
     });
-    
-    if (editModal.style.opacity === "1") {
-        editToggleModal();
-    }
+
+    editFade.addEventListener("click", () => editToggleModal());
+
+    const resetEditModalContent = () => {
+        // Limpar campos de entrada de texto
+        editTitleInput.value = '';
+        editEmailInput.value = '';
+        editCnpjInput.value = '';
+        editPhoneInput.value = '';
+        editCepInput.value = '';
+        editHouseNumberInput.value = '';
+        editCerimonialistEmailInput.value = '';
+        editTypeServiceInput.value = '';
+        editDescriptionArea.value = '';
+        // Limpar a imagem carregada (se houver uma imagem carregada)
+        editLoadImageButtonDiv.value = '';
+    };
+
+    editButtonConfirmNewService.addEventListener("click", (event) => {
+        const leitor = new FileReader();
+        leitor.readAsDataURL(editLoadImageButtonDiv.files[0]);
+        leitor.addEventListener("load", (event) => {
+            imageIndividualServiceInLeftSide.src = event.target.result;
+        });
+        titleIndividualServiceInLeftSide.textContent = editTitleInput.value;
+        textIndividualServiceInRightSide.textContent = editDescriptionArea.value;
+        editToggleModal()
+        resetEditModalContent();
+    });
+
+    imageRemoveIndividualServiceInRightSide.addEventListener("click", (event) => {
+        divAllServices.removeChild(individualServiceDiv);
+    });
     
     // Fechar o modal após adicionar o serviço
     toggleModal();
