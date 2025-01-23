@@ -206,3 +206,13 @@ a{
     flex-direction: row;
    
 }
+#sidebar-right #list-customers {
+    display: flex;
+    justify-content: first baseline;
+}
+#sidebar-right #list-customers #sidebar-dados{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

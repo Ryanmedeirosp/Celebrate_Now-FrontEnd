@@ -24,13 +24,14 @@
 }
 
 #btnAddClients {
+    margin-top: 20px;
     border-radius: 7px;
     padding: 10px;
     cursor: pointer;
     background-color: #D8B795;
     display: flex;
     color: black;
-    width: 80%;
+    width: 40%;
     justify-content: center;
     align-items: center;
 }
@@ -125,6 +126,7 @@
     align-items: center;
     gap: 10px; /* Space between customer entries */
     padding: 20px;
+    overflow: scroll;
     
 }
 #list-customers span{
