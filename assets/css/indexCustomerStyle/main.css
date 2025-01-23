@@ -130,10 +130,18 @@
     
 }
 #list-customers span{
-    border: #C8A78D 2px solid;
+    border: #C8A78D 3px solid;
     width: 80%;
     padding: 15px;
     border-radius: 5px;
+    
+}
+#clients-dados{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 

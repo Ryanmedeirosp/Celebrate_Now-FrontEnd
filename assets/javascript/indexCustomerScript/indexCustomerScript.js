@@ -199,7 +199,7 @@ function populateCustomerList(customers) {
     customers.forEach((customer) => {
         const customerDiv = document.createElement("span");
         customerDiv.id = "clients-dados";
-        customerDiv.textContent = `Nome: ${customer.name} Email: ${customer.email}`;
+        customerDiv.textContent = `Nome: ${customer.name} | Email: ${customer.email}`;
         list_customer.appendChild(customerDiv);
     });
 
