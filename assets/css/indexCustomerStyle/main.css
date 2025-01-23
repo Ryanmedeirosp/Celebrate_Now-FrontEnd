@@ -29,12 +29,16 @@
     cursor: pointer;
     background-color: #D8B795;
     display: flex;
+    color: black;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
 }
 
 #divListaClients {
     display: flex;
     width: 100%;
-    height:75%;
+    height: 75%;
     flex-direction: column;
     overflow: scroll;
     align-items: center;
@@ -47,23 +51,52 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background for better contrast */
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-
 .modal-content {
-    background-color: #D8B795;
-    padding: 20px;
-    border-radius: 5px;
-    width: 700px;
+    background-color: #fff; /* White background for modal content */
+    padding: 30px; /* Increased padding */
+    border-radius: 10px; /* More rounded corners */
+    width: 500px; /* Adjusted width */
     height: 500px;
-    overflow: auto;
-    display: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    position: relative; /* Allow absolute positioning of children */
+    overflow: scroll;
+}
+
+#close {
+    position: absolute; /* Position the button absolutely */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    background-color: #f44336; /* Red background color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 5px 10px; /* Padding for the button */
+}
+
+.modal-content h2 {
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.modal-content button {
+    margin-top: 10px; /* Space above buttons */
+    background-color: #4CAF50; /* Green background for the add button */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.modal-content button:hover {
+    background-color: #45a049; /* Darker green on hover */
 }
 
 .modal-content input {
@@ -75,41 +108,44 @@
     border-radius: 5px;
 }
 
-.modal-content button {
-    margin-right: 10px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#btnSalvar {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#close {
-    background-color: #f44336;
-    color: white;
-}
-
-#modal-cliente {
-    display: none;
-}
-
 .clienteDiv {
     width: 90%;
     display: flex;
     padding: 20px;
     gap: 20px;
     justify-content: space-between;
-    border: 3px solid  #D8B795;
+    border: 3px solid #D8B795;
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for entries */
 }
 
-.btnRemoverCliente {
-    background-color: #D8B795;
-    border-radius: 10px;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+#list-customers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between customer entries */
+    padding: 20px;
+    
 }
+#list-customers span{
+    border: #C8A78D 2px solid;
+    width: 80%;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+
+/* Button styles */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #D8B795; /* Button background color */
+    color: white; /* Button text color */
+}
+
+button:hover {
+    background-color: #C8A78D; /* Darker shade on hover */
+}
+

@@ -424,3 +424,186 @@
 #modal.hide {
     top: 0;
 }
+
+#editFade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#editModal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 10;
+    width: 700px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#editModalHeaderDiv {
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#editModalBodyDiv {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#editTitleImageDiv {
+    height: 100%;
+    width: 55%;
+}
+
+#editTitleDiv {
+    height: 250px;
+    width: 600px;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    justify-items: center;
+}
+
+.inputInformation {
+    height: 40px;
+    width: 250px;
+    background-color: #dddd;
+    color: #666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    resize: none;
+    transition: all 0.2s;
+}
+
+.inputInformation::placeholder {
+    text-align: center;
+}
+
+.inputInformation:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.inputInformation:focus {
+    cursor: text;
+    color: #333;
+    background-color: white;
+    border-color: #333;
+}
+
+#editImageDiv {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#editLoadImageButtonDiv {
+    font-size: large;
+    padding: 4px;
+    border-radius: 10px;
+    border: solid 1px black;
+    color: black;
+    background-color: white;
+}
+
+#editLoadImageButtonDiv:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+#editDescriptionDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#editDescriptionArea {
+    height: 150px;
+    width: 350px;
+    background-color: #dddd;
+    color: #666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    resize: none;
+    transition: all 0.2s;
+}
+
+#editDescriptionArea:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+
+#editDescriptionArea:focus {
+    cursor: text;
+    color: #333;
+    background-color: white;
+    border-color: #333;
+}
+
+#editButtonConfirmNewServiceDiv {
+    height: 15%;
+    width: 100%;
+}
+
+#editButtonConfirmNewServiceDiv {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#editButtonConfirmNewService {
+    font-size: large;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    color: #333;
+    background-color: #dddd;
+    transition: all 0.2s;
+}
+
+#editButtonConfirmNewService:hover {
+    cursor: pointer;
+    background-color: white;
+    border-color: #333;
+    color: black;
+}
+
+#editModal.hideTwo, #editFade.hideTwo {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#editFade, #editModal {
+    transition: 0.3s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#editModal.hideTwo {
+    top: 0;
+}
