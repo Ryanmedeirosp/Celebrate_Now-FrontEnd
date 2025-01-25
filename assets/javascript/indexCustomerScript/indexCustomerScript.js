@@ -26,6 +26,7 @@ function createClientModal() {
     closeButton.onclick = () => (modal.style.display = "none");
 
     const title = document.createElement("h2");
+    title.id =  "title";
     title.textContent = "Adicionar Cliente";
 
     // Campos de entrada
@@ -39,6 +40,7 @@ function createClientModal() {
         { label: "Número de Telefone", id: "phoneNumber", type: "text" },
         { label: "CPF", id: "CpfOrCnpj", type: "text" },
         { label: "Data de Nascimento", id: "birthdayField", type: "date" },
+        { label: "Email da Ceremonialista", id: "ceremonialistEmailField", type: "text" },
     ];
 
     const errorMessages = {}; // Objeto para mensagens de erro
@@ -72,6 +74,8 @@ function createClientModal() {
     });
 
     const addButton = document.createElement("button");
+    addButton.id  = "addButton";
+
     addButton.textContent = "Adicionar Cliente";
     addButton.onclick = () => {
         // Função para validar o e-mail

@@ -113,6 +113,9 @@ descriptionArea.id = "descriptionArea";
 descriptionArea.placeholder = "Insira uma descrição...";
 descriptionArea.maxLength = 150;
 
+let alertArea = document.createElement("p");
+alertArea.id = "alert";
+
 let buttonConfirmNewServiceDiv = document.createElement("div");
 buttonConfirmNewServiceDiv.id = "buttonConfirmNewServiceDiv";
 let buttonConfirmNewService = document.createElement("button");
@@ -373,7 +376,6 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     editModal.appendChild(editButtonConfirmNewServiceDiv);
     corpo.appendChild(editFade);
     corpo.appendChild(editModal);
-          
 });
 
 // Fechar o modal quando o fade for clicado
@@ -392,6 +394,7 @@ titleDiv.appendChild(cnpjInput);
 titleDiv.appendChild(phoneInput);
 titleDiv.appendChild(cepInput);
 titleDiv.appendChild(houseNumberInput);
+titleDiv.appendChild(alertArea);
 imageDiv.appendChild(loadImageButtonDiv);
 titleImageDiv.appendChild(imageDiv);
 modalBodyDiv.appendChild(titleImageDiv);

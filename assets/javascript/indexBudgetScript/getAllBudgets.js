@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     const row = document.createElement("tr");
 
                     row.innerHTML = `
-                  
                         <td>${index + 1}.</td>
                         <td>
                             <p><em>${item.title}</em></p>
