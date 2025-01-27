@@ -37,11 +37,6 @@ async function fillTableByIndex(id) {
 
             clientNotFoundMessage.style.display = "none";
 
-            //NOTA: Montar a TABELA novamente para evitar erros pois a DIV está sendo limpada para montar a mensagem de erro.
-
-            // const budgetMainContent = document.querySelector(".budget-main-content");
-            // budgetMainContent.innerHTML = "";
-
             const budgetList = document.getElementById("budget-table");
             const totalAmount = document.getElementById("total-amount");
             budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
@@ -55,19 +50,23 @@ async function fillTableByIndex(id) {
                     const row = document.createElement("tr");
 
                     row.innerHTML = `
-                  
-                        <td>${index + 1}.</td>
-                        <td>
-                            <p><em>${item.title}</em></p>
-                            <p>${item.description}</p>
-                        </td>
-                        <td>R$<span>${item.price.toFixed(2)}</span></td>
-                        <td>
-                            <div class="table-button-field">
-                                <button class="table-button-delete"><i class="bi bi-pencil-fill"></i></button>
-                                <button class="table-button-edit"><i class="bi bi-trash3-fill"></i></button>                                                                       
-                            </div>
-                        </td>
+    
+                        <tr>
+                            <td>${index + 1}.</td>
+                            <td>
+                                <input type="text" value="${item.title}" class="table-content-title" readonly>
+                                <textarea name="" id="" readonly>${item.description}</textarea>
+                            </td>
+                            <td>
+                                <input type="text" value="${item.price.toFixed(2)}" readonly>
+                            </td>
+                            <td>
+                                <div class="table-button-field">
+                                    <button class="table-button-delete"><i class="bi bi-pencil-fill"></i></button>
+                                    <button class="table-button-edit"><i class="bi bi-trash3-fill"></i></button>                                                                       
+                                </div>
+                            </td>
+                        </tr>
                 
                     `;
 

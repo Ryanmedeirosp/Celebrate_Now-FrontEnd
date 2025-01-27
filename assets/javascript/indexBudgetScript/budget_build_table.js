@@ -1,3 +1,6 @@
+const editTableButton = document.querySelector(".table-button-edit");
+const deleteTableButton = document.querySelector(".table-button-delete");
+
 function buildTable(table, data){
 
     //Corpo
@@ -119,3 +122,13 @@ function buildTable(table, data){
 
     table.appendChild(tbody);
 }
+
+editTableButton.addEventListener("click", (event) =>{
+
+    console.log("Edit");
+});
+
+deleteTableButton.addEventListener("click", (event) =>{
+
+    console.log("Delete");
+});

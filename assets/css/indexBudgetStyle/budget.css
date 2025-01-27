@@ -146,6 +146,23 @@ table tbody td button i{
     color: #000;
 }
 
+/* Inputs */
+
+table tbody tr td input{
+    font-size: 0.9rem;
+    /* background: none; */
+}
+
+table tbody tr td textarea{
+    /* background: none; */
+    font-size: 0.9rem;
+    min-height: 0.5rem;
+}
+
+table tbody tr td .table-content-title{
+    font-weight: 900;
+}
+
 /* Budget Footer */
 
 .budget-main-footer{
