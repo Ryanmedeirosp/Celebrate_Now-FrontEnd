@@ -27,7 +27,7 @@ function createClientModal() {
 
     const title = document.createElement("h2");
     title.id =  "title";
-    title.textContent = "Adicionar Cliente";
+    title.textContent = "";
 
     // Campos de entrada
     const fields = [
