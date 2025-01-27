@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <button class="table-button-edit"><i class="bi bi-trash3-fill"></i></button>                                                                       
                             </div>
                         </td>
-                
                     `;
 
                     budgetList.appendChild(row);
