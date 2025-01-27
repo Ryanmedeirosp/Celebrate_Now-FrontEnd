@@ -8,20 +8,5 @@
                 return;
             }
 
-            fetch(`http://localhost:8080/client/${ceremonialistId}`, {
-                method: "GET",
-                headers: {
-                    "Accept": "application/json"
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Clientes recebidos:", data);
-                alert("Clientes carregados com sucesso! Confira o console para detalhes.");
-            })
-            .catch(error => {
-                console.error("Erro ao carregar os clientes:", error);
-                alert("Erro ao carregar os clientes.");
-            });
         });
     }
