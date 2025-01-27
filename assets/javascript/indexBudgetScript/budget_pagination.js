@@ -1,6 +1,12 @@
 const prevPaginationButton = document.querySelector("#prev-page");
 const nextPaginationButton = document.querySelector("#next-page");
 
+const clientNotFoundMessage = document.querySelector(".client-not-found-message");
+
+const mainContentDiv = document.querySelector(".budget-main-content");
+
+const clientNotFoundDiv = "client-not-found-div-config";
+
 async function fillTableByIndex(id) {
 
     id = id.toString();
@@ -24,8 +30,12 @@ async function fillTableByIndex(id) {
 
         if (data.length > 0) {
 
+            mainContentDiv.classList.remove(clientNotFoundDiv);
+
             const table = document.querySelector("table");
             table.style.display = "table";
+
+            clientNotFoundMessage.style.display = "none";
 
             //NOTA: Montar a TABELA novamente para evitar erros pois a DIV está sendo limpada para montar a mensagem de erro.
 
@@ -66,23 +76,12 @@ async function fillTableByIndex(id) {
             });
 
         } else {
+            mainContentDiv.classList.add(clientNotFoundDiv);
 
             const table = document.querySelector("table");
             table.style.display = "none";
 
-            const notFoundClass = "client-not-found";
-
-            const budgetMainContent = document.querySelector(".budget-main-content");
-
-            budgetMainContent.innerHTML = `
-                <div class="client-not-found-message">
-                    <p>Nenhum orçamento encontrado para o cliente informado.</p>
-                </div>
-            `;
-
-            budgetMainContent.classList.add(notFoundClass);
-
-            alert("Nenhum orçamento encontrado para o cliente informado.");
+            clientNotFoundMessage.style.display = "grid";
         }
 
     })
@@ -95,7 +94,6 @@ async function fillTableByIndex(id) {
 window.addEventListener("load", (event) =>{
 
     console.log(localStorage.getItem("actualBudgetIndex"));
-    console.log("PEIXE");
 });
 
 prevPaginationButton.addEventListener("click", (event) =>{
@@ -105,7 +103,6 @@ prevPaginationButton.addEventListener("click", (event) =>{
     if (index > 0) {
 
         fillTableByIndex(index);  
-        console.log("Barracuda PREV ", index);
     }
 })
 
@@ -114,6 +111,4 @@ nextPaginationButton.addEventListener("click", (event) =>{
     let index = parseInt(localStorage.getItem("actualBudgetIndex")) + 1;
 
     fillTableByIndex(index);
-
-    console.log("Pirarucu NEXT ", index);
 })

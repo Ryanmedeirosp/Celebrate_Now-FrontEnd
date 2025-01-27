@@ -16,9 +16,7 @@
     <link rel="stylesheet" href="assets/css/indexBudgetStyle/budget_pagination.css">
 
     <!-- JavaScript -->
-    <script src="assets/javascript/indexBudgetScript/indexBudgetScript.js" defer></script>
     <script src="assets/javascript/indexBudgetScript/budget_modals.js" defer></script>
-    <script src="assets/javascript/indexBudgetScript/budget_build_table.js" defer></script>
     <script src="assets/javascript/indexBudgetScript/getAllBudgets.js" defer></script>
     <script src="assets/javascript/indexBudgetScript/budget_pagination.js" defer></script>
 
@@ -105,6 +103,12 @@
         <div class="budget-main">
             <div class="budget-main-sidebar"></div>
             <div class="budget-main-content">
+
+                <!-- Mensagem de NotFound -->
+                <div class="client-not-found-message">
+                    <p>Nenhum orçamento encontrado para o cliente informado.</p>
+                </div>
+
                 <table>
                     <thead>
                         <tr>
@@ -243,8 +247,8 @@
                 </form>
 
                 <div class="add-item-buttons-container">
-                    <button class="add-item-button">Cancelar</button>
-                    <button class="add-item-button">Confirmar</button>
+                    <button class="add-item-button-cancel">Cancelar</button>
+                    <button class="add-item-button-confirm">Confirmar</button>
                 </div>
             </div>
 

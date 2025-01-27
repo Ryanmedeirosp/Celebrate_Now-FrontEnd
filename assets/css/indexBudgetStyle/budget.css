@@ -66,8 +66,15 @@
     overflow-y: auto;
 }
 
-.client-not-found{
+.client-not-found-div-config{
     display: grid;
+    place-items: center;
+}
+
+/* Not Found */
+
+.client-not-found-message{
+    display: none;
     place-items: center;
     font-size: 2rem;
     color: #F20505;

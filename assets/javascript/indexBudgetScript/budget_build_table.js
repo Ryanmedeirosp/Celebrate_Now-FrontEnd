@@ -1,5 +1,3 @@
-const budgetMainContent = document.querySelector("table");
-
 function buildTable(table, data){
 
     //Corpo
@@ -121,47 +119,3 @@ function buildTable(table, data){
 
     table.appendChild(tbody);
 }
-
-// async function getBudgetItems(){
-
-//     try{
-
-//         const response = await fetch("http://localhost:8080/budget/1");
-
-//         if(!response.ok){
-
-//             throw new Error("Erro");
-//         }
-
-//         const data = await response.json();
-
-//         return data;
-//     }
-
-//     catch(error){
-
-//         console.log(error);
-//     }
-// }
-
-// async function fetchBudgetsAsJson() {
-
-//     try {
-
-//         const budgets = await getBudgetItems(); // Aguarda a Promise ser resolvida
-
-//         buildTable(table, budgets);
-
-//         console.log("Objeto JSON recebido:", budgets);
-//         return budgets; // Já é um objeto JSON
-//     } catch (error) {
-
-//         console.error("Erro ao buscar orçamentos:", error);
-//         return null; // Retorna null em caso de erro
-//     }
-// }
-
-// window.addEventListener("load", (event) =>{
-
-//     fetchBudgetsAsJson();
-// });
