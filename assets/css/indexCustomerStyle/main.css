@@ -127,7 +127,7 @@
     gap: 10px; /* Space between customer entries */
     padding: 20px;
     overflow: scroll;
-    
+    overflow-x: hidden;
 }
 #list-customers span{
     border: #C8A78D 3px solid;
