@@ -27,7 +27,7 @@ function createClientModal() {
 
     const title = document.createElement("h2");
     title.id =  "title";
-    title.textContent = "Adicionar Cliente";
+    title.textContent = "";
 
     // Campos de entrada
     const fields = [
@@ -197,6 +197,7 @@ function createClientModal() {
 }
 
 // Função para popular as listas de clientes
+
 function populateCustomerList(customers) {
     // Atualiza a lista principal
     list_customer.innerHTML = "<h2>Lista de Clientes</h2>";
@@ -210,12 +211,49 @@ function populateCustomerList(customers) {
     // Atualiza a lista na sidebar
     sidebarList.innerHTML = ""; // Limpa o conteúdo existente
     customers.forEach((customer) => {
-        const sidebarCustomerDiv = document.createElement("span");
-        sidebarCustomerDiv.id = "sidebar-dados";
-        sidebarCustomerDiv.textContent = customer.name;
-        sidebarList.appendChild(sidebarCustomerDiv);
+        // Cria o contêiner do cliente
+        let clienteSidebarDiv = document.createElement("div");
+        clienteSidebarDiv.className = "customer";
+
+        // Foto do cliente
+        let photoCustomerDiv = document.createElement("div");
+        photoCustomerDiv.className = "photoCustomerDiv";
+        let photoCustomer = document.createElement("img");
+        photoCustomer.className = "photoCustomer";
+        photoCustomer.src = "../assets/images/user-icon-removebg-preview.svg";
+
+        // Informações do cliente
+        let informationsCustomerDiv = document.createElement("div");
+        informationsCustomerDiv.className = "informationsCustomerDiv";
+
+        let nameInformationCustomer = document.createElement("p");
+        nameInformationCustomer.className = "nameInformationCustomer";
+        nameInformationCustomer.textContent = `Nome: ${customer.name}`;
+
+        let contractNumberInformationCustomer = document.createElement("p");
+        contractNumberInformationCustomer.className = "contractNumberInformationCustomer";
+        contractNumberInformationCustomer.textContent = `Email: ${customer.email}`;
+
+        let eventDateInformationCustomer = document.createElement("p");
+        eventDateInformationCustomer.className = "eventDateInformationCustomer";
+        eventDateInformationCustomer.textContent = `Telefone: ${customer.phoneNumber || "N/A"}`; // Exemplo adicional
+
+        // Agrupa as informações e foto
+        informationsCustomerDiv.appendChild(nameInformationCustomer);
+        informationsCustomerDiv.appendChild(contractNumberInformationCustomer);
+        informationsCustomerDiv.appendChild(eventDateInformationCustomer);
+
+        photoCustomerDiv.appendChild(photoCustomer);
+
+        // Agrupa tudo no contêiner principal
+        clienteSidebarDiv.appendChild(photoCustomerDiv);
+        clienteSidebarDiv.appendChild(informationsCustomerDiv);
+
+        // Adiciona o cliente à lista da sidebar
+        sidebarList.appendChild(clienteSidebarDiv);
     });
 }
+
 
 // Botão para abrir o modal
 const btnAddClients = document.createElement("button");
