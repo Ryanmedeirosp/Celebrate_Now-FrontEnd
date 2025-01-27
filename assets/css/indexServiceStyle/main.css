@@ -253,6 +253,11 @@
     word-wrap: break-word;
 }
 
+.knowMoreIndividualServiceInRightSide:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 #fade {
     position: fixed;
     top: 0;
@@ -617,4 +622,77 @@
 
 #editModal.hideTwo {
     top: 0;
+}
+
+#showFade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#showModal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 10;
+    width: 700px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#showTitleDiv {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#showImageAndDescriptionDiv {
+    display: flex;
+    flex-direction: row;
+    height: 360px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#showImage {
+    height: 250px;
+    width: 250px;
+    border-radius: 8px;
+}
+
+#showDescriptionDiv {
+    height: 230px;
+    width: 250px;
+    word-wrap: break-word;
+}
+
+#showInformationsDiv {
+    height: 200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.informationAboutService {
+    text-align: center;
+    height: 55px;
+    width: 250px;
+    margin-left: 60px;
+    border-radius: 10px;
+    background-color: lightblue;
 }
