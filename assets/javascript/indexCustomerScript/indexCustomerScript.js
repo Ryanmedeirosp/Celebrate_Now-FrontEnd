@@ -1,4 +1,3 @@
-
 const corpo = document.querySelector("main");
 const list_customer = document.createElement("div");
 list_customer.id = "list-customers";
@@ -202,9 +201,18 @@ function populateCustomerList(customers) {
     // Atualiza a lista principal
     list_customer.innerHTML = "<h2>Lista de Clientes</h2>";
     customers.forEach((customer) => {
-        const customerDiv = document.createElement("span");
+        const customerDiv = document.createElement("div");
         customerDiv.id = "clients-dados";
-        customerDiv.textContent = `Nome: ${customer.name} | Email: ${customer.email}`;
+        
+        const nameElement = document.createElement("p");
+        nameElement.textContent = `Nome: ${customer.name}`;
+        
+        const emailElement = document.createElement("p");
+        emailElement.textContent = `Email: ${customer.email}`;
+        
+        customerDiv.appendChild(nameElement);
+        customerDiv.appendChild(emailElement);
+        
         list_customer.appendChild(customerDiv);
     });
 
@@ -254,7 +262,6 @@ function populateCustomerList(customers) {
     });
 }
 
-
 // Botão para abrir o modal
 const btnAddClients = document.createElement("button");
 btnAddClients.id = "btnAddClients";
@@ -269,4 +276,3 @@ corpo.appendChild(list_customer); // Garante que a lista esteja abaixo do botão
 
 // Inicializa o modal
 createClientModal();
-

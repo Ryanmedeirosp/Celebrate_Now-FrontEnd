@@ -129,21 +129,30 @@
     overflow: scroll;
     overflow-x: hidden;
 }
-#list-customers span{
+
+#list-customers span {
     border: #C8A78D 3px solid;
     width: 80%;
     padding: 15px;
     border-radius: 5px;
-    
-}
-#clients-dados{
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
+#clients-dados {
+    display: flex;
+    flex-direction: column; /* Stack name and email vertically */
+    align-items: center; /* Align items to the start */
+    justify-content: center;
+    text-align: center; /* Align text to the left */
+    background-color: #F5D0A9;
+    width: 500px;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+#clients-dados p {
+    font-family: sans-serif;
+    margin: 0; /* Remove default margin */
+}
 
 /* Button styles */
 button {
@@ -158,7 +167,8 @@ button {
 button:hover {
     background-color: #C8A78D; /* Darker shade on hover */
 }
-#title{
+
+#title {
     text-align: center;
     font-size: 15px;
 }
