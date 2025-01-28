@@ -62,8 +62,8 @@ async function fillTableByIndex(id) {
                             </td>
                             <td>
                                 <div class="table-button-field">
-                                    <button class="table-button-delete"><i class="bi bi-pencil-fill"></i></button>
-                                    <button class="table-button-edit"><i class="bi bi-trash3-fill"></i></button>                                                                       
+                                    <button class="table-button-edit"><i class="bi bi-pencil-fill"></i></button>                                   
+                                    <button class="table-button-delete"><i class="bi bi-trash3-fill"></i></button>                                                                       
                                 </div>
                             </td>
                         </tr>

@@ -132,3 +132,43 @@ deleteTableButton.addEventListener("click", (event) =>{
 
     console.log("Delete");
 });
+
+function tableContent(params) {
+    
+    let tr = document.createElement("tr");
+
+    let tdIndex = document.createElement("td");
+    tdIndex.textContent = `${index + 1}.`;
+
+    let tdTitle = document.createElement("td");
+    let inputTitleField = document.createElement("input");
+
+    inputTitleField.type = "text";
+    inputTitleField.value = `${item.title}`;
+    inputTitleField.className = "table-content-title";
+    inputTitleField.readOnly = true;
+
+    tdTitle.appendChild(inputTitleField);
+
+    let textAreaDescriptionField = document.createElement("textarea");
+    
+    textAreaDescriptionField.readOnly = true;
+    textAreaDescriptionField.textContent = `${item.description}`;
+
+    let tdPrice = document.createElement("td");
+    let inputPriceField = document.createElement("input");
+
+    inputPriceField.type = "text";
+    inputPriceField.value = `${item.price.toFixed(2)}`;
+    inputPriceField.readOnly = true;
+
+    tdPrice.appendChild(inputPriceField);
+
+    let divButtons = document.createElement("div");
+    divButtons.className = "table-button-field";
+
+    
+
+
+
+}
