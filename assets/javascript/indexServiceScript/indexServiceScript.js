@@ -225,6 +225,108 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
     knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
 
+    knowMoreIndividualServiceInRightSide.addEventListener("click", (event) => {
+
+        let showFade = document.createElement("div");
+        showFade.id = "showFade";
+        showFade.className = "hideThree";
+
+        let showModal = document.createElement("div");
+        showModal.id = "showModal";
+        showModal.className = "hideThree";
+
+        const showToggleModal = () => {
+            // Apenas alterna a visibilidade do modal e fade
+            [showModal, showFade].forEach((el) => el.classList.toggle("hideThree"));
+        };
+
+        showToggleModal();
+
+        let showTitleDiv = document.createElement("div");
+        showTitleDiv.id = "showTitleDiv";
+        let showTitleService = document.createElement("h2");
+        showTitleService.id = "showTitleService";
+        showTitleService.textContent = titleIndividualServiceInLeftSide.textContent;
+
+        let showImageAndDescriptionDiv = document.createElement("div");
+        showImageAndDescriptionDiv.id = "showImageAndDescriptionDiv";
+        let showImage = document.createElement("img");
+        showImage.id = "showImage";
+        showImage.src = "assets/images/caraTranquilo.jpg";
+        let showDescriptionDiv = document.createElement("div");
+        showDescriptionDiv.id = "showDescriptionDiv";
+        let showDescription = document.createElement("p");
+        showDescription.id = "showDescription";
+        showDescription.textContent = textIndividualServiceInRightSide.textContent;
+
+        let showInformationsDiv = document.createElement("div");
+        showInformationsDiv.id = "showInformationsDiv";
+
+        let showInformationsSectionOneDiv = document.createElement("div");
+        showInformationsSectionOneDiv.id = "showInformationsSectionOneDiv";
+        let showInformationsSectionTwoDiv = document.createElement("div");
+        showInformationsSectionTwoDiv.id = "showInformationsSectionTwoDiv";
+        
+        let showTypeOfService = document.createElement("h4");
+        showTypeOfService.id = "showTypeOfService";
+        showTypeOfService.className = "informationAboutService";
+        showTypeOfService.textContent = "Tipo de serviço:" + " " + "Flores para o casamento";
+
+        let showEmail = document.createElement("h4");
+        showEmail.id = "showEmail";
+        showEmail.className = "informationAboutService";
+        showEmail.textContent = "Email contato:" + " " + "emailvalido@gmail.com";
+
+        let showEmailCerimonialist = document.createElement("h4");
+        showEmailCerimonialist.id = "showEmailCerimonialist";
+        showEmailCerimonialist.className = "informationAboutService";
+        showEmailCerimonialist.textContent = "Email do cerimonialista:" + " " + "emailvalidodois@gmail.com";
+
+        let showCNPJ = document.createElement("h4");
+        showCNPJ.id = "showCNPJ";
+        showCNPJ.className = "informationAboutService";
+        showCNPJ.textContent = "Número do CNPJ:" + " " + "11111111111111";
+
+        let showPhone = document.createElement("h4");
+        showPhone.id = "showPhone";
+        showPhone.className = "informationAboutService";
+        showPhone.textContent = "Número do contato:" + " " + "82996016299";
+
+        let showCEP = document.createElement("h4");
+        showCEP.id = "showCEP";
+        showCEP.className = "informationAboutService";
+        showCEP.textContent = "Número do CEP:" + " " + "5557555";
+
+        let showNumberHouse = document.createElement("h4");
+        showNumberHouse.id = "showNumberHouse";
+        showNumberHouse.className = "informationAboutService";
+        showNumberHouse.textContent = "Número da casa:" + " " + "330";
+
+        showModal.appendChild(showTitleDiv);
+        showTitleDiv.appendChild(showTitleService);
+
+        showModal.appendChild(showImageAndDescriptionDiv);
+        showImageAndDescriptionDiv.appendChild(showImage);
+        showImageAndDescriptionDiv.appendChild(showDescriptionDiv);
+        showDescriptionDiv.appendChild(showDescription);
+
+        showModal.appendChild(showInformationsDiv);
+        showInformationsSectionOneDiv.appendChild(showTypeOfService);
+        showInformationsSectionOneDiv.appendChild(showCNPJ);
+        showInformationsSectionOneDiv.appendChild(showCEP);
+        showInformationsSectionOneDiv.appendChild(showNumberHouse);
+        showInformationsSectionTwoDiv.appendChild(showEmail);
+        showInformationsSectionTwoDiv.appendChild(showEmailCerimonialist);
+        showInformationsSectionTwoDiv.appendChild(showPhone);
+        showInformationsDiv.appendChild(showInformationsSectionOneDiv);
+        showInformationsDiv.appendChild(showInformationsSectionTwoDiv);
+
+        corpo.appendChild(showFade);
+        corpo.appendChild(showModal);
+   
+        showFade.addEventListener("click", () => showToggleModal());
+    });
+
     // Modal para editar
 
     let editFade = document.createElement("div");
@@ -341,7 +443,7 @@ buttonConfirmNewService.addEventListener("click", (event) => {
         });
         titleIndividualServiceInLeftSide.textContent = editTitleInput.value;
         textIndividualServiceInRightSide.textContent = editDescriptionArea.value;
-        editToggleModal()
+        editToggleModal();
         resetEditModalContent();
     });
 
@@ -354,99 +456,6 @@ buttonConfirmNewService.addEventListener("click", (event) => {
 
     // Limpar o conteúdo do modal após adicionar o serviço
     resetModalContent();
-
-    knowMoreIndividualServiceInRightSide.addEventListener("click", (event) => {
-
-        let showFade = document.createElement("div");
-        showFade.id = "showFade";
-        showFade.className = "hideThree";
-
-        let showModal = document.createElement("div");
-        showModal.id = "showModal";
-        showModal.className = "hideThree";
-
-        let showTitleDiv = document.createElement("div");
-        showTitleDiv.id = "showTitleDiv";
-        let showTitleService = document.createElement("h2");
-        showTitleService.id = "showTitleService";
-        showTitleService.textContent = "Nome do serviço";
-
-        let showImageAndDescriptionDiv = document.createElement("div");
-        showImageAndDescriptionDiv.id = "showImageAndDescriptionDiv";
-        let showImage = document.createElement("img");
-        showImage.id = "showImage";
-        showImage.src = "assets/images/caraTranquilo.jpg";
-        let showDescriptionDiv = document.createElement("div");
-        showDescriptionDiv.id = "showDescriptionDiv";
-        let showDescription = document.createElement("p");
-        showDescription.id = "showDescription";
-        showDescription.textContent = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-
-        let showInformationsDiv = document.createElement("div");
-        showInformationsDiv.id = "showInformationsDiv";
-
-        let showTypeOfService = document.createElement("h4");
-        showTypeOfService.id = "showTypeOfService";
-        showTypeOfService.className = "informationAboutService";
-        showTypeOfService.textContent = "Tipo de serviço:" + " " + "Flores para o casamento";
-
-        let showEmail = document.createElement("h4");
-        showEmail.id = "showEmail";
-        showEmail.className = "informationAboutService";
-        showEmail.textContent = "Email contato:" + " " + "emailvalido@gmail.com";
-
-        let showEmailCerimonialist = document.createElement("h4");
-        showEmailCerimonialist.id = "showEmailCerimonialist";
-        showEmailCerimonialist.className = "informationAboutService";
-        showEmailCerimonialist.textContent = "Email do cerimonialista:" + " " + "emailvalidodois@gmail.com";
-
-        let showCNPJ = document.createElement("h4");
-        showCNPJ.id = "showCNPJ";
-        showCNPJ.className = "informationAboutService";
-        showCNPJ.textContent = "Número do CNPJ:" + " " + "11111111111111";
-
-        let showPhone = document.createElement("h4");
-        showPhone.id = "showPhone";
-        showPhone.className = "informationAboutService";
-        showPhone.textContent = "Número do contato:" + " " + "82996016299";
-
-        let showCEP = document.createElement("h4");
-        showCEP.id = "showCEP";
-        showCEP.className = "informationAboutService";
-        showCEP.textContent = "Número do CEP:" + " " + "5557555";
-
-        let showNumberHouse = document.createElement("h4");
-        showNumberHouse.id = "showNumberHouse";
-        showNumberHouse.className = "informationAboutService";
-        showNumberHouse.textContent = "Número da casa:" + " " + "330";
-
-        showModal.appendChild(showTitleDiv);
-        showTitleDiv.appendChild(showTitleService);
-
-        showModal.appendChild(showImageAndDescriptionDiv);
-        showImageAndDescriptionDiv.appendChild(showImage);
-        showImageAndDescriptionDiv.appendChild(showDescriptionDiv);
-        showDescriptionDiv.appendChild(showDescription);
-
-        showModal.appendChild(showInformationsDiv);
-        showInformationsDiv.appendChild(showTypeOfService);
-        showInformationsDiv.appendChild(showEmail);
-        showInformationsDiv.appendChild(showEmailCerimonialist);
-        showInformationsDiv.appendChild(showCNPJ);
-        showInformationsDiv.appendChild(showPhone);
-        showInformationsDiv.appendChild(showCEP);
-        showInformationsDiv.appendChild(showNumberHouse);
-
-        corpo.appendChild(showFade);
-        corpo.appendChild(showModal);
-
-        const showToggleModal = () => {
-            // Apenas alterna a visibilidade do modal e fade
-            [showModal, showFade].forEach((el) => el.classList.toggle("hideThree"));
-        };
-            
-        showFade.addEventListener("click", () => showToggleModal());
-    });
 
     editModalHeaderDiv.appendChild(editTitleNewService);
     editModalHeaderDiv.appendChild(editTitleDiv);

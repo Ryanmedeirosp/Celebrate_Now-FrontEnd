@@ -680,19 +680,45 @@
 }
 
 #showInformationsDiv {
-    height: 200px;
+    height: 230px;
     width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
+    display: flex;
     align-items: center;
+    gap: 10px;
+    background-color: #D8B795;
+    color: white;
+}
+
+#showInformationsSectionOneDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#showInformationsSectionTwoDiv {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
 .informationAboutService {
     text-align: center;
-    height: 55px;
     width: 250px;
     margin-left: 60px;
-    border-radius: 10px;
-    background-color: lightblue;
+    border-radius: 5px;
+}
+
+#showModal.hideThree, #showFade.hideThree {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#showFade, #showModal {
+    transition: 0.3s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#showModal.hideThree {
+    top: 0;
 }
