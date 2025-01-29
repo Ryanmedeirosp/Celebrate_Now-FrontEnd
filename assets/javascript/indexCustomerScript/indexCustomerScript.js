@@ -76,117 +76,6 @@ function createClientModal() {
     addButton.id  = "addButton";
 
     addButton.textContent = "Adicionar Cliente";
-    addButton.onclick = () => {
-        // Função para validar o e-mail
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        // Função para validar o CEP
-        function validateCEP(cep) {
-            const cepRegex = /^\d{8}$/; // Apenas números, com 8 dígitos
-            return cepRegex.test(cep);
-        }
-
-        // Função para validar o CPF
-        function validateCPF(cpf) {
-            cpf = cpf.replace(/\D/g, ""); // Remove caracteres não numéricos
-            if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
-
-            let soma = 0, resto;
-
-            for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
-            resto = (soma * 10) % 11;
-            if (resto === 10 || resto === 11) resto = 0;
-            if (resto !== parseInt(cpf.substring(9, 10))) return false;
-
-            soma = 0;
-            for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
-            resto = (soma * 10) % 11;
-            if (resto === 10 || resto === 11) resto = 0;
-            if (resto !== parseInt(cpf.substring(10, 11))) return false;
-
-            return true;
-        }
-
-        // Validação inicial
-        let isValid = true;
-
-        // Limpa mensagens de erro anteriores
-        Object.values(errorMessages).forEach((error) => {
-            error.style.display = "none";
-        });
-
-        // Validações específicas
-        const email = document.getElementById("emailField").value.trim();
-        const cep = document.getElementById("cepField").value.trim();
-        const cpf = document.getElementById("CpfOrCnpj").value.trim();
-
-        if (!email || !validateEmail(email)) {
-            errorMessages["emailField"].textContent = "E-mail inválido.";
-            errorMessages["emailField"].style.display = "block";
-            isValid = false;
-        }
-
-        if (!cep || !validateCEP(cep)) {
-            errorMessages["cepField"].textContent = "CEP inválido. Deve conter 8 dígitos numéricos.";
-            errorMessages["cepField"].style.display = "block";
-            isValid = false;
-        }
-
-        if (!cpf || !validateCPF(cpf)) {
-            errorMessages["CpfOrCnpj"].textContent = "CPF inválido.";
-            errorMessages["CpfOrCnpj"].style.display = "block";
-            isValid = false;
-        }
-
-        // Validação de senha
-        if (
-            document.getElementById("passwordField").value !==
-            document.getElementById("confirmPasswordField").value
-        ) {
-            errorMessages["confirmPasswordField"].textContent =
-                "As senhas não coincidem.";
-            errorMessages["confirmPasswordField"].style.display = "block";
-            isValid = false;
-        }
-
-        // Validações gerais (exemplo: nome obrigatório)
-        if (!document.getElementById("nameField").value.trim()) {
-            errorMessages["nameField"].textContent = "O nome é obrigatório.";
-            errorMessages["nameField"].style.display = "block";
-            isValid = false;
-        }
-
-        // Se houver erros, interrompe o processo
-        if (!isValid) return;
-
-        // Recolhe os dados do formulário
-        const newCustomer = {
-            name: document.getElementById("nameField").value,
-            email: email,
-            cep: cep,
-            number: document.getElementById("numberHouseField").value,
-            phoneNumber: document.getElementById("phoneNumber").value,
-            cpfOrCnpj: cpf,
-            birthday: document.getElementById("birthdayField").value,
-        };
-
-        // Adiciona o novo cliente à lista
-        customers.push(newCustomer);
-
-        // Popula as listas de clientes
-        populateCustomerList(customers);
-
-        // Limpa os campos do formulário
-        fields.forEach((field) => {
-            document.getElementById(field.id).value = ""; // Limpa cada campo
-        });
-
-        // Fecha o modal
-        modal.style.display = "none";
-    };
 
     modalContent.appendChild(closeButton);
     modalContent.appendChild(title);
@@ -244,7 +133,7 @@ function populateCustomerList(customers) {
 
         let eventDateInformationCustomer = document.createElement("p");
         eventDateInformationCustomer.className = "eventDateInformationCustomer";
-        eventDateInformationCustomer.textContent = `Telefone: ${customer.phoneNumber || "N/A"}`; // Exemplo adicional
+        eventDateInformationCustomer.textContent = `Telefone: ${customer.phone || "N/A"}`; // Exemplo adicional
 
         // Agrupa as informações e foto
         informationsCustomerDiv.appendChild(nameInformationCustomer);
