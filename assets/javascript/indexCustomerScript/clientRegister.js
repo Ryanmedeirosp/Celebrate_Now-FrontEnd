@@ -83,11 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         showError(err.message || "Erro ao processar a solicitação.");
                     });
                 }
-                alert("Cliente cadastrado com sucesso!");
+                location.reload()
             })
             .catch(error => {
                 console.error("Erro ao enviar os dados:", error);
-                alert("Erro ao cadastrar o cliente. Por favor, tente novamente.");
+                showError("Erro ao cadastrar o cliente. Por favor, tente novamente.");
             });
         });
     }

@@ -86,6 +86,8 @@ function createClientModal() {
 
 // Função para popular as listas de clientes
 
+
+
 function populateCustomerList(customers) {
     // Atualiza a lista principal
     list_customer.innerHTML = "<h2>Lista de Clientes</h2>";
