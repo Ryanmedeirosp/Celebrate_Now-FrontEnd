@@ -98,7 +98,10 @@ function populateCustomerList(customers) {
         
         const emailElement = document.createElement("p");
         emailElement.textContent = `Email: ${customer.email}`;
+        const telefoneElement = document.createElement("p");
+        telefoneElement.textContent = `telefone: ${customer.phone}`;
         
+        customerDiv.appendChild(telefoneElement);
         customerDiv.appendChild(nameElement);
         customerDiv.appendChild(emailElement);
         
