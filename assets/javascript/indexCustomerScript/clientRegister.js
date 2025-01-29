@@ -92,29 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
-    fetch(`http://localhost:8080/client/1`, {
-        method: "GET",
-        headers: {
-            "Accept": "application/json"
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            return response.json().then(err => {
-                throw new Error(err.message);
-            });
-        }
-        return response.json();
-    })
-    .then(data => {
-       
-            // Chama a função para popular as listas de clientes
-        populateCustomerList(data);
-       
-    })
-    .catch(error => {
-        console.error("Erro ao carregar os clientes:", error);
-        alert("Erro ao carregar os clientes.");
-    });
 
 });
+
