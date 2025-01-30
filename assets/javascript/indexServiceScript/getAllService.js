@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    const corpo = document.querySelector("main");
+    
     fetch(`http://localhost:8080/supplier/1`, {
         method: "GET",
         headers: {
@@ -17,7 +20,80 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(data);
 
         data.forEach((service) => {
+           
+            let individualServiceDiv = document.createElement("div");
+            individualServiceDiv.className = "individualServiceDiv";
+
+            let leftSideIndividualServiceDiv = document.createElement("div");
+            leftSideIndividualServiceDiv.className = "leftSideIndividualServiceDiv";
+            let rightSideIndividualServiceDiv = document.createElement("div");
+            rightSideIndividualServiceDiv.className = "rightSideIndividualServiceDiv";
+
+            let titleIndividualServiceInLeftSideDiv = document.createElement("div");
+            titleIndividualServiceInLeftSideDiv.className = "titleIndividualServiceInLeftSideDiv";
+            let titleIndividualServiceInLeftSide = document.createElement("h2");
+            titleIndividualServiceInLeftSide.className = "titleIndividualServiceInLeftSide";
+            titleIndividualServiceInLeftSide.textContent = service.name;
+
+            let imageIndividualServiceInLeftSideDiv = document.createElement("div");
+            imageIndividualServiceInLeftSideDiv.className = "imageIndividualServiceInLeftSideDiv";
+            let imageIndividualServiceInLeftSide = document.createElement("img");
+            imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide";
             
+            // const leitor = new FileReader();
+            // leitor.readAsDataURL(loadImageButtonDiv.files[0]);
+            // leitor.addEventListener("load", (event) => {
+            //     imageIndividualServiceInLeftSide.src = event.target.result;
+            // });
+
+            let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");
+            buttonHireIndividualServiceInLeftSideDiv.className = "buttonHireIndividualServiceInLeftSideDiv";
+            let buttonHireIndividualServiceInLeftSide = document.createElement("button");
+            buttonHireIndividualServiceInLeftSide.id = "buttonHireIndividualServiceInLeftSide";
+            buttonHireIndividualServiceInLeftSide.textContent = "Contratar";
+
+            let imageEditIndividualServiceInRightSideDiv = document.createElement("div");
+            imageEditIndividualServiceInRightSideDiv.id = "imageEditIndividualServiceInRightSideDiv";
+            let imageEditIndividualServiceInRightSide = document.createElement("img");
+            imageEditIndividualServiceInRightSide.id = "imageEditIndividualServiceInRightSide";
+            imageEditIndividualServiceInRightSide.src = "../assets/images/botao-editar.png";
+
+            let imageRemoveIndividualServiceInRightSide = document.createElement("img");
+            imageRemoveIndividualServiceInRightSide.id = "imageRemoveIndividualServiceInRightSide";
+            imageRemoveIndividualServiceInRightSide.src = "../assets/images/remover.png";
+
+            let textIndividualServiceInRightSideDiv = document.createElement("div");
+            textIndividualServiceInRightSideDiv.className = "textIndividualServiceInRightSideDiv";
+            let textIndividualServiceInRightSide = document.createElement("p");
+            textIndividualServiceInRightSide.id = "texts";
+            textIndividualServiceInRightSide.className = "textIndividualServiceInRightSide";
+            textIndividualServiceInRightSide.textContent = service.description;
+
+            let knowMoreIndividualServiceInRightSideDiv = document.createElement("div");
+            knowMoreIndividualServiceInRightSideDiv.className = "knowMoreIndividualServiceInRightSideDiv";
+            let knowMoreIndividualServiceInRightSide = document.createElement("h3");
+            knowMoreIndividualServiceInRightSide.className = "knowMoreIndividualServiceInRightSide";
+            knowMoreIndividualServiceInRightSide.textContent = "Ler mais";
+
+            divAllServices.appendChild(individualServiceDiv);
+            individualServiceDiv.appendChild(leftSideIndividualServiceDiv);
+            individualServiceDiv.appendChild(rightSideIndividualServiceDiv);
+            leftSideIndividualServiceDiv.appendChild(titleIndividualServiceInLeftSideDiv);
+            titleIndividualServiceInLeftSideDiv.appendChild(titleIndividualServiceInLeftSide);
+            leftSideIndividualServiceDiv.appendChild(imageIndividualServiceInLeftSideDiv);
+            imageIndividualServiceInLeftSideDiv.appendChild(imageIndividualServiceInLeftSide);
+            leftSideIndividualServiceDiv.appendChild(buttonHireIndividualServiceInLeftSideDiv);
+            buttonHireIndividualServiceInLeftSideDiv.appendChild(buttonHireIndividualServiceInLeftSide);
+            rightSideIndividualServiceDiv.appendChild(imageEditIndividualServiceInRightSideDiv);
+            imageEditIndividualServiceInRightSideDiv.appendChild(imageEditIndividualServiceInRightSide);
+
+            imageEditIndividualServiceInRightSideDiv.appendChild(imageRemoveIndividualServiceInRightSide);
+
+            rightSideIndividualServiceDiv.appendChild(textIndividualServiceInRightSideDiv);
+            textIndividualServiceInRightSideDiv.appendChild(textIndividualServiceInRightSide);
+            rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
+            knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
+            corpo.appendChild(divAllContentService);
         })
     })
     .catch((error) => {
