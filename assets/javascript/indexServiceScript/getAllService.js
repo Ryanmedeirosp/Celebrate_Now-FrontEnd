@@ -14,13 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
     })
     .then((data) => {
-        console.log( data);
+        console.log(data);
+
+        data.forEach((service) => {
+            
+        })
     })
     .catch((error) => {
-        console.error("Erro ao buscar orçamentos:", error);
+        console.error("Erro ao buscar serviços:", error);
         alert(error.message || "Erro ao buscar orçamentos.");
     });
 });
+
 const sidebarList = document.querySelector("#sidebar-right #list-customers");
 fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
     method: "GET",
@@ -33,7 +38,7 @@ fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`,
             return response.json().then((err) => {
                 throw new Error(err.message);
             });
-        }
+        }                           
         return response.json();
     })
     .then((data) => {

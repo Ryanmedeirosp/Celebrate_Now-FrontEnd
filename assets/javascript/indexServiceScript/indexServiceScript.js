@@ -508,3 +508,4 @@ modal.appendChild(buttonConfirmNewServiceDiv);
 corpo.appendChild(fade);
 corpo.appendChild(modal);
 currentContent = divAllContentService;
+
