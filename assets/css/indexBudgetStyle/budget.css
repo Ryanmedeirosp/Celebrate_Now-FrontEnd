@@ -167,13 +167,21 @@ table tbody td button i{
 
 table tbody tr td input{
     font-size: 0.9rem;
-    /* background: none; */
+    background: none;
+}
+
+table tbody tr td input:focus{
+    outline: none !important;
 }
 
 table tbody tr td textarea{
-    /* background: none; */
+    background: none;
     font-size: 0.9rem;
     min-height: 0.5rem;
+}
+
+table tbody tr td textarea:focus{
+    outline: none !important;
 }
 
 table tbody tr td .table-content-title{

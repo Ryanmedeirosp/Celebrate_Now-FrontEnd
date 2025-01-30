@@ -41,8 +41,9 @@
 //             });
 //     });
 // });
+
 const sidebarList = document.querySelector("#sidebar-right #list-customers");
-fetch(`http://localhost:8080/client/1`, {
+fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
     method: "GET",
     headers: {
         "Accept": "application/json"
@@ -111,11 +112,4 @@ fetch(`http://localhost:8080/client/1`, {
         alert("Erro ao carregar os clientes.");
     });
 
-    function populateCustomerList(customers) {
-        sidebarList.innerHTML = ""; // Limpa o conteúdo existente
-        customers.forEach((customer) => {
-            // Cria o contêiner do cliente
-           
-            console.log(populateCustomerList)
-        });
-    }
+    

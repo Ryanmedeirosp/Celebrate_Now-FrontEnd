@@ -209,7 +209,7 @@ window.onload = () => {
 };
 
 const sidebarList = document.querySelector("#sidebar-right #list-customers");
-    fetch(`http://localhost:8080/client/1`, {
+    fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
             "Accept": "application/json"

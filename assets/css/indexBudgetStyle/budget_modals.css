@@ -109,3 +109,37 @@
     border: 1px solid #000;
     background: transparent;
 }
+
+/* Modal Container New Budget */
+
+.modal-new-budget{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: grid;
+    place-items: center;
+
+    opacity: 1;
+    pointer-events: auto;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-new-budget-show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-new-budget-container{
+    background-color: #fff;
+    width: 680px;
+    height: 580px;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 #00000070;
+    overflow: auto;
+}

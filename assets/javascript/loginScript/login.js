@@ -11,6 +11,9 @@ const testLoginData = document.querySelector("#logoHeader");
 var testEmail = "ana.paula@email.com";
 var testPassword = "senha123";
 
+var testEmail2 = "carlos.silva@email.com";
+var testPassword2 = "senha456";
+
 loginButton.addEventListener("click", (event) =>{
 
     login(loginEmailField.value, loginPasswordField.value);

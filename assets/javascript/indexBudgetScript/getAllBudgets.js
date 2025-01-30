@@ -113,6 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         textAreaDescriptionField.readOnly = false;
                         inputPriceField.readOnly = false;
 
+                        //Background
+                        inputTitleField.style.background = "#D9D9D9";
+                        textAreaDescriptionField.style.background = "#D9D9D9";
+                        inputPriceField.style.background = "#D9D9D9";
+
                         //Ativação dos botões
                         confirmEditButton.style.display = "block";
                         cancelEditButton.style.display = "block";
@@ -162,6 +167,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         textAreaDescriptionField.readOnly = true;
                         inputPriceField.readOnly = true;
 
+                        //Background
+                        inputTitleField.style.background = "none";
+                        textAreaDescriptionField.style.background = "none";
+                        inputPriceField.style.background = "none";
+
                         //Ativação dos botões
                         editButton.style.display = "block";
                         deleteButton.style.display = "block";
@@ -190,6 +200,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         inputTitleField.readOnly = true;
                         textAreaDescriptionField.readOnly = true;
                         inputPriceField.readOnly = true;
+
+                        //Background
+                        inputTitleField.style.background = "none";
+                        textAreaDescriptionField.style.background = "none";
+                        inputPriceField.style.background = "none";
 
                         //Ativação dos botões
                         editButton.style.display = "block";

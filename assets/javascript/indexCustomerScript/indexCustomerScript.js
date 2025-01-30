@@ -170,7 +170,7 @@ corpo.appendChild(list_customer); // Garante que a lista esteja abaixo do botão
 
 // Inicializa o modal
 createClientModal();
-fetch(`http://localhost:8080/client/1`, {
+fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
     method: "GET",
     headers: {
         "Accept": "application/json"
