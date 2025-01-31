@@ -11,7 +11,7 @@ img_user.src = "../assets/images/user-icon-removebg-preview.svg";
 divImg_user.appendChild(img_user);
 let txt_user = document.createElement("h3");
 txt_user.id = "txt_user";
-txt_user.textContent = "Bem vindo, XXXXXX";
+txt_user.textContent = `Bem vindo, ${localStorage.getItem("ceremonialistName")}`;
 divImg_user.appendChild(txt_user);
 divAllContentService.appendChild(divImg_user);
 
