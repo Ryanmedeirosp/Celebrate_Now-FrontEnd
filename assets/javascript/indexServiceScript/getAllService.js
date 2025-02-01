@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const corpo = document.querySelector("main");
+    console.log(localStorage.getItem("ceremonialistEmail"));
     
     fetch(`http://localhost:8080/supplier/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
@@ -202,19 +203,19 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         editButtonConfirmNewService.addEventListener("click", (event) => {
-            fetch("http://localhost:8080/supplier" + service.id, {
+            fetch("http://localhost:8080/supplier/" + service.id, {
 
-                method: "POST",
+                method: "PUT",
                 body: JSON.stringify({
                     "name": `${editTitleInput.value}`,
-                    "email": `${email}`,
-                    "cnpj": `${email}`,
-                    "phone": `${email}`,
-                    "cep": `${email}`,
-                    "serviceType": `${email}`,
-                    "houseNumber": `${email}`,
-                    "description": `${email}`,
-                    "ceremonialistEmail": `${email}`
+                    "email": `${editEmailInput.value}`,
+                    "cnpj": `${editCnpjInput.value}`,
+                    "phone": `${editPhoneInput.value}`,
+                    "cep": `${editCepInput.value}`,
+                    "serviceType": `${editTypeServiceInput.value}`,
+                    "houseNumber": `${editHouseNumberInput.value}`,
+                    "description": `${editDescriptionArea.value}`,
+                    "ceremonialistEmail": `${localStorage.getItem("ceremonialistEmail")}`
                 }),
                 headers: {
                     "Content-Type": "application/json",
