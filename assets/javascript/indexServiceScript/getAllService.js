@@ -147,11 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
         editHouseNumberInput.id = "editHouseNumberInput";
         editHouseNumberInput.placeholder = "Digite o número da casa";
 
-        let editCerimonialistEmailInput = document.createElement("input");
-        editCerimonialistEmailInput.className = "inputInformation";
-        editCerimonialistEmailInput.id = "editCerimonialistEmailInput";
-        editCerimonialistEmailInput.placeholder = "Digite o Email do cerimonialista";
-
         let editTypeServiceInput = document.createElement("input");
         editTypeServiceInput.className = "inputInformation";
         editTypeServiceInput.id = "editTypeServiceInput";
@@ -195,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
             editPhoneInput.value = '';
             editCepInput.value = '';
             editHouseNumberInput.value = '';
-            editCerimonialistEmailInput.value = '';
             editTypeServiceInput.value = '';
             editDescriptionArea.value = '';
             // Limpar a imagem carregada (se houver uma imagem carregada)
@@ -233,8 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 
             })
             .catch((error) =>{
-                console.error("Erro de Login:", error);
-                alert(error.message || "Erro de Login");
             });
             editToggleModal();
             resetEditModalContent();
@@ -246,7 +238,6 @@ document.addEventListener("DOMContentLoaded", () => {
         editTitleDiv.appendChild(editTitleInput);
         editTitleDiv.appendChild(editTypeServiceInput);
         editTitleDiv.appendChild(editEmailInput);
-        editTitleDiv.appendChild(editCerimonialistEmailInput);
         editTitleDiv.appendChild(editCnpjInput);
         editTitleDiv.appendChild(editPhoneInput);
         editTitleDiv.appendChild(editCepInput);

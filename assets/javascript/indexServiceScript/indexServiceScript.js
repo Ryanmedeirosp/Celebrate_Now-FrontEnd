@@ -83,7 +83,7 @@ phoneInput.placeholder = "Digite o telefone";
 let cepInput = document.createElement("input");
 cepInput.className = "inputInformation";
 cepInput.id = "cepInput";
-cepInput.placeholder = "Digite a rua";
+cepInput.placeholder = "Digite o CEP";
 
 let houseNumberInput = document.createElement("input");
 houseNumberInput.className = "inputInformation";
