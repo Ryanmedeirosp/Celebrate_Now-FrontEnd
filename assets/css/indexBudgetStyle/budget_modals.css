@@ -143,3 +143,51 @@
     box-shadow: 0 0 10px 0 #00000070;
     overflow: auto;
 }
+
+.modal-new-budget-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.modal-new-budget-client input{
+    background-color: #F5D0A9;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 500px;
+}
+.modal-new-budget-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 25%;
+}
+
+.modal-new-budget-buttons button{
+    width: 5.5rem;
+    height: 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+}
+
+.modal-new-budget-buttons .new-budget-button-confirm{
+    background-color: #1FBF57;
+}
+
+.modal-new-budget-buttons .new-budget-button-confirm:hover{
+    cursor: pointer;
+    background-color: #44937A;
+}
+
+.modal-new-budget-buttons .new-budget-button-cancel{
+    background-color: #F20505;
+}
+
+.modal-new-budget-buttons .new-budget-button-cancel:hover{
+    cursor: pointer;
+    background-color: #934444;
+}
