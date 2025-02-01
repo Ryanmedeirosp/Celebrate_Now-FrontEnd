@@ -83,7 +83,7 @@ phoneInput.placeholder = "Digite o telefone";
 let cepInput = document.createElement("input");
 cepInput.className = "inputInformation";
 cepInput.id = "cepInput";
-cepInput.placeholder = "Digite o CEP";
+cepInput.placeholder = "Digite a rua";
 
 let houseNumberInput = document.createElement("input");
 houseNumberInput.className = "inputInformation";
@@ -508,4 +508,5 @@ modal.appendChild(buttonConfirmNewServiceDiv);
 corpo.appendChild(fade);
 corpo.appendChild(modal);
 currentContent = divAllContentService;
+
 
