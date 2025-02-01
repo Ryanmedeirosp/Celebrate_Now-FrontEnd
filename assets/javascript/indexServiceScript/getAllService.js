@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const corpo = document.querySelector("main");
     
-    fetch(`http://localhost:8080/supplier/1`, {
+    fetch(`http://localhost:8080/supplier/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

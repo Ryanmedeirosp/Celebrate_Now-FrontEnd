@@ -59,7 +59,7 @@ async function login(email, password) {
         localStorage.setItem("ceremonialistName", data.name);
         
         console.log("Dados do Ceremonialista: ", data);
-        // window.location.href = "../../indexService.html"
+        window.location.href = "../../indexService.html"
         
     })
 
