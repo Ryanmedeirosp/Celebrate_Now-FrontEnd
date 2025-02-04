@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch(`http://localhost:8080/budget/1/${localStorage.getItem("ceremonialistId")}`, {
+
+    let clientArray = JSON.parse(localStorage.getItem("customersArray"));
+
+    fetch(`http://localhost:8080/budget/${clientArray[0]}/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -23,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const eventDay = document.getElementById("budget-event-day")
             budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
 
-            localStorage.setItem("actualBudgetIndex", 1);
+            localStorage.setItem("actualBudgetIndex", 0);
             
             data.forEach((budget) => {
                 clientName.innerHTML = `Cliente: ${budget.client}` ;

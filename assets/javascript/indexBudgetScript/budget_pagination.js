@@ -10,8 +10,8 @@ const clientNotFoundDiv = "client-not-found-div-config";
 async function fillTableByIndex(id) {
 
     id = id.toString();
-
-    fetch(`http://localhost:8080/budget/1/${id}`, {
+    
+    fetch(`http://localhost:8080/budget/${id}/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -43,9 +43,7 @@ async function fillTableByIndex(id) {
             const budgetList = document.getElementById("budget-table");
             const totalAmount = document.getElementById("total-amount");
             budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
-
-            localStorage.setItem("actualBudgetIndex", id);
-            
+        
             data.forEach((budget) => {
                 clientName.innerHTML = `Cliente: ${budget.client}` ;
                 contract.innerHTML = `Contrato: ${budget.contract}`;
@@ -240,22 +238,39 @@ async function fillTableByIndex(id) {
 
 window.addEventListener("load", (event) =>{
 
-    console.log(localStorage.getItem("actualBudgetIndex"));
+    console.log("Index da Paginação: " ,localStorage.getItem("actualBudgetIndex"));
 });
 
 prevPaginationButton.addEventListener("click", (event) =>{
 
+    console.log("\n\nIndex Atual: ", localStorage.getItem("actualBudgetIndex"));
     let index = parseInt(localStorage.getItem("actualBudgetIndex")) - 1;
+    console.log("Index da Paginação: " , index);
 
-    if (index > 0) {
+    let clientArray = JSON.parse(localStorage.getItem("customersArray"));
 
-        fillTableByIndex(index);  
+    if (index > -1 && clientArray[index] != null) {
+
+        fillTableByIndex(clientArray[index]);
+        localStorage.setItem("actualBudgetIndex", index);  
     }
+
+    console.log("Valor dentro do Client Array: ", clientArray[index]);
+    console.log("Index da Paginação: " ,localStorage.getItem("actualBudgetIndex"));
 })
 
 nextPaginationButton.addEventListener("click", (event) =>{
 
+    console.log("\n\nIndex Atual: ", localStorage.getItem("actualBudgetIndex"));
     let index = parseInt(localStorage.getItem("actualBudgetIndex")) + 1;
+    console.log("Index da Paginação: " , index);
 
-    fillTableByIndex(index);
+    let clientArray = JSON.parse(localStorage.getItem("customersArray"));
+    console.log("Valor dentro do Client Array: ", clientArray[index]);
+
+    if (clientArray[index] != null){
+
+        fillTableByIndex(clientArray[index]);
+        localStorage.setItem("actualBudgetIndex", index); 
+    }
 })
