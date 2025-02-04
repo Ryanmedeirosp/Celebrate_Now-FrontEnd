@@ -20,14 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const totalAmount = document.getElementById("total-amount");
             const clientName = document.getElementById("budget-client-name")
             const contract = document.getElementById("budget-contract-number")
+            const eventDay = document.getElementById("budget-event-day")
             budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
 
             localStorage.setItem("actualBudgetIndex", 1);
             
             data.forEach((budget) => {
                 clientName.innerHTML = `Cliente: ${budget.client}` ;
+                contract.innerHTML = `Contrato: ${budget.contract}`;
+                eventDay.innerHTML = `Dia do Evento: ${budget.date}`;
+              
                 totalAmount.innerHTML = budget.totalAmount
                 budget.items.forEach((item, index) => {
+                   
 
                     // Linha da Tabela
                     let tr = document.createElement("tr");

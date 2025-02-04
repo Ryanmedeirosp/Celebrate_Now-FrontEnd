@@ -36,6 +36,9 @@ async function fillTableByIndex(id) {
             table.style.display = "table";
 
             clientNotFoundMessage.style.display = "none";
+            const clientName = document.getElementById("budget-client-name")
+            const contract = document.getElementById("budget-contract-number")
+            const eventDay = document.getElementById("budget-event-day")
 
             const budgetList = document.getElementById("budget-table");
             const totalAmount = document.getElementById("total-amount");
@@ -44,35 +47,11 @@ async function fillTableByIndex(id) {
             localStorage.setItem("actualBudgetIndex", id);
             
             data.forEach((budget) => {
+                clientName.innerHTML = `Cliente: ${budget.client}` ;
+                contract.innerHTML = `Contrato: ${budget.contract}`;
+                eventDay.innerHTML = `Dia do Evento: ${budget.date}`;
                 totalAmount.innerHTML = budget.totalAmount
                 budget.items.forEach((item, index) => {
-
-
-                    // // Criação da linha para cada item
-                    // const row = document.createElement("tr");
-
-                    // row.innerHTML = `
-    
-                    //     <tr>
-                    //         <td>${index + 1}.</td>
-                    //         <td>
-                    //             <input type="text" value="${item.title}" class="table-content-title" readonly>
-                    //             <textarea name="" id="" readonly>${item.description}</textarea>
-                    //         </td>
-                    //         <td>
-                    //             <input type="text" value="${item.price.toFixed(2)}" readonly>
-                    //         </td>
-                    //         <td>
-                    //             <div class="table-button-field">
-                    //                 <button class="table-button-edit"><i class="bi bi-pencil-fill"></i></button>                                   
-                    //                 <button class="table-button-delete"><i class="bi bi-trash3-fill"></i></button>                                                                       
-                    //             </div>
-                    //         </td>
-                    //     </tr>
-                
-                    // `;
-
-                    // budgetList.appendChild(row);
 
                     // Linha da Tabela
                     let tr = document.createElement("tr");
