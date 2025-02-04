@@ -97,6 +97,8 @@
     text-align: start;
     cursor: pointer;
     background-color: transparent;
+    color: black;
+    width: 150px;
 }
 
 /* Logout Button Button - Hover */

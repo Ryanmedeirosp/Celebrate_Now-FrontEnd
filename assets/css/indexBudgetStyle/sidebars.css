@@ -62,6 +62,7 @@
     display: flex;
     gap: 14px;
     color: #0a0a0a;
+    width: 200px;
 }
 
 /* Sidebar Items - Actual Page Text and Icon */
@@ -96,6 +97,7 @@
     text-align: start;
     cursor: pointer;
     background-color: transparent;
+    width: 150px;
 }
 
 /* Logout Button Button - Hover */
