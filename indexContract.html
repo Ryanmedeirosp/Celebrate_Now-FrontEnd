@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="assets/css/indexCustomerStyle/sidebars.css">
     <link rel="stylesheet" href="assets/css/indexServiceStyle/style.css">
     <link rel="stylesheet" href="assets/css/indexContractStyle/contract.css">
+    <link rel="stylesheet" href="assets/css/indexContractStyle/contract_modals.css">
 
     <!-- JavaScript -->
-     <script src="assets/javascript/indexContractScript/contract.js" defer></script>
+    <script src="assets/javascript/indexContractScript/contract.js" defer></script>
+    <script src="assets/javascript/indexContractScript/contract_modals.js" defer></script>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
@@ -93,8 +95,8 @@
             </ul>
 
             <ul>
-                <li><button class="button-add">Assinar</button></li>
-                <li><button class="button-new-">Enviar</button></li>
+                <li><button class="button-sign">Assinar</button></li>
+                <li><button class="button-new">Enviar</button></li>
                 <li><button class="button-edit">Editar</button></li>
             </ul>
         </div>
@@ -135,6 +137,46 @@
             </div>
         </div>
     </aside>
+
+    <div class="modal-sign">
+        <div class="modal-sign-container">
+            <div class="modal-sign-content">
+                <p class="sign-text">
+                    Eu, abaixo assinado(a), concordo com os termos e condições descritos neste contrato para a prestação de serviços de cerimonial e organização de eventos, conforme estabelecido entre as partes. Declaro estar ciente de que o cerimonialista utilizará meus dados pessoais, como informações de contato, detalhes do evento e preferências, exclusivamente para a organização do evento contratado.
+                    Estou ciente de que, em conformidade com a legislação aplicável, posso solicitar a revogação do uso de meus dados pessoais a qualquer momento, através dos canais de comunicação fornecidos.
+                </p>
+
+                <div class="sign-checkbox-content">
+                    
+                    <p class="check-box-text">
+                        <input type="checkbox" id="sign-checkbox">
+                        Aceito os termos e condições para a prestação dos serviços de cerimonial.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-send">
+        <div class="modal-send-container">
+            <div class="modal-send-content">
+                <input type="text" id="send-input" placeholder="Digite o email do Cliente">
+
+                <div class="send-buttons">
+                    <button class="send-cancel">Cancelar</button>
+                    <button class="send-confirm">Enviar</button>
+                </div>
+
+                <div class="email-sent">
+                    <p>Email enviado com sucesso!</p>
+                </div>
+
+                <div class="email-not-sent">
+                    <p>Email não enviado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </body>

@@ -1,9 +1,15 @@
+//Edit Variables
+
 const editButton = document.querySelector(".button-edit");
 const textContractField = document.querySelector(".contract-text")
 
 const buttonsEditDiv = document.querySelector(".contract-edit-active");
 const confirmEditButton = document.querySelector(".confirm-edit");
 const cancelEditButton = document.querySelector(".cancel-edit");
+
+//Sign Variables
+
+const checkboxSign = document.querySelector("#sign-checkbox");
 
 editButton.addEventListener("click", (event) =>{
 
@@ -37,6 +43,12 @@ confirmEditButton.addEventListener("click", (event)=>{
     textContractField.readOnly = true;
     textContractField.style.border = "none";
 });
+
+checkboxSign.addEventListener("click", (event) =>{
+
+    console.log("guarana");
+    checkboxSign.disabled = true;
+})
 
 const sidebarList = document.querySelector("#sidebar-right #list-customers");
 fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
