@@ -11,7 +11,7 @@ async function fillTableByIndex(id) {
 
     id = id.toString();
 
-    fetch(`http://localhost:8080/budget/${id}`, {
+    fetch(`http://localhost:8080/budget/1/${id}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

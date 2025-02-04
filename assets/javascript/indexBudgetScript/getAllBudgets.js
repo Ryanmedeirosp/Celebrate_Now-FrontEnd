@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch(`http://localhost:8080/budget/${localStorage.getItem("ceremonialistId")}`, {
+    fetch(`http://localhost:8080/budget/1/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
