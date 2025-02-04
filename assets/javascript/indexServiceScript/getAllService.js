@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let showTypeOfService = document.createElement("h4");
             showTypeOfService.id = "showTypeOfService";
             showTypeOfService.className = "informationAboutService";
-            showTypeOfService.textContent = "Tipo de serviço:" + " " + service.serviceType;
+            showTypeOfService.textContent = "Tipo de serviço:" + " " + service.typeService;
 
             let showEmail = document.createElement("h4");
             showEmail.id = "showEmail";

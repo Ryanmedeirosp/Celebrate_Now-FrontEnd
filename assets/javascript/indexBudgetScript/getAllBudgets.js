@@ -18,12 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (data.length > 0) {
             const budgetList = document.getElementById("budget-table");
             const totalAmount = document.getElementById("total-amount");
+            const clientName = document.getElementById("budget-client-name")
+            const contract = document.getElementById("budget-contract-number")
             budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
 
             localStorage.setItem("actualBudgetIndex", 1);
             
             data.forEach((budget) => {
-
+                clientName.innerHTML = `Cliente: ${budget.client}` ;
                 totalAmount.innerHTML = budget.totalAmount
                 budget.items.forEach((item, index) => {
 
