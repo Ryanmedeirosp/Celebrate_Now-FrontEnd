@@ -46,7 +46,6 @@ confirmEditButton.addEventListener("click", (event)=>{
 
 checkboxSign.addEventListener("click", (event) =>{
 
-    console.log("guarana");
     checkboxSign.disabled = true;
 })
 
