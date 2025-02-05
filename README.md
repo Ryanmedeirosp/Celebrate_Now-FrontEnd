@@ -33,10 +33,6 @@ Siga estes passos para configurar o projeto localmente:
 
 ## Uso
 
-Para iniciar o servidor de desenvolvimento, execute:
-```bash
-npm start
-```
 - O Site inicia na home Page:
 ![image](https://github.com/user-attachments/assets/607e35ea-a075-48a5-a710-ecc3d3ffa192)
 
