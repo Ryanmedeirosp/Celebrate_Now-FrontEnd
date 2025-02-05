@@ -26,6 +26,7 @@ async function fillTableByIndex(id) {
         return response.json();
     })
     .then((data) => {
+
         console.log("Orçamentos recebidos:", data);
 
         if (data.length > 0) {
@@ -36,12 +37,12 @@ async function fillTableByIndex(id) {
             table.style.display = "table";
 
             clientNotFoundMessage.style.display = "none";
-            const clientName = document.getElementById("budget-client-name")
-            const contract = document.getElementById("budget-contract-number")
-            const eventDay = document.getElementById("budget-event-day")
 
             const budgetList = document.getElementById("budget-table");
             const totalAmount = document.getElementById("total-amount");
+            const clientName = document.getElementById("budget-client-name");
+            const contract = document.getElementById("budget-contract-number");
+            const eventDay = document.getElementById("budget-event-day");
             budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
         
             data.forEach((budget) => {
@@ -49,6 +50,9 @@ async function fillTableByIndex(id) {
                 contract.innerHTML = `Contrato: ${budget.contract}`;
                 eventDay.innerHTML = `Dia do Evento: ${budget.date}`;
                 totalAmount.innerHTML = budget.totalAmount
+
+                localStorage.setItem("actualBudget", budget.budgetId);
+                
                 budget.items.forEach((item, index) => {
 
                     // Linha da Tabela
@@ -221,6 +225,9 @@ async function fillTableByIndex(id) {
             });
 
         } else {
+
+            console.log("Orçamentos sem items? ", data);
+
             mainContentDiv.classList.add(clientNotFoundDiv);
 
             const table = document.querySelector("table");
