@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             data.forEach((budget) => {
                 clientName.innerHTML = `Cliente: ${budget.client}` ;
-                contract.innerHTML = `Contrato: ${budget.contract}`;
                 eventDay.innerHTML = `Dia do Evento: ${budget.date}`;
 
                 localStorage.setItem("actualBudget", budget.budgetId);
