@@ -1,6 +1,6 @@
 /* Modal Config */
 
-.modal-sign, .modal-send{
+.modal-sign, .modal-send, .modal-create{
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100vh;
@@ -83,20 +83,20 @@
     border-radius: 50px;
 }
 
-.send-cancel{
+.send-cancel, .create-cancel{
     background-color: #F20505;
 }
 
-.send-cancel:hover{
+.send-cancel:hover, .create-cancel:hover{
     cursor: pointer;
     background-color: #934444;
 }
 
-.send-confirm{
+.send-confirm, .create-confirm{
     background-color: #1FBF57;
 }
 
-.send-confirm:hover{
+.send-confirm:hover,.create-confirm:hover{
     cursor: pointer;
     background-color: #44937A;
 }
@@ -109,4 +109,11 @@
     padding: 1rem;
     border-radius: 50px;
     background-color: #D9D9D9;
+}
+#pdf-input{
+    margin: 35px;
+}
+
+#mensage{
+    margin-top: 20px;
 }

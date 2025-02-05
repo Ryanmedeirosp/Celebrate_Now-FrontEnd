@@ -126,7 +126,7 @@
     align-items: center;
     gap: 10px; /* Space between customer entries */
     padding: 20px;
-    overflow: scroll;
+    overflow: hidden;
     overflow-x: hidden;
 }
 

@@ -1,5 +1,6 @@
 const clientName = document.getElementById("client-name");
 const contractNumber = document.getElementById("contract-number")
+const eventDay = document.getElementById("event-day")
 
 fetch(`http://localhost:8080/contract/1`, {
     method: "GET",
@@ -20,6 +21,7 @@ fetch(`http://localhost:8080/contract/1`, {
     data.forEach(contract => {
         clientName.innerHTML = `Cliente: ${contract.clientName}`
         contractNumber.innerHTML = `Número do Contrato: ${contract.contractId}`
+        eventDay.innerHTML = `Data do envento: ${contract.date}`
     });
     
     console.log(data);

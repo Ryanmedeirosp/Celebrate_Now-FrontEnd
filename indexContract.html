@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/indexCustomerStyle/sidebars.css">
+    <link rel="stylesheet" href="assets/css/indexContractStyle/sidebars.css">
     <link rel="stylesheet" href="assets/css/indexServiceStyle/style.css">
     <link rel="stylesheet" href="assets/css/indexContractStyle/contract.css">
     <link rel="stylesheet" href="assets/css/indexContractStyle/contract_modals.css">
@@ -99,6 +99,7 @@
                 <li><button class="button-sign">Assinar</button></li>
                 <li><button class="button-new">Enviar</button></li>
                 <li><button class="button-edit">Editar</button></li>
+                <li><button class="button-create">Criar</button></li>
             </ul>
         </div>
         
@@ -175,6 +176,22 @@
                 <div class="email-not-sent">
                     <p>Email não enviado.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-create">
+        <div class="modal-send-container">
+            <div class="modal-send-content">
+
+                <input type="text" id="pdf-input" placeholder="Digite o texto do Orçamento">
+                <input type="text" id="create-input" placeholder="Digite o Número do Orçamento">
+
+                <div class="send-buttons">
+                    <button class="create-cancel">Cancelar</button>
+                    <button class="create-confirm">Enviar</button>
+                </div>
+                <p id="mensage"></p>
             </div>
         </div>
     </div>
