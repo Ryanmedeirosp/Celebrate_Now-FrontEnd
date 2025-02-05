@@ -130,47 +130,70 @@ confirmSendButton.addEventListener("click", (event) =>{
 });
 
 
-const confirmeCreate = document.querySelector(".create-confirm")
-const mensage = document.getElementById("mensage")
+const confirmeCreate = document.querySelector(".create-confirm");
+const mensage = document.getElementById("mensage");
 
-confirmeCreate.addEventListener("click",(e)=>{
+confirmeCreate.addEventListener("click", async (e) => {
+    e.preventDefault();
 
     const createInput = document.getElementById("create-input").value.trim();
     const pdfInput = document.getElementById("pdf-input").value.trim();
 
-
     const showError = (message) => {
-        mensage.textContent =  message;
+        mensage.textContent = message;
         mensage.style.color = "red";
     };
+    const contractData = JSON.parse(localStorage.getItem("contractData"));
 
-    const requestData = {
-        idBudget: createInput,
-        pdf: pdfInput
-    }
-
+    const contract = contractData[0];
+    // Validações
     if (!pdfInput) return showError("O texto é obrigatório.");
-    if (!createInput && isNaN(createInput))return  showError("O número da orçamento deve ser válido.");
-    
-    // Envio ao backend
-    fetch("http://localhost:8080/contract", {
-        method: "POST",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(requestData)
-    })
-    .then(response => {
+    if (!createInput || isNaN(Number(createInput))) return showError("O número do orçamento deve ser válido.");
+
+    try {
+        // Importa jsPDF
+        const { jsPDF } = window.jspdf;
+        if (!jsPDF) return showError("Erro ao carregar jsPDF.");
+
+        const doc = new jsPDF();
+        doc.text("Contrato de Serviço", 10, 10);
+        doc.text(`Cliente: ${contract.clientName}`, 10, 20);
+        doc.text(`Número do Contrato: ${contract.contractId}`, 10, 30);
+        doc.text(`Data do Evento: ${contract.date}`, 10, 40);
+        doc.text(`Fornecedor: ${contract.supplierName}`, 10, 50);
+        doc.text(`Cerimonialista: ${contract.ceremonialistName}`, 10, 60);
+
+        doc.save("relatorio.pdf");
+        // Converte PDF para Base64
+        const pdfBase64 = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result.split(",")[1]); // Remove o prefixo "data:application/pdf;base64,"
+            reader.readAsDataURL(new Blob([doc.output("blob")], { type: "application/pdf" }));
+        });
+
+        // Envia JSON para o backend
+        const response = await fetch("http://localhost:8080/contract", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                idBudget: createInput,
+                pdf: pdfBase64 // Enviando como string Base64
+            })
+        });
+
         if (!response.ok) {
-            return response.json().then(err => {
-                showError(err.message || "Erro ao processar a solicitação.");
-            });
+            const errorData = await response.json();
+            return showError(errorData.message || "Erro ao processar a solicitação.");
         }
-        location.reload()
-    })
-    .catch(error => {
-        console.error("Erro ao enviar os dados:", error);
-        showError("Erro ao cadastrar o cliente. Por favor, tente novamente.");
-    });
-})
+
+        showError("PDF gerado e enviado com sucesso!");
+        location.reload();
+
+    } catch (error) {
+        console.error("Erro ao gerar/enviar o PDF:", error);
+        showError("Erro ao processar a solicitação. Tente novamente.");
+    }
+});

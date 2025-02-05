@@ -18,13 +18,17 @@ fetch(`http://localhost:8080/contract/1`, {
 })
 .then((data) => {
 
+    console.log(data);
+    localStorage.setItem("contractData", JSON.stringify(data));
     data.forEach(contract => {
+        
+        
         clientName.innerHTML = `Cliente: ${contract.clientName}`
         contractNumber.innerHTML = `Número do Contrato: ${contract.contractId}`
         eventDay.innerHTML = `Data do envento: ${contract.date}`
     });
     
-    console.log(data);
+
 })
 .catch((error) => {
     console.error( error);
