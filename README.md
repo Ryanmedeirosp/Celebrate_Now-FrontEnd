@@ -31,11 +31,6 @@ Siga estes passos para configurar o projeto localmente:
     cd Celebrate_Now-FrontEnd
     ```
 
-2. Instale as dependências:
-    ```bash
-    npm install
-    ```
-
 ## Uso
 
 Para iniciar o servidor de desenvolvimento, execute:
