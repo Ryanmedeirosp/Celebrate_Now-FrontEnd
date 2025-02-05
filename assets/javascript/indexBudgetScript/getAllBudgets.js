@@ -17,8 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
     })
     .then((data) => {
+
         console.log("Orçamentos recebidos:", data);
+
         if (data.length > 0) {
+            
             const budgetList = document.getElementById("budget-table");
             const totalAmount = document.getElementById("total-amount");
             const clientName = document.getElementById("budget-client-name")
@@ -27,12 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
             budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
 
             localStorage.setItem("actualBudgetIndex", 0);
-            
+
             data.forEach((budget) => {
                 clientName.innerHTML = `Cliente: ${budget.client}` ;
                 contract.innerHTML = `Contrato: ${budget.contract}`;
                 eventDay.innerHTML = `Dia do Evento: ${budget.date}`;
-              
+
+                localStorage.setItem("actualBudget", budget.budgetId);
+
                 totalAmount.innerHTML = budget.totalAmount
                 budget.items.forEach((item, index) => {
                    
