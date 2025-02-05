@@ -19,7 +19,6 @@ fetch(`http://localhost:8080/contract/1`, {
 .then((data) => {
 
     console.log(data);
-    localStorage.setItem("contractData", JSON.stringify(data));
     data.forEach(contract => {
         
         

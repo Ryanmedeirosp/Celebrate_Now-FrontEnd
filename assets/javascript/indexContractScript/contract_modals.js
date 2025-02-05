@@ -137,33 +137,78 @@ confirmeCreate.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const createInput = document.getElementById("create-input").value.trim();
-    const pdfInput = document.getElementById("pdf-input").value.trim();
 
     const showError = (message) => {
         mensage.textContent = message;
         mensage.style.color = "red";
     };
-    const contractData = JSON.parse(localStorage.getItem("contractData"));
 
-    const contract = contractData[0];
+    
     // Validações
-    if (!pdfInput) return showError("O texto é obrigatório.");
     if (!createInput || isNaN(Number(createInput))) return showError("O número do orçamento deve ser válido.");
 
     try {
-        // Importa jsPDF
         const { jsPDF } = window.jspdf;
         if (!jsPDF) return showError("Erro ao carregar jsPDF.");
-
+        
         const doc = new jsPDF();
-        doc.text("Contrato de Serviço", 10, 10);
-        doc.text(`Cliente: ${contract.clientName}`, 10, 20);
-        doc.text(`Número do Contrato: ${contract.contractId}`, 10, 30);
-        doc.text(`Data do Evento: ${contract.date}`, 10, 40);
-        doc.text(`Fornecedor: ${contract.supplierName}`, 10, 50);
-        doc.text(`Cerimonialista: ${contract.ceremonialistName}`, 10, 60);
 
-        doc.save("relatorio.pdf");
+        fetch(`http://localhost:8080/budget/${createInput}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => {
+                    throw new Error(err.message);
+                });
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data)
+
+            doc.setFontSize(18);
+            doc.setFont("helvetica", "bold");
+            doc.text("Contrato de Serviço", 105, 10, null, null, 'center');
+
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "normal");
+
+            doc.text(`Cliente:`, 10, 20);
+            doc.setFont("helvetica", "bold");
+            doc.text(data.client || "N/A", 60, 20);
+            doc.setFont("helvetica", "normal");
+
+            doc.text(`Data do Evento:`, 10, 40);
+            doc.setFont("helvetica", "bold");
+            doc.text(data.date || "N/A", 90, 40);
+            doc.setFont("helvetica", "normal");
+
+            doc.text(`Fornecedor:`, 10, 50);
+            doc.setFont("helvetica", "bold");
+            doc.text(data.supplier || "N/A", 80, 50);
+            doc.setFont("helvetica", "normal");
+
+            let y = 60;
+            if (data.items && data.items.length > 0) {
+                data.items.forEach((item, index) => {
+                    doc.text(`${index + 1}. ${item.title || "Sem título"}`, 10, y);
+                    doc.text(`   - Descrição: ${item.description || "Sem descrição"}`, 10, y + 10);
+                    doc.text(`   - Preço: R$ ${item.price ? item.price.toFixed(2) : "0.00"}`, 10, y + 20);
+                    y = y + 30;
+                });
+            } else {
+                doc.text("Nenhum item cadastrado.", 10, y);
+            }
+
+            doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 10);
+            doc.save("relatorio.pdf");
+
+        })
+        // Importa jsPDF
         // Converte PDF para Base64
         const pdfBase64 = await new Promise((resolve) => {
             const reader = new FileReader();
