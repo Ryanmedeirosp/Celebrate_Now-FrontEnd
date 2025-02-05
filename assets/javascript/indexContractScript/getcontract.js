@@ -1,7 +1,3 @@
-const clientName = document.getElementById("client-name");
-const contractNumber = document.getElementById("contract-number")
-const eventDay = document.getElementById("event-day")
-
 fetch(`http://localhost:8080/contract/1`, {
     method: "GET",
     headers: {
@@ -22,6 +18,7 @@ fetch(`http://localhost:8080/contract/1`, {
     localStorage.setItem("contractData", JSON.stringify(data));
     data.forEach(contract => {
         
+        localStorage.setItem("currentContractIndex", 0);
         
         clientName.innerHTML = `Cliente: ${contract.clientName}`
         contractNumber.innerHTML = `Número do Contrato: ${contract.contractId}`
