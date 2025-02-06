@@ -242,41 +242,36 @@ async function fillTableByIndex(id) {
     });
 }
 
-window.addEventListener("load", (event) =>{
-
-    console.log("Index da Paginação: " ,localStorage.getItem("actualBudgetIndex"));
+window.addEventListener("load", () => {
+    console.log("Index da Paginação:", localStorage.getItem("actualBudgetIndex"));
 });
 
-prevPaginationButton.addEventListener("click", (event) =>{
-
-    console.log("\n\nIndex Atual: ", localStorage.getItem("actualBudgetIndex"));
-    let index = parseInt(localStorage.getItem("actualBudgetIndex")) - 1;
-    console.log("Index da Paginação: " , index);
-
+prevPaginationButton.addEventListener("click", () => {
+    let index = parseInt(localStorage.getItem("actualBudgetIndex")) || 0;
     let clientArray = JSON.parse(localStorage.getItem("customersArray"));
 
-    if (index > -1 && clientArray[index] != null) {
-
-        fillTableByIndex(clientArray[index]);
-        localStorage.setItem("actualBudgetIndex", index);  
+    if (index > 0) {  // Garante que não vá para um índice negativo
+        index--;  
+        localStorage.setItem("actualBudgetIndex", index);
+        fillTableByIndex(clientArray[index]);  
+    } else {
+        console.log("Já está no primeiro orçamento.");
     }
 
-    console.log("Valor dentro do Client Array: ", clientArray[index]);
-    console.log("Index da Paginação: " ,localStorage.getItem("actualBudgetIndex"));
-})
+    console.log("Novo Index da Paginação:", index);
+});
 
-nextPaginationButton.addEventListener("click", (event) =>{
-
-    console.log("\n\nIndex Atual: ", localStorage.getItem("actualBudgetIndex"));
-    let index = parseInt(localStorage.getItem("actualBudgetIndex")) + 1;
-    console.log("Index da Paginação: " , index);
-
+nextPaginationButton.addEventListener("click", () => {
+    let index = parseInt(localStorage.getItem("actualBudgetIndex")) || 0;
     let clientArray = JSON.parse(localStorage.getItem("customersArray"));
-    console.log("Valor dentro do Client Array: ", clientArray[index]);
 
-    if (clientArray[index] != null){
-
+    if (index < clientArray.length - 1) {  // Garante que não passe do último índice
+        index++;
+        localStorage.setItem("actualBudgetIndex", index);
         fillTableByIndex(clientArray[index]);
-        localStorage.setItem("actualBudgetIndex", index); 
+    } else {
+        console.log("Já está no último orçamento.");
     }
-})
+
+    console.log("Novo Index da Paginação:", index);
+});
