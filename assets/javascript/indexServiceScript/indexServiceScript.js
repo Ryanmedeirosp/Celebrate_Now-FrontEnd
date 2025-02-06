@@ -174,7 +174,7 @@ buttonConfirmNewService.addEventListener("click", (event) => {
     const leitor = new FileReader();
     leitor.readAsDataURL(loadImageButtonDiv.files[0]);
     leitor.addEventListener("load", (event) => {
-        imageIndividualServiceInLeftSide.src = event.target.result;
+        imageIndividualServiceInLeftSide.src = "../assets/images/naoSei.jfif";
     });
 
     let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");

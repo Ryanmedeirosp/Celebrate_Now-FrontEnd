@@ -77,6 +77,7 @@ async function getBudgets() {
             return response.json();
         })
         .then(data => {
+            console.log(data)
             if (data.length > 0) {
                 for (let index = 0; index < data.length; index++) {
       

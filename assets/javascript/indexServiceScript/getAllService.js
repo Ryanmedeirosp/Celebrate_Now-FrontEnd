@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showImageAndDescriptionDiv.id = "showImageAndDescriptionDiv";
             let showImage = document.createElement("img");
             showImage.id = "showImage";
-            showImage.src = "assets/images/caraTranquilo.jpg";
+            showImage.src = "assets/images/naoSei.jfif";
             let showDescriptionDiv = document.createElement("div");
             showDescriptionDiv.id = "showDescriptionDiv";
             let showDescription = document.createElement("p");
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let showTypeOfService = document.createElement("h4");
             showTypeOfService.id = "showTypeOfService";
             showTypeOfService.className = "informationAboutService";
-            showTypeOfService.textContent = "Tipo de serviço:" + " " + service.typeService;
+            showTypeOfService.textContent = "Tipo de serviço:" + " " + service.serviceType;
 
             let showEmail = document.createElement("h4");
             showEmail.id = "showEmail";
