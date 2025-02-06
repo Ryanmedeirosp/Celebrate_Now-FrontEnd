@@ -257,7 +257,7 @@ async function getContractPdf() {
 
     
     // Validações
-    if (!parseInt(localStorage.getItem("currentBudget")) || isNaN(Number(createInput))) return showError("O número do orçamento deve ser válido.");
+    if (!parseInt(localStorage.getItem("currentBudget")) || isNaN(Number(localStorage.getItem("currentBudget")))) return showError("O número do orçamento deve ser válido.");
 
     try {
         const { jsPDF } = window.jspdf;
@@ -337,7 +337,7 @@ async function getContractPdf() {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                idBudget: createInput,
+                idBudget: parseInt(localStorage.getItem("currentBudget")),
                 pdf: pdfBase64 // Enviando como string Base64
             })
         });
