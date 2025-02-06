@@ -134,7 +134,7 @@ async function fillContractData(contractId) {
     }); 
 }
 
-async function test() {
+async function loadContractPage() {
 
     let budgetArray = JSON.parse(localStorage.getItem("budgetsArray"));
     
@@ -145,7 +145,7 @@ async function test() {
 
 window.addEventListener("load", (event) =>{
 
-    test();
+    loadContractPage();
 });
 
 prevContract.addEventListener("click", (event) =>{
