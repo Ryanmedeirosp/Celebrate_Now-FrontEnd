@@ -47,7 +47,6 @@ async function fillTableByIndex(id) {
         
             data.forEach((budget) => {
                 clientName.innerHTML = `Cliente: ${budget.client}` ;
-                contract.innerHTML = `Contrato: ${budget.contract}`;
                 eventDay.innerHTML = `Dia do Evento: ${budget.date}`;
                 totalAmount.innerHTML = budget.totalAmount
 
