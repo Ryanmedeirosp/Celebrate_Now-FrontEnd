@@ -17,7 +17,7 @@ async function findClient() {
     })
 
     .then((data) => {
-        console.log("Clientes", data);
+        // console.log("Clientes", data);
 
         const customers = Array.isArray(data) ? data : [data];
 

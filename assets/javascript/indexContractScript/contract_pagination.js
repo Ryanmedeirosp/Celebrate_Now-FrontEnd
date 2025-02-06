@@ -9,6 +9,9 @@ const nextContract = document.querySelector("#next-page");
 
 //Functions
 async function getClients() {
+
+    console.log("\n\nGet Clients: ");
+
     fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
@@ -51,6 +54,9 @@ async function getClients() {
 };
 
 async function getBudgets() {
+
+    console.log("\n\nGet Budget: ");
+
     let clientsArray = JSON.parse(localStorage.getItem("customersArray")) || [];
     let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
 
@@ -72,10 +78,14 @@ async function getBudgets() {
         })
         .then(data => {
             if (data.length > 0) {
-                let budgetId = data[0].budgetId;
-                if (!budgetsArray.includes(budgetId)) {
-                    budgetsArray.push(budgetId);
-                    budgetsArray.sort();
+                for (let index = 0; index < data.length; index++) {
+      
+                    let budgetId = data[index].budgetId;
+                    if (!budgetsArray.includes(budgetId)) {
+
+                        budgetsArray.push(budgetId);
+                        budgetsArray.sort();
+                    }
                 }
             }
         })
@@ -90,17 +100,17 @@ async function getBudgets() {
     localStorage.setItem("budgetsArray", JSON.stringify(budgetsArray));
     localStorage.setItem("currentBudget", budgetsArray[0]);
 
-    console.log("Orçamento Atual: ", localStorage.getItem("currentBudget"));
+    // console.log("Orçamento Atual: ", localStorage.getItem("currentBudget"));
 
-    console.log("\nIDs de orçamento recuperados: ", budgetsArray);
+    // console.log("\nIDs de orçamento recuperados: ", budgetsArray);
     console.log("\nIDs de orçamento recuperados no Storage: ", JSON.parse(localStorage.getItem("budgetsArray")));
 }
 
-async function fillContractData(contractId) {
+async function fillContractData(budgetId) {
 
-    console.log("OIE")
+    console.log("\n\nFill Contract Data: ");
 
-    fetch(`http://localhost:8080/contract/${contractId}`, {
+    fetch(`http://localhost:8080/budget/${budgetId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -118,28 +128,30 @@ async function fillContractData(contractId) {
 
     .then((data) => {
     
-        console.log(data);
+        console.log("Orçamento encontrado: ", data);
+
+        console.log("Orçamento encontrado: ", data.client);
+
         localStorage.setItem("contractData", JSON.stringify(data));
 
-        data.forEach(contract => {
-            
-            clientName.innerHTML = `Cliente: ${contract.clientName}`
-            contractNumber.innerHTML = `Número do Contrato: ${contract.contractId}`
-            eventDay.innerHTML = `Data do envento: ${contract.date}`
-        });
+        clientName.innerHTML = `Cliente: ${data.client}`;
+        contractNumber.innerHTML = `Número do Contrato: `;
+        eventDay.innerHTML = `Data do envento: ${data.date}`;
     })
 
     .catch((error) => {
-        console.error(error);
+        console.error("Erro: ", error);
     }); 
 }
 
 async function loadContractPage() {
 
-    let budgetArray = JSON.parse(localStorage.getItem("budgetsArray"));
-    
     getClients();
     getBudgets();
+
+    let budgetArray = JSON.parse(localStorage.getItem("budgetsArray"));
+    localStorage.setItem("currentContractIndex", 0);
+
     fillContractData(budgetArray[0]);
 }
 
@@ -150,9 +162,9 @@ window.addEventListener("load", (event) =>{
 
 prevContract.addEventListener("click", (event) =>{
 
-    console.log("\nIndex Anterior: ", localStorage.getItem("currentContractIndex"));
+    // console.log("\nIndex Anterior: ", localStorage.getItem("currentContractIndex"));
     let index = parseInt(localStorage.getItem("currentContractIndex")) - 1;
-    console.log("\nIndex: ", index);
+    // console.log("\nIndex: ", index);
 
     let budgetArray = JSON.parse(localStorage.getItem("budgetsArray"));
     console.log(JSON.parse(localStorage.getItem("budgetsArray")));
@@ -176,9 +188,11 @@ nextContract.addEventListener("click", (event) =>{
 
     let budgetArray = JSON.parse(localStorage.getItem("budgetsArray"));
     console.log(JSON.parse(localStorage.getItem("budgetsArray")));
+    console.log(budgetArray[index]);
 
     if (budgetArray[index] != null) {
         
+        console.log("\nNEXT")
         fillContractData(budgetArray[index]);
         localStorage.setItem("currentBudget", budgetArray[index]);
 
