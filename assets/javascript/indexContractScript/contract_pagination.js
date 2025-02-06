@@ -88,6 +88,9 @@ async function getBudgets() {
     await Promise.all(promises);
 
     localStorage.setItem("budgetsArray", JSON.stringify(budgetsArray));
+    localStorage.setItem("currentBudget", budgetsArray[0]);
+
+    console.log("Orçamento Atual: ", localStorage.getItem("currentBudget"));
 
     console.log("\nIDs de orçamento recuperados: ", budgetsArray);
     console.log("\nIDs de orçamento recuperados no Storage: ", JSON.parse(localStorage.getItem("budgetsArray")));
@@ -132,9 +135,12 @@ async function fillContractData(contractId) {
 }
 
 async function test() {
+
+    let budgetArray = JSON.parse(localStorage.getItem("budgetsArray"));
     
     getClients();
     getBudgets();
+    fillContractData(budgetArray[0]);
 }
 
 window.addEventListener("load", (event) =>{
@@ -154,6 +160,10 @@ prevContract.addEventListener("click", (event) =>{
     if (index > -1 && budgetArray[index] != null) {
         
         fillContractData(budgetArray[index]);
+        localStorage.setItem("currentBudget", budgetArray[index]);
+
+        console.log("Orçamento Atual: ", localStorage.getItem("currentBudget"));
+
         localStorage.setItem("currentContractIndex", index);
     }
 });
@@ -170,6 +180,10 @@ nextContract.addEventListener("click", (event) =>{
     if (budgetArray[index] != null) {
         
         fillContractData(budgetArray[index]);
+        localStorage.setItem("currentBudget", budgetArray[index]);
+
+        console.log("Orçamento Atual: ", localStorage.getItem("currentBudget"));
+
         localStorage.setItem("currentContractIndex", index);
     }
 });
