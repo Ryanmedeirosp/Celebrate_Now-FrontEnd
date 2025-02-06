@@ -77,7 +77,11 @@ async function sendEmail(email, sent, notSent){
 
 //Buttons and Div Config
 createModal.addEventListener("click", (e)=>{
-    openModal(modalCreate, modalLever)
+
+    getContractPdf();
+    
+    // console.log("Button Create");
+    // openModal(modalCreate, modalLever);
 })
 
 cancelButton.addEventListener("click", (e) =>{
@@ -153,6 +157,7 @@ confirmeCreate.addEventListener("click", async (e) => {
         
         const doc = new jsPDF();
 
+        //Alterei a linha abaixo e troquei o | ${createInput} | por | localStorage.getItem("currentBudget") |
         fetch(`http://localhost:8080/budget/${createInput}`, {
             method: "GET",
             headers: {
@@ -242,3 +247,111 @@ confirmeCreate.addEventListener("click", async (e) => {
         showError("Erro ao processar a solicitação. Tente novamente.");
     }
 });
+
+async function getContractPdf() {
+
+    const showError = (message) => {
+        mensage.textContent = message;
+        mensage.style.color = "red";
+    };
+
+    
+    // Validações
+    if (!parseInt(localStorage.getItem("currentBudget")) || isNaN(Number(createInput))) return showError("O número do orçamento deve ser válido.");
+
+    try {
+        const { jsPDF } = window.jspdf;
+        if (!jsPDF) return showError("Erro ao carregar jsPDF.");
+        
+        const doc = new jsPDF();
+
+        //Alterei a linha abaixo e troquei o | ${createInput} | por | localStorage.getItem("currentBudget") |
+        fetch(`http://localhost:8080/budget/${localStorage.getItem("currentBudget")}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => {
+                    throw new Error(err.message);
+                });
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data)
+
+            doc.setFontSize(18);
+            doc.setFont("helvetica", "bold");
+            doc.text("Contrato de Serviço", 105, 10, null, null, 'center');
+
+            doc.setFontSize(12);
+            doc.setFont("helvetica", "normal");
+
+            doc.text(`Cliente:`, 10, 20);
+            doc.setFont("helvetica", "bold");
+            doc.text(data.client || "N/A", 60, 20);
+            doc.setFont("helvetica", "normal");
+
+            doc.text(`Data do Evento:`, 10, 40);
+            doc.setFont("helvetica", "bold");
+            doc.text(data.date || "N/A", 90, 40);
+            doc.setFont("helvetica", "normal");
+
+            doc.text(`Fornecedor:`, 10, 50);
+            doc.setFont("helvetica", "bold");
+            doc.text(data.supplier || "N/A", 80, 50);
+            doc.setFont("helvetica", "normal");
+
+            let y = 60;
+            if (data.items && data.items.length > 0) {
+                data.items.forEach((item, index) => {
+                    doc.text(`${index + 1}. ${item.title || "Sem título"}`, 10, y);
+                    doc.text(`   - Descrição: ${item.description || "Sem descrição"}`, 10, y + 10);
+                    doc.text(`   - Preço: R$ ${item.price ? item.price.toFixed(2) : "0.00"}`, 10, y + 20);
+                    y = y + 30;
+                });
+            } else {
+                doc.text("Nenhum item cadastrado.", 10, y);
+            }
+
+            doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 10);
+            doc.save("relatorio.pdf");
+
+        })
+        // Importa jsPDF
+        // Converte PDF para Base64
+        const pdfBase64 = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result.split(",")[1]); // Remove o prefixo "data:application/pdf;base64,"
+            reader.readAsDataURL(new Blob([doc.output("blob")], { type: "application/pdf" }));
+        });
+
+        // Envia JSON para o backend
+        const response = await fetch("http://localhost:8080/contract", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                idBudget: createInput,
+                pdf: pdfBase64 // Enviando como string Base64
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            return showError(errorData.message || "Erro ao processar a solicitação.");
+        }
+
+        showError("PDF gerado e enviado com sucesso!");
+        location.reload();
+
+    } catch (error) {
+        console.error("Erro ao gerar/enviar o PDF:", error);
+        showError("Erro ao processar a solicitação. Tente novamente.");
+    }
+}
