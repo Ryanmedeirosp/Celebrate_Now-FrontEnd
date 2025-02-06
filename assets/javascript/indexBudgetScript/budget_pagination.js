@@ -7,16 +7,15 @@ const mainContentDiv = document.querySelector(".budget-main-content");
 
 const clientNotFoundDiv = "client-not-found-div-config";
 
-async function fillTableByIndex(id) {
+function getBudgetbyIndex(budgetId) {
 
-    id = id.toString();
-    
-    fetch(`http://localhost:8080/budget/${id}/${localStorage.getItem("ceremonialistId")}`, {
+    fetch(`http://localhost:8080/budget/${budgetId}`, {
         method: "GET",
         headers: {
-            "Content-Type": "application/json",
-        },
+            "Accept": "application/json"
+        }
     })
+
     .then(response => {
         if (!response.ok) {
             return response.json().then(err => {
@@ -25,253 +24,145 @@ async function fillTableByIndex(id) {
         }
         return response.json();
     })
-    .then((data) => {
 
-        console.log("Orçamentos recebidos:", data);
+    .then((data) =>{
 
-        if (data.length > 0) {
+        console.log("budget_pagination --> Orçamento encontrado: ", data);
 
-            mainContentDiv.classList.remove(clientNotFoundDiv);
+        const budgetList = document.getElementById("budget-table");
+        const totalAmount = document.getElementById("total-amount");
+        const clientName = document.getElementById("budget-client-name");
+        const eventDay = document.getElementById("budget-event-day");
 
-            const table = document.querySelector("table");
-            table.style.display = "table";
+        budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
 
-            clientNotFoundMessage.style.display = "none";
+        localStorage.setItem("actualBudget", data.budgetId);
 
-            const budgetList = document.getElementById("budget-table");
-            const totalAmount = document.getElementById("total-amount");
-            const clientName = document.getElementById("budget-client-name");
-            const contract = document.getElementById("budget-contract-number");
-            const eventDay = document.getElementById("budget-event-day");
-            budgetList.innerHTML = ""; // Limpa a tabela antes de preencher
+        // Apenas exibe cliente e data do evento do primeiro orçamento (evita repetição)
         
-            data.forEach((budget) => {
-                clientName.innerHTML = `Cliente: ${budget.client}` ;
-                eventDay.innerHTML = `Dia do Evento: ${budget.date}`;
-                totalAmount.innerHTML = budget.totalAmount
+        clientName.innerHTML = `Cliente: ${data.client}`;
+        eventDay.innerHTML = `Dia do Evento: ${data.date}`;
+        
+        totalAmount.innerHTML = data.totalAmount;
 
-                localStorage.setItem("actualBudget", budget.budgetId);
-                
-                budget.items.forEach((item, index) => {
+        data.items.forEach((item, index) => {
+            const tr = document.createElement("tr");
 
-                    // Linha da Tabela
-                    let tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${index + 1}.</td>
+                <td>
+                    <input type="text" value="${item.title}" class="table-content-title" readonly>
+                    <textarea readonly>${item.description}</textarea>
+                </td>
+                <td>
+                    <input type="text" value="${item.price.toFixed(2)}" readonly>
+                </td>
+                <td class="table-button-field">
+                    <button class="table-button-edit"><i class="bi bi-pencil-fill"></i></button>
+                    <button class="table-button-delete"><i class="bi bi-trash3-fill"></i></button>
+                    <button class="table-button-edit-confirm" style="display: none;"><i class="bi bi-check2"></i></button>
+                    <button class="table-button-edit-cancel" style="display: none;"><i class="bi bi-x-circle"></i></button>
+                </td>
+            `;
 
-                    // Cédula do Index
-                    let tdIndex = document.createElement("td");
-                    tdIndex.textContent = `${index + 1}.`;
+            const inputTitle = tr.querySelector(".table-content-title");
+            const inputDescription = tr.querySelector("textarea");
+            const inputPrice = tr.querySelector("td:nth-child(3) input");
 
-                    // Cédula do Título
-                    let tdTitle = document.createElement("td");
-                    let inputTitleField = document.createElement("input");
+            const editButton = tr.querySelector(".table-button-edit");
+            const deleteButton = tr.querySelector(".table-button-delete");
+            const confirmButton = tr.querySelector(".table-button-edit-confirm");
+            const cancelButton = tr.querySelector(".table-button-edit-cancel");
 
-                    inputTitleField.type = "text";
-                    inputTitleField.value = `${item.title}`;
-                    inputTitleField.className = "table-content-title";
-                    inputTitleField.readOnly = true;
+            editButton.addEventListener("click", () => {
+                inputTitle.readOnly = false;
+                inputDescription.readOnly = false;
+                inputPrice.readOnly = false;
+                inputTitle.style.background = "#D9D9D9";
+                inputDescription.style.background = "#D9D9D9";
+                inputPrice.style.background = "#D9D9D9";
 
-                    tdTitle.appendChild(inputTitleField);
-
-                    // Cédula do Descriçao
-                    let textAreaDescriptionField = document.createElement("textarea");
-                    
-                    textAreaDescriptionField.readOnly = true;
-                    textAreaDescriptionField.textContent = `${item.description}`;
-
-                    tdTitle.appendChild(textAreaDescriptionField);
-
-                    // Célula do Preço
-                    let tdPrice = document.createElement("td");
-                    let inputPriceField = document.createElement("input");
-
-                    inputPriceField.type = "text";
-                    inputPriceField.value = `${item.price.toFixed(2)}`;
-                    inputPriceField.readOnly = true;
-
-                    tdPrice.appendChild(inputPriceField);
-
-                    // Cédula dos botões
-                    let tdButtons = document.createElement("td");
-
-                    let divButtons = document.createElement("div");
-                    divButtons.className = "table-button-field";
-
-                    divButtons.className = "table-button-field";
-
-                    //Edit
-                    let editButton = document.createElement("button");
-                    editButton.className = "table-button-edit";
-                    
-                    let iconEditButton = document.createElement("i");
-                    iconEditButton.className = "bi bi-pencil-fill";
-
-                    editButton.appendChild(iconEditButton);
-
-                    editButton.addEventListener("click", (event) =>{
-
-                        //Ativação dos campos de texto
-                        inputTitleField.readOnly = false;
-                        textAreaDescriptionField.readOnly = false;
-                        inputPriceField.readOnly = false;
-
-                        //Ativação dos botões
-                        confirmEditButton.style.display = "block";
-                        cancelEditButton.style.display = "block";
-
-                        //Desativando os botões
-                        editButton.style.display = "none";
-                        deleteButton.style.display = "none";
-
-                        console.log("Editar cédula");
-                    });
-
-                    divButtons.appendChild(editButton);
-
-                    //Delete
-                    let deleteButton = document.createElement("button");
-                    deleteButton.className = "table-button-delete";
-
-                    let iconDeleteButton = document.createElement("i");
-                    iconDeleteButton.className = "bi bi-trash3-fill";
-
-                    deleteButton.appendChild(iconDeleteButton);
-
-                    deleteButton.addEventListener("click", (event) =>{
-
-                        budgetList.innerHTML = "";
-
-                        console.log("Excluir cédula");
-                    })
-
-                    divButtons.appendChild(deleteButton);
-
-                    //Inserção dos botões de Confirmação e Cancelamento
-
-                    //Confirm
-                    let confirmEditButton = document.createElement("button");
-                    confirmEditButton.className = "table-button-edit-confirm";
-
-                    confirmEditButton.style.display = "none";
-
-                    let confirmEditButtonIcon = document.createElement("i");
-                    confirmEditButtonIcon.className = "bi bi-check2";
-
-                    confirmEditButton.addEventListener("click", (event) =>{
-
-                        //Desativação dos campos de texto
-                        inputTitleField.readOnly = true;
-                        textAreaDescriptionField.readOnly = true;
-                        inputPriceField.readOnly = true;
-
-                        //Ativação dos botões
-                        editButton.style.display = "block";
-                        deleteButton.style.display = "block";
-
-                        //Desativando os botões
-                        confirmEditButton.style.display = "none";
-                        cancelEditButton.style.display = "none";
-                        
-                        console.log("Confirmar edição");
-                    });
-
-                    confirmEditButton.appendChild(confirmEditButtonIcon);
-
-                    //Cancel
-                    let cancelEditButton = document.createElement("button");
-                    cancelEditButton.className = "table-button-edit-cancel";
-
-                    cancelEditButton.style.display = "none";
-
-                    let cancelEditButtonIcon = document.createElement("i");
-                    cancelEditButtonIcon.className = "bi bi-x-circle";
-
-                    cancelEditButton.addEventListener("click", (event) =>{
-
-                        //Desativação dos campos de texto
-                        inputTitleField.readOnly = true;
-                        textAreaDescriptionField.readOnly = true;
-                        inputPriceField.readOnly = true;
-
-                        //Ativação dos botões
-                        editButton.style.display = "block";
-                        deleteButton.style.display = "block";
-
-                        //Desativando os botões
-                        confirmEditButton.style.display = "none";
-                        cancelEditButton.style.display = "none";
-
-                        console.log("Cancelar edição");
-                    });
-
-                    cancelEditButton.appendChild(cancelEditButtonIcon);
-
-                    divButtons.appendChild(confirmEditButton);
-                    divButtons.appendChild(cancelEditButton);
-
-                    //Adicionar
-
-                    tdButtons.appendChild(divButtons);
-
-                    tr.appendChild(tdIndex);
-                    tr.appendChild(tdTitle);
-                    tr.appendChild(tdPrice);
-                    tr.appendChild(tdButtons);
-
-                    budgetList.appendChild(tr);
-
-
-                });
+                confirmButton.style.display = "block";
+                cancelButton.style.display = "block";
+                editButton.style.display = "none";
+                deleteButton.style.display = "none";
             });
 
-        } else {
+            confirmButton.addEventListener("click", () => {
+                inputTitle.readOnly = true;
+                inputDescription.readOnly = true;
+                inputPrice.readOnly = true;
+                inputTitle.style.background = "none";
+                inputDescription.style.background = "none";
+                inputPrice.style.background = "none";
 
-            console.log("Orçamentos sem items? ", data);
+                editButton.style.display = "block";
+                deleteButton.style.display = "block";
+                confirmButton.style.display = "none";
+                cancelButton.style.display = "none";
+            });
 
-            mainContentDiv.classList.add(clientNotFoundDiv);
+            cancelButton.addEventListener("click", () => {
+                inputTitle.readOnly = true;
+                inputDescription.readOnly = true;
+                inputPrice.readOnly = true;
+                inputTitle.style.background = "none";
+                inputDescription.style.background = "none";
+                inputPrice.style.background = "none";
 
-            const table = document.querySelector("table");
-            table.style.display = "none";
+                editButton.style.display = "block";
+                deleteButton.style.display = "block";
+                confirmButton.style.display = "none";
+                cancelButton.style.display = "none";
+            });
 
-            clientNotFoundMessage.style.display = "grid";
-        }
+            deleteButton.addEventListener("click", () => {
+                budgetList.removeChild(tr);
+            });
 
+            budgetList.appendChild(tr);
+        });
     })
+
     .catch((error) => {
-        console.error("Erro ao buscar orçamentos:", error);
-        alert(error.message || "Erro ao buscar orçamentos.");
+        console.error("Erro ao buscar orçamento:", error);
     });
 }
+
+
 
 window.addEventListener("load", () => {
     console.log("Index da Paginação:", localStorage.getItem("actualBudgetIndex"));
 });
 
 prevPaginationButton.addEventListener("click", () => {
-    let index = parseInt(localStorage.getItem("actualBudgetIndex")) || 0;
-    let clientArray = JSON.parse(localStorage.getItem("customersArray"));
 
-    if (index > 0) {  // Garante que não vá para um índice negativo
-        index--;  
+    let index = parseInt(localStorage.getItem("actualBudgetIndex")) - 1;
+    let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
+
+    console.log("Index atual: ", index);
+
+    if (index > -1) { 
+
+        getBudgetbyIndex(budgetsArray[index]);
         localStorage.setItem("actualBudgetIndex", index);
-        fillTableByIndex(clientArray[index]);  
-    } else {
-        console.log("Já está no primeiro orçamento.");
     }
 
-    console.log("Novo Index da Paginação:", index);
+    console.log("Id do orçamento: ", budgetsArray[index]);
 });
 
 nextPaginationButton.addEventListener("click", () => {
-    let index = parseInt(localStorage.getItem("actualBudgetIndex")) || 0;
-    let clientArray = JSON.parse(localStorage.getItem("customersArray"));
 
-    if (index < clientArray.length - 1) {  // Garante que não passe do último índice
-        index++;
+    let index = parseInt(localStorage.getItem("actualBudgetIndex")) + 1;
+    let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
+
+    console.log("Index atual: ", index);
+
+    if (budgetsArray[index] != null) {
+
+        getBudgetbyIndex(budgetsArray[index]);
         localStorage.setItem("actualBudgetIndex", index);
-        fillTableByIndex(clientArray[index]);
-    } else {
-        console.log("Já está no último orçamento.");
     }
 
-    console.log("Novo Index da Paginação:", index);
+    console.log("Id do orçamento: ", budgetsArray[index]);
 });
