@@ -71,6 +71,7 @@ async function getBudgets() {
             return response.json();
         })
         .then(data => {
+            console.log(data)
             if (data.length > 0) {
                 let budgetId = data[0].budgetId;
                 if (!budgetsArray.includes(budgetId)) {
