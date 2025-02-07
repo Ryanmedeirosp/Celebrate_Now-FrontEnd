@@ -90,11 +90,6 @@ async function getBudgets() {
     console.log("\nIDs de orçamento recuperados no Storage: ", JSON.parse(localStorage.getItem("budgetsArray")));
 }
 
-
-
-
-
-
 window.addEventListener("load", (event) =>{
 
     getClients();
