@@ -32,7 +32,7 @@ async function getClients() {
 
         clientsArray.sort();
         
-        localStorage.setItem("clientsList", JSON.stringify(clientsArray));
+        localStorage.setItem("clientsArray", JSON.stringify(clientsArray));
         console.log("IDs de clientes armazenados: ", clientsArray);
     })
 
@@ -43,7 +43,7 @@ async function getClients() {
 
 async function getBudgets() {
 
-    let clientsArray = JSON.parse(localStorage.getItem("customersArray")) || [];
+    let clientsArray = JSON.parse(localStorage.getItem("clientsArray")) || [];
     let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
 
     // Criar uma lista de Promises

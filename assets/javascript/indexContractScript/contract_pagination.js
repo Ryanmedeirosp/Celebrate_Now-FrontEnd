@@ -57,7 +57,7 @@ async function getBudgets() {
 
     console.log("\n\nGet Budget: ");
 
-    let clientsArray = JSON.parse(localStorage.getItem("customersArray")) || [];
+    let clientsArray = JSON.parse(localStorage.getItem("clientsArray")) || [];
     let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
 
     // Criar uma lista de Promises

@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const clientArray = JSON.parse(localStorage.getItem("customersArray"));
+    console.log(localStorage.getItem("ceremonialistId"));
+    
+    const clientArray = JSON.parse(localStorage.getItem("clientsArray"));
     const ceremonialistId = localStorage.getItem("ceremonialistId");
     let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
 
