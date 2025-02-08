@@ -25,9 +25,7 @@ async function createNewBudget(clientEmail, supplierEmail) {
             "Content-Type": "application/json",
         },
     }).catch((error) =>{
-
         console.error("Erro de criação de orçamento:", error);
-        alert(error.message || "Erro de criação orçamento");
     });
     
 }
@@ -48,7 +46,6 @@ async function addItemToBudget(title, description, price, budgetId) {
     }).catch((error) =>{
 
         console.error("Erro ao tentar adicionar:", error);
-        alert(error.message || "Erro ao tentar adicionar");
     });
 
 }

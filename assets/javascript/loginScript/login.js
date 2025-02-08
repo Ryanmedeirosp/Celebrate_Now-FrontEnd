@@ -6,13 +6,7 @@ const loginButton = document.querySelector("#login-button");
 const testLoginData = document.querySelector("#logoHeader");
 
 
-/* Informações para testes */
 
-var testEmail = "ana.paula@email.com";
-var testPassword = "senha123";
-
-var testEmail2 = "carlos.silva@email.com";
-var testPassword2 = "senha456";
 
 loginButton.addEventListener("click", (event) =>{
 

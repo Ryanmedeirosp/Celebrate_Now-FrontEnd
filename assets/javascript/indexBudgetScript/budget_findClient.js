@@ -42,11 +42,14 @@ async function getClients() {
 };
 
 async function getBudgets() {
+    // Resetar os dados antes de buscar novos
+    localStorage.removeItem("budgetsArray");
+    localStorage.removeItem("currentBudget");
 
     let clientsArray = JSON.parse(localStorage.getItem("clientsArray")) || [];
-    let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
+    let budgetsArray = [];
 
-    // Criar uma lista de Promises
+    // Criar uma lista de Promises para buscar os orçamentos
     let promises = clientsArray.map(clientId => {
         return fetch(`http://localhost:8080/budget/${clientId}/${localStorage.getItem("ceremonialistId")}`, {
             method: "GET",
@@ -63,15 +66,11 @@ async function getBudgets() {
             return response.json();
         })
         .then(data => {
-            // console.log("Orçamento: ", data);
             if (data.length > 0) {
                 for (let index = 0; index < data.length; index++) {
-      
                     let budgetId = data[index].budgetId;
                     if (!budgetsArray.includes(budgetId)) {
-
                         budgetsArray.push(budgetId);
-                        budgetsArray.sort();
                     }
                 }
             }
@@ -81,13 +80,20 @@ async function getBudgets() {
         });
     });
 
-    // Espera todas as requisições serem concluídas antes de salvar no localStorage
+    // Esperar todas as requisições serem concluídas antes de salvar no localStorage
     await Promise.all(promises);
 
+    // Ordenar e salvar no localStorage
+    budgetsArray.sort();
     localStorage.setItem("budgetsArray", JSON.stringify(budgetsArray));
-    localStorage.setItem("currentBudget", budgetsArray[0]);
 
-    console.log("\nIDs de orçamento recuperados no Storage: ", JSON.parse(localStorage.getItem("budgetsArray")));
+    // Definir o primeiro orçamento como o atual (se houver orçamentos disponíveis)
+    if (budgetsArray.length > 0) {
+        localStorage.setItem("currentBudget", budgetsArray[0]);
+        console.log("\nIDs de orçamento recuperados no Storage:", budgetsArray);
+    }
+
+    
 }
 
 window.addEventListener("load", (event) =>{
