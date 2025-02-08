@@ -137,23 +137,17 @@ async function fillContractData(budgetId) {
         eventDay.innerHTML = `Data do envento: ${data.date}`;
 
         budgetList.innerHTML = "";
-        totalAmount.innerHTML = data.totalAmount;
+        totalAmount.innerHTML = `Total: R$  ${data.totalAmount}`;
         data.items.forEach((item, index) => {
             const tr = document.createElement("tr");
 
             tr.innerHTML = `
-                <td>${index + 1}.</td>
-                <td>
-                    <input type="text" value="${item.title}" class="table-content-title" readonly>
-                   
-                </td>
-                 <td>
-                    <textarea readonly>${item.description}</textarea>
-                </td>
-                <td>
-                    <input type="text" value="${item.price.toFixed(2)}" readonly>
-                </td>
-            `;
+            <td>${index + 1}.</td>
+            <td>${item.title}</td>
+            <td>${item.description}</td>
+            <td>${item.price.toFixed(2)}</td>
+        `;
+        
 
             budgetList.appendChild(tr);
         });
