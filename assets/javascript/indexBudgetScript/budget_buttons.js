@@ -24,7 +24,11 @@ async function createNewBudget(clientEmail, supplierEmail) {
         headers: {
             "Content-Type": "application/json",
         },
-    })
+    }).catch((error) =>{
+
+        console.error("Erro de criação de orçamento:", error);
+        alert(error.message || "Erro de criação orçamento");
+    });
     // .then(response =>{
     //     if (!response.ok) {
     //         return response.json().then(err => {
@@ -37,11 +41,7 @@ async function createNewBudget(clientEmail, supplierEmail) {
 
     //     console.log("Novo Orçamento Retorno: ", data);
     // })
-    .catch((error) =>{
-
-        console.error("Erro de criação de orçamento:", error);
-        alert(error.message || "Erro de criação orçamento");
-    });
+    
 }
 
 async function addItemToBudget(title, description, price, budgetId) {
@@ -57,9 +57,7 @@ async function addItemToBudget(title, description, price, budgetId) {
         headers: {
             "Content-Type": "application/json",
         },
-    })
-
-    .catch((error) =>{
+    }).catch((error) =>{
 
         console.error("Erro ao tentar adicionar:", error);
         alert(error.message || "Erro ao tentar adicionar");

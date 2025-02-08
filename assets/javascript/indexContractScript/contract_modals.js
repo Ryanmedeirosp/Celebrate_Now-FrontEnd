@@ -170,7 +170,6 @@ async function getContractPdf() {
             return response.json();
         })
         .then((data) => {
-            console.log(data)
 
             doc.setFontSize(18);
             doc.setFont("helvetica", "bold");
@@ -207,6 +206,37 @@ async function getContractPdf() {
             }
 
             doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 10);
+
+            y += 30;
+
+        doc.setFontSize(14);
+        doc.setFont("helvetica", "bold");
+        doc.text("Termos e Condições", 10, y);
+
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        doc.text("Este contrato estabelece os termos do serviço a ser prestado pelo fornecedor ao cliente. Ambas as partes concordam com os termos aqui estabelecidos, garantindo a execução adequada do serviço conforme descrito.", 10, y + 10, { maxWidth: 180 });
+
+        y += 40;
+
+        doc.setFont("helvetica", "bold");
+        doc.text("Assinaturas", 10, y);
+
+        doc.setFont("helvetica", "normal");
+
+        y += 20;
+        doc.text("Fornecedor:", 10, y);
+        doc.text("__________________________", 10, y + 10);
+        
+
+        y += 30;
+        doc.text("Cliente:", 10, y);
+        doc.text("__________________________", 10, y + 10);
+
+        y += 30;
+        doc.text("Cerimonialista:", 10, y);
+        doc.text("__________________________", 10, y + 10);
+
             doc.save("relatorio.pdf");
 
         })

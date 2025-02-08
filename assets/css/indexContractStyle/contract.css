@@ -108,6 +108,11 @@
     resize: none;
     height: 80%;
     padding: 1rem;
+
+}
+
+.contract-content h1{
+    text-align: center;
 }
 
 .contract-content textarea:focus{
@@ -147,3 +152,4 @@
     cursor: pointer;
     background: #646464;
 }
+

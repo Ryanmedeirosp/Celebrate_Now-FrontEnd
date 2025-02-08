@@ -67,7 +67,6 @@ fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`,
     .then((data) => {
         // Limpa o conteúdo existente da sidebar
         sidebarList.innerHTML = "";
-        console.log(localStorage.getItem("ceremonialistId"));
         // Verifica se os dados são um array ou um único objeto
         const customers = Array.isArray(data) ? data : [data];
 
@@ -124,6 +123,5 @@ fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`,
         customers.forEach((customer) => {
             // Cria o contêiner do cliente
            
-            console.log(populateCustomerList)
         });
     }

@@ -19,9 +19,6 @@ fetch(`http://localhost:8080/contract/1`, {
         
         localStorage.setItem("currentContractIndex", 0);
 
-        clientName.innerHTML = `Cliente: ${contract.clientName}`
-        contractNumber.innerHTML = `Número do Contrato: ${contract.contractId}`
-        eventDay.innerHTML = `Data do envento: ${contract.date}`
     });
     
 

@@ -72,6 +72,7 @@ cancelItemButton.addEventListener("click", (event) =>{
 buttonNewBudget.addEventListener("click", (event) =>{
 
     openModal(newBudget, newBudgetLever);
+    
     console.log("Budget");
 });
 
@@ -97,6 +98,7 @@ buttonConfirmNewBudget.addEventListener("click", (event) =>{
         createNewBudgetEmailClient.value,
         createNewBudgetEmailSupplier.value
     );
-    
     console.log("Confirmar novo orçamento.")
+    location.reload();
+
 });

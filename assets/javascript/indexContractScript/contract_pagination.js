@@ -10,7 +10,6 @@ const nextContract = document.querySelector("#next-page");
 //Functions
 async function getClients() {
 
-    console.log("\n\nGet Clients: ");
 
     fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
@@ -55,7 +54,6 @@ async function getClients() {
 
 async function getBudgets() {
 
-    console.log("\n\nGet Budget: ");
 
     let clientsArray = JSON.parse(localStorage.getItem("clientsArray")) || [];
     let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
@@ -109,7 +107,6 @@ async function getBudgets() {
 
 async function fillContractData(budgetId) {
 
-    console.log("\n\nFill Contract Data: ");
 
     fetch(`http://localhost:8080/budget/${budgetId}`, {
         method: "GET",
@@ -131,13 +128,36 @@ async function fillContractData(budgetId) {
     
         console.log("Orçamento encontrado: ", data);
 
-        console.log("Orçamento encontrado: ", data.client);
-
         localStorage.setItem("contractData", JSON.stringify(data));
 
         clientName.innerHTML = `Cliente: ${data.client}`;
-        contractNumber.innerHTML = `Número do Contrato: `;
         eventDay.innerHTML = `Data do envento: ${data.date}`;
+        const table = document.querySelector("#table");
+        table.innerHTML = ""
+        data.items.forEach((item, index) => {
+            
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+                <td>${index + 1}.</td>
+                <td>
+                    <input type="text" value="${item.title}" class="table-content-title" readonly>
+                    <textarea readonly>${item.description}</textarea>
+                </td>
+                <td>
+                    <input type="text" value="${item.price.toFixed(2)}" readonly>
+                </td>
+                <td class="table-button-field">
+                    <button class="table-button-edit"><i class="bi bi-pencil-fill"></i></button>
+                    <button class="table-button-delete"><i class="bi bi-trash3-fill"></i></button>
+                    <button class="table-button-edit-confirm" style="display: none;"><i class="bi bi-check2"></i></button>
+                    <button class="table-button-edit-cancel" style="display: none;"><i class="bi bi-x-circle"></i></button>
+                </td>
+            `;
+            
+            table.appendChild(tr)
+        })
+        
     })
 
     .catch((error) => {
