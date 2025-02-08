@@ -107,13 +107,30 @@
         
         <div class="contract-content">
             <h1>Contrato de prestação de Serviço</h1>
-            <textarea name="" class="contract-text" readonly>
-                
+            <p class="contract-text">
                 Este contrato estabelece os termos do serviço a ser prestado pelo fornecedor ao cliente. 
 
                 Ambas as partes concordam com os termos aqui estabelecidos, garantindo a execução adequada do serviço.
-            </textarea>
-            <table id="table"></table>
+            </p>
+            <div class="budget-main">
+                <div class="budget-main-sidebar"></div>
+                <div class="budget-main-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>&#8470</th>
+                                <th>Descrição do produto</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody id="budget-table">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="budget-amount">
+                    <h2>R$<span id="total-amount">20.000,00</span></h2>
+                </div>
 
             <div class="contract-edit-active">
                 <ul>

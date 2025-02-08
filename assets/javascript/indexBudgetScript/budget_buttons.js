@@ -29,18 +29,6 @@ async function createNewBudget(clientEmail, supplierEmail) {
         console.error("Erro de criação de orçamento:", error);
         alert(error.message || "Erro de criação orçamento");
     });
-    // .then(response =>{
-    //     if (!response.ok) {
-    //         return response.json().then(err => {
-    //             throw new Error(err.message);
-    //         });
-    //     }
-    //     return response.json();
-    // })
-    // .then((data) =>{
-
-    //     console.log("Novo Orçamento Retorno: ", data);
-    // })
     
 }
 

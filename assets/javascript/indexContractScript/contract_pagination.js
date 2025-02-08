@@ -129,34 +129,34 @@ async function fillContractData(budgetId) {
         console.log("Orçamento encontrado: ", data);
 
         localStorage.setItem("contractData", JSON.stringify(data));
+        
+        const budgetList = document.getElementById("budget-table");
+        const totalAmount = document.getElementById("total-amount");
 
         clientName.innerHTML = `Cliente: ${data.client}`;
         eventDay.innerHTML = `Data do envento: ${data.date}`;
-        const table = document.querySelector("#table");
-        table.innerHTML = ""
+
+        budgetList.innerHTML = "";
+        totalAmount.innerHTML = data.totalAmount;
         data.items.forEach((item, index) => {
-            
             const tr = document.createElement("tr");
 
             tr.innerHTML = `
                 <td>${index + 1}.</td>
                 <td>
                     <input type="text" value="${item.title}" class="table-content-title" readonly>
+                   
+                </td>
+                 <td>
                     <textarea readonly>${item.description}</textarea>
                 </td>
                 <td>
                     <input type="text" value="${item.price.toFixed(2)}" readonly>
                 </td>
-                <td class="table-button-field">
-                    <button class="table-button-edit"><i class="bi bi-pencil-fill"></i></button>
-                    <button class="table-button-delete"><i class="bi bi-trash3-fill"></i></button>
-                    <button class="table-button-edit-confirm" style="display: none;"><i class="bi bi-check2"></i></button>
-                    <button class="table-button-edit-cancel" style="display: none;"><i class="bi bi-x-circle"></i></button>
-                </td>
             `;
-            
-            table.appendChild(tr)
-        })
+
+            budgetList.appendChild(tr);
+        });
         
     })
 

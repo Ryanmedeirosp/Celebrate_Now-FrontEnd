@@ -103,14 +103,6 @@
     text-align: left;
 }
 
-.contract-content textarea{
-    border: none;
-    resize: none;
-    height: 80%;
-    padding: 1rem;
-
-}
-
 .contract-content h1{
     text-align: center;
 }
@@ -152,4 +144,44 @@
     cursor: pointer;
     background: #646464;
 }
+.contract-text{
+    font-weight:bold;
+}
+
+table{
+
+    width: 100%;
+    border-collapse: collapse;
+    margin: 3% 0;
+    font-size: 0.9rem;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);
+}
+
+table thead th{
+    background-color: #D9D9D9;
+    text-align: left;
+    font-weight: bold;
+}
+
+table th{
+    padding: 0.5rem 1.5rem;
+    position: sticky;
+}
+
+table td{
+
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 10%;
+    width: 100%;
+    flex-direction: row;
+}
+
+table tbody tr{
+    display: flex;
+    width: 100%;
+    border-bottom: 2px solid #000;
+    
+}
+
 
