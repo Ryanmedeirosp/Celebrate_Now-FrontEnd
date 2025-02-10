@@ -135,7 +135,11 @@
     color: #A1C6EA;
     background-color: white;
 }
-
+#buttonHireIndividualServiceInLeftSide:hover{
+    border: solid 1px   #2867a7;
+    color: #2867a7;
+    cursor: pointer;
+ }
 #imageEditIndividualServiceInRightSideDiv {
     height: 40px;
     width: 162px;

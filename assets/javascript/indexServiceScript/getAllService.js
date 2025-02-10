@@ -40,11 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let imageIndividualServiceInLeftSide = document.createElement("img");
         imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide";
         imageIndividualServiceInLeftSide.src = service.imageUrl;
-        // const leitor = new FileReader();
-        // leitor.readAsDataURL(loadImageButtonDiv.files[0]);
-        // leitor.addEventListener("load", (event) => {
-        //     imageIndividualServiceInLeftSide.src = event.target.result;
-        // });
 
         let buttonHireIndividualServiceInLeftSideDiv = document.createElement("div");
         buttonHireIndividualServiceInLeftSideDiv.className = "buttonHireIndividualServiceInLeftSideDiv";
@@ -194,6 +189,10 @@ document.addEventListener("DOMContentLoaded", () => {
             // Limpar a imagem carregada (se houver uma imagem carregada)
             editLoadImageButtonDiv.value = '';
         };
+
+        buttonHireIndividualServiceInLeftSide.addEventListener("click", (e)=>{
+            location.href = "../../../indexBudget.html";
+        })
 
         editButtonConfirmNewService.addEventListener("click", (event) => {
             fetch("http://localhost:8080/supplier/" + service.id, {

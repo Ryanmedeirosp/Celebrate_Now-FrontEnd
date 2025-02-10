@@ -91,9 +91,10 @@ houseNumberInput.id = "houseNumberInput";
 houseNumberInput.placeholder = "Digite o número da casa";
 
 let cerimonialistEmailInput = document.createElement("input");
+cerimonialistEmailInput.disabled = true; // Desabilita o campo
 cerimonialistEmailInput.className = "inputInformation";
 cerimonialistEmailInput.id = "cerimonialistEmailInput";
-cerimonialistEmailInput.placeholder = "Digite o Email do cerimonialista";
+cerimonialistEmailInput.placeholder = localStorage.getItem("ceremonialistEmail");
 
 let typeServiceInput = document.createElement("input");
 typeServiceInput.className = "inputInformation";

@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const documentNumber = document.getElementById("cnpjInput").value.trim(); // CPF ou CNPJ
         const cep = document.getElementById("cepInput").value.trim();
         const number = document.getElementById("houseNumberInput").value.trim();
-        const ceremonialistEmail = document.getElementById("cerimonialistEmailInput").value.trim();
         const serviceType = document.getElementById("typeServiceInput").value.trim();
         const descriptionArea = document.getElementById("descriptionArea").value.trim();
         const imageUrl = document.getElementById("files").value.trim();
@@ -46,9 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!serviceType) {
             return showError("O serviço é obrigatório.");
         }
-        if (!ceremonialistEmail || !/^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/.test(ceremonialistEmail)) {
-            return showError("Email da ceremonialista inválido inválido.");
-        }
         if (!phone || !/^\+?[1-9][0-9]{1,14}$/.test(phone)) {
             return showError("Número de telefone inválido.");
         }
@@ -72,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             serviceType: serviceType,
             description: descriptionArea,
             imageUrl: imageUrl,
-            ceremonialistEmail: ceremonialistEmail
+            ceremonialistEmail: localStorage.getItem("ceremonialistEmail")
         };
 
         // Envio ao backend
