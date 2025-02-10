@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(data);
 
         data.forEach((service) => {
-           
         let individualServiceDiv = document.createElement("div");
         individualServiceDiv.className = "individualServiceDiv";
 
@@ -40,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imageIndividualServiceInLeftSideDiv.className = "imageIndividualServiceInLeftSideDiv";
         let imageIndividualServiceInLeftSide = document.createElement("img");
         imageIndividualServiceInLeftSide.className = "imageIndividualServiceInLeftSide";
-        
+        imageIndividualServiceInLeftSide.src = service.imageUrl;
         // const leitor = new FileReader();
         // leitor.readAsDataURL(loadImageButtonDiv.files[0]);
         // leitor.addEventListener("load", (event) => {
@@ -280,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showImageAndDescriptionDiv.id = "showImageAndDescriptionDiv";
             let showImage = document.createElement("img");
             showImage.id = "showImage";
-            showImage.src = "assets/images/naoSei.jfif";
+            showImage.src = service.imageUrl;
             let showDescriptionDiv = document.createElement("div");
             showDescriptionDiv.id = "showDescriptionDiv";
             let showDescription = document.createElement("p");

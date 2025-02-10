@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const ceremonialistEmail = document.getElementById("cerimonialistEmailInput").value.trim();
         const serviceType = document.getElementById("typeServiceInput").value.trim();
         const descriptionArea = document.getElementById("descriptionArea").value.trim();
+        const imageUrl = document.getElementById("files").value.trim();
         const alert = document.getElementById("alert");
 
         // Função para exibir mensagens de erro
@@ -36,32 +37,30 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!email || !/^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/.test(email)) {
             return showError("Email inválido.");
         }
-        if (!ceremonialistEmail || !/^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/.test(ceremonialistEmail)) {
-            return showError("Email da ceremonialista inválido inválido.");
+        if (!documentNumber || documentNumber.length !== 14) {
+            return showError("Documento inválido. Deve conter 14 caracteres. Somente números.");
+        }
+        if (!cep || !/^\d{8}$/.test(cep)) {
+            return showError("CEP inválido. Deve conter exatamente 8 dígitos. Somente números.");
         }
         if (!serviceType) {
             return showError("O serviço é obrigatório.");
         }
-        if (!descriptionArea) {
-            return showError("A descrição é obrigatório.");
+        if (!ceremonialistEmail || !/^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/.test(ceremonialistEmail)) {
+            return showError("Email da ceremonialista inválido inválido.");
         }
-
-        if (!documentNumber || documentNumber.length !== 14) {
-            return showError("Documento inválido. Deve conter 14 caracteres.");
-        }
-
         if (!phone || !/^\+?[1-9][0-9]{1,14}$/.test(phone)) {
             return showError("Número de telefone inválido.");
         }
-
-        if (!cep || !/^\d{8}$/.test(cep)) {
-            return showError("CEP inválido. Deve conter exatamente 8 dígitos.");
-        }
-
         if (!number || isNaN(number)) {
             return showError("O número da residência deve ser válido.");
         }
-
+        if (!imageUrl) {
+            return showError("A imagem é obrigatória.");
+        }
+        if (!descriptionArea) {
+            return showError("A descrição é obrigatório.");
+        }
         // Objeto com os dados validados
         const requestData = {
             name: name,
@@ -72,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             houseNumber: number,
             serviceType: serviceType,
             description: descriptionArea,
+            imageUrl: imageUrl,
             ceremonialistEmail: ceremonialistEmail
         };
 
@@ -94,8 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 
             })
             .then(data => {
-                console.log("Cadastro realizado com sucesso:", data);
                 showSuccess("Cadastro realizado com sucesso!");
+                location.reload()
             })
             .catch(error => {
                 console.error("Erro ao enviar os dados:", error);

@@ -100,11 +100,10 @@ typeServiceInput.className = "inputInformation";
 typeServiceInput.id = "typeServiceInput";
 typeServiceInput.placeholder = "Digite o tipo de serviço";
 
-let imageDiv = document.createElement("div");
-imageDiv.id = "imageDiv";
 let loadImageButtonDiv = document.createElement("input");
+loadImageButtonDiv.className = "inputInformation";
 loadImageButtonDiv.id = "files";
-loadImageButtonDiv.type = "file";
+loadImageButtonDiv.placeholder = "Digite a url da sua imagem";
 
 let descriptionDiv = document.createElement("div");
 descriptionDiv.id = "descriptionDiv";
@@ -497,8 +496,7 @@ titleDiv.appendChild(phoneInput);
 titleDiv.appendChild(cepInput);
 titleDiv.appendChild(houseNumberInput);
 titleDiv.appendChild(alertArea);
-imageDiv.appendChild(loadImageButtonDiv);
-titleImageDiv.appendChild(imageDiv);
+descriptionDiv.appendChild(loadImageButtonDiv)
 modalBodyDiv.appendChild(titleImageDiv);
 modalBodyDiv.appendChild(descriptionDiv);
 descriptionDiv.appendChild(descriptionArea);

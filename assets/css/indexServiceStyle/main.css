@@ -244,6 +244,7 @@
     transition: all 0.2s;
 }
 
+
 .inputInformation::placeholder {
     text-align: center;
 }
@@ -284,8 +285,14 @@
 #descriptionDiv {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+}
+
+#files{
+    width: 80%;
 }
 
 #descriptionArea {
