@@ -89,10 +89,8 @@ async function getBudgets() {
             console.log(data)
             if (data.length > 0) {
                 for (let index = 0; index < data.length; index++) {
-      
                     let budgetId = data[index].budgetId;
                     if (!budgetsArray.includes(budgetId)) {
-
                         budgetsArray.push(budgetId);
                         budgetsArray.sort();
                     }
@@ -103,29 +101,24 @@ async function getBudgets() {
             console.error("Erro ao buscar orçamentos:", error);
         });
     });
-
     // Espera todas as requisições serem concluídas antes de salvar no localStorage
-    await Promise.all(promises);
 
+    await Promise.all(promises);
     localStorage.setItem("budgetsArray", JSON.stringify(budgetsArray));
     localStorage.setItem("currentBudget", budgetsArray[0]);
 
     // console.log("Orçamento Atual: ", localStorage.getItem("currentBudget"));
-
     // console.log("\nIDs de orçamento recuperados: ", budgetsArray);
     console.log("\nIDs de orçamento recuperados no Storage: ", JSON.parse(localStorage.getItem("budgetsArray")));
 }
 
 async function fillContractData(budgetId) {
-
-
     fetch(`http://localhost:8080/budget/${budgetId}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
     })
-
     .then(response => {
         if (!response.ok) {
             return response.json().then(err => {
@@ -134,7 +127,6 @@ async function fillContractData(budgetId) {
         }
         return response.json();
     })
-
     .then((data) => {
     
         console.log("Orçamento encontrado: ", data);
@@ -160,18 +152,14 @@ async function fillContractData(budgetId) {
             <td>${item.description}</td>
             <td>${item.price.toFixed(2)}</td>
         `;
-        
-
             budgetList.appendChild(tr);
         });
         
     })
-
     .catch((error) => {
         console.error("Erro: ", error);
     }); 
 }
-
 // Função para exibir o indicador de carregamento
 const showLoading = () => {
     const loadingMessage = document.createElement("div");
@@ -188,16 +176,13 @@ const showLoading = () => {
     document.body.appendChild(loadingMessage);
     return loadingMessage;
 };
-
 // Função para remover o indicador de carregamento
 const hideLoading = (loadingMessage) => {
     document.body.removeChild(loadingMessage);
 };
-
 // Função principal para carregar a página de contratos
 async function loadContractPage() {
     const loadingMessage = showLoading(); // Exibe o indicador de carregamento
-
     // Temporizador de 3 segundos
     setTimeout(async () => {
         try {
@@ -224,7 +209,6 @@ async function loadContractPage() {
 }
 
 window.addEventListener("load", (event) =>{
-
     loadContractPage();
 });
 
