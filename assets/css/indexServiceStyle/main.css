@@ -248,7 +248,6 @@
     transition: all 0.2s;
 }
 
-
 .inputInformation::placeholder {
     text-align: center;
 }
@@ -423,35 +422,6 @@
     display: grid;
     grid-template-columns: 2fr 2fr;
     justify-items: center;
-}
-
-.inputInformation {
-    height: 40px;
-    width: 250px;
-    background-color: #dddd;
-    color: #666;
-    padding: 1em;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    outline: none;
-    resize: none;
-    transition: all 0.2s;
-}
-
-.inputInformation::placeholder {
-    text-align: center;
-}
-
-.inputInformation:hover {
-    cursor: pointer;
-    background-color: #eee;
-}
-
-.inputInformation:focus {
-    cursor: text;
-    color: #333;
-    background-color: white;
-    border-color: #333;
 }
 
 #editImageDiv {
@@ -649,4 +619,20 @@
 
 #showModal.hideThree {
     top: 0;
+}
+
+.align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.sizeImgEdit {
+    height: 30px;
+    width: 30px;
+}
+
+.sizeImgEdit:hover {
+    cursor: pointer;
 }

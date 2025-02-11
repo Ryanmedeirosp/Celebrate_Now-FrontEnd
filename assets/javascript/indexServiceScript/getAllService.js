@@ -111,40 +111,133 @@ document.addEventListener("DOMContentLoaded", () => {
         editTitleImageDiv.id = "editTitleImageDiv";
         let editTitleDiv = document.createElement("div");
         editTitleDiv.id = "editTitleDiv";
+
+        let editTitleInputDiv = document.createElement("div");
+        editTitleInputDiv.className = "align";
+        editTitleInputDiv.id = "editTitleInputDiv";
+        let editTitleInputImg = document.createElement("img");
+        editTitleInputImg.id = "editTitleInputImg";
+        editTitleInputImg.className = "sizeImgEdit";
+        editTitleInputImg.src = "../assets/images/botao-editar.png";
+
         let editTitleInput = document.createElement("input");
         editTitleInput.className = "inputInformation";
         editTitleInput.id = "editTitleInput";
-        editTitleInput.placeholder = "Digite o nome do serviço";
+        editTitleInput.placeholder = service.name;
+        editTitleInput.disabled = true;
+
+        editTitleInputImg.addEventListener("click", (event)=>{
+            editTitleInput.disabled = false;
+        });
+
+
+        let editEmailInputDiv = document.createElement("div");
+        editEmailInputDiv.id = "editEmailInputDiv";
+        editEmailInputDiv.className = "align";
+        let editEmailInputImg = document.createElement("img");
+        editEmailInputImg.id = "editEmailInputImg";
+        editEmailInputImg.className = "sizeImgEdit";
+        editEmailInputImg.src = "../assets/images/botao-editar.png";
 
         let editEmailInput = document.createElement("input");
         editEmailInput.className = "inputInformation";
         editEmailInput.id = "emailInput";
-        editEmailInput.placeholder = "Digite o email";
+        editEmailInput.placeholder = service.email;
+        editEmailInput.disabled = true;
+
+        editEmailInputImg.addEventListener("click", (event)=>{
+            editEmailInput.disabled = false;
+        });
+
+        let editCnpjInputDiv = document.createElement("div");
+        editCnpjInputDiv.id = "editCnpjInputDiv";
+        editCnpjInputDiv.className = "align";
+        let editCnpjInputImg = document.createElement("img");
+        editCnpjInputImg.id = "editCnpjInputImg";
+        editCnpjInputImg.className = "sizeImgEdit";
+        editCnpjInputImg.src = "../assets/images/botao-editar.png";
 
         let editCnpjInput = document.createElement("input");
         editCnpjInput.className = "inputInformation";
         editCnpjInput.id = "editCnpjInput";
-        editCnpjInput.placeholder = "Digite o CNPJ";
+        editCnpjInput.placeholder = service.cnpj;
+        editCnpjInput.disabled = true;
+
+        editCnpjInputImg.addEventListener("click", (event)=>{
+            editCnpjInput.disabled = false;
+        });
+
+        let editPhoneInputDiv = document.createElement("div");
+        editPhoneInputDiv.id = "editPhoneInputDiv";
+        editPhoneInputDiv.className = "align";
+        let editPhoneInputImg = document.createElement("img");
+        editPhoneInputImg.id = "editPhoneInputImg";
+        editPhoneInputImg.className = "sizeImgEdit";
+        editPhoneInputImg.src = "../assets/images/botao-editar.png";
 
         let editPhoneInput = document.createElement("input");
         editPhoneInput.className = "inputInformation";
         editPhoneInput.id = "editPhoneInput";
-        editPhoneInput.placeholder = "Digite o telefone";
+        editPhoneInput.placeholder = service.phone;
+        editPhoneInput.disabled = true;
+
+        editPhoneInputImg.addEventListener("click", (event)=>{
+            editPhoneInput.disabled = false;
+        });
+
+        let editCepInputDiv = document.createElement("div");
+        editCepInputDiv.id = "editCepInputDiv";
+        editCepInputDiv.className = "align";
+        let editCepInputImg = document.createElement("img");
+        editCepInputImg.id = "editCepInputImg";
+        editCepInputImg.className = "sizeImgEdit";
+        editCepInputImg.src = "../assets/images/botao-editar.png";
 
         let editCepInput = document.createElement("input");
         editCepInput.className = "inputInformation";
         editCepInput.id = "editCepInput";
-        editCepInput.placeholder = "Digite o CEP";
+        editCepInput.placeholder = service.cep;
+        editCepInput.disabled = true;
+
+        editCepInputImg.addEventListener("click", (event)=>{
+            editCepInput.disabled = false;
+        });
+
+        let editHouseNumberInputDiv = document.createElement("div");
+        editHouseNumberInputDiv.id = "editHouseNumberInputDiv";
+        editHouseNumberInputDiv.className = "align";
+        let editHouseNumberInputImg = document.createElement("img");
+        editHouseNumberInputImg.id = "editHouseNumberInputImg";
+        editHouseNumberInputImg.className = "sizeImgEdit";
+        editHouseNumberInputImg.src = "../assets/images/botao-editar.png";
 
         let editHouseNumberInput = document.createElement("input");
         editHouseNumberInput.className = "inputInformation";
         editHouseNumberInput.id = "editHouseNumberInput";
-        editHouseNumberInput.placeholder = "Digite o número da casa";
+        editHouseNumberInput.placeholder = service.number;
+        editHouseNumberInput.disabled = true;
+
+        editHouseNumberInputImg.addEventListener("click", (event)=>{
+            editHouseNumberInput.disabled = false;
+        });
+
+        let editTypeServiceInputDiv = document.createElement("div");
+        editTypeServiceInputDiv.id = "editTypeServiceInputDiv";
+        editTypeServiceInputDiv.className = "align";
+        let editTypeServiceInputImg = document.createElement("img");
+        editTypeServiceInputImg.id = "editTypeServiceInputImg";
+        editTypeServiceInputImg.className = "sizeImgEdit";
+        editTypeServiceInputImg.src = "../assets/images/botao-editar.png";
 
         let editTypeServiceInput = document.createElement("input");
         editTypeServiceInput.className = "inputInformation";
         editTypeServiceInput.id = "editTypeServiceInput";
-        editTypeServiceInput.placeholder = "Digite o tipo de serviço";
+        editTypeServiceInput.placeholder = service.serviceType;
+        editTypeServiceInput.disabled = true;
+
+        editTypeServiceInputImg.addEventListener("click", (event)=>{
+            editTypeServiceInput.disabled = false;
+        });
 
         let editImageDiv = document.createElement("div");
         editImageDiv.id = "editImageDiv";
@@ -154,10 +247,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let editDescriptionDiv = document.createElement("div");
         editDescriptionDiv.id = "editDescriptionDiv";
+        editDescriptionDiv.className = "align";
+        let editDescriptionImg = document.createElement("img");
+        editDescriptionImg.id = "editDescriptionImg";
+        editDescriptionImg.className = "sizeImgEdit";
+        editDescriptionImg.src = "../assets/images/botao-editar.png";
         let editDescriptionArea = document.createElement("textarea");
         editDescriptionArea.id = "editDescriptionArea";
-        editDescriptionArea.placeholder = "Insira uma descrição...";
+        editDescriptionArea.placeholder = service.description;
         editDescriptionArea.maxLength = 150;
+        editDescriptionArea.disabled = true;
+
+        editDescriptionImg.addEventListener("click", (event)=>{
+            editDescriptionArea.disabled = false;
+        });
 
         let editButtonConfirmNewServiceDiv = document.createElement("div");
         editButtonConfirmNewServiceDiv.id = "editButtonConfirmNewServiceDiv";
@@ -168,6 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const editToggleModal = () => {
             // Apenas alterna a visibilidade do modal e fade
             [editModal, editFade].forEach((el) => el.classList.toggle("hideTwo"));
+            resetEditModalContent();
         };
 
         imageEditIndividualServiceInRightSide.addEventListener("click", (event) => {
@@ -179,13 +283,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const resetEditModalContent = () => {
             // Limpar campos de entrada de texto
             editTitleInput.value = '';
+            editTitleInput.disabled = true;
             editEmailInput.value = '';
+            editEmailInput.disabled = true;
             editCnpjInput.value = '';
+            editCnpjInput.disabled = true;
             editPhoneInput.value = '';
+            editPhoneInput.disabled = true;
             editCepInput.value = '';
+            editCepInput.disabled = true;
             editHouseNumberInput.value = '';
+            editHouseNumberInput.disabled = true;
             editTypeServiceInput.value = '';
+            editTypeServiceInput.disabled = true;
             editDescriptionArea.value = '';
+            editDescriptionArea.disabled = true;
             // Limpar a imagem carregada (se houver uma imagem carregada)
             editLoadImageButtonDiv.value = '';
         };
@@ -195,25 +307,32 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
         editButtonConfirmNewService.addEventListener("click", (event) => {
+            // Cria um objeto para armazenar os dados
+            const data = {};
+        
+            // Função para verificar se o valor do input está vazio e usar o placeholder se necessário
+            const getValue = (input, placeholder) => input.value.trim() === "" ? placeholder : input.value;
+        
+            // Adiciona os campos ao objeto, usando o valor do input ou do placeholder
+            data.name = getValue(editTitleInput, editTitleInput.placeholder);
+            data.email = getValue(editEmailInput, editEmailInput.placeholder);
+            data.cnpj = getValue(editCnpjInput, editCnpjInput.placeholder);
+            data.phone = getValue(editPhoneInput, editPhoneInput.placeholder);
+            data.cep = getValue(editCepInput, editCepInput.placeholder);
+            data.serviceType = getValue(editTypeServiceInput, editTypeServiceInput.placeholder);
+            data.houseNumber = getValue(editHouseNumberInput, editHouseNumberInput.placeholder);
+            data.description = editDescriptionArea.value.trim() === "" ? service.description : editDescriptionArea.value;
+            data.ceremonialistEmail = localStorage.getItem("ceremonialistEmail");
+        
+            // Faz a requisição PUT
             fetch("http://localhost:8080/supplier/" + service.id, {
-
                 method: "PUT",
-                body: JSON.stringify({
-                    "name": `${editTitleInput.value}`,
-                    "email": `${editEmailInput.value}`,
-                    "cnpj": `${editCnpjInput.value}`,
-                    "phone": `${editPhoneInput.value}`,
-                    "cep": `${editCepInput.value}`,
-                    "serviceType": `${editTypeServiceInput.value}`,
-                    "houseNumber": `${editHouseNumberInput.value}`,
-                    "description": `${editDescriptionArea.value}`,
-                    "ceremonialistEmail": `${localStorage.getItem("ceremonialistEmail")}`
-                }),
+                body: JSON.stringify(data),
                 headers: {
                     "Content-Type": "application/json",
                 },
             })
-            .then(response =>{
+            .then(response => {
                 if (!response.ok) {
                     return response.json().then(err => {
                         throw new Error(err.message);
@@ -221,11 +340,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 return response.json();
             })
-            .then((data) =>{
-                
+            .then((data) => {
+                console.log("Serviço atualizado com sucesso:", data);
             })
-            .catch((error) =>{
+            .catch((error) => {
+                console.error("Erro ao atualizar o serviço:", error);
             });
+        
+            // Fecha o modal e reseta o conteúdo
             editToggleModal();
             resetEditModalContent();
         });
@@ -233,18 +355,41 @@ document.addEventListener("DOMContentLoaded", () => {
         editModalHeaderDiv.appendChild(editTitleNewService);
         editModalHeaderDiv.appendChild(editTitleDiv);
         editModal.appendChild(editModalHeaderDiv);
-        editTitleDiv.appendChild(editTitleInput);
-        editTitleDiv.appendChild(editTypeServiceInput);
-        editTitleDiv.appendChild(editEmailInput);
-        editTitleDiv.appendChild(editCnpjInput);
-        editTitleDiv.appendChild(editPhoneInput);
-        editTitleDiv.appendChild(editCepInput);
-        editTitleDiv.appendChild(editHouseNumberInput);
+
+        editTitleInputDiv.appendChild(editTitleInput);
+        editTitleInputDiv.appendChild(editTitleInputImg);
+        editTitleDiv.appendChild(editTitleInputDiv);
+        
+        editTypeServiceInputDiv.appendChild(editTypeServiceInput);
+        editTypeServiceInputDiv.appendChild(editTypeServiceInputImg);
+        editTitleDiv.appendChild(editTypeServiceInputDiv);
+        
+        editEmailInputDiv.appendChild(editEmailInput);
+        editEmailInputDiv.appendChild(editEmailInputImg);
+        editTitleDiv.appendChild(editEmailInputDiv);
+        
+        editCnpjInputDiv.appendChild(editCnpjInput);
+        editCnpjInputDiv.appendChild(editCnpjInputImg);
+        editTitleDiv.appendChild(editCnpjInputDiv);
+        
+        editPhoneInputDiv.appendChild(editPhoneInput);
+        editPhoneInputDiv.appendChild(editPhoneInputImg);
+        editTitleDiv.appendChild(editPhoneInputDiv);
+        
+        editCepInputDiv.appendChild(editCepInput);
+        editCepInputDiv.appendChild(editCepInputImg);
+        editTitleDiv.appendChild(editCepInputDiv);
+        
+        editHouseNumberInputDiv.appendChild(editHouseNumberInput);
+        editHouseNumberInputDiv.appendChild(editHouseNumberInputImg);
+        editTitleDiv.appendChild(editHouseNumberInputDiv);
+        
         editImageDiv.appendChild(editLoadImageButtonDiv);
         editTitleImageDiv.appendChild(editImageDiv);
         editModalBodyDiv.appendChild(editTitleImageDiv);
         editModalBodyDiv.appendChild(editDescriptionDiv);
         editDescriptionDiv.appendChild(editDescriptionArea);
+        editDescriptionDiv.appendChild(editDescriptionImg);
         editModal.appendChild(editModalBodyDiv);
         editButtonConfirmNewServiceDiv.appendChild(editButtonConfirmNewService);
         editModal.appendChild(editButtonConfirmNewServiceDiv);
