@@ -114,50 +114,64 @@ document.addEventListener("DOMContentLoaded", () => {
         let editTitleInput = document.createElement("input");
         editTitleInput.className = "inputInformation";
         editTitleInput.id = "editTitleInput";
-        editTitleInput.placeholder = "Digite o nome do serviço";
+        editTitleInput.placeholder = service.name;
+        editTitleInput.value = service.name;
 
         let editEmailInput = document.createElement("input");
         editEmailInput.className = "inputInformation";
         editEmailInput.id = "emailInput";
-        editEmailInput.placeholder = "Digite o email";
+        editEmailInput.placeholder = service.email;
+        editEmailInput.value = service.email;
 
         let editCnpjInput = document.createElement("input");
         editCnpjInput.className = "inputInformation";
         editCnpjInput.id = "editCnpjInput";
-        editCnpjInput.placeholder = "Digite o CNPJ";
+        editCnpjInput.placeholder = service.cnpj;
+        editCnpjInput.value = service.cnpj;
 
         let editPhoneInput = document.createElement("input");
         editPhoneInput.className = "inputInformation";
         editPhoneInput.id = "editPhoneInput";
-        editPhoneInput.placeholder = "Digite o telefone";
+        editPhoneInput.placeholder = service.phone;
+        editPhoneInput.value = service.phone;
 
         let editCepInput = document.createElement("input");
         editCepInput.className = "inputInformation";
         editCepInput.id = "editCepInput";
-        editCepInput.placeholder = "Digite o CEP";
+        editCepInput.placeholder = service.cep;
+        editCepInput.value = service.cep;
 
         let editHouseNumberInput = document.createElement("input");
         editHouseNumberInput.className = "inputInformation";
         editHouseNumberInput.id = "editHouseNumberInput";
-        editHouseNumberInput.placeholder = "Digite o número da casa";
+        editHouseNumberInput.placeholder = service.number;
+        editHouseNumberInput.value = service.number;
 
         let editTypeServiceInput = document.createElement("input");
         editTypeServiceInput.className = "inputInformation";
         editTypeServiceInput.id = "editTypeServiceInput";
-        editTypeServiceInput.placeholder = "Digite o tipo de serviço";
+        editTypeServiceInput.placeholder =service.serviceType;
+        editTypeServiceInput.value =service.serviceType;
 
         let editImageDiv = document.createElement("div");
         editImageDiv.id = "editImageDiv";
         let editLoadImageButtonDiv = document.createElement("input");
         editLoadImageButtonDiv.id = "filesTwo";
-        editLoadImageButtonDiv.type = "file";
+        editLoadImageButtonDiv.className = "inputInformation";
+        editLoadImageButtonDiv.placeholder = service.imageUrl;
+        editLoadImageButtonDiv.value = service.imageUrl;
 
         let editDescriptionDiv = document.createElement("div");
         editDescriptionDiv.id = "editDescriptionDiv";
         let editDescriptionArea = document.createElement("textarea");
         editDescriptionArea.id = "editDescriptionArea";
-        editDescriptionArea.placeholder = "Insira uma descrição...";
+        editDescriptionArea.placeholder = service.description;
+        editDescriptionArea.value = service.description;
         editDescriptionArea.maxLength = 150;
+
+        
+        let alertArea2 = document.createElement("p");
+        alertArea2.id = "alert2";
 
         let editButtonConfirmNewServiceDiv = document.createElement("div");
         editButtonConfirmNewServiceDiv.id = "editButtonConfirmNewServiceDiv";
@@ -195,20 +209,64 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
         editButtonConfirmNewService.addEventListener("click", (event) => {
+
+
+            const showError = (message) => {
+                alertArea2.textContent = message;
+                alertArea2.style.color = "red";
+            };
+    
+            // Função para exibir mensagem de sucesso
+            const showSuccess = (message) => {
+                alertArea2.textContent = message;
+                alertArea2.style.color = "green";
+            };
+
+            if (!editTitleInput.value) {
+                return showError("O nome é obrigatório.");
+            }
+    
+            if (!editEmailInput.value || !/^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/.test(editEmailInput.value)) {
+                return showError("Email inválido.");
+            }
+            if (!editCnpjInput.value || editCnpjInput.value.length !== 14) {
+                return showError("Documento inválido. Deve conter 14 caracteres. Somente números.");
+            }
+            if (!editCepInput.value || !/^\d{8}$/.test(editCepInput.value)) {
+                return showError("CEP inválido. Deve conter exatamente 8 dígitos. Somente números.");
+            }
+            if (!editTypeServiceInput.value) {
+                return showError("O serviço é obrigatório.");
+            }
+            if (!editPhoneInput.value || !/^\+?[1-9][0-9]{1,14}$/.test(editPhoneInput.value)) {
+                return showError("Número de telefone inválido.");
+            }
+            if (!editHouseNumberInput.value || isNaN(editHouseNumberInput.value)) {
+                return showError("O número da residência deve ser válido.");
+            }
+            if (!editLoadImageButtonDiv.value) {
+                return showError("A imagem é obrigatória.");
+            }
+            if (!editDescriptionArea.value) {
+                return showError("A descrição é obrigatório.");
+            }
+            // Objeto com os dados validados
+            const requestData = {
+                name: editTitleInput.value,
+                email: editEmailInput.value,
+                cnpj: editCnpjInput.value,
+                phone: editPhoneInput.value,
+                cep: editCepInput.value,
+                houseNumber: editHouseNumberInput.value,
+                serviceType: editTypeServiceInput.value,
+                description: editDescriptionArea.value,
+                imageUrl: editLoadImageButtonDiv.value,
+                ceremonialistEmail: localStorage.getItem("ceremonialistEmail")
+            };
             fetch("http://localhost:8080/supplier/" + service.id, {
 
                 method: "PUT",
-                body: JSON.stringify({
-                    "name": `${editTitleInput.value}`,
-                    "email": `${editEmailInput.value}`,
-                    "cnpj": `${editCnpjInput.value}`,
-                    "phone": `${editPhoneInput.value}`,
-                    "cep": `${editCepInput.value}`,
-                    "serviceType": `${editTypeServiceInput.value}`,
-                    "houseNumber": `${editHouseNumberInput.value}`,
-                    "description": `${editDescriptionArea.value}`,
-                    "ceremonialistEmail": `${localStorage.getItem("ceremonialistEmail")}`
-                }),
+                body: JSON.stringify(requestData),
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -219,15 +277,19 @@ document.addEventListener("DOMContentLoaded", () => {
                         throw new Error(err.message);
                     });
                 }
-                return response.json();
             })
             .then((data) =>{
-                
+                showSuccess("Cadastro realizado com sucesso!");
+                location.reload()
             })
             .catch((error) =>{
+                if (error) {
+                    console.error("Erro ao enviar os dados:", error);
+                    showError(error.message);
+                }
             });
-            editToggleModal();
-            resetEditModalContent();
+            // editToggleModal();
+            // resetEditModalContent();
         });
 
         editModalHeaderDiv.appendChild(editTitleNewService);
@@ -240,7 +302,8 @@ document.addEventListener("DOMContentLoaded", () => {
         editTitleDiv.appendChild(editPhoneInput);
         editTitleDiv.appendChild(editCepInput);
         editTitleDiv.appendChild(editHouseNumberInput);
-        editImageDiv.appendChild(editLoadImageButtonDiv);
+        editTitleDiv.appendChild(alertArea2)
+        editModalBodyDiv.appendChild(editLoadImageButtonDiv);
         editTitleImageDiv.appendChild(editImageDiv);
         editModalBodyDiv.appendChild(editTitleImageDiv);
         editModalBodyDiv.appendChild(editDescriptionDiv);
