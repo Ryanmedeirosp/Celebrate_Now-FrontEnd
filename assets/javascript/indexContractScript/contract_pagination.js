@@ -22,7 +22,6 @@ function formatDate(date) {
 
 async function getClients() {
     
-
     fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
@@ -139,9 +138,11 @@ async function fillContractData(budgetId) {
     .then((data) => {
     
         console.log("Orçamento encontrado: ", data);
+        // console.log("Email encontrado: ", data.clientEmail);
 
         localStorage.setItem("contractData", JSON.stringify(data));
-        
+        localStorage.setItem("actualClientEmail", data.clientEmail);
+
         const budgetList = document.getElementById("budget-table");
         const totalAmount = document.getElementById("total-amount");
 
@@ -172,6 +173,8 @@ async function fillContractData(budgetId) {
 }
 
 async function loadContractPage() {
+
+    localStorage.setItem("actualClientEmail", "");
 
     getClients();
     getBudgets();
