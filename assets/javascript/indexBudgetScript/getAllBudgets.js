@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     // Exibe um indicador de carregamento
     const loadingMessage = document.createElement("div");
-    loadingMessage.textContent = "Carregando informações...";
+    loadingMessage.textContent = "Carregando orçamentos...";
     loadingMessage.style.position = "fixed";
     loadingMessage.style.top = "50%";
     loadingMessage.style.left = "50%";
