@@ -220,7 +220,7 @@ async function loadContractPage() {
         } finally {
             hideLoading(loadingMessage); // Remove o indicador de carregamento
         }
-    }, 1000); // Temporizador de 3 segundos
+    }, 500); // Temporizador de 3 segundos
 }
 
 window.addEventListener("load", (event) =>{
