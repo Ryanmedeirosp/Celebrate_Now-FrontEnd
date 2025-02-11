@@ -43,7 +43,20 @@ async function sendEmail(email, sent, notSent){
         body: JSON.stringify({
             "to": `${localStorage.getItem("actualClientEmail")}`,
             "subject": "Contrato de Serviço Cerimonial",
-            "message": "string"
+            "message": `Olá [Nome do cliente],
+
+                Espero que esteja bem.
+
+                Segue em anexo o contrato referente a [supplier]. 
+                Pedimos que revise o documento e, caso esteja de acordo, realize a assinatura.
+
+                Caso tenha alguma dúvida ou precise de qualquer ajuste, fico à disposição para esclarecimentos.
+
+                Aguardo sua confirmação.
+
+                Atenciosamente,
+                [ceremonialis]
+            `
         }),
         headers: {
             "Content-Type": "application/json",
@@ -239,7 +252,7 @@ async function getContractPdf() {
         doc.text("Cerimonialista:", 10, y);
         doc.text("__________________________", 10, y + 10);
 
-            doc.save("relatorio.pdf");
+        doc.save("relatorio.pdf");
 
         })
         // Importa jsPDF
