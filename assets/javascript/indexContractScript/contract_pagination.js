@@ -8,9 +8,20 @@ const prevContract = document.querySelector("#prev-page");
 const nextContract = document.querySelector("#next-page");
 
 //Functions
+
+function formatDate(date) {
+    
+    let year = date.substring(0, 4);
+    let month = date.substring(5, 7);
+    let day = date.substring(8, 10);
+
+    let newDate = `${day + "/" + month + "/" + year}`;
+
+    return newDate;
+}
+
 async function getClients() {
-
-
+    
     fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
@@ -127,14 +138,16 @@ async function fillContractData(budgetId) {
     .then((data) => {
     
         console.log("Orçamento encontrado: ", data);
+        // console.log("Email encontrado: ", data.clientEmail);
 
         localStorage.setItem("contractData", JSON.stringify(data));
-        
+        localStorage.setItem("actualClientEmail", data.clientEmail);
+
         const budgetList = document.getElementById("budget-table");
         const totalAmount = document.getElementById("total-amount");
 
         clientName.innerHTML = `Cliente: ${data.client}`;
-        eventDay.innerHTML = `Data do envento: ${data.date}`;
+        eventDay.innerHTML = `Data do envento: ${formatDate(data.date)}`;
 
         budgetList.innerHTML = "";
         totalAmount.innerHTML = `Total: R$  ${data.totalAmount}`;
@@ -160,6 +173,8 @@ async function fillContractData(budgetId) {
 }
 
 async function loadContractPage() {
+
+    localStorage.setItem("actualClientEmail", "");
 
     getClients();
     getBudgets();

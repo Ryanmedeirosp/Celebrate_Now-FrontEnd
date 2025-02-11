@@ -7,7 +7,6 @@ const modalSend = document.querySelector(".modal-send");
 const modalContainerSend = document.querySelector(".modal-send-container");
 const modalCreate = document.querySelector(".modal-create")
 
-
 //Buttons
 const buttonSign = document.querySelector(".button-sign");
 const buttonSend = document.querySelector(".button-new");
@@ -42,7 +41,7 @@ async function sendEmail(email, sent, notSent){
 
         method: POST,
         body: JSON.stringify({
-            "to": `${email}`,
+            "to": `${localStorage.getItem("actualClientEmail")}`,
             "subject": "Contrato de Serviço Cerimonial",
             "message": "string"
         }),
@@ -104,10 +103,13 @@ modalSign.addEventListener("click", (event) =>{
     };
 });
 
+/* BOTÃO DE ENVIAR */
 buttonSend.addEventListener("click", (event) =>{
 
     confirmSendButton.disabled = false;
     openModal(modalSend, modalLever);
+
+    sendEmail("", "", "");
 });
 
 modalSend.addEventListener("click", (event) =>{

@@ -12,6 +12,14 @@ const createNewBudgetEmailSupplier = document.querySelector("#supplier-input");
 var clientEmailTest = "mariana.souza@email.com";
 var supplierEmailTest = "contato@buffetdelicia.com";
 
+addItemPrice.addEventListener("keypress", (event) =>{
+
+    if (isNaN(event.key)) {
+        
+        event.preventDefault();
+    }
+})
+
 async function createNewBudget(clientEmail, supplierEmail) {
 
     fetch("http://localhost:8080/budget", {
@@ -47,5 +55,17 @@ async function addItemToBudget(title, description, price, budgetId) {
 
         console.error("Erro ao tentar adicionar:", error);
     });
+}
 
+//2024-04-15
+
+function formatDate(date) {
+    
+    let year = date.substring(0, 4);
+    let month = date.substring(5, 7);
+    let day = date.substring(8, 10);
+
+    let newDate = `${day + "/" + month + "/" + year}`;
+
+    return newDate;
 }

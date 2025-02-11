@@ -37,6 +37,13 @@
     padding: 2.5rem;
 }
 
+.modal-sign img{
+    width: 200px;
+    height: 150px;
+    margin-left: 25%;
+    display: none;
+}
+
 /* Sign Modal */
 
 .sign-text{

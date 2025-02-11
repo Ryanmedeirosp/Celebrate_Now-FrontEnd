@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         editTitleInput.className = "inputInformation";
         editTitleInput.id = "editTitleInput";
         editTitleInput.placeholder = service.name;
+<<<<<<< HEAD
         editTitleInput.disabled = true;
 
         editTitleInputImg.addEventListener("click", (event)=>{
@@ -138,11 +139,15 @@ document.addEventListener("DOMContentLoaded", () => {
         editEmailInputImg.id = "editEmailInputImg";
         editEmailInputImg.className = "sizeImgEdit";
         editEmailInputImg.src = "../assets/images/botao-editar.png";
+=======
+        editTitleInput.value = service.name;
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
 
         let editEmailInput = document.createElement("input");
         editEmailInput.className = "inputInformation";
         editEmailInput.id = "emailInput";
         editEmailInput.placeholder = service.email;
+<<<<<<< HEAD
         editEmailInput.disabled = true;
 
         editEmailInputImg.addEventListener("click", (event)=>{
@@ -156,11 +161,15 @@ document.addEventListener("DOMContentLoaded", () => {
         editCnpjInputImg.id = "editCnpjInputImg";
         editCnpjInputImg.className = "sizeImgEdit";
         editCnpjInputImg.src = "../assets/images/botao-editar.png";
+=======
+        editEmailInput.value = service.email;
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
 
         let editCnpjInput = document.createElement("input");
         editCnpjInput.className = "inputInformation";
         editCnpjInput.id = "editCnpjInput";
         editCnpjInput.placeholder = service.cnpj;
+<<<<<<< HEAD
         editCnpjInput.disabled = true;
 
         editCnpjInputImg.addEventListener("click", (event)=>{
@@ -174,11 +183,15 @@ document.addEventListener("DOMContentLoaded", () => {
         editPhoneInputImg.id = "editPhoneInputImg";
         editPhoneInputImg.className = "sizeImgEdit";
         editPhoneInputImg.src = "../assets/images/botao-editar.png";
+=======
+        editCnpjInput.value = service.cnpj;
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
 
         let editPhoneInput = document.createElement("input");
         editPhoneInput.className = "inputInformation";
         editPhoneInput.id = "editPhoneInput";
         editPhoneInput.placeholder = service.phone;
+<<<<<<< HEAD
         editPhoneInput.disabled = true;
 
         editPhoneInputImg.addEventListener("click", (event)=>{
@@ -192,11 +205,15 @@ document.addEventListener("DOMContentLoaded", () => {
         editCepInputImg.id = "editCepInputImg";
         editCepInputImg.className = "sizeImgEdit";
         editCepInputImg.src = "../assets/images/botao-editar.png";
+=======
+        editPhoneInput.value = service.phone;
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
 
         let editCepInput = document.createElement("input");
         editCepInput.className = "inputInformation";
         editCepInput.id = "editCepInput";
         editCepInput.placeholder = service.cep;
+<<<<<<< HEAD
         editCepInput.disabled = true;
 
         editCepInputImg.addEventListener("click", (event)=>{
@@ -210,11 +227,15 @@ document.addEventListener("DOMContentLoaded", () => {
         editHouseNumberInputImg.id = "editHouseNumberInputImg";
         editHouseNumberInputImg.className = "sizeImgEdit";
         editHouseNumberInputImg.src = "../assets/images/botao-editar.png";
+=======
+        editCepInput.value = service.cep;
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
 
         let editHouseNumberInput = document.createElement("input");
         editHouseNumberInput.className = "inputInformation";
         editHouseNumberInput.id = "editHouseNumberInput";
         editHouseNumberInput.placeholder = service.number;
+<<<<<<< HEAD
         editHouseNumberInput.disabled = true;
 
         editHouseNumberInputImg.addEventListener("click", (event)=>{
@@ -228,22 +249,32 @@ document.addEventListener("DOMContentLoaded", () => {
         editTypeServiceInputImg.id = "editTypeServiceInputImg";
         editTypeServiceInputImg.className = "sizeImgEdit";
         editTypeServiceInputImg.src = "../assets/images/botao-editar.png";
+=======
+        editHouseNumberInput.value = service.number;
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
 
         let editTypeServiceInput = document.createElement("input");
         editTypeServiceInput.className = "inputInformation";
         editTypeServiceInput.id = "editTypeServiceInput";
+<<<<<<< HEAD
         editTypeServiceInput.placeholder = service.serviceType;
         editTypeServiceInput.disabled = true;
 
         editTypeServiceInputImg.addEventListener("click", (event)=>{
             editTypeServiceInput.disabled = false;
         });
+=======
+        editTypeServiceInput.placeholder =service.serviceType;
+        editTypeServiceInput.value =service.serviceType;
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
 
         let editImageDiv = document.createElement("div");
         editImageDiv.id = "editImageDiv";
         let editLoadImageButtonDiv = document.createElement("input");
         editLoadImageButtonDiv.id = "filesTwo";
-        editLoadImageButtonDiv.type = "file";
+        editLoadImageButtonDiv.className = "inputInformation";
+        editLoadImageButtonDiv.placeholder = service.imageUrl;
+        editLoadImageButtonDiv.value = service.imageUrl;
 
         let editDescriptionDiv = document.createElement("div");
         editDescriptionDiv.id = "editDescriptionDiv";
@@ -255,6 +286,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let editDescriptionArea = document.createElement("textarea");
         editDescriptionArea.id = "editDescriptionArea";
         editDescriptionArea.placeholder = service.description;
+<<<<<<< HEAD
+=======
+        editDescriptionArea.value = service.description;
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
         editDescriptionArea.maxLength = 150;
         editDescriptionArea.disabled = true;
 
@@ -262,22 +297,30 @@ document.addEventListener("DOMContentLoaded", () => {
             editDescriptionArea.disabled = false;
         });
 
+        
+        let alertArea2 = document.createElement("p");
+        alertArea2.id = "alert2";
+
         let editButtonConfirmNewServiceDiv = document.createElement("div");
         editButtonConfirmNewServiceDiv.id = "editButtonConfirmNewServiceDiv";
         let editButtonConfirmNewService = document.createElement("button");
         editButtonConfirmNewService.id = "editButtonConfirmNewService";
         editButtonConfirmNewService.textContent = "Editar serviço";
 
+<<<<<<< HEAD
         const editToggleModal = () => {
             // Apenas alterna a visibilidade do modal e fade
             [editModal, editFade].forEach((el) => el.classList.toggle("hideTwo"));
             resetEditModalContent();
         };
 
+=======
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
         imageEditIndividualServiceInRightSide.addEventListener("click", (event) => {
             editToggleModal();
         });
 
+<<<<<<< HEAD
         editFade.addEventListener("click", () => editToggleModal());
 
         const resetEditModalContent = () => {
@@ -301,12 +344,15 @@ document.addEventListener("DOMContentLoaded", () => {
             // Limpar a imagem carregada (se houver uma imagem carregada)
             editLoadImageButtonDiv.value = '';
         };
+=======
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
 
         buttonHireIndividualServiceInLeftSide.addEventListener("click", (e)=>{
             location.href = "../../../indexBudget.html";
         })
 
         editButtonConfirmNewService.addEventListener("click", (event) => {
+<<<<<<< HEAD
             // Cria um objeto para armazenar os dados
             const data = {};
         
@@ -325,9 +371,69 @@ document.addEventListener("DOMContentLoaded", () => {
             data.ceremonialistEmail = localStorage.getItem("ceremonialistEmail");
         
             // Faz a requisição PUT
+=======
+
+
+            const showError = (message) => {
+                alertArea2.textContent = message;
+                alertArea2.style.color = "red";
+            };
+    
+            // Função para exibir mensagem de sucesso
+            const showSuccess = (message) => {
+                alertArea2.textContent = message;
+                alertArea2.style.color = "green";
+            };
+
+            if (!editTitleInput.value) {
+                return showError("O nome é obrigatório.");
+            }
+    
+            if (!editEmailInput.value || !/^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/.test(editEmailInput.value)) {
+                return showError("Email inválido.");
+            }
+            if (!editCnpjInput.value || editCnpjInput.value.length !== 14) {
+                return showError("Documento inválido. Deve conter 14 caracteres. Somente números.");
+            }
+            if (!editCepInput.value || !/^\d{8}$/.test(editCepInput.value)) {
+                return showError("CEP inválido. Deve conter exatamente 8 dígitos. Somente números.");
+            }
+            if (!editTypeServiceInput.value) {
+                return showError("O serviço é obrigatório.");
+            }
+            if (!editPhoneInput.value || !/^\+?[1-9][0-9]{1,14}$/.test(editPhoneInput.value)) {
+                return showError("Número de telefone inválido.");
+            }
+            if (!editHouseNumberInput.value || isNaN(editHouseNumberInput.value)) {
+                return showError("O número da residência deve ser válido.");
+            }
+            if (!editLoadImageButtonDiv.value) {
+                return showError("A imagem é obrigatória.");
+            }
+            if (!editDescriptionArea.value) {
+                return showError("A descrição é obrigatório.");
+            }
+            // Objeto com os dados validados
+            const requestData = {
+                name: editTitleInput.value,
+                email: editEmailInput.value,
+                cnpj: editCnpjInput.value,
+                phone: editPhoneInput.value,
+                cep: editCepInput.value,
+                houseNumber: editHouseNumberInput.value,
+                serviceType: editTypeServiceInput.value,
+                description: editDescriptionArea.value,
+                imageUrl: editLoadImageButtonDiv.value,
+                ceremonialistEmail: localStorage.getItem("ceremonialistEmail")
+            };
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
             fetch("http://localhost:8080/supplier/" + service.id, {
                 method: "PUT",
+<<<<<<< HEAD
                 body: JSON.stringify(data),
+=======
+                body: JSON.stringify(requestData),
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -338,8 +444,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         throw new Error(err.message);
                     });
                 }
-                return response.json();
             })
+<<<<<<< HEAD
             .then((data) => {
                 console.log("Serviço atualizado com sucesso:", data);
             })
@@ -350,11 +456,25 @@ document.addEventListener("DOMContentLoaded", () => {
             // Fecha o modal e reseta o conteúdo
             editToggleModal();
             resetEditModalContent();
+=======
+            .then((data) =>{
+                showSuccess("Cadastro realizado com sucesso!");
+                location.reload()
+            })
+            .catch((error) =>{
+                if (error) {
+                    console.error("Erro ao enviar os dados:", error);
+                    showError(error.message);
+                }
+            });
+        
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
         });
 
         editModalHeaderDiv.appendChild(editTitleNewService);
         editModalHeaderDiv.appendChild(editTitleDiv);
         editModal.appendChild(editModalHeaderDiv);
+<<<<<<< HEAD
 
         editTitleInputDiv.appendChild(editTitleInput);
         editTitleInputDiv.appendChild(editTitleInputImg);
@@ -385,6 +505,17 @@ document.addEventListener("DOMContentLoaded", () => {
         editTitleDiv.appendChild(editHouseNumberInputDiv);
         
         editImageDiv.appendChild(editLoadImageButtonDiv);
+=======
+        editTitleDiv.appendChild(editTitleInput);
+        editTitleDiv.appendChild(editTypeServiceInput);
+        editTitleDiv.appendChild(editEmailInput);
+        editTitleDiv.appendChild(editCnpjInput);
+        editTitleDiv.appendChild(editPhoneInput);
+        editTitleDiv.appendChild(editCepInput);
+        editTitleDiv.appendChild(editHouseNumberInput);
+        editTitleDiv.appendChild(alertArea2)
+        editModalBodyDiv.appendChild(editLoadImageButtonDiv);
+>>>>>>> e54bbc31049f561074466db0e5780fe5f17224e8
         editTitleImageDiv.appendChild(editImageDiv);
         editModalBodyDiv.appendChild(editTitleImageDiv);
         editModalBodyDiv.appendChild(editDescriptionDiv);
