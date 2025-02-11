@@ -172,17 +172,55 @@ async function fillContractData(budgetId) {
     }); 
 }
 
+// Função para exibir o indicador de carregamento
+const showLoading = () => {
+    const loadingMessage = document.createElement("div");
+    loadingMessage.textContent = "Carregando contratos...";
+    loadingMessage.style.position = "fixed";
+    loadingMessage.style.top = "50%";
+    loadingMessage.style.left = "50%";
+    loadingMessage.style.transform = "translate(-50%, -50%)";
+    loadingMessage.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    loadingMessage.style.color = "white";
+    loadingMessage.style.padding = "20px";
+    loadingMessage.style.borderRadius = "10px";
+    loadingMessage.style.zIndex = "1000";
+    document.body.appendChild(loadingMessage);
+    return loadingMessage;
+};
+
+// Função para remover o indicador de carregamento
+const hideLoading = (loadingMessage) => {
+    document.body.removeChild(loadingMessage);
+};
+
+// Função principal para carregar a página de contratos
 async function loadContractPage() {
+    const loadingMessage = showLoading(); // Exibe o indicador de carregamento
 
-    localStorage.setItem("actualClientEmail", "");
+    // Temporizador de 3 segundos
+    setTimeout(async () => {
+        try {
+            localStorage.setItem("actualClientEmail", "");
 
-    getClients();
-    getBudgets();
+            await getClients(); // Aguarda a conclusão de getClients
+            await getBudgets(); // Aguarda a conclusão de getBudgets
 
-    let budgetArray = JSON.parse(localStorage.getItem("budgetsArray"));
-    localStorage.setItem("currentContractIndex", 0);
+            let budgetArray = JSON.parse(localStorage.getItem("budgetsArray"));
+            localStorage.setItem("currentContractIndex", 0);
 
-    fillContractData(budgetArray[0]);
+            if (budgetArray && budgetArray.length > 0) {
+                await fillContractData(budgetArray[0]); // Aguarda a conclusão de fillContractData
+            } else {
+                alert("Nenhum orçamento encontrado.");
+            }
+        } catch (error) {
+            console.error("Erro ao carregar a página de contratos:", error);
+            alert("Erro ao carregar os dados. Tente novamente.");
+        } finally {
+            hideLoading(loadingMessage); // Remove o indicador de carregamento
+        }
+    }, 1000); // Temporizador de 3 segundos
 }
 
 window.addEventListener("load", (event) =>{
