@@ -133,6 +133,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     } catch (error) {
         console.error("Erro ao buscar orçamentos:", error);
-        alert(error.message || "Erro ao buscar orçamentos.");
+  
     }
 });
