@@ -95,3 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+function logout() {
+    // Limpa todo o localStorage
+    localStorage.clear();
+
+    // Redireciona para a página landingPage.html
+    window.location.href = 'landingPage.html';
+}  

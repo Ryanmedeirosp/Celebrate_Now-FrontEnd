@@ -282,7 +282,14 @@ const sidebarList = document.querySelector("#sidebar-right #list-customers");
             sidebarList.innerHTML = ""; // Limpa o conteúdo existente
             customers.forEach((customer) => {
                 // Cria o contêiner do cliente
-               
                 console.log(populateCustomerList)
             });
-        }
+}
+
+function logout() {
+    // Limpa todo o localStorage
+    localStorage.clear();
+
+    // Redireciona para a página landingPage.html
+    window.location.href = 'landingPage.html';
+}  

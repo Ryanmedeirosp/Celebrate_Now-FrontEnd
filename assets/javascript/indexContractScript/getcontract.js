@@ -26,3 +26,11 @@ fetch(`http://localhost:8080/contract/1`, {
 .catch((error) => {
     console.error( error);
 }); 
+
+function logout() {
+    // Limpa todo o localStorage
+    localStorage.clear();
+
+    // Redireciona para a página landingPage.html
+    window.location.href = 'landingPage.html';
+}  

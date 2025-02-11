@@ -68,4 +68,11 @@ fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`,
         alert("Erro ao carregar os clientes.");
     });
 
-    
+  
+function logout() {
+    // Limpa todo o localStorage
+    localStorage.clear();
+
+    // Redireciona para a página landingPage.html
+    window.location.href = 'landingPage.html';
+}  
