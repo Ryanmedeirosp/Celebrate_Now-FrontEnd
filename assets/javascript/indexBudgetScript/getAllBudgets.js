@@ -152,6 +152,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Remove o indicador de carregamento após o término
             document.body.removeChild(loadingMessage);
         }
-    }, 3000); // Temporizador de 3 segundos
+    }, 500); // Temporizador de 3 segundos
 });
 
