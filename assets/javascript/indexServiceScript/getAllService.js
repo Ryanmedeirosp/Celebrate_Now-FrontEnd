@@ -179,30 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
         editButtonConfirmNewService.id = "editButtonConfirmNewService";
         editButtonConfirmNewService.textContent = "Editar serviço";
 
-        const editToggleModal = () => {
-            // Apenas alterna a visibilidade do modal e fade
-            [editModal, editFade].forEach((el) => el.classList.toggle("hideTwo"));
-        };
-
         imageEditIndividualServiceInRightSide.addEventListener("click", (event) => {
             editToggleModal();
         });
 
-        editFade.addEventListener("click", () => editToggleModal());
-
-        const resetEditModalContent = () => {
-            // Limpar campos de entrada de texto
-            editTitleInput.value = '';
-            editEmailInput.value = '';
-            editCnpjInput.value = '';
-            editPhoneInput.value = '';
-            editCepInput.value = '';
-            editHouseNumberInput.value = '';
-            editTypeServiceInput.value = '';
-            editDescriptionArea.value = '';
-            // Limpar a imagem carregada (se houver uma imagem carregada)
-            editLoadImageButtonDiv.value = '';
-        };
 
         buttonHireIndividualServiceInLeftSide.addEventListener("click", (e)=>{
             location.href = "../../../indexBudget.html";
@@ -288,8 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     showError(error.message);
                 }
             });
-            // editToggleModal();
-            // resetEditModalContent();
+        
         });
 
         editModalHeaderDiv.appendChild(editTitleNewService);
