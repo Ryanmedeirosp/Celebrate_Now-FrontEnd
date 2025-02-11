@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
             input.id = id;
             input.placeholder = placeholder;
             input.value = value;
-            input.disabled = true;
             input.type = type;
 
             // Integra a função para liberar o input ao clicar na imagem
@@ -175,7 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
         editDescriptionArea.placeholder = service.description;
         editDescriptionArea.value = service.description;
         editDescriptionArea.maxLength = 150;
-        editDescriptionArea.disabled = true;
 
         // Integra a função para liberar o textarea ao clicar na imagem
         enableInputOnImageClick(editDescriptionArea, editDescriptionImg);
