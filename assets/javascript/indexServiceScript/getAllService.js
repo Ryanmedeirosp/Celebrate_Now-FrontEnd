@@ -89,6 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
         rightSideIndividualServiceDiv.appendChild(knowMoreIndividualServiceInRightSideDiv);
         knowMoreIndividualServiceInRightSideDiv.appendChild(knowMoreIndividualServiceInRightSide);
         corpo.appendChild(divAllContentService);
+
+        buttonHireIndividualServiceInLeftSide.addEventListener("click", (e)=>{
+            location.href = "../../../indexBudget.html"
+        })
         // Função para criar um input com imagem de edição
         function createEditableInput(placeholder, value, id, type) {
             const inputDiv = document.createElement("div");
