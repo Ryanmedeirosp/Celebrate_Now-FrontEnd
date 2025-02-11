@@ -240,6 +240,16 @@ async function sendEmail() {
     doc.text(data.client || "N/A", 30, 20);
     doc.setFont("helvetica", "normal");
 
+    doc.text(`Data do Evento:`, 10, 40);
+    doc.setFont("helvetica", "bold");
+    doc.text(data.date || "N/A", 50, 40);
+    doc.setFont("helvetica", "normal");
+
+    doc.text(`Fornecedor:`, 10, 50);
+    doc.setFont("helvetica", "bold");
+    doc.text(data.supplier || "N/A", 50, 50);
+    doc.setFont("helvetica", "normal");
+
     let y = 55;
     if (data.items && data.items.length > 0) {
         data.items.forEach((item, index) => {
