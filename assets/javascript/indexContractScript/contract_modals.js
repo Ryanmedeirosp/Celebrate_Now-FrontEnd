@@ -133,77 +133,83 @@ async function sendEmail(){
 
         })
 
-    // Importa jsPDF
-    // Converte PDF para Base64
+    // Convertendo Blob para Base64
     const pdfBase64 = await new Promise((resolve) => {
         const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result.split(",")[1]); // Remove o prefixo "data:application/pdf;base64,"
-        reader.readAsDataURL(new Blob([doc.output("blob")], { type: "application/pdf" }));
+        reader.onloadend = () => {
+            const base64String = reader.result.split(",")[1]; // Remove "data:application/pdf;base64,"
+            resolve(base64String);
+        };
+        reader.readAsDataURL(pdfBlob);
     });
 
-    await fetch("http://localhost:8080/email/sendPdf", {
-
-        // `${localStorage.getItem("actualClientEmail")}`
-
+    // Enviando o PDF por email
+    const emailResponse = await fetch("http://localhost:8080/email/sendPdf", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            "to": "ryan.mporciuncula@gmail.com",
-            "subject": "Contrato de Serviço Cerimonial",
-            "message": `Olá [Nome do cliente],
-
-                Espero que esteja bem.
-
-                Segue em anexo o contrato referente a [supplier]. 
-                Pedimos que revise o documento e, caso esteja de acordo, realize a assinatura.
-
-                Caso tenha alguma dúvida ou precise de qualquer ajuste, fico à disposição para esclarecimentos.
-
-                Aguardo sua confirmação.
-
-                Atenciosamente,
-                [ceremonialis]
-            `,
-            "pdfBase64": pdfBase64
+            to: `${localStorage.getItem("actualClientEmail")}`,
+            subject: "Contrato de Serviço Cerimonial",
+            message: `Olá ${localStorage.getItem("actualClientName")},\n\nEspero que esteja bem.\n\nSegue em anexo o contrato referente a ${localStorage.getItem("actualSupplierName")}.\nCaso tenha alguma dúvida ou precise de ajustes, fico à disposição.\n\nAtenciosamente,\n${localStorage.getItem("ceremonialistName")}`,
+            pdfBase64: pdfBase64,
         }),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-
-    .then(response =>{
-        if (!response.ok) {
-            return response.json().then(err => {
-                throw new Error(err.message);
-            });
-        }
-        return response.json();
-    })
-
-    .then((data) =>{
-
-        //Alterar o Display Aqui depois
-        sent.style.display = "block";
-    })
-
-    .catch((error) =>{
-
-        console.error("Erro de Envio:", error);
-        alert(error.message || "Erro de Envio");
     });
-}
 
-//Buttons and Div Config
-createModal.addEventListener("click", (e)=>{
+    if (!emailResponse.ok) {
+        const error = await emailResponse.json();
+        throw new Error(error.message);
+    }
+
+    // Caso tenha sucesso, exibe mensagem
+    sent.style.display = "block";
+    }
+
+    //Buttons and Div Config
+    createModal.addEventListener("click", (e)=>{
 
     getContractPdf();
-    
+
     // console.log("Button Create");
     // openModal(modalCreate, modalLever);
-})
+    })
 
-cancelButton.addEventListener("click", (e) =>{
+    cancelButton.addEventListener("click", (e) =>{
     closeModal(modalCreate, modalLever)
-})
+    })
+
+    buttonSign.addEventListener("click", (event) =>{
+
+    openModal(modalSign, modalLever);
+    });
+
+    modalSign.addEventListener("click", (event) =>{
+
+    if (modalContainerSign.contains(event.target)) {
+        
+        return;
+    } else{
+
+        closeModal(modalSign, modalLever);
+    };
+    });
+
+    /* BOTÃO DE ENVIAR */
+    buttonSend.addEventListener("click", (event) =>{
+
+    sendEmail();
+    });
+
+    modalSend.addEventListener("click", (event) =>{
+
+    if (modalContainerSend.contains(event.target)) {
+        
+        return;
+    } else{
+
+        closeModal(modalSend, modalLever);
+    };
+    });
+
 
 buttonSign.addEventListener("click", (event) =>{
 
