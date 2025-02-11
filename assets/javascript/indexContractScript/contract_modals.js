@@ -68,34 +68,34 @@ async function sendEmail(){
 
         doc.text(`Cliente:`, 10, 20);
         doc.setFont("helvetica", "bold");
-        doc.text(data.client || "N/A", 60, 20);
+        doc.text(data.client || "N/A", 30, 20);
         doc.setFont("helvetica", "normal");
 
         doc.text(`Data do Evento:`, 10, 40);
         doc.setFont("helvetica", "bold");
-        doc.text(data.date || "N/A", 90, 40);
+        doc.text(data.date || "N/A", 50, 40);
         doc.setFont("helvetica", "normal");
 
         doc.text(`Fornecedor:`, 10, 50);
         doc.setFont("helvetica", "bold");
-        doc.text(data.supplier || "N/A", 80, 50);
+        doc.text(data.supplier || "N/A", 50, 50);
         doc.setFont("helvetica", "normal");
 
-        let y = 60;
+        let y = 55;
         if (data.items && data.items.length > 0) {
             data.items.forEach((item, index) => {
                 doc.text(`${index + 1}. ${item.title || "Sem título"}`, 10, y);
-                doc.text(`   - Descrição: ${item.description || "Sem descrição"}`, 10, y + 10);
-                doc.text(`   - Preço: R$ ${item.price ? item.price.toFixed(2) : "0.00"}`, 10, y + 20);
-                y = y + 30;
+                doc.text(`   - Descrição: ${item.description || "Sem descrição"}`, 10, y + 5);
+                doc.text(`   - Preço: R$ ${item.price ? item.price.toFixed(2) : "0.00"}`, 10, y + 10);
+                y = y + 15;
             });
         } else {
             doc.text("Nenhum item cadastrado.", 10, y);
         }
 
-        doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 10);
+        doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 5 );
 
-        y += 30;
+        y += 15;
 
         doc.setFontSize(14);
         doc.setFont("helvetica", "bold");
@@ -105,28 +105,33 @@ async function sendEmail(){
         doc.setFont("helvetica", "normal");
         doc.text("Este contrato estabelece os termos do serviço a ser prestado pelo fornecedor ao cliente. Ambas as partes concordam com os termos aqui estabelecidos, garantindo a execução adequada do serviço conforme descrito.", 10, y + 10, { maxWidth: 180 });
 
-        y += 40;
+        y += 30;
 
         doc.setFont("helvetica", "bold");
-        doc.text("Assinaturas", 10, y);
+        doc.text("Assinaturas:", 10, y );
 
         doc.setFont("helvetica", "normal");
 
-        y += 20;
-        doc.text("Fornecedor:", 10, y);
-        doc.text("__________________________", 10, y + 10);
+        y += 10;
+        let x = 10; // Posição horizontal inicial
 
+        // Fornecedor
+        doc.text("Fornecedor:", x, y);
+        doc.text("_______________________", x, y + 10);
 
-        y += 30;
-        doc.text("Cliente:", 10, y);
-        doc.text("__________________________", 10, y + 10);
+        x += 60; // Move a posição horizontal para o próximo item
 
-        y += 30;
-        doc.text("Cerimonialista:", 10, y);
-        doc.text("__________________________", 10, y + 10);
+        // Cliente
+        doc.text("Cliente:", x, y);
+        doc.text("_______________________", x, y + 10);
 
-        doc.save("arquivo.pdf");
-    })
+        x += 60; // Move a posição horizontal para o próximo item
+
+        // Cerimonialista
+        doc.text("Cerimonialista:", x, y);
+        doc.text("_______________________", x, y + 10);
+
+        })
 
     // Importa jsPDF
     // Converte PDF para Base64
@@ -295,34 +300,34 @@ async function getContractPdf() {
 
             doc.text(`Cliente:`, 10, 20);
             doc.setFont("helvetica", "bold");
-            doc.text(data.client || "N/A", 60, 20);
+            doc.text(data.client || "N/A", 30, 20);
             doc.setFont("helvetica", "normal");
 
             doc.text(`Data do Evento:`, 10, 40);
             doc.setFont("helvetica", "bold");
-            doc.text(data.date || "N/A", 90, 40);
+            doc.text(data.date || "N/A", 50, 40);
             doc.setFont("helvetica", "normal");
 
             doc.text(`Fornecedor:`, 10, 50);
             doc.setFont("helvetica", "bold");
-            doc.text(data.supplier || "N/A", 80, 50);
+            doc.text(data.supplier || "N/A", 50, 50);
             doc.setFont("helvetica", "normal");
 
-            let y = 60;
+            let y = 55;
             if (data.items && data.items.length > 0) {
                 data.items.forEach((item, index) => {
                     doc.text(`${index + 1}. ${item.title || "Sem título"}`, 10, y);
-                    doc.text(`   - Descrição: ${item.description || "Sem descrição"}`, 10, y + 10);
-                    doc.text(`   - Preço: R$ ${item.price ? item.price.toFixed(2) : "0.00"}`, 10, y + 20);
-                    y = y + 30;
+                    doc.text(`   - Descrição: ${item.description || "Sem descrição"}`, 10, y + 5);
+                    doc.text(`   - Preço: R$ ${item.price ? item.price.toFixed(2) : "0.00"}`, 10, y + 10);
+                    y = y + 15;
                 });
             } else {
                 doc.text("Nenhum item cadastrado.", 10, y);
             }
 
-            doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 10);
+            doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 5 );
 
-            y += 30;
+            y += 15;
 
         doc.setFontSize(14);
         doc.setFont("helvetica", "bold");
@@ -332,25 +337,31 @@ async function getContractPdf() {
         doc.setFont("helvetica", "normal");
         doc.text("Este contrato estabelece os termos do serviço a ser prestado pelo fornecedor ao cliente. Ambas as partes concordam com os termos aqui estabelecidos, garantindo a execução adequada do serviço conforme descrito.", 10, y + 10, { maxWidth: 180 });
 
-        y += 40;
+        y += 30;
 
         doc.setFont("helvetica", "bold");
-        doc.text("Assinaturas", 10, y);
+        doc.text("Assinaturas:", 10, y );
 
         doc.setFont("helvetica", "normal");
 
-        y += 20;
-        doc.text("Fornecedor:", 10, y);
-        doc.text("__________________________", 10, y + 10);
-        
+        y += 10;
+        let x = 10; // Posição horizontal inicial
 
-        y += 30;
-        doc.text("Cliente:", 10, y);
-        doc.text("__________________________", 10, y + 10);
+        // Fornecedor
+        doc.text("Fornecedor:", x, y);
+        doc.text("_______________________", x, y + 10);
 
-        y += 30;
-        doc.text("Cerimonialista:", 10, y);
-        doc.text("__________________________", 10, y + 10);
+        x += 60; // Move a posição horizontal para o próximo item
+
+        // Cliente
+        doc.text("Cliente:", x, y);
+        doc.text("_______________________", x, y + 10);
+
+        x += 60; // Move a posição horizontal para o próximo item
+
+        // Cerimonialista
+        doc.text("Cerimonialista:", x, y);
+        doc.text("_______________________", x, y + 10);
 
         doc.save("relatorio.pdf");
 
