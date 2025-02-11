@@ -35,13 +35,114 @@ function closeModal(name, lever){
     name.classList.remove(lever);
 }
 
-async function sendEmail(email, sent, notSent){
+async function sendEmail(){
 
-    fetch("http://localhost:8080/email", {
+    const { jsPDF } = window.jspdf;
+    if (!jsPDF) return showError("Erro ao carregar jsPDF.");
 
-        method: POST,
+    const doc = new jsPDF();
+
+    //Alterei a linha abaixo e troquei o | ${createInput} | por | localStorage.getItem("currentBudget") |
+    fetch(`http://localhost:8080/budget/${localStorage.getItem("currentBudget")}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => {
+                throw new Error(err.message);
+            });
+        }
+        return response.json();
+    })
+    .then((data) => {
+
+        doc.setFontSize(18);
+        doc.setFont("helvetica", "bold");
+        doc.text("Contrato de Serviço", 105, 10, null, null, 'center');
+
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+
+        doc.text(`Cliente:`, 10, 20);
+        doc.setFont("helvetica", "bold");
+        doc.text(data.client || "N/A", 60, 20);
+        doc.setFont("helvetica", "normal");
+
+        doc.text(`Data do Evento:`, 10, 40);
+        doc.setFont("helvetica", "bold");
+        doc.text(data.date || "N/A", 90, 40);
+        doc.setFont("helvetica", "normal");
+
+        doc.text(`Fornecedor:`, 10, 50);
+        doc.setFont("helvetica", "bold");
+        doc.text(data.supplier || "N/A", 80, 50);
+        doc.setFont("helvetica", "normal");
+
+        let y = 60;
+        if (data.items && data.items.length > 0) {
+            data.items.forEach((item, index) => {
+                doc.text(`${index + 1}. ${item.title || "Sem título"}`, 10, y);
+                doc.text(`   - Descrição: ${item.description || "Sem descrição"}`, 10, y + 10);
+                doc.text(`   - Preço: R$ ${item.price ? item.price.toFixed(2) : "0.00"}`, 10, y + 20);
+                y = y + 30;
+            });
+        } else {
+            doc.text("Nenhum item cadastrado.", 10, y);
+        }
+
+        doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 10);
+
+        y += 30;
+
+        doc.setFontSize(14);
+        doc.setFont("helvetica", "bold");
+        doc.text("Termos e Condições", 10, y);
+
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        doc.text("Este contrato estabelece os termos do serviço a ser prestado pelo fornecedor ao cliente. Ambas as partes concordam com os termos aqui estabelecidos, garantindo a execução adequada do serviço conforme descrito.", 10, y + 10, { maxWidth: 180 });
+
+        y += 40;
+
+        doc.setFont("helvetica", "bold");
+        doc.text("Assinaturas", 10, y);
+
+        doc.setFont("helvetica", "normal");
+
+        y += 20;
+        doc.text("Fornecedor:", 10, y);
+        doc.text("__________________________", 10, y + 10);
+
+
+        y += 30;
+        doc.text("Cliente:", 10, y);
+        doc.text("__________________________", 10, y + 10);
+
+        y += 30;
+        doc.text("Cerimonialista:", 10, y);
+        doc.text("__________________________", 10, y + 10);
+
+        doc.save("arquivo.pdf");
+    })
+
+    // Importa jsPDF
+    // Converte PDF para Base64
+    const pdfBase64 = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result.split(",")[1]); // Remove o prefixo "data:application/pdf;base64,"
+        reader.readAsDataURL(new Blob([doc.output("blob")], { type: "application/pdf" }));
+    });
+
+    await fetch("http://localhost:8080/email/sendPdf", {
+
+        // `${localStorage.getItem("actualClientEmail")}`
+
+        method: "POST",
         body: JSON.stringify({
-            "to": `${localStorage.getItem("actualClientEmail")}`,
+            "to": "ryan.mporciuncula@gmail.com",
             "subject": "Contrato de Serviço Cerimonial",
             "message": `Olá [Nome do cliente],
 
@@ -56,7 +157,8 @@ async function sendEmail(email, sent, notSent){
 
                 Atenciosamente,
                 [ceremonialis]
-            `
+            `,
+            "pdfBase64": pdfBase64
         }),
         headers: {
             "Content-Type": "application/json",
@@ -80,8 +182,6 @@ async function sendEmail(email, sent, notSent){
 
     .catch((error) =>{
 
-        //Alterar o Display Aqui depois
-        notSent.style.display = "block";
         console.error("Erro de Envio:", error);
         alert(error.message || "Erro de Envio");
     });
@@ -119,10 +219,10 @@ modalSign.addEventListener("click", (event) =>{
 /* BOTÃO DE ENVIAR */
 buttonSend.addEventListener("click", (event) =>{
 
-    confirmSendButton.disabled = false;
-    openModal(modalSend, modalLever);
+    // confirmSendButton.disabled = false;
+    // openModal(modalSend, modalLever);
 
-    sendEmail("", "", "");
+    sendEmail();
 });
 
 modalSend.addEventListener("click", (event) =>{
