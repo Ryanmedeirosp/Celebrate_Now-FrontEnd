@@ -94,7 +94,7 @@ async function getBudgets() {
     }
 }
 
-async function loadBudgetPage() {
+async function loadData() {
 
     getClients();
     getBudgets();
@@ -102,5 +102,5 @@ async function loadBudgetPage() {
 
 window.addEventListener("load", (event) =>{
 
-    loadBudgetPage();
+    loadData();
 });
