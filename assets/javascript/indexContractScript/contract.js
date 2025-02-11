@@ -10,6 +10,7 @@ const cancelEditButton = document.querySelector(".cancel-edit");
 //Sign Variables
 
 const checkboxSign = document.querySelector("#sign-checkbox");
+const signImage = document.querySelector("#sign-image");
 
 editButton.addEventListener("click", (event) =>{
 
@@ -46,6 +47,7 @@ confirmEditButton.addEventListener("click", (event)=>{
 
 checkboxSign.addEventListener("click", (event) =>{
 
+    signImage.style.display = "block";
     checkboxSign.disabled = true;
 })
 
