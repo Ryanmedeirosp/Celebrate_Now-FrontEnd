@@ -7,7 +7,6 @@ const modalSend = document.querySelector(".modal-send");
 const modalContainerSend = document.querySelector(".modal-send-container");
 const modalCreate = document.querySelector(".modal-create")
 
-
 //Buttons
 const buttonSign = document.querySelector(".button-sign");
 const buttonSend = document.querySelector(".button-new");

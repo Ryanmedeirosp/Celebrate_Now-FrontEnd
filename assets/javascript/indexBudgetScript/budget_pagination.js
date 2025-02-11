@@ -41,7 +41,7 @@ function getBudgetbyIndex(budgetId) {
         // Apenas exibe cliente e data do evento do primeiro orçamento (evita repetição)
         
         clientName.innerHTML = `Cliente: ${data.client}`;
-        eventDay.innerHTML = `Dia do Evento: ${data.date}`;
+        eventDay.innerHTML = `Dia do Evento: ${formatDate(data.date)}`;
         
         totalAmount.innerHTML = data.totalAmount;
 
