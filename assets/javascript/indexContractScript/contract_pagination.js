@@ -134,6 +134,8 @@ async function fillContractData(budgetId) {
 
         localStorage.setItem("contractData", JSON.stringify(data));
         localStorage.setItem("actualClientEmail", data.clientEmail);
+        localStorage.setItem("actualClientName", data.client);
+        localStorage.setItem("actualSupplierName", data.supplier);
 
         const budgetList = document.getElementById("budget-table");
         const totalAmount = document.getElementById("total-amount");
