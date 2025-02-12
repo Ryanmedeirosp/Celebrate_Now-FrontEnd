@@ -1,6 +1,6 @@
 async function getClients() {
 
-    fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
+    fetch(`https://deploy-back-1.onrender.com/client/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
             "Accept": "application/json"
@@ -51,7 +51,7 @@ async function getBudgets() {
 
     // Criar uma lista de Promises para buscar os orçamentos
     let promises = clientsArray.map(clientId => {
-        return fetch(`http://localhost:8080/budget/${clientId}/${localStorage.getItem("ceremonialistId")}`, {
+        return fetch(`https://deploy-back-1.onrender.com/budget/${clientId}/${localStorage.getItem("ceremonialistId")}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

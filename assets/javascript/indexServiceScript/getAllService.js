@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const corpo = document.querySelector("main");
     console.log(localStorage.getItem("ceremonialistEmail"));
     
-    fetch(`http://localhost:8080/supplier/${localStorage.getItem("ceremonialistId")}`, {
+    fetch(`https://deploy-back-1.onrender.com/supplier/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             // Envio dos dados
-            fetch("http://localhost:8080/supplier/" + service.id, {
+            fetch("https://deploy-back-1.onrender.com/supplier/" + service.id, {
                 method: "PUT",
                 body: JSON.stringify(requestData),
                 headers: {
@@ -411,7 +411,7 @@ corpo.appendChild(editModal);
 });
 
 const sidebarList = document.querySelector("#sidebar-right #list-customers");
-fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
+fetch(`https://deploy-back-1.onrender.com/client/${localStorage.getItem("ceremonialistId")}`, {
     method: "GET",
     headers: {
         "Accept": "application/json"

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadingMessage.style.borderRadius = "10px";
     loadingMessage.style.zIndex = "1000";
     document.body.appendChild(loadingMessage);
-
+    let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
     // Temporizador de 3 segundos
     setTimeout(async () => {
         try {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const clientArray = JSON.parse(localStorage.getItem("clientsArray"));
             const ceremonialistId = localStorage.getItem("ceremonialistId");
-            let budgetsArray = JSON.parse(localStorage.getItem("budgetsArray")) || [];
+            
 
             // Index atual da paginação
             localStorage.setItem("actualBudgetIndex", 0);
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
-            const response = await fetch(`http://localhost:8080/budget/${budgetsArray[0]}`, {
+            const response = await fetch(`https://deploy-back-1.onrender.com/budget/${budgetsArray[0]}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

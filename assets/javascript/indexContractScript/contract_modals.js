@@ -43,7 +43,7 @@ async function sendEmail(){
     const doc = new jsPDF();
 
     //Alterei a linha abaixo e troquei o | ${createInput} | por | localStorage.getItem("currentBudget") |
-    fetch(`http://localhost:8080/budget/${localStorage.getItem("currentBudget")}`, {
+    fetch(`https://deploy-back-1.onrender.com/budget/${localStorage.getItem("currentBudget")}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -144,7 +144,7 @@ async function sendEmail(){
     });
 
     // Enviando o PDF por email
-    const emailResponse = await fetch("http://localhost:8080/email/sendPdf", {
+    const emailResponse = await fetch("https://deploy-back-1.onrender.com/email/sendPdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -281,7 +281,7 @@ async function getContractPdf() {
         const doc = new jsPDF();
 
         //Alterei a linha abaixo e troquei o | ${createInput} | por | localStorage.getItem("currentBudget") |
-        fetch(`http://localhost:8080/budget/${localStorage.getItem("currentBudget")}`, {
+        fetch(`https://deploy-back-1.onrender.com/budget/${localStorage.getItem("currentBudget")}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -381,7 +381,7 @@ async function getContractPdf() {
         });
 
         // Envia JSON para o backend
-        const response = await fetch("http://localhost:8080/contract", {
+        const response = await fetch("https://deploy-back-1.onrender.com/contract", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

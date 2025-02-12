@@ -170,7 +170,7 @@ corpo.appendChild(list_customer); // Garante que a lista esteja abaixo do botão
 
 // Inicializa o modal
 createClientModal();
-fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
+fetch(`https://deploy-back-1.onrender.com/client/${localStorage.getItem("ceremonialistId")}`, {
     method: "GET",
     headers: {
         "Accept": "application/json"

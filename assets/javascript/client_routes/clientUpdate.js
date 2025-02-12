@@ -47,7 +47,7 @@ if (updateClientButton) {
         };
 
         // Envio ao backend
-        fetch(`http://localhost:8080/client/${clientId}`, {
+        fetch(`https://deploy-back-1.onrender.com/client/${clientId}`, {
             method: "PUT",
             headers: {
                 "Accept": "application/json",

@@ -197,7 +197,7 @@ window.onload = () => {
 };
 
 const sidebarList = document.querySelector("#sidebar-right #list-customers");
-    fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
+    fetch(`https://deploy-back-1.onrender.com/client/${localStorage.getItem("ceremonialistId")}`, {
         method: "GET",
         headers: {
             "Accept": "application/json"

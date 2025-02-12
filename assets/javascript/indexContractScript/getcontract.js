@@ -1,4 +1,4 @@
-fetch(`http://localhost:8080/contract/1`, {
+fetch(`https://deploy-back-1.onrender.com/contract/1`, {
     method: "GET",
     headers: {
         "Content-Type": "application/json",
