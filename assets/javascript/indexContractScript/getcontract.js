@@ -1,4 +1,4 @@
-fetch(`https://deploy-back-1.onrender.com/contract/1`, {
+fetch(`https://deploy-back-mi31.onrender.com/contract/1`, {
     method: "GET",
     headers: {
         "Content-Type": "application/json",

@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             // Envio ao backend
-            fetch("https://deploy-back-1.onrender.com/client", {
+            fetch("https://deploy-back-mi31.onrender.com/client", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",

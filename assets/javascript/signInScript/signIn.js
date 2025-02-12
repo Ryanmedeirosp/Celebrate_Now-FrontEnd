@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Envio ao backend
-        fetch("https://deploy-back-1.onrender.com/ceremonialist", {
+        fetch("https://deploy-back-mi31.onrender.com/ceremonialist", {
             method: "POST",
             headers: {
                 "Accept": "application/json",

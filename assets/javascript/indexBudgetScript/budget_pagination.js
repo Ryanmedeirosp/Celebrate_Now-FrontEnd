@@ -9,7 +9,7 @@ const clientNotFoundDiv = "client-not-found-div-config";
 
 function getBudgetbyIndex(budgetId) {
 
-    fetch(`https://deploy-back-1.onrender.com/budget/${budgetId}`, {
+    fetch(`https://deploy-back-mi31.onrender.com/budget/${budgetId}`, {
         method: "GET",
         headers: {
             "Accept": "application/json"

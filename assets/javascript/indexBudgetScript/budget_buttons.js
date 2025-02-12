@@ -22,7 +22,7 @@ addItemPrice.addEventListener("keypress", (event) =>{
 
 async function createNewBudget(clientEmail, supplierEmail) {
 
-    fetch("https://deploy-back-1.onrender.com/budget", {
+    fetch("https://deploy-back-mi31.onrender.com/budget", {
 
         method: "POST",
         body: JSON.stringify({
@@ -39,7 +39,7 @@ async function createNewBudget(clientEmail, supplierEmail) {
 }
 
 async function addItemToBudget(title, description, price, budgetId) {
-    fetch("https://deploy-back-1.onrender.com/item", {
+    fetch("https://deploy-back-mi31.onrender.com/item", {
 
         method: "POST",
         body: JSON.stringify({

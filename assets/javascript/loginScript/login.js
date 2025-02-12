@@ -22,7 +22,7 @@ testLoginData.addEventListener("click", (event) =>{
 
 async function login(email, password) {
     
-    fetch("https://deploy-back-1.onrender.com/ceremonialist/login", {
+    fetch("https://deploy-back-mi31.onrender.com/ceremonialist/login", {
 
         method: "POST",
         body: JSON.stringify({
