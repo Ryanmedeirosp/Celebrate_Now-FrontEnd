@@ -24,6 +24,10 @@ const emailSentMessage = document.querySelector(".email-sent");
 const emailNotSentMessage = document.querySelector("email-not-sent");
 const inputEmail = document.querySelector(".send-input");
 
+//Sign Variables
+const checkboxSign = document.querySelector("#sign-checkbox");
+const signImage = document.querySelector("#sign-image");
+
 //Buttons and Div Config
 createModal.addEventListener("click", (e)=>{
     getContractPdf();
@@ -34,7 +38,52 @@ cancelButton.addEventListener("click", (e) =>{
 })
 
 buttonSign.addEventListener("click", (event) =>{
-    openModal(modalSign, modalLever);
+
+    fetch(`http://localhost:8080/contract/${localStorage.getItem("currentBudget")}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => {
+                throw new Error(err.message);
+            });
+        }
+        return response.json();
+    })
+
+    .then((data) => {
+
+        if (data.length == 0) {
+            
+            return;
+        } else{
+
+            openModal(modalSign, modalLever);
+            
+            console.log("Botão de Assinatura --> ", data);
+            console.log(data[0].signed)
+    
+            if (data[0].signed) {
+                
+                checkboxSign.disabled = true;
+                checkboxSign.checked = true;
+                signImage.style.display = "block";
+            } else{
+    
+                checkboxSign.disabled = false;
+                checkboxSign.checked = false;
+                signImage.style.display = "none";
+            }
+        }
+    })
+
+    .catch((error) => {
+        console.error("Erro: ", error);
+    });
 });
 
 modalSign.addEventListener("click", (event) =>{
@@ -51,6 +100,16 @@ modalSign.addEventListener("click", (event) =>{
 buttonSend.addEventListener("click", (event) =>{
     sendEmail();
 });
+
+
+/* Check-box de Assinatura */
+checkboxSign.addEventListener("click", (event) =>{
+
+    signContract();
+
+    signImage.style.display = "block";
+    checkboxSign.disabled = true;
+})
 
 /* -------------------------------------------------------------------------- */
 
@@ -326,4 +385,60 @@ async function sendEmail() {
         const error = await emailResponse.json();
         throw new Error(error.message);
     }
+}
+
+async function getContractInformations(){
+
+    fetch(`http://localhost:8080/contract/${localStorage.getItem("currentBudget")}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => {
+                throw new Error(err.message);
+            });
+        }
+        return response.json();
+    })
+
+    .then((data) => {
+
+        console.log("getContractInformations --> ", data);
+    })
+
+    .catch((error) => {
+        console.error("Erro: ", error);
+    }); 
+}
+
+async function signContract(){
+
+    fetch(`http://localhost:8080/contract/signContract/${localStorage.getItem("currentBudget")}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => {
+                throw new Error(err.message);
+            });
+        }
+        return response.json();
+    })
+
+    .then((data) => {
+
+        console.log("getContractInformations --> ", data);
+    })
+
+    .catch((error) => {
+        console.error("Erro: ", error);
+    }); 
 }

@@ -7,11 +7,6 @@ const buttonsEditDiv = document.querySelector(".contract-edit-active");
 const confirmEditButton = document.querySelector(".confirm-edit");
 const cancelEditButton = document.querySelector(".cancel-edit");
 
-//Sign Variables
-
-const checkboxSign = document.querySelector("#sign-checkbox");
-const signImage = document.querySelector("#sign-image");
-
 editButton.addEventListener("click", (event) =>{
 
     buttonsEditDiv.style.display = "grid";
@@ -44,12 +39,6 @@ confirmEditButton.addEventListener("click", (event)=>{
     textContractField.readOnly = true;
     textContractField.style.border = "none";
 });
-
-checkboxSign.addEventListener("click", (event) =>{
-
-    signImage.style.display = "block";
-    checkboxSign.disabled = true;
-})
 
 const sidebarList = document.querySelector("#sidebar-right #list-customers");
 fetch(`http://localhost:8080/client/${localStorage.getItem("ceremonialistId")}`, {
