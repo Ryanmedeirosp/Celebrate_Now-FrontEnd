@@ -28,14 +28,18 @@ const inputEmail = document.querySelector(".send-input");
 const checkboxSign = document.querySelector("#sign-checkbox");
 const signImage = document.querySelector("#sign-image");
 
-//Buttons and Div Config
-createModal.addEventListener("click", (e)=>{
-    getContractPdf();
-})
+    //Buttons and Div Config
+    createModal.addEventListener("click", (e)=>{
 
-cancelButton.addEventListener("click", (e) =>{
+    getContractPdf();
+
+    // console.log("Button Create");
+    // openModal(modalCreate, modalLever);
+    })
+
+    cancelButton.addEventListener("click", (e) =>{
     closeModal(modalCreate, modalLever)
-})
+    })
 
 buttonSign.addEventListener("click", (event) =>{
 
@@ -87,6 +91,7 @@ buttonSign.addEventListener("click", (event) =>{
 });
 
 modalSign.addEventListener("click", (event) =>{
+
     if (modalContainerSign.contains(event.target)) {
         
         return;
@@ -98,6 +103,10 @@ modalSign.addEventListener("click", (event) =>{
 
 /* BOTÃO DE ENVIAR */
 buttonSend.addEventListener("click", (event) =>{
+
+    // confirmSendButton.disabled = false;
+    // openModal(modalSend, modalLever);
+
     sendEmail();
 });
 
@@ -143,7 +152,7 @@ async function getContractPdf() {
         const doc = new jsPDF();
 
         //Alterei a linha abaixo e troquei o | ${createInput} | por | localStorage.getItem("currentBudget") |
-        fetch(`http://localhost:8080/budget/${localStorage.getItem("currentBudget")}`, {
+        fetch(`https://deploy-back-mi31.onrender.com/budget/${localStorage.getItem("currentBudget")}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -194,45 +203,46 @@ async function getContractPdf() {
             }
 
             doc.text(`Total: R$ ${data.totalAmount.toFixed(2)}`, 10, y + 5 );
+
             y += 15;
 
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
-            doc.text("Termos e Condições", 10, y);
+        doc.setFontSize(14);
+        doc.setFont("helvetica", "bold");
+        doc.text("Termos e Condições", 10, y);
 
-            doc.setFontSize(12);
-            doc.setFont("helvetica", "normal");
-            doc.text("Este contrato estabelece os termos do serviço a ser prestado pelo fornecedor ao cliente. Ambas as partes concordam com os termos aqui estabelecidos, garantindo a execução adequada do serviço conforme descrito.", 10, y + 10, { maxWidth: 180 });
-            y += 30;
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "normal");
+        doc.text("Este contrato estabelece os termos do serviço a ser prestado pelo fornecedor ao cliente. Ambas as partes concordam com os termos aqui estabelecidos, garantindo a execução adequada do serviço conforme descrito.", 10, y + 10, { maxWidth: 180 });
 
-            doc.setFont("helvetica", "bold");
-            doc.text("Assinaturas:", 10, y );
+        y += 30;
 
-            doc.setFont("helvetica", "normal");
+        doc.setFont("helvetica", "bold");
+        doc.text("Assinaturas:", 10, y );
 
-            y += 10;
-            let x = 10; // Posição horizontal inicial
+        doc.setFont("helvetica", "normal");
 
-            // Fornecedor
-            doc.text("Fornecedor:", x, y);
-            doc.text("_______________________", x, y + 10);
+        y += 10;
+        let x = 10; // Posição horizontal inicial
 
-            x += 60; // Move a posição horizontal para o próximo item
+        // Fornecedor
+        doc.text("Fornecedor:", x, y);
+        doc.text("_______________________", x, y + 10);
 
-            // Cliente
-            doc.text("Cliente:", x, y);
-            doc.text("_______________________", x, y + 10);
+        x += 60; // Move a posição horizontal para o próximo item
 
-            x += 60; // Move a posição horizontal para o próximo item
+        // Cliente
+        doc.text("Cliente:", x, y);
+        doc.text("_______________________", x, y + 10);
 
-            // Cerimonialista
-            doc.text("Cerimonialista:", x, y);
-            doc.text("_______________________", x, y + 10);
+        x += 60; // Move a posição horizontal para o próximo item
 
-            doc.save("relatorio.pdf");
+        // Cerimonialista
+        doc.text("Cerimonialista:", x, y);
+        doc.text("_______________________", x, y + 10);
+
+        doc.save("relatorio.pdf");
 
         })
-
         // Importa jsPDF
         // Converte PDF para Base64
         const pdfBase64 = await new Promise((resolve) => {
@@ -242,7 +252,7 @@ async function getContractPdf() {
         });
 
         // Envia JSON para o backend
-        const response = await fetch("http://localhost:8080/contract", {
+        const response = await fetch("https://deploy-back-mi31.onrender.com/contract", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
