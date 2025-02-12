@@ -1,4 +1,4 @@
-//Data Fields
+//Data Fields Client
 const clientName = document.getElementById("client-name");
 const contractNumber = document.getElementById("contract-number");
 const eventDay = document.getElementById("event-day");
