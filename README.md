@@ -45,7 +45,8 @@ Siga estes passos para configurar o projeto localmente:
 
 
 - Ao logar o usuário sera redirecionado para o dashboard, onde o mesmo pode usufruir das funcionabilidades:
-![image](https://github.com/user-attachments/assets/8fad9bc1-ee10-4b1c-be75-d2dca3406172)
+![image](https://github.com/user-attachments/assets/8e8100fa-126a-47ef-ac29-ede96101af78)
+
 
 ## Equipe de Desenvolvedores:
 - https://github.com/Arthurdnl
